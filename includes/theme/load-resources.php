@@ -14,7 +14,7 @@ function wwzrds_load_resources() {
         handle: 'wwzrds',
         src: $theme_styles_url,
         ver: filemtime($theme_styles_path)
-    );
+	);
 
     wp_enqueue_script(
         handle: 'wwzrds',

@@ -29,10 +29,17 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
-$custom_block_heading = get_field('custom-block_heading');
 ?>
 
-<div class="block-template">
-    Заготовка блока <br>
-    custom-block_heading — <?= $custom_block_heading ?>
+<div class="posts-list__wrapper main-padding">
+    <div class="grid-2-1-1">
+        <h3 class="grid-item">Работы</h3>
+        <div class="grid-item">2022-2024</div>
+        <a href="" class="grid-item">Смотреть все</a>
+    </div>
+    <div class="posts-list">
+        <?= getPosts(-1); ?>
+        <?= getPosts(-1); ?>
+        <?= getPosts(-1); ?>
+    </div>
 </div>
