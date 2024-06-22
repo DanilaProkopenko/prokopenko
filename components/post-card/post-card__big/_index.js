@@ -15,7 +15,7 @@ import "@fancyapps/ui/dist/carousel/carousel.css";
                     infinite: true,
                     transition: false,
                     Dots: true,
-                    Navigation: false,
+                    Navigation: true,
                     center: true
                 }
 

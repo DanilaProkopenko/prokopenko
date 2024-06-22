@@ -5,7 +5,7 @@ if ($args) {
     $short_description = $args['short_description'];
 
     $img_large = $args['img_large'];
-    $img_medium_large = $args['img_medium_large'];
+    $thumb_img_medium_large = $args['img_medium_large'];
     $id = $args['id'];
 
     $except = $args['except'];
@@ -62,6 +62,13 @@ if ($args) {
     </div>
     <div class="post-card__big__gallery">
         <div class="f-carousel">
+            <div class="f-carousel__slide">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="<?= esc_url($thumb_img_medium_large); ?>" />
+                    <source media="(min-width: 769px)" srcset="<?= esc_url($thumb_img_medium_large); ?>" />
+                    <img class="post-card__big__gallery__img__source" src="<?= esc_url($thumb_img_medium_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
+                </picture>
+            </div>
             <?php
             if ($gallery) :
                 foreach ($gallery as $image) : ?>

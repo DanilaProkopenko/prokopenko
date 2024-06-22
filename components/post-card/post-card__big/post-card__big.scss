@@ -1,12 +1,12 @@
 .post-card__big {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 1.88rem;
+    gap: var(--grid-gap);
 
     height: 100vh;
 
     position: sticky;
-    top: 100px;
+    top: 70px;
 
     background-color: var(--color-primary);
 
@@ -22,7 +22,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    gap: 138px;
+    // gap: 138px;
 
     grid-column: 1 / 5;
 }
