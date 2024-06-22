@@ -31,13 +31,6 @@ $args = wp_parse_args($args, $defaults);
 
 ?>
 
-<div class="posts-list__wrapper main-padding">
-    <div class="grid-2-1-1">
-        <h3 class="grid-item">Работы</h3>
-        <div class="grid-item">2022-2024</div>
-        <a href="" class="grid-item">Смотреть все</a>
-    </div>
-    <div class="posts-list">
-        <?= getPosts(-1); ?>
-    </div>
+<div class="section__post-list__big">
+    <?= getPostsCardBig(-1)?>
 </div>

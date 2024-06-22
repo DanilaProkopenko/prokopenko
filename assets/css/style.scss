@@ -6,7 +6,8 @@
     --font-weight-medium: 500;
     --font-weight-bold: 700;
 
-    --color-primary: #1D1D1D;
+    // --color-primary: #1D1D1D;
+    --color-primary: #000;
     --color-secondary: #999999;
     --color-accent: #f413d9;
     --color-white: #fff;
@@ -50,8 +51,8 @@ a {
     color: #fff;
     opacity: 1;
     transition: all .3s;
-    
-    &:hover{
+
+    &:hover {
         opacity: .8;
     }
 }
@@ -115,5 +116,35 @@ li {
     display: grid;
     grid-template-columns: 3fr 1fr;
     height: 70vh;
+}
+
+.f-carousel {
+    --f-carousel-slide-width: 100%;
+    --f-carousel-spacing: 0;
+    --f-carousel-slide-padding: 0 1rem;
+
+    --f-button-prev-pos: 5rem;
+    --f-button-next-pos: 5rem;
+
+    --f-button-bg: #fff !important;
+    --f-button-color: #333;
+
+    --f-button-width: 48px;
+    --f-button-height: 48px;
+    --f-button-border-radius: 50%;
+
+    --f-button-svg-width: 27px;
+    --f-button-svg-height: 27px;
+    --f-button-svg-stroke-width: 1.5;
+
+    --f-button-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+    --f-carousel-dot-color: #fff;
+    --f-carousel-dot-height: 10px;
+    --f-carousel-dot-width: 10px;
+
+    --f-carousel-dots-height: -2px 
 }
 

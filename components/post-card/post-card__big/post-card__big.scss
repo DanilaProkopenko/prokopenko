@@ -1,0 +1,125 @@
+.post-card__big {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.88rem;
+
+    height: 100vh;
+
+    position: sticky;
+    top: 100px;
+
+    background-color: var(--color-primary);
+
+    box-shadow: 0 -20px 40px 0 rgba(3, 3, 3, 0.5), 0 -5px 10px 0 rgba(0, 0, 0, 0.38);
+
+    border-top: 1px solid #999;
+    padding-top: 3.75rem;
+    padding-bottom: 130px;
+}
+
+.post-card__big__content__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 138px;
+
+    grid-column: 1 / 5;
+}
+
+.post-card__big__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 52px;
+}
+
+.post-card__big__title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-card__big__heading {
+    font-weight: 500;
+    font-size: var(--font-size-1);
+    line-height: var(--font-size-1);
+}
+
+.post-card__big__short-description {}
+
+.post-card__big__meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.post-card__big__meta__item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 22px;
+
+    border-top: 1px solid #999;
+    padding: 13px 0px;
+    width: 100%;
+}
+
+.post-card__big__meta__item__variable {}
+
+.post-card__big__meta__item__value {}
+
+.post-card__meta__team {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.post-card__meta__team__images__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: -11px;
+}
+
+.post-card__meta__teaam__imge__source {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 1px;
+    border: 2.39px solid #0d0d0d;
+    border-radius: 152px;
+    padding: 3px;
+    width: 28px;
+    height: 28px;
+    background: #fff;
+}
+
+.post-card__meta__team__name {}
+
+.post-card__big__gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    grid-column: 5 / 13;
+
+    .f-carousel {
+        height: 100%;
+    }
+}
+
+.post-card__big__gallery__img__source {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    // aspect-ratio: 4 / 3;
+}
