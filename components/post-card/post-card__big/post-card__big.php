@@ -3,11 +3,15 @@ if ($args) {
     $title = $args['title'];
     $link = $args['link'];
     $short_description = $args['short_description'];
+
     $img_large = $args['img_large'];
     $img_medium_large = $args['img_medium_large'];
+    $id = $args['id'];
 
     $except = $args['except'];
+    $gallery = $args['gallery'];
 }
+
 ?>
 <div class="post-card__big main-padding">
     <div class="post-card__big__content__wrapper">
@@ -17,8 +21,14 @@ if ($args) {
                     <?= $title ?>
                 </div>
                 <div class="post-card__big__short-description">
-                    Сделал в команде в студии zerna.design новый сайт для производителя водосточных систем. Упор был направлен на продвижения покрытий.
-                    Дизайнер в широком смысле этого слова Работаю и с сайтами, и с различной полиграфией, и также со всяким промо–продуктом, по типу: баннеры, стенды, вывески.
+                    <?= $short_description ?>
+                    <?
+                    // echo '<pre>';
+                    // var_dump($gallery);
+                    // echo '</pre>';
+                    ?>
+                    <!-- Сделал в команде в студии zerna.design новый сайт для производителя водосточных систем. Упор был направлен на продвижения покрытий.
+                    Дизайнер в широком смысле этого слова Работаю и с сайтами, и с различной полиграфией, и также со всяким промо–продуктом, по типу: баннеры, стенды, вывески. -->
                 </div>
             </div>
             <div class="post-card__big__meta">
@@ -52,27 +62,19 @@ if ($args) {
     </div>
     <div class="post-card__big__gallery">
         <div class="f-carousel">
-            <div class="f-carousel__slide">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
-                    <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
-                    <img class="post-card__big__gallery__img__source" src="<?= esc_html($img_large) ?>" alt="Изображение новости «<?= $title ?>»" loading="lazy">
-                </picture>
-            </div>
-            <div class="f-carousel__slide">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
-                    <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
-                    <img class="post-card__big__gallery__img__source" src="<?= esc_html($img_large) ?>" alt="Изображение новости «<?= $title ?>»" loading="lazy">
-                </picture>
-            </div>
-            <div class="f-carousel__slide">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
-                    <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
-                    <img class="post-card__big__gallery__img__source" src="<?= esc_html($img_large) ?>" alt="Изображение новости «<?= $title ?>»" loading="lazy">
-                </picture>
-            </div>
+            <?php
+            if ($gallery) :
+                foreach ($gallery as $image) : ?>
+                    <div class="f-carousel__slide">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['1536x1536']); ?>" />
+                            <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['2048x2048']); ?>" />
+                            <img class="post-card__big__gallery__img__source" src="<?php echo esc_url($image['sizes']['2048x2048']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
+                        </picture>
+                    </div>
+            <?php endforeach;
+            endif;
+            ?>
         </div>
     </div>
 </div>
