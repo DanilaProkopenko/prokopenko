@@ -1,4 +1,14 @@
-.section__post-list__big{
+.section__post-list__big {
     display: flex;
     flex-direction: column;
+}
+
+.section__post-list__big__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+}
+
+.section__post-list__big__heading {
+    padding: 0 var(--wp--preset--spacing--30);
 }

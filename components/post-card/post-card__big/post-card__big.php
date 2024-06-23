@@ -86,9 +86,9 @@ if ($args) {
                 foreach ($gallery as $image) : ?>
                     <div class=" f-carousel__slide">
                         <picture>
-                            <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['1536x1536']); ?>" />
-                            <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['2048x2048']); ?>" />
-                            <img class="post-card__big__gallery__img__source" src="<?php echo esc_url($image['sizes']['2048x2048']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
+                            <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['medium']); ?>" />
+                            <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['medium']); ?>" />
+                            <img class="post-card__big__gallery__img__source" src="<?php echo esc_url($image['sizes']['medium']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
                         </picture>
                     </div>
             <?php endforeach;

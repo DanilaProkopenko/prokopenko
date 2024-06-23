@@ -69,6 +69,7 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 0px;
+    width: 100%;
 }
 
 .post-card__big__meta__item {
@@ -87,6 +88,9 @@
 }
 
 .post-card__big__meta__item__value {
+    a{
+        font-size: var(--font-size--1);
+    }
     font-size: var(--font-size--1);
 }
 
@@ -162,12 +166,12 @@
 }
 
 .post-card__big__gallery {
-    padding: 3.75rem var(--wp--preset--spacing--30) 130px var(--wp--preset--spacing--30);
+    padding: 3.75rem var(--wp--preset--spacing--30) 3.75rem var(--wp--preset--spacing--30);
 
     position: relative;
     width: 100%;
     height: 100%;
-    max-height: calc(100vh - 190px);
+    max-height: calc(100vh - 75px);
 
     grid-column: 6 / 13;
     z-index: 5;
@@ -191,12 +195,12 @@
 .post-card__big__gallery__img__source {
     object-fit: contain;
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    height: 100%;
+    // aspect-ratio: 4 / 3;
 
     &._cover {
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
+        // aspect-ratio: 1 / 1;
+        // object-fit: cover;
         width: 100%;
         height: 100%;
     }
@@ -217,9 +221,9 @@
         aspect-ratio: 1/1;
 
         &._cover {
-            object-fit: cover;
-            width: 100%;
-            height: auto;
+            // object-fit: cover;
+            // width: 100%;
+            // height: auto;
         }
     }
 
@@ -239,6 +243,7 @@
     .post-card__big__gallery {
         aspect-ratio: 1 / 1;
         height: auto;
+        padding: 0;
 
         .f-carousel {
             height: 100%;

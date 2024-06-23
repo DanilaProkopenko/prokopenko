@@ -29,8 +29,19 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
-?>
+$post_list_filter_taxonomy_category = get_field('post_list_filter_taxonomy_category');
+$posts_category = $post_list_filter_taxonomy_category->term_id;
+$post_list_filter_taxonomy_tag = get_field('post_list_filter_taxonomy_tag');
+$posts_tag = $post_list_filter_taxonomy_tag->term_id;
 
-<div class="section__post-list__big">
-    <?= getPostsCardBig(-1)?>
+?>
+<div class="section__post-list__big__wrapper">
+    <div class="section__post-list__big__heading">
+        <h3 class="section__post-list__big__title">
+            Избранные работы
+        </h3>
+    </div>
+    <div class="section__post-list__big">
+        <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>
+    </div>
 </div>

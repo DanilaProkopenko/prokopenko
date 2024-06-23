@@ -35,7 +35,7 @@ $img = get_field('about-me_main-screen_image');
 ?>
 
 <section class="about-me__main-screen grid_12">
-    <h2 class="about-me__main-screen__title"><?= $title ?></h2>
+    <h3 class="about-me__main-screen__title"><?= $title ?></h3>
     <div class="about-me__main-screen__description">
         <?= $description ?>
     </div>

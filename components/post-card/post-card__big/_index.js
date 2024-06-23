@@ -66,7 +66,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
         let postCardGallery = item.getElementsByClassName('post-card__big__gallery_carousel')[0];
         const postCardGalleryOptions = {
             infinite: true,
-            transition: false,
+            transition: 'crossfade',
             Dots: true,
             Navigation: true,
             center: true,
@@ -81,7 +81,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
         let postCardGalleryBackground = item.getElementsByClassName('post-card__big__gallery__background')[0];
         const postCardGalleryBackgroundOptions = {
             infinite: false,
-            transition: false,
+            transition: 'classic',
             center: true,
             fill: true,
             slidesPerPage: 1,
@@ -92,6 +92,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
             Sync: {
                 target: mainCarousel,
             },
+
         };
 
         new Carousel(postCardGalleryBackground, postCardGalleryBackgroundOptions);

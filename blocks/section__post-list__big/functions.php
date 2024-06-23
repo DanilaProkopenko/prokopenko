@@ -1,8 +1,10 @@
 <?php
 // функции, необходимые для блока и только для блока
-function getPostsCardBig($posts_per_page = 50, $post__not_in = null)
+function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null, $category = null)
 {
     ob_start();
+
+
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => $posts_per_page,
@@ -10,6 +12,20 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null)
         'orderby' => 'date',
         'order' => 'DESC',
         'post__not_in' => [$post__not_in],
+        'tax_query' => array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'id',
+                'terms' => $category,
+                'include_children' => true
+            ),
+            array(
+                'taxonomy' => 'post_tag',
+                'field' => 'id',
+                'terms' => $tag,
+            )
+        )
     );
 
     $loop = new WP_Query($args);

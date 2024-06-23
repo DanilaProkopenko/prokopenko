@@ -33,9 +33,9 @@ $args = wp_parse_args($args, $defaults);
 
 <section class="posts-list__archive__wrapper">
     <div class="posts-list__archive__heading grid_12">
-        <h2 class="posts-list__archive__title">
+        <h3 class="posts-list__archive__title">
             Архив
-        </h2>
+        </h3>
         <div class="posts-list__archive__caption">
             (Не кликается. Пока в разработке)
         </div>

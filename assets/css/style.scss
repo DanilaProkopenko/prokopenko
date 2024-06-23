@@ -117,9 +117,8 @@ a,
 li {
     font-weight: 400;
     font-size: var(--font-size-0);
-    line-height: var(--font-size-0);
+    line-height: 110%;
 }
-
 
 .grid-2-1-1 {
     display: grid;
@@ -180,8 +179,8 @@ li {
     width: fit-content;
     border-radius: 40px;
     bottom: 5px !important;
-    
-    @media screen and (max-width: 767px){
+
+    @media screen and (max-width: 767px) {
         bottom: 20px !important;
     }
 }
