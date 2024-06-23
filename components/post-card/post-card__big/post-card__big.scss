@@ -2,8 +2,9 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: var(--grid-gap);
-
+    position: relative;
     height: 100vh;
+    overflow: hidden;
 
     position: sticky;
     top: 70px;
@@ -13,8 +14,9 @@
     box-shadow: 0 -20px 40px 0 rgba(3, 3, 3, 0.5), 0 -5px 10px 0 rgba(0, 0, 0, 0.38);
 
     border-top: 1px solid #999;
-    padding: 3.75rem var(--wp--preset--spacing--30) 130px var(--wp--preset--spacing--30);
 }
+
+
 
 .post-card__big__content__wrapper {
     display: flex;
@@ -22,8 +24,17 @@
     justify-content: space-between;
     flex-direction: column;
     // gap: 138px;
+    padding: 3.75rem var(--wp--preset--spacing--30) 130px var(--wp--preset--spacing--30);
 
     grid-column: 1 / 5;
+    position: relative;
+    z-index: 10;
+
+    // background-color: #000000a6;
+    // backdrop-filter: blur(20px);
+
+
+
 }
 
 .post-card__big__content {
@@ -32,6 +43,8 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 52px;
+    position: relative;
+    z-index: 5;
 }
 
 .post-card__big__title {
@@ -70,9 +83,12 @@
 
 .post-card__big__meta__item__variable {
     color: var(--color-secondary);
+    font-size: var(--font-size--1);
 }
 
-.post-card__big__meta__item__value {}
+.post-card__big__meta__item__value {
+    font-size: var(--font-size--1);
+}
 
 .post-card__meta__team {
     display: flex;
@@ -111,19 +127,61 @@
     color: var(--color-secondary);
 }
 
+.post-card__big__gallery__background {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    z-index: 0;
+
+    &* {
+        pointer-events: none;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 70vw;
+        height: 100vh;
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, #000 30.51%);
+        z-index: 0;
+        top: 0;
+        left: -50vw;
+    }
+
+    .f-carousel__viewport.is-draggable {
+        overflow: visible;
+    }
+
+    .post-card__big__gallery__img__source {
+        filter: blur(68px);
+        opacity: .5;
+    }
+}
+
 .post-card__big__gallery {
+    padding: 3.75rem var(--wp--preset--spacing--30) 130px var(--wp--preset--spacing--30);
+
     position: relative;
     width: 100%;
     height: 100%;
     max-height: calc(100vh - 190px);
 
     grid-column: 6 / 13;
-    
+    z-index: 5;
+
     .f-carousel {
         height: 100%;
     }
 
     .f-carousel__slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+
         &:hover {
             opacity: 1;
         }
@@ -134,8 +192,14 @@
     object-fit: contain;
     width: 100%;
     height: auto;
-    // aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 3;
 
+    &._cover {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -175,6 +239,15 @@
     .post-card__big__gallery {
         aspect-ratio: 1 / 1;
         height: auto;
+
+        .f-carousel {
+            height: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .post-card__big__gallery {
         .f-carousel {
             height: auto;
         }

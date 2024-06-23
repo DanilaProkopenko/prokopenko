@@ -26,3 +26,10 @@
     gap: 5px;
     margin-top: 10px;
 }
+.post-card__category{
+    a{
+        color: var(--color-secondary);
+        text-decoration: none;
+        font-size: var(--font-size--1);
+    }
+}

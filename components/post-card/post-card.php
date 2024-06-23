@@ -4,11 +4,10 @@ if ($args) {
     $link = $args['link'];
     $img_large = $args['img_large'];
     $img_medium_large = $args['img_medium_large'];
-
-    $except = $args['except'];
+    $id = $args['id'];
 }
 ?>
-<div class="post-card">
+<div class="post-card f-carousel__slide">
     <a href=" <?= esc_html($link) ?>" class="post-card__thumb">
         <picture>
             <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
@@ -20,9 +19,16 @@ if ($args) {
         <div class="post-card__heading h5">
             <?= $title ?>
         </div>
-        <? if ($except) : ?>
-            <div class="post-card__except">
-                <?= $except ?>
+        <? $categories = get_the_category();
+        if ($categories) :
+        ?>
+            <div class="post-card__category">
+                <?
+                foreach ($categories as $category) :
+                    $category_link = get_category_link($category->cat_ID);
+                ?>
+                    <a href="<?= $category_link ?>"><?= $category->name ?></a>
+                <? endforeach; ?>
             </div>
         <? endif ?>
     </a>

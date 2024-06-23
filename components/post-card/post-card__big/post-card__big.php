@@ -71,8 +71,31 @@ if ($args) {
             </div>
         <? endif; ?>
     </div>
+
     <div class="post-card__big__gallery">
-        <div class="f-carousel" data-gallery="<?= $id ?>">
+        <div class="post-card__big__gallery__background f-carousel" data-gallery="<?= $id ?>" id="1">
+            <div class="f-carousel__slide">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="<?= esc_url($thumb_img_medium_large); ?>" />
+                    <source media="(min-width: 769px)" srcset="<?= esc_url($thumb_img_medium_large); ?>" />
+                    <img class="post-card__big__gallery__img__source _cover" src="<?= esc_url($thumb_img_medium_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
+                </picture>
+            </div>
+            <?php
+            if ($gallery) :
+                foreach ($gallery as $image) : ?>
+                    <div class=" f-carousel__slide">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['1536x1536']); ?>" />
+                            <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['2048x2048']); ?>" />
+                            <img class="post-card__big__gallery__img__source" src="<?php echo esc_url($image['sizes']['2048x2048']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
+                        </picture>
+                    </div>
+            <?php endforeach;
+            endif;
+            ?>
+        </div>
+        <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="2">
             <a href="<?= esc_url($thumb_img_medium_large); ?> " data-fancybox="<?= $id ?>" class="f-carousel__slide">
                 <picture>
                     <source media="(max-width: 768px)" srcset="<?= esc_url($thumb_img_medium_large); ?>" />
