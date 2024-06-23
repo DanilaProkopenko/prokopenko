@@ -7,7 +7,7 @@
             "label": "post_short-description",
             "name": "post_short-description",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,11 @@
                 "class": "",
                 "id": ""
             },
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
             "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "delay": 0
         },
         {
             "key": "field_6676d32d3a5a1",
@@ -89,11 +89,11 @@
             ]
         },
         {
-            "key": "field_6676d3ad3a5a4",
-            "label": "post_meta_team_group",
-            "name": "post_meta_team_group",
+            "key": "field_6678216cae5dd",
+            "label": "post_meta_team",
+            "name": "post_meta_team",
             "aria-label": "",
-            "type": "group",
+            "type": "user",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -102,54 +102,12 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_6676d3e63a5a5",
-                    "label": "post_meta_team_name",
-                    "name": "post_meta_team_name",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_6676d3f43a5a6",
-                    "label": "post_meta_team_image",
-                    "name": "post_meta_team_group",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "preview_size": "medium"
-                }
-            ]
+            "role": "",
+            "return_format": "array",
+            "multiple": 1,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_6676db2706032",
@@ -198,5 +156,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719065403
+    "modified": 1719154932
 }

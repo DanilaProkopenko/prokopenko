@@ -21,9 +21,24 @@
     --font-size-4: clamp(2.0736rem, 1.878rem + 0.9782vi, 3.0518rem);
     --font-size-5: clamp(2.4883rem, 2.223rem + 1.3264vi, 3.8147rem);
 
+
+    // new font size
+    --font-size--2: clamp(0.5208rem, 0.4516rem + 0.3464vi, 0.72rem);
+    --font-size--1: clamp(0.625rem, 0.5293rem + 0.4783vi, 0.9rem);
+    --font-size-0: clamp(0.75rem, 0.6196rem + 0.6522vi, 1.125rem);
+    --font-size-1: clamp(0.9rem, 0.7239rem + 0.8804vi, 1.4063rem);
+    --font-size-2: clamp(1.08rem, 0.8442rem + 1.1788vi, 1.7578rem);
+    --font-size-3: clamp(1.296rem, 0.9825rem + 1.5674vi, 2.1973rem);
+    --font-size-4: clamp(1.5552rem, 1.1408rem + 2.072vi, 2.7466rem);
+    --font-size-5: clamp(1.8662rem, 1.3212rem + 2.7252vi, 3.4332rem);
+
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
     --grid-row-gap: 30px;
+
+    --media-max-width-smartphone: 767px;
+    --media-max-width-tablet: 992px;
+    --media-max-width-laptop: 1439px;
 }
 
 * {
@@ -112,6 +127,13 @@ li {
     gap: var(--grid-gap);
 }
 
+.grid_12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+}
+
+// Галерея
 .f-carousel {
     --f-carousel-slide-width: 100%;
     --f-carousel-spacing: 0;
@@ -139,7 +161,8 @@ li {
     --f-carousel-dot-height: 10px;
     --f-carousel-dot-width: 10px;
 
-    --f-carousel-dots-height: -2px;
+    --f-carousel-dots-height: 10px;
+    --f-carousel-spacing: 8px !important;
 
     picture {
         width: 100%;
@@ -148,6 +171,92 @@ li {
         display: inline-block;
     }
 }
-.f-carousel__dots{
+
+.f-carousel__dots {
     z-index: 5;
+    background-color: rgba(0, 0, 0, 0.69);
+    backdrop-filter: blur(4px);
+    padding: 8px 10px !important;
+    width: fit-content;
+    border-radius: 40px;
+    bottom: 5px !important;
+    
+    @media screen and (max-width: 767px){
+        bottom: 20px !important;
+    }
 }
+
+.f-carousel__track {
+    align-items: center;
+}
+
+// Галерея всплывающая
+.fancybox__container {
+    --fancybox-bg: rgb(0 0 0 / 69%) !important;
+}
+
+.fancybox__backdrop {
+    backdrop-filter: blur(4px);
+}
+
+// скролл
+html,
+body {
+    scrollbar-gutter: stable;
+}
+
+/* Скролл */
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 5px;
+    /* ширина для вертикального скролла */
+    height: 8px;
+    /* высота для горизонтального скролла */
+    background-color: transparent;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+    // border-radius: 9em;
+    transition: all .5s;
+    /* box-shadow: inset 1px 1px 10px #f3faf7; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    opacity: .5;
+    background-color: #fff;
+}
+
+/* Стрелки */
+/* ::-webkit-scrollbar-button:vertical:start:decrement {
+    background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    background:
+        linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+    background:
+        linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+    background:
+        linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+        linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+} */
+/*# sourceMappingURL=scroll.css.map */
