@@ -1,11 +1,13 @@
 .section__welcome-block {
-    height: 100vh;
+    height: calc(100vh - 70px);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--grid-gap);
     gap: var(--grid-gap);
     align-items: end;
-
     padding-bottom: 3rem;
+    border-top: 1px solid #999;
+    margin-top: 70px;
 }
 
 .welcome-block__content {
@@ -21,8 +23,8 @@
     font-weight: var(--font-weight-regular);
 }
 
-@media screen and (max-width: 767px){
-.welcome-block__content {
-    grid-column: 1 / 13;
-}
+@media screen and (max-width: 767px) {
+    .welcome-block__content {
+        grid-column: 1 / 13;
+    }
 }
