@@ -71,7 +71,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
             Navigation: true,
             center: true,
             breakpoints: {
-                "(max-width: 769px)": {
+                "(max-width: 1220px)": {
                     Navigation: false
                 },
             },

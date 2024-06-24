@@ -23,14 +23,16 @@
 
 
     // new font size
-    --font-size--2: clamp(0.5208rem, 0.4516rem + 0.3464vi, 0.72rem);
-    --font-size--1: clamp(0.625rem, 0.5293rem + 0.4783vi, 0.9rem);
-    --font-size-0: clamp(0.75rem, 0.6196rem + 0.6522vi, 1.125rem);
-    --font-size-1: clamp(0.9rem, 0.7239rem + 0.8804vi, 1.4063rem);
-    --font-size-2: clamp(1.08rem, 0.8442rem + 1.1788vi, 1.7578rem);
-    --font-size-3: clamp(1.296rem, 0.9825rem + 1.5674vi, 2.1973rem);
-    --font-size-4: clamp(1.5552rem, 1.1408rem + 2.072vi, 2.7466rem);
-    --font-size-5: clamp(1.8662rem, 1.3212rem + 2.7252vi, 3.4332rem);
+
+    --font-size--2: clamp(0.6076rem, 0.5289rem + 0.3497vi, 0.8rem);
+    --font-size--1: clamp(0.7292rem, 0.6184rem + 0.4924vi, 1rem);
+    --font-size-0: clamp(0.875rem, 0.7216rem + 0.6818vi, 1.25rem);
+    --font-size-1: clamp(1.05rem, 0.8403rem + 0.9318vi, 1.5625rem);
+    --font-size-2: clamp(1.26rem, 0.9764rem + 1.2602vi, 1.9531rem);
+    --font-size-3: clamp(1.512rem, 1.1318rem + 1.6898vi, 2.4414rem);
+    --font-size-4: clamp(1.8144rem, 1.3082rem + 2.2497vi, 3.0518rem);
+    --font-size-5: clamp(2.1773rem, 1.5074rem + 2.9771vi, 3.8147rem);
+
 
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
@@ -49,7 +51,9 @@
     font-style: normal;
 }
 
-body {
+body {}
+
+body.page {
     background-color: var(--color-primary);
     color: #fff;
     width: 100%;
@@ -122,13 +126,15 @@ li {
     font-size: var(--font-size-0);
     line-height: 110%;
 }
+
 div {
-    p{
-        &:not(:first-child){
+    p {
+        &:not(:first-child) {
             margin-top: .5rem;
         }
     }
 }
+
 .grid-2-1-1 {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -150,20 +156,21 @@ div {
     --f-button-prev-pos: 5rem;
     --f-button-next-pos: 5rem;
 
-    --f-button-bg: #fff !important;
-    --f-button-color: #333;
+    --f-button-bg: rgba(0, 0, 0, 0.69) !important;
+    --f-button-color: #363333 !important;
 
-    --f-button-width: 48px;
-    --f-button-height: 48px;
+    --f-button-width: 38px !important;
+    --f-button-height: 38px !important;
     --f-button-border-radius: 50%;
 
-    --f-button-svg-width: 27px;
-    --f-button-svg-height: 27px;
-    --f-button-svg-stroke-width: 1.5;
+    --f-button-svg-width: 22px;
+    --f-button-svg-height: 22px;
+    --f-button-svg-stroke-width: 2;
 
-    --f-button-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-        rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    // --f-button-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    //     rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    //     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    // background-color: rgba(0, 0, 0, 0.69);
 
     --f-carousel-dot-color: #fff;
     --f-carousel-dot-height: 10px;
@@ -178,6 +185,10 @@ div {
         position: relative;
         display: inline-block;
     }
+
+    .f-carousel__nav button {
+        backdrop-filter: blur(4px);
+    }
 }
 
 .f-carousel__dots {
@@ -187,11 +198,8 @@ div {
     padding: 8px 10px !important;
     width: fit-content;
     border-radius: 40px;
-    bottom: 5px !important;
 
-    @media screen and (max-width: 767px) {
-        bottom: 20px !important;
-    }
+
 }
 
 .f-carousel__track {
@@ -271,4 +279,17 @@ body {
 
 #main {
     grid-column: 4/13;
+}
+
+@media screen and (max-width: 1220px) {
+    #main {
+        grid-column: 5/13;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body.page {
+        display: flex;
+        flex-direction: column;
+    }
 }

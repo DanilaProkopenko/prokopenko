@@ -16,7 +16,7 @@
 
     border-top: 1px solid #999;
     border-bottom: 1px solid #999;
-    padding: var(--wp--preset--spacing--30);
+    padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--30);
 
 }
 
@@ -33,6 +33,7 @@
     position: relative;
     z-index: 10;
     padding-right: 1rem;
+    gap: 1rem;
     // background-color: #000000a6;
     // backdrop-filter: blur(20px);
 
@@ -45,7 +46,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    gap: 52px;
+    gap: 1rem;
     position: relative;
     z-index: 5;
 }
@@ -156,8 +157,9 @@
         height: 150%;
         background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, #000 30.51%);
         z-index: 0;
-        top: -2rem;
-        left: -74%;;
+        top: -30%;
+        left: -85%;
+        ;
     }
 
     .f-carousel__viewport.is-draggable {
@@ -181,9 +183,31 @@
 
     grid-column: 5 / 13;
     z-index: 5;
+    padding-bottom: 3rem;
 
     .f-carousel {
         height: 100%;
+
+    }
+
+    .f-button {
+        top: auto !important;
+        bottom: 0;
+        transform: translateY(150%) !important;
+
+        &.is-prev {
+            left: auto !important;
+            right: 45px !important;
+        }
+
+        &.is-next {
+            right: 0 !important;
+
+        }
+    }
+
+    .f-carousel__dots {
+        transform: translateY(156%) !important;
     }
 
     .f-carousel__slide {
@@ -212,7 +236,9 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+// @media screen and (max-width: 767px) {
+
+@media screen and (max-width: 1220px) {
     .post-card__big {
         display: flex;
         flex-direction: column-reverse;
@@ -254,6 +280,11 @@
         .f-carousel {
             height: 100%;
         }
+
+        .f-carousel__dots {
+            transform: translateY(-100%) !important;
+        }
+
     }
 }
 
