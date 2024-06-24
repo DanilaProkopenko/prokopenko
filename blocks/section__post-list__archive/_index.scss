@@ -7,7 +7,7 @@
 }
 
 .posts-list__archive__heading {
-    padding: 0 var(--wp--preset--spacing--30);
+    padding: 0 var(--padding);
     align-items: center;
 }
 
@@ -26,12 +26,12 @@
 
     .f-carousel__slide {
         &:first-child {
-            margin-left: var(--wp--preset--spacing--30);
+            margin-left: var(--padding);
         }
 
         &:last-child {
 
-            margin-right: calc(var(--wp--preset--spacing--30) * 2);
+            margin-right: calc(var(--padding) * 2);
         }
     }
 

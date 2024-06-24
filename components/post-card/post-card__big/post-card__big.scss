@@ -16,8 +16,7 @@
 
     border-top: 1px solid #999;
     border-bottom: 1px solid #999;
-    padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--30);
-
+    padding: var(--wp--preset--spacing--40) var(--padding);
 }
 
 
@@ -173,7 +172,7 @@
 }
 
 .post-card__big__gallery {
-    // padding: 3.75rem var(--wp--preset--spacing--30) 3.75rem var(--wp--preset--spacing--30);
+    // padding: 3.75rem var(--padding) 3.75rem var(--padding);
 
     position: relative;
     width: 100%;
@@ -260,7 +259,7 @@
     }
 
     .post-card__big__content__wrapper {
-        padding: 0 var(--wp--preset--spacing--30) 3rem;
+        padding: 0 var(--padding) 3rem;
         gap: 1rem;
     }
 

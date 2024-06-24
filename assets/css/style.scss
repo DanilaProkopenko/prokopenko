@@ -34,13 +34,31 @@
     --font-size-5: clamp(2.1773rem, 1.5074rem + 2.9771vi, 3.8147rem);
 
 
+    --font-size--2: clamp(0.6944rem, 0.6513rem + 0.1919vi, 0.8rem);
+    --font-size--1: clamp(0.8333rem, 0.7652rem + 0.303vi, 1rem);
+    --font-size-0: clamp(1rem, 0.8977rem + 0.4545vi, 1.25rem);
+    --font-size-1: clamp(1.2rem, 1.0517rem + 0.6591vi, 1.5625rem);
+    --font-size-2: clamp(1.44rem, 1.2301rem + 0.933vi, 1.9531rem);
+    --font-size-3: clamp(1.728rem, 1.4362rem + 1.2971vi, 2.4414rem);
+    --font-size-4: clamp(2.0736rem, 1.6734rem + 1.7785vi, 3.0518rem);
+    --font-size-5: clamp(2.4883rem, 1.9457rem + 2.4116vi, 3.8147rem);
+
+
+    --font-size--2: clamp(0.64rem, 0.7167rem + -0.099vi, 0.6944rem);
+    --font-size--1: clamp(0.8rem, 0.847rem + -0.0606vi, 0.8333rem);
+    --font-size-0: clamp(1rem, 1rem + 0vi, 1rem);
+    --font-size-1: clamp(1.2rem, 1.1795rem + 0.0909vi, 1.25rem);
+    --font-size-2: clamp(1.44rem, 1.3899rem + 0.2227vi, 1.5625rem);
+    --font-size-3: clamp(1.728rem, 1.6359rem + 0.4093vi, 1.9531rem);
+    --font-size-4: clamp(2.0736rem, 1.9231rem + 0.6687vi, 2.4414rem);
+    --font-size-5: clamp(2.4883rem, 2.2578rem + 1.0244vi, 3.0518rem);
+
+    
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
     --grid-row-gap: 30px;
 
-    --media-max-width-smartphone: 767px;
-    --media-max-width-tablet: 992px;
-    --media-max-width-laptop: 1439px;
+    --padding: clamp(1.5rem, 5vw, 2rem);
 }
 
 * {
@@ -64,9 +82,9 @@ body.page {
 
 .main-padding {
     padding-top: 0;
-    padding-right: var(--wp--preset--spacing--30);
+    padding-right: var(--padding);
     padding-bottom: 0;
-    padding-left: var(--wp--preset--spacing--30);
+    padding-left: var(--padding);
 }
 
 a {

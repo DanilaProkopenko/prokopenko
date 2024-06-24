@@ -5,6 +5,11 @@
 <header class="header__wrapper">
     <div class="header">
         <a href="/" class="header__logo">
+            <h1 class="header__logo__title">
+                prokopenko
+            </h1>
+        </a>
+        <a href="/" class="header__logo">
             <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="Аватар пользователя" class="header__logo__source">
 
             <h1 class="header__logo__title">
