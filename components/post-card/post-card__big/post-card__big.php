@@ -10,6 +10,7 @@ if ($args) {
 
     $except = $args['except'];
     $gallery = $args['gallery'];
+    $posts_count = $args['posts_count'];
 }
 
 ?>

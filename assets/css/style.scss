@@ -53,6 +53,9 @@ body {
     background-color: var(--color-primary);
     color: #fff;
     width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 .main-padding {
@@ -119,7 +122,13 @@ li {
     font-size: var(--font-size-0);
     line-height: 110%;
 }
-
+div {
+    p{
+        &:not(:first-child){
+            margin-top: .5rem;
+        }
+    }
+}
 .grid-2-1-1 {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -259,3 +268,7 @@ body {
     background-color: #f6f8f4;
 } */
 /*# sourceMappingURL=scroll.css.map */
+
+#main {
+    grid-column: 4/13;
+}

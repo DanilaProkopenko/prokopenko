@@ -40,6 +40,9 @@ $posts_tag = $post_list_filter_taxonomy_tag->term_id;
         <h3 class="section__post-list__big__title">
             Избранные работы
         </h3>
+        <div class="section__post-list__big__heading__count">
+            (<?= (getPostsCardBigCount(-1, null, $posts_tag, $posts_category))?>)
+        </div>
     </div>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>

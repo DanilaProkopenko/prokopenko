@@ -35,6 +35,7 @@ $custom_block_heading = get_field('custom-block_heading');
 <section class="section__welcome-block main-padding">
     <div class="welcome-block__content">
         <h1 class="welcome-block__title">Данила Прокопенко</h1>
-        <div class="welcome-block__caption">Графический и веб–дизайнер. Работаю в zerna.design</div>
+        <!-- <div class="welcome-block__caption">Графический и веб–дизайнер в <a href="">zerna.design</a></div> -->
+        <div class="welcome-block__caption">Дизайнер и разработчик в <a href="">zerna.design</a></div>
     </div>
 </section>
