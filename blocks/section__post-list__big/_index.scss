@@ -1,12 +1,22 @@
 .section__post-list__big {
     display: flex;
     flex-direction: column;
-
+    gap: 3rem;
 }
 
 .section__post-list__big__wrapper {
     display: flex;
     flex-direction: column;
+
+    .post-card__big {
+        &:not(:first-child){
+            padding-top: 3rem;
+        }
+        &:first-child {
+            border-top: 0;
+        }
+    }
+
 }
 
 .section__post-list__big__heading {
@@ -15,7 +25,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.section__post-list__big__heading__count{
+
+.section__post-list__big__heading__count {
     font-weight: 500;
     font-size: var(--font-size-3);
     line-height: var(--font-size-3);

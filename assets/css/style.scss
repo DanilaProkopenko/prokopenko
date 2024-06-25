@@ -9,41 +9,14 @@
     // --color-primary: #1D1D1D;
     --color-primary: #000;
     --color-secondary: #999999;
+    --color-gray-dark: #373737;
+    --color-background-card: rgba(255, 255, 255, 0.1);
+    // background: #272727;
     --color-accent: #f413d9;
     --color-white: #fff;
 
-    --font-size--2: clamp(0.6944rem, 0.6733rem + 0.1056vi, 0.8rem);
-    --font-size--1: clamp(0.8333rem, 0.8rem + 0.1667vi, 1rem);
-    --font-size-0: clamp(1rem, 0.95rem + 0.25vi, 1.25rem);
-    --font-size-1: clamp(1.2rem, 1.1275rem + 0.3625vi, 1.5625rem);
-    --font-size-2: clamp(1.44rem, 1.3374rem + 0.5131vi, 1.9531rem);
-    --font-size-3: clamp(1.728rem, 1.5853rem + 0.7134vi, 2.4414rem);
-    --font-size-4: clamp(2.0736rem, 1.878rem + 0.9782vi, 3.0518rem);
-    --font-size-5: clamp(2.4883rem, 2.223rem + 1.3264vi, 3.8147rem);
-
-
-    // new font size
-
-    --font-size--2: clamp(0.6076rem, 0.5289rem + 0.3497vi, 0.8rem);
-    --font-size--1: clamp(0.7292rem, 0.6184rem + 0.4924vi, 1rem);
-    --font-size-0: clamp(0.875rem, 0.7216rem + 0.6818vi, 1.25rem);
-    --font-size-1: clamp(1.05rem, 0.8403rem + 0.9318vi, 1.5625rem);
-    --font-size-2: clamp(1.26rem, 0.9764rem + 1.2602vi, 1.9531rem);
-    --font-size-3: clamp(1.512rem, 1.1318rem + 1.6898vi, 2.4414rem);
-    --font-size-4: clamp(1.8144rem, 1.3082rem + 2.2497vi, 3.0518rem);
-    --font-size-5: clamp(2.1773rem, 1.5074rem + 2.9771vi, 3.8147rem);
-
-
-    --font-size--2: clamp(0.6944rem, 0.6513rem + 0.1919vi, 0.8rem);
-    --font-size--1: clamp(0.8333rem, 0.7652rem + 0.303vi, 1rem);
-    --font-size-0: clamp(1rem, 0.8977rem + 0.4545vi, 1.25rem);
-    --font-size-1: clamp(1.2rem, 1.0517rem + 0.6591vi, 1.5625rem);
-    --font-size-2: clamp(1.44rem, 1.2301rem + 0.933vi, 1.9531rem);
-    --font-size-3: clamp(1.728rem, 1.4362rem + 1.2971vi, 2.4414rem);
-    --font-size-4: clamp(2.0736rem, 1.6734rem + 1.7785vi, 3.0518rem);
-    --font-size-5: clamp(2.4883rem, 1.9457rem + 2.4116vi, 3.8147rem);
-
-
+    --backdrop-filter-card: 700px;
+    
     --font-size--2: clamp(0.64rem, 0.7167rem + -0.099vi, 0.6944rem);
     --font-size--1: clamp(0.8rem, 0.847rem + -0.0606vi, 0.8333rem);
     --font-size-0: clamp(1rem, 1rem + 0vi, 1rem);
@@ -78,6 +51,7 @@ body.page {
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    overflow-x: hidden;
 }
 
 .main-padding {
@@ -174,8 +148,8 @@ div {
     --f-button-prev-pos: 5rem;
     --f-button-next-pos: 5rem;
 
-    --f-button-bg: rgba(0, 0, 0, 0.69) !important;
-    --f-button-color: #363333 !important;
+    --f-button-bg: var(--color-background-card) !important;
+    --f-button-color: #fff !important;
 
     --f-button-width: 38px !important;
     --f-button-height: 38px !important;
@@ -211,11 +185,11 @@ div {
 
 .f-carousel__dots {
     z-index: 5;
-    background-color: rgba(0, 0, 0, 0.69);
-    backdrop-filter: blur(4px);
-    padding: 8px 10px !important;
+    // background-color: rgba(0, 0, 0, 0.69);
+    // backdrop-filter: blur(4px);
+    // padding: 8px 10px !important;
     width: fit-content;
-    border-radius: 40px;
+    // border-radius: 40px;
 
 
 }
@@ -244,9 +218,9 @@ body {
 ::-webkit-scrollbar {
     width: 5px;
     /* ширина для вертикального скролла */
-    height: 8px;
+    height: 5px;
     /* высота для горизонтального скролла */
-    background-color: transparent;
+    background-color: #00000000;
 }
 
 /* ползунок скроллбара */
@@ -297,6 +271,7 @@ body {
 
 #main {
     grid-column: 4/13;
+    overflow-x: hidden;
 }
 
 @media screen and (max-width: 1220px) {
