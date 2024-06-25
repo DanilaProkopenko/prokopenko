@@ -5,9 +5,9 @@ if ($args) {
     $short_description = $args['short_description'];
 
     $img_thumbnail = $args['img_thumbnail'];
-    $img_large = $args['img_large'];
     $img_medium = $args['img_medium'];
-    $thumb_img_medium_large = $args['img_medium_large'];
+    $img_medium_large = $args['img_medium_large'];
+    $img_large = $args['img_large'];
     $id = $args['id'];
 
     $except = $args['except'];
@@ -23,17 +23,17 @@ if ($args) {
         </div>
        
         <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="2">
-            <a href="<?= esc_url($thumb_img_medium_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_large); ?>" class="f-carousel__slide" >
+            <a href="<?= esc_url($img_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_medium); ?>" class="f-carousel__slide" >
                 <picture>
-                    <source media="(max-width: 768px)" srcset="<?= esc_url($img_medium); ?>" />
-                    <source media="(min-width: 769px)" srcset="<?= esc_url($thumb_img_medium_large); ?>" />
+                    <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
+                    <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
                     <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
                 </picture>
             </a>
             <?php
             if ($gallery) :
                 foreach ($gallery as $image) : ?>
-                    <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['large']) ?>" data-fancybox="<?= $id ?>" class=" f-carousel__slide">
+                    <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['medium']) ?>" data-fancybox="<?= $id ?>" class=" f-carousel__slide">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
                             <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />

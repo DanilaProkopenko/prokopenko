@@ -34,10 +34,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
                     const slide = Array.from(slides);
                     const slideImgSrc = slide[0].el.getAttribute('data-img-src');
 
-                    // console.log('slideImgSrc ', slideImgSrc)
-                    // postCardGalleryBackImg.src = 'slideImgSrc';
                     postCardGalleryBackImg.setAttribute('src', slideImgSrc)
-                    console.log('postCardGalleryBackImg ', postCardGalleryBackImg)
                 },
             },
         };

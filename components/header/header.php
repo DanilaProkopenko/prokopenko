@@ -5,20 +5,15 @@
 <header class="header__wrapper">
     <div class="header">
         <div class="header__top">
-            <a href="/" class="header__top__logo">
+            <!-- <a href="/" class="header__top__logo">
                 <h1>
                     prokopenko
                 </h1>
-            </a>
-            <div class="header__top__burger">
-                <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 2H21M0 8.27586H21M0 15H21" stroke="white" stroke-width="2.5" />
-                </svg>
-            </div>
-        </div>
-        <div class="header__description">
+            </a> -->
             <div class="header__description__avatar">
-                <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="" class="header__description__avatar__source">
+                <a href="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" data-fancybox data-caption="Аватар пользователя">
+                    <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="" class="header__description__avatar__source">
+                </a>
                 <div class="header__description__avatar__title">
                     <div class="header__description__avatar__title_name">
                         Данила Прокопенко
@@ -28,6 +23,24 @@
                     </div>
                 </div>
             </div>
+            <div class="header__top__burger">
+                <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 2H21M0 8.27586H21M0 15H21" stroke="white" stroke-width="2.5" />
+                </svg>
+            </div>
+        </div>
+        <div class="header__description">
+            <!-- <div class="header__description__avatar">
+                <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="" class="header__description__avatar__source">
+                <div class="header__description__avatar__title">
+                    <div class="header__description__avatar__title_name">
+                        Данила Прокопенко
+                    </div>
+                    <div class="header__description__avatar__title_caption">
+                        Графический и веб–дизайнер
+                    </div>
+                </div>
+            </div> -->
             <div class="header__description__content">
                 <p>
                     Дизайнер в широком смысле этого слова.
