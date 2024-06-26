@@ -1,18 +1,15 @@
 <footer class="footer">
     <?
-    $args = array(
-        'menu' => 'menu_contact',
-        'depth'    => 0,
-        'container' => 'div',
-        'menu_class' => 'footer__links',
-        'fallback_cb' => false
-    );
+    // $args = array(
+    //     'menu' => 'menu_contact',
+    //     'depth'    => 0,
+    //     'container' => 'div',
+    //     'menu_class' => 'footer__links',
+    //     'fallback_cb' => false
+    // );
 
-    wp_nav_menu($args);
+    // wp_nav_menu($args);
     ?>
-    <!-- <ul class="footer__links">
-        <li class="footer__links___item"><a href="" class="footer__links___item__link"></a></li>
-    </ul> -->
 
     <div class="footer__decor">
         <svg width="1019" height="187" viewBox="0 0 1019 187" fill="none" xmlns="http://www.w3.org/2000/svg">

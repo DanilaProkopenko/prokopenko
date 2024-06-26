@@ -8,9 +8,11 @@
 
     // --color-primary: #1D1D1D;
     --color-primary: #000;
+    // --color-primary: #0F0F0F;
     --color-secondary: #999999;
     --color-gray-dark: #373737;
-    --color-background-card: rgba(255, 255, 255, 0.1);
+    // --color-background-card: rgba(255, 255, 255, 0.1);
+    --color-background-card: rgba(23, 26, 30, 0.5);
     // background: #272727;
     --color-accent: #f413d9;
     --color-accent: #F430B9;
@@ -173,11 +175,9 @@ div {
     // background-color: rgba(0, 0, 0, 0.69);
 
     --f-carousel-dot-color: #fff;
-    --f-carousel-dot-height: 10px;
-    --f-carousel-dot-width: 10px;
-
     --f-carousel-dots-height: 10px;
-    --f-carousel-spacing: 8px !important;
+    --f-carousel-dots-width: 15px;
+    --f-carousel-spacing: 5px !important;
 
     picture {
         width: 100%;
@@ -191,15 +191,17 @@ div {
     }
 }
 
+.f-button {
+    backdrop-filter: blur(4px);
+}
+
 .f-carousel__dots {
     z-index: 5;
-    // background-color: rgba(0, 0, 0, 0.69);
-    // backdrop-filter: blur(4px);
-    // padding: 8px 10px !important;
+    background-color: var(--color-background-card);
+    backdrop-filter: blur(4px);
+    padding: 8px 10px !important;
     width: fit-content;
-    // border-radius: 40px;
-
-
+    border-radius: 40px;
 }
 
 .f-carousel__track {
@@ -280,6 +282,35 @@ body {
 #main {
     grid-column: 4/13;
     // overflow-x: hidden;
+}
+
+// Buttons
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.62rem;
+
+    border-radius: 0.62rem;
+    padding: 0.62rem;
+    background: var(--color-background-card);
+    background: #ffffff1a;
+
+
+    text-decoration: none;
+
+    width: fit-content;
+
+    &._big {
+        padding: 1rem 0.62rem;
+    }
+
+    &:hover {
+        color: #fff;
+        background: #c8d0db4c;
+
+    }
 }
 
 @media screen and (max-width: 1220px) {

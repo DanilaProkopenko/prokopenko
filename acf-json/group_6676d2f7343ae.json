@@ -136,6 +136,22 @@
             "mime_types": "",
             "insert": "append",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_667c467f31ff7",
+            "label": "post_card_link",
+            "name": "post_card_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -156,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719154932
+    "modified": 1719420817
 }
