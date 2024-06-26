@@ -63,6 +63,7 @@ body.page {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     overflow-x: hidden;
+    // gap: var(--grid-gap);
 }
 
 .main-padding {
@@ -281,6 +282,7 @@ body {
 
 #main {
     grid-column: 4/13;
+    padding: 0 1rem;
     // overflow-x: hidden;
 }
 
@@ -316,7 +318,9 @@ body {
 @media screen and (max-width: 1220px) {
     #main {
         grid-column: 5/13;
+        padding: 0;
     }
+    
 }
 
 @media screen and (max-width: 767px) {
