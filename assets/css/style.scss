@@ -13,10 +13,12 @@
     --color-background-card: rgba(255, 255, 255, 0.1);
     // background: #272727;
     --color-accent: #f413d9;
+    --color-accent: #F430B9;
+    // --color-accent: #F26DB4;
     --color-white: #fff;
-
+    --color-link-hover: var(--color-accent);
     --backdrop-filter-card: 700px;
-    
+
     --font-size--2: clamp(0.64rem, 0.7167rem + -0.099vi, 0.6944rem);
     --font-size--1: clamp(0.8rem, 0.847rem + -0.0606vi, 0.8333rem);
     --font-size-0: clamp(1rem, 1rem + 0vi, 1rem);
@@ -26,7 +28,7 @@
     --font-size-4: clamp(2.0736rem, 1.9231rem + 0.6687vi, 2.4414rem);
     --font-size-5: clamp(2.4883rem, 2.2578rem + 1.0244vi, 3.0518rem);
 
-    
+
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
     --grid-row-gap: 30px;
@@ -40,6 +42,13 @@
     padding: 0;
     font-family: var(--font-family-primary);
     font-style: normal;
+}
+
+::selection {
+    background: var(--color-accent);
+    /* Цвет фона */
+    color: #fff;
+    /* Цвет текста */
 }
 
 body {}
@@ -67,47 +76,46 @@ a {
     transition: all .3s;
 
     &:hover {
-        opacity: .8;
+        // opacity: .8;
+        color: var(--color-link-hover);
     }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 110%;
 }
 
 h1 {
     font-weight: 500;
     // font-size: 60px;
     font-size: var(--font-size-5);
-    line-height: var(--font-size-5);
 }
 
 h2 {
     font-weight: 500;
     font-size: 34px;
-    font-size: var(--font-size-4);
-    line-height: var(--font-size-4);
+    font-size: var(--font-size-2);
 }
 
 h3 {
     font-weight: 500;
     font-size: var(--font-size-3);
-    line-height: var(--font-size-3);
 }
 
 h4,
 h4 a {
     font-weight: 400;
-    font-size: var(--font-size-2);
-    line-height: var(--font-size-2);
+    font-size: var(--font-size-1);
 }
 
 h5 {
-    font-weight: 500;
-    font-size: var(--font-size-1);
-    line-height: var(--font-size-1);
-}
-
-h6 {
-    font-weight: 500;
+    font-weight: 400;
     font-size: var(--font-size-0);
-    line-height: var(--font-size-0);
 }
 
 p,

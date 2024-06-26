@@ -21,9 +21,9 @@ if ($args) {
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">
         </div>
-       
+
         <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="2">
-            <a href="<?= esc_url($img_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_medium); ?>" class="f-carousel__slide" >
+            <a href="<?= esc_url($img_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_medium); ?>" class="f-carousel__slide">
                 <picture>
                     <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
                     <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
@@ -48,9 +48,9 @@ if ($args) {
     <div class="post-card__big__content__wrapper">
         <div class="post-card__big__content">
             <div class="post-card__big__title">
-                <div class="post-card__big__heading">
+                <h3 class="post-card__big__heading">
                     <?= $title ?>
-                </div>
+                </h3>
                 <div class="post-card__big__short-description">
                     <?= $short_description ?>
                 </div>
@@ -79,10 +79,10 @@ if ($args) {
         ?>
             <div class="post-card__meta__team">
                 <div class="post-card__meta__team__images__wrapper">
-                    <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="Аватар пользователя" class="post-card__meta__teaam__imge__source">
                     <? foreach ($users as $user) : ?>
                         <img src="<?= esc_attr(get_avatar_url($user['ID'])); ?>" alt="Аватар пользователя" class="post-card__meta__teaam__imge__source">
                     <? endforeach; ?>
+                    <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="Аватар пользователя" class="post-card__meta__teaam__imge__source">
                 </div>
                 <div class="post-card__meta__team__name">
                     Совместно с

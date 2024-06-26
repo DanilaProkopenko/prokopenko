@@ -11,6 +11,7 @@
 
     border-right: 1px solid var(--color-gray-dark);
 
+    z-index: 90;
 }
 
 .header {
@@ -72,6 +73,10 @@
 .header__description__content {
     a {
         color: var(--color-secondary);
+
+        &:hover {
+            color: var(--color-link-hover);
+        }
     }
 
     color: var(--color-secondary);
@@ -99,7 +104,7 @@
 }
 
 .header__description__avatar__title_name {
-    font-size: var(--font-size-0);
+    // font-size: var(--font-size-0);
 }
 
 .header__description__avatar__title_caption {
@@ -119,14 +124,15 @@
     gap: 10px 20px;
     border-top: 1px solid var(--color-gray-dark);
     padding: 1.5rem 1rem;
-
+    li{
+        list-style: none;
+    }
 }
 
-.header__bottom__links__item {
-    list-style: none;
+// .header__bottom__links__item {
 
-    .header__bottom__links__item__link {}
-}
+//     .header__bottom__links__item__link {}
+// }
 
 .header__bottom__year {
     padding: 1.5rem 1rem;
@@ -134,7 +140,9 @@
     color: var(--color-secondary);
     font-size: var(--font-size--1);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 5px;
     border-top: 1px solid var(--color-gray-dark);
 }
@@ -151,27 +159,33 @@
         position: relative;
         height: fit-content;
         border: none;
-        border-bottom: 1px solid #999;
+        border-bottom: 1px solid var(--color-gray-dark);
+    }
+
+    .header__top {
+        padding: 1rem var(--padding);
+        height: 54px;
+        position: fixed;
+        border-bottom: 0;
+        background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+    }
+
+    .header__description {
+        margin-top: 54px;
+        padding: var(--padding);
+        border-top: 1px solid var(--color-gray-dark);
+    }
+
+    .header__bottom__links {
+        padding: var(--padding);
+    }
+
+    .header__bottom__year {
+        padding: var(--padding);
     }
 
     .header {
-        padding-bottom: 4rem;
+        // padding-bottom: 4rem;
     }
 
-    .header__logo {
-        gap: 13px;
-    }
-
-    .header__logo__title {
-        font-size: var(--font-size-2);
-    }
-
-    .header__logo__caption {
-        font-size: var(--font-size-1);
-    }
-
-    .header__logo__source {
-        width: 55px;
-        height: 55px;
-    }
 }
