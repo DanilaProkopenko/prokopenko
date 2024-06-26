@@ -28,6 +28,7 @@
     // padding: 20px;
     padding: 0 0 0 var(--padding);
     gap: 2rem;
+    // gap: 1rem;
     // background-color: var(--color-background-card);
     height: fit-content;
     // border-radius: 1rem;
@@ -350,8 +351,13 @@
 
     }
 
+    .post-card__big__content {
+        gap: 1rem;
+    }
+    
     .post-card__big__content__wrapper {
         padding: var(--padding);
+        gap: 1.5rem;
     }
 
     .post-card__big__gallery {
