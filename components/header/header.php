@@ -24,7 +24,17 @@ $header_last_update = get_field('header_last-update', 'options');
             </div>
         </div>
         <div class="header__burger__menu" id="burger-menu">
+            <?
+            $args = array(
+                'menu' => 'menu_burger',
+                'depth'    => 0,
+                'container' => 'div',
+                'menu_class' => 'header__burger__links',
+                'fallback_cb' => false
+            );
 
+            wp_nav_menu($args);
+            ?>
         </div>
         <div class="header__description">
             <div class="header__description__avatar">

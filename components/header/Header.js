@@ -16,7 +16,10 @@ class Header {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
         let mainPage = document.getElementById('main');
+        
         let header = document.getElementsByClassName('header__wrapper')[0];
+        let headerDescription = document.getElementsByClassName('header__description')[0];
+        let footer = document.getElementsByClassName('footer')[0];
 
         if (window.innerWidth > 767) {
             burgerMenuWidth(header, burgerMenu);
@@ -45,7 +48,7 @@ class Header {
 
         burgerIcon.addEventListener('click', function () {
             this.getElementsByClassName('bar')[0].classList.toggle('animate')
-            
+
             // $('.bar').toggleClass('animate');
 
             this.classList.toggle('_open');
@@ -53,8 +56,21 @@ class Header {
 
             burgerMenu.classList.toggle('_open');
             mainPage.classList.toggle('_open');
-
+            headerDescription.classList.toggle('_hide');
+            footer.classList.toggle('_hide');
         })
+        
+        document.addEventListener(`keyup`, (e) => {
+            if (e.keyCode === 27) { // если нажали на ESC
+                // код при нажатии на ESC
+                burgerIcon.getElementsByClassName('bar')[0].classList.remove('animate')
+                headerDescription.classList.remove('_hide');
+                burgerMenu.classList.remove('_open');
+                mainPage.classList.remove('_open');
+                burgerIcon.classList.remove('_open');
+                footer.classList.remove('_hide');
+            }
+        });
     }
 
 }
