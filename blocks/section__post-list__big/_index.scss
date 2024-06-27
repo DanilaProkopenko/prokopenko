@@ -1,6 +1,8 @@
 .section__post-list__big__wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
     // overflow: hidden;
     // height: fit-content;
     .post-card__big {
@@ -18,7 +20,7 @@
 .section__post-list__big {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 5rem;
 }
 
 .section__post-list__big__heading {

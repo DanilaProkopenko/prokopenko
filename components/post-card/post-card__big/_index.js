@@ -61,7 +61,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
             },
 
             Carousel: {
-                transition: 'slide',
+                transition: 'fade',
                 preload: 3,
             },
         });

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerDomElement = document.querySelector('.header');
   if (headerDomElement) {
     wwzrdsHeader = new Header(headerDomElement);
+    wwzrdsHeader.burger();
   }
 });
 

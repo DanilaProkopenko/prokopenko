@@ -19,24 +19,15 @@ $header_last_update = get_field('header_last-update', 'options');
                     prokopenko
                 </h1>
             </a>
-            <!-- <div class="header__description__avatar">
-                <a href="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" data-fancybox data-caption="Аватар пользователя">
-                    <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="" class="header__description__avatar__source">
-                </a>
-                <div class="header__description__avatar__title">
-                    <div class="header__description__avatar__title_name">
-                        Данила Прокопенко
-                    </div>
-                    <div class="header__description__avatar__title_caption">
-                        Графический и веб–дизайнер
-                    </div>
-                </div>
-            </div> -->
-            <div class="header__top__burger">
+            <div class="header__top__burger" id="burger-icon">
                 <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 2H21M0 8.27586H21M0 15H21" stroke="white" stroke-width="2.5" />
                 </svg>
             </div>
+
+        </div>
+        <div class="header__burger__menu" id="burger-menu">
+
         </div>
         <div class="header__description">
             <div class="header__description__avatar">
@@ -55,22 +46,31 @@ $header_last_update = get_field('header_last-update', 'options');
             <div class="header__description__content">
                 <?= $header_description ?>
             </div>
-        </div>
-        <div class="header__bottom">
             <?
             $args = array(
                 'menu' => 'menu_contact',
                 'depth'    => 0,
                 'container' => 'div',
-                'menu_class' => 'header__bottom__links',
+                'menu_class' => 'header__description__links',
                 'fallback_cb' => false
             );
 
             wp_nav_menu($args);
             ?>
-            <!-- <ul class="header__bottom__links">
-                <li class="header__bottom__links__item"><a href="" class="header__bottom__links__item__link"></a></li>
-            </ul> -->
+
+        </div>
+        <div class="header__bottom">
+            <?
+            // $args = array(
+            //     'menu' => 'menu_contact',
+            //     'depth'    => 0,
+            //     'container' => 'div',
+            //     'menu_class' => 'header__bottom__links',
+            //     'fallback_cb' => false
+            // );
+
+            // wp_nav_menu($args);
+            ?>
             <div class="header__bottom__year">
                 <div class="header__bottom__year__title">
                     <?= $header_year ?>
