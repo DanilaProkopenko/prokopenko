@@ -24,6 +24,7 @@ class Header {
 
         // Изменение ширины выпадающего меню
         function burgerMenuWidth(header, burgerMenu) {
+
             let headerWidth = header.offsetWidth;
             let windowWidth = window.screen.width;
             let burgerMenuWidth = windowWidth - headerWidth
@@ -43,6 +44,10 @@ class Header {
         })
 
         burgerIcon.addEventListener('click', function () {
+            this.getElementsByClassName('bar')[0].classList.toggle('animate')
+            
+            // $('.bar').toggleClass('animate');
+
             this.classList.toggle('_open');
             burgerMenuWidth(header, burgerMenu);
 

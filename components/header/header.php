@@ -20,11 +20,8 @@ $header_last_update = get_field('header_last-update', 'options');
                 </h1>
             </a>
             <div class="header__top__burger" id="burger-icon">
-                <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 2H21M0 8.27586H21M0 15H21" stroke="white" stroke-width="2.5" />
-                </svg>
+                <div class="bar"></div>
             </div>
-
         </div>
         <div class="header__burger__menu" id="burger-menu">
 
