@@ -180,46 +180,45 @@
 }
 
 .header__description__links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
     // gap: 1rem 1.5rem;
-    gap: .5rem;
+    // gap: .5rem;
     // border-top: 1px solid var(--color-gray-dark);
 
-
-
     display: flex;
-    flex-direction: column;
-    gap: .7rem;
-    padding: 2rem 0;
+    flex-direction: row;
+    // gap: 0.7rem 1rem;
+    gap: .5rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
 
     li {
         list-style: none;
     }
 
     a {
-        // display: flex;
-        // align-items: flex-start;
-        // justify-content: flex-start;
-        // flex-direction: row;
-        // gap: 0.62rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        padding: 0.6rem 1rem;
+        background: rgba(23, 26, 30, 0.5);
+        background: var(--color-background-card);
+        background: rgba(255, 255, 255, 0.1019607843);
+        text-decoration: none;
+        width: -moz-fit-content;
+        width: fit-content;
+        position: relative;
+        z-index: 1;
 
-        // border-radius: 0.62rem;
-        // padding: 0.62rem;
-        // background: var(--color-background-card);
-        // background: #ffffff1a;
+        border-radius: 100px;
 
-
-        // text-decoration: none;
-
-        // width: fit-content;
-
-        // &:hover {
-        //     color: #fff;
-        //     background: #c8d0db4c;
-
-        // }
+        &:hover {
+            color: #fff;
+            background: #c8d0db4c;
+        }
     }
 }
 
@@ -347,7 +346,14 @@
 }
 
 @media screen and (max-width: 767px) {
-
+    .header {
+        border: 0;
+        overflow: visible;
+        // padding-bottom: 4rem;
+        .header__bottom {
+            display: none;
+        }
+    }
     .header__wrapper {
         position: relative;
         height: fit-content;
@@ -379,6 +385,7 @@
         &._hide {
             transform: translateY(10%) scale(0.9);
             filter: blur(5px);
+            opacity: .7;
             touch-action: none;
         }
     }
@@ -391,12 +398,6 @@
         padding: var(--padding);
     }
 
-    .header {
-
-        // padding-bottom: 4rem;
-        .header__bottom {
-            display: none;
-        }
-    }
+   
 
 }
