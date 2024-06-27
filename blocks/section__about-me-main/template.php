@@ -34,12 +34,23 @@ $description = get_field('about-me_main-screen_description');
 $img = get_field('about-me_main-screen_image');
 ?>
 
-<section class="about-me__main-screen grid_12">
-    <h3 class="about-me__main-screen__title"><?= $title ?></h3>
+<section class="about-me__main-screen grid_12" id="about">
+    <h2 class="about-me__main-screen__title"><?= $title ?></h2>
     <div class="about-me__main-screen__description">
         <?= $description ?>
+        <?
+        $args = array(
+            'menu' => 'contact',
+            'depth'    => 0,
+            'container' => 'div',
+            'menu_class' => 'about-me__main-screen__description__links',
+            'fallback_cb' => false
+        );
+
+        wp_nav_menu($args);
+        ?>
     </div>
-    <div class="about-me__main-screen__image">
+    <a href="<?= $img['sizes']['large'] ?>" data-fancybox="avatar" class="about-me__main-screen__image">
         <img src="<?= $img['sizes']['large'] ?>" alt="" class="about-me__main-screen__image__source">
-    </div>
+    </a>
 </section>

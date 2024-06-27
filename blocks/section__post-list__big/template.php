@@ -35,14 +35,11 @@ $post_list_filter_taxonomy_tag = get_field('post_list_filter_taxonomy_tag');
 $posts_tag = $post_list_filter_taxonomy_tag->term_id;
 
 ?>
-<div class="section__post-list__big__wrapper">
+<div class="section__post-list__big__wrapper" id="favorites">
     <div class="section__post-list__big__heading">
         <h2 class="section__post-list__big__title">
             Избранные работы
         </h2>
-        <div class="section__post-list__big__heading__count">
-            (<?= (getPostsCardBigCount(-1, null, $posts_tag, $posts_category))?>)
-        </div>
     </div>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>

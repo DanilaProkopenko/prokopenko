@@ -26,7 +26,7 @@ $header_last_update = get_field('header_last-update', 'options');
         <div class="header__burger__menu" id="burger-menu">
             <?
             $args = array(
-                'menu' => 'menu_burger',
+                'menu' => 'burger',
                 'depth'    => 0,
                 'container' => 'div',
                 'menu_class' => 'header__burger__links',
@@ -36,8 +36,22 @@ $header_last_update = get_field('header_last-update', 'options');
             wp_nav_menu($args);
             ?>
         </div>
+        <div class="header__navigation">
+            <?
+            $args = array(
+                'menu' => 'main',
+                'depth'    => 0,
+                'container' => 'div',
+                'menu_class' => 'header__navigation__links',
+                'fallback_cb' => false
+            );
+
+            wp_nav_menu($args);
+            ?>
+
+        </div>
         <div class="header__description">
-            <div class="header__description__avatar">
+            <!-- <div class="header__description__avatar">
                 <a href="<?= esc_html($header_avatar_image['sizes']['medium']); ?>" data-fancybox data-caption="Это я">
                     <img src="<?= esc_html($header_avatar_image['sizes']['thumbnail']); ?>" alt="" class="header__description__avatar__source">
                 </a>
@@ -49,34 +63,34 @@ $header_last_update = get_field('header_last-update', 'options');
                         <?= $header_avatar_caption ?>
                     </div>
                 </div>
-            </div>
-            <div class="header__description__content">
+            </div> -->
+            <!-- <div class="header__description__content">
                 <?= $header_description ?>
-            </div>
-            <?
-            $args = array(
-                'menu' => 'menu_contact',
-                'depth'    => 0,
-                'container' => 'div',
-                'menu_class' => 'header__description__links',
-                'fallback_cb' => false
-            );
-
-            wp_nav_menu($args);
-            ?>
-
-        </div>
-        <div class="header__bottom">
+            </div> -->
             <?
             // $args = array(
             //     'menu' => 'menu_contact',
             //     'depth'    => 0,
             //     'container' => 'div',
-            //     'menu_class' => 'header__bottom__links',
+            //     'menu_class' => 'header__description__links',
             //     'fallback_cb' => false
             // );
 
             // wp_nav_menu($args);
+            ?>
+
+        </div>
+        <div class="header__bottom">
+            <?
+            $args = array(
+                'menu' => 'contact',
+                'depth'    => 0,
+                'container' => 'div',
+                'menu_class' => 'header__bottom__links',
+                'fallback_cb' => false
+            );
+
+            wp_nav_menu($args);
             ?>
             <div class="header__bottom__year">
                 <div class="header__bottom__year__title">
