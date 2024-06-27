@@ -13,6 +13,13 @@
     font-weight: var(--font-weight-regular);
     font-weight: 400;
 
+    p {
+        font-size: var(--font-size-5);
+        line-height: 110%;
+        font-weight: var(--font-weight-regular);
+        font-weight: 400;
+    }
+
     a {
         font-size: var(--font-size-5);
         line-height: 110%;
@@ -28,14 +35,6 @@
     gap: 1rem;
 }
 
-.welcome-block__caption,
-.welcome-block__caption a {
-    font-size: var(--font-size-2);
-    line-height: 110%;
-    font-weight: var(--font-weight-regular);
-}
-
-
 
 @media screen and (max-width: 767px) {
     .section__welcome-block {
@@ -47,7 +46,13 @@
     }
 
     .welcome-block__text {
+
         font-size: var(--font-size-4);
+
+        p {
+            font-size: var(--font-size-4);
+
+        }
 
         a {
             font-size: var(--font-size-4);
