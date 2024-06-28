@@ -59,7 +59,11 @@
     line-height: var(--font-size-1);
 }
 
-.post-card__big__short-description {}
+.post-card__big__short-description {
+    *{
+        color: #999;
+    }
+}
 
 .post-card__big__meta {
     display: flex;
@@ -211,7 +215,7 @@
     z-index: 5;
 
     .f-carousel {
-        border-radius: 1rem;
+        // border-radius: 1rem;
         overflow: hidden;
     }
 

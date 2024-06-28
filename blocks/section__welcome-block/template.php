@@ -37,5 +37,16 @@ $custom_block_heading = get_field('welcome-screen_text');
         <div class="welcome-block__text">
             <?= $custom_block_heading ?>
         </div>
+        <?
+        // $args = array(
+        //     'menu' => 'contact',
+        //     'depth'    => 0,
+        //     'container' => 'div',
+        //     'menu_class' => 'about-me__main-screen__description__links',
+        //     'fallback_cb' => false
+        // );
+
+        // wp_nav_menu($args);
+        ?>
     </div>
 </section>

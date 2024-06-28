@@ -3,7 +3,7 @@
     grid-column: 3/13;
     // overflow-x: hidden;
     margin-top: 5rem;
-    border-top: 1px solid var(--color-gray-dark);
+    // border-top: 1px solid var(--color-gray-dark);
     padding: 0 1rem;
 
     display: flex;
@@ -78,7 +78,7 @@
         margin-top: 0;
         .header__bottom {
             display: flex;
-            border-bottom: 1px solid var(--color-gray-dark);
+            // border-bottom: 1px solid var(--color-gray-dark);
         }
     }
 }

@@ -3,9 +3,7 @@
     flex-direction: column;
     position: relative;
     z-index: 1;
-    // overflow: hidden;
-    // height: fit-content;
-    border-top: 1px solid var(--color-gray-dark);
+    // border-top: 1px solid var(--color-gray-dark);
 
     .post-card__big {
         &:not(:first-child) {
