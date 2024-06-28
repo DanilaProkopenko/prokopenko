@@ -12,13 +12,37 @@ class Header {
     init = () => {
     };
 
+    highlightLink() {
+        // Выбираем все разделы и ссылки
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('header nav a');
+
+        // Функция, которая проверяет, какой раздел виден в окне просмотра
+        function updateNavigation() {
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    navLinks[index].classList.add('active');
+                } else {
+                    navLinks[index].classList.remove('active');
+                }
+                console.log(navLinks[index])
+            });
+        }
+
+        // Слушаем событие прокрутки страницы и обновляем навигацию
+        window.addEventListener('scroll', updateNavigation);
+        // Инициализируем навигацию при загрузке страницы
+        updateNavigation();
+    }
+
     burger() {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
         let mainPage = document.getElementById('main');
-        
+
         let header = document.getElementsByClassName('header__wrapper')[0];
-        let headerDescription = document.getElementsByClassName('header__description')[0];
+        // let headerDescription = document.getElementsByClassName('header__description')[0];
         let footer = document.getElementsByClassName('footer')[0];
 
         if (window.innerWidth > 767) {
@@ -28,18 +52,18 @@ class Header {
         // Изменение ширины выпадающего меню
         function burgerMenuWidth(header, burgerMenu) {
 
-            let headerWidth = header.offsetWidth;
-            let windowWidth = window.screen.width;
-            let burgerMenuWidth = windowWidth - headerWidth
+            // let headerWidth = header.offsetWidth;
+            // let windowWidth = window.screen.width;
+            // let burgerMenuWidth = windowWidth - headerWidth
 
-            // Проверка ширины экрана
-            if (window.innerWidth > 767) {
-                burgerMenu.style.left = headerWidth + 'px';
-                burgerMenu.style.width = burgerMenuWidth + 'px';
-            } else {
-                burgerMenu.style.left = 0 + 'px';
-                burgerMenu.style.width = 100 + '%'
-            }
+            // // Проверка ширины экрана
+            // if (window.innerWidth > 767) {
+            //     burgerMenu.style.left = headerWidth + 'px';
+            //     burgerMenu.style.width = burgerMenuWidth + 'px';
+            // } else {
+            //     burgerMenu.style.left = 0 + 'px';
+            //     burgerMenu.style.width = 100 + '%'
+            // }
         }
 
         window.addEventListener("resize", (event) => {
@@ -56,15 +80,15 @@ class Header {
 
             burgerMenu.classList.toggle('_open');
             mainPage.classList.toggle('_open');
-            headerDescription.classList.toggle('_hide');
+            // headerDescription.classList.toggle('_hide');
             footer.classList.toggle('_hide');
         })
-        
+
         document.addEventListener(`keyup`, (e) => {
             if (e.keyCode === 27) { // если нажали на ESC
                 // код при нажатии на ESC
                 burgerIcon.getElementsByClassName('bar')[0].classList.remove('animate')
-                headerDescription.classList.remove('_hide');
+                // headerDescription.classList.remove('_hide');
                 burgerMenu.classList.remove('_open');
                 mainPage.classList.remove('_open');
                 burgerIcon.classList.remove('_open');

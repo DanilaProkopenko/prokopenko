@@ -17,6 +17,9 @@ if ($args) {
 }
 ?>
 <div class="post-card__big">
+    <!-- <h3 class="post-card__big__heading _mobile">
+        <?= $title ?>
+    </h3> -->
     <div class="post-card__big__gallery">
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">

@@ -2,6 +2,7 @@
     height: fit-content;
     min-height: 100vh;
     padding: 8rem var(--padding) 2rem;
+    padding: 0 var(--padding) var(--padding);
     // display: flex;
     // flex-direction: column;
     // justify-content: flex-end;
@@ -10,6 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
 }
 
@@ -40,7 +42,10 @@
 @media screen and (max-width: 767px) {
     .section__welcome-block {
         min-height: calc(100vh - 54px);
+        padding: 8rem var(--padding) 2rem;
         // padding: 7rem var(--padding);
+        justify-content: space-between;
+        justify-content: flex-start;
     }
 
 
