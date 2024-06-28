@@ -40,7 +40,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     position: relative;
     z-index: 5;
 }
@@ -54,13 +54,13 @@
 }
 
 .post-card__big__heading {
-    font-weight: 500;
-    font-size: var(--font-size-1);
-    line-height: var(--font-size-1);
+    font-weight: 400;
+    font-size: var(--font-size-2);
+    line-height: var(--font-size-2);
 }
 
 .post-card__big__short-description {
-    *{
+    * {
         color: #999;
     }
 }
@@ -317,9 +317,6 @@
         gap: 2rem;
     }
 
-    .post-card__big__content {
-        gap: 1.5rem;
-    }
 
     .post-card__big__meta__item {
         padding: .5rem 0px;
@@ -352,10 +349,7 @@
 
     }
 
-    .post-card__big__content {
-        gap: 1rem;
-    }
-    
+
     .post-card__big__content__wrapper {
         padding: var(--padding);
         gap: 1.5rem;

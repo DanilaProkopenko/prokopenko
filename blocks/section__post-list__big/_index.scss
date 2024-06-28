@@ -1,9 +1,10 @@
 .section__post-list__big__wrapper {
-    display: flex;
+    // display: flex;
     flex-direction: column;
     position: relative;
     z-index: 1;
     // border-top: 1px solid var(--color-gray-dark);
+    margin-top: 5rem;
 
     .post-card__big {
         &:not(:first-child) {
@@ -31,6 +32,8 @@
     flex-direction: row;
     justify-content: space-between;
     z-index: 10;
+    display: none;
+
 }
 
 @media screen and (max-width: 1220px) {
@@ -55,6 +58,4 @@
 
 }
 
-@media screen and (max-width: 767px){
-    
-}
+@media screen and (max-width: 767px) {}

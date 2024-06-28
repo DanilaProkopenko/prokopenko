@@ -33,9 +33,11 @@ $custom_block_heading = get_field('welcome-screen_text');
 ?>
 
 <section class="section__welcome-block" id="welcome">
-    <div class="welcome-block__content">
         <div class="welcome-block__text">
             <?= $custom_block_heading ?>
+        </div>
+        <div class="welcome-block__caption">
+            Ниже представлены мои избранные работы за последнее время
         </div>
         <?
         // $args = array(
