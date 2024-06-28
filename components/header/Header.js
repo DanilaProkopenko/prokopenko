@@ -26,7 +26,6 @@ class Header {
                 } else {
                     navLinks[index].classList.remove('active');
                 }
-                console.log(navLinks[index])
             });
         }
 

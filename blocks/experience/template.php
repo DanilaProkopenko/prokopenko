@@ -34,7 +34,7 @@ $experience_item_repeater = get_field('experience-item_repeater');
 ?>
 
 <section class="experience-block grid_12" id="experience">
-    <h2 class="experience-block__title"><?= $title ?></h2>
+    <!-- <h2 class="experience-block__title"><?= $title ?></h2> -->
     <? if (have_rows('experience-item_repeater')) : ?>
         <div class="experience-list">
             <? while (have_rows('experience-item_repeater')) : the_row();
