@@ -58,8 +58,8 @@ $block_id_name = get_field('block_id_name');
         ?>
     </div>
     <? if ($img) : ?>
-        <a href="<?= $img['sizes']['large'] ?>" data-fancybox="avatar" class="contacts-block__image">
+        <div class="contacts-block__image">
             <img src="<?= $img['sizes']['large'] ?>" alt="" class="contacts-block__image__source">
-        </a>
+        </div >
     <? endif ?>
 </section>

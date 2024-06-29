@@ -39,6 +39,19 @@
     --grid-row-gap: 30px;
 
     --padding: clamp(1rem, 5vw, 2rem);
+    --grid-gap: 40px;
+
+    @media screen and (max-width: 1220px) {
+        --grid-gap: 35px;
+    }
+
+    @media screen and (max-width: 1020px) {
+        --grid-gap: 30px;
+    }
+
+    @media screen and (max-width: 767px) {
+        --grid-gap: 20px;
+    }
 }
 
 * {
@@ -63,10 +76,9 @@ body.page {
     color: var(--color-text-primary);
     width: 100%;
 
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    // display: grid;
+    // grid-template-columns: repeat(12, 1fr);
     overflow-x: hidden;
-    // gap: var(--grid-gap);
 }
 
 .main-padding {
@@ -141,16 +153,17 @@ div {
     }
 }
 
-.grid-2-1-1 {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--grid-gap);
-}
-
 .grid_12 {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: var(--grid-gap);
+    padding-left: calc(2 * var(--padding));
+    padding-right: calc(2 * var(--padding));
+
+    @media screen and (max-width: 1020px) {
+        padding-left: var(--padding);
+        padding-right: var(--padding);
+    }
 }
 
 // Галерея
@@ -288,14 +301,12 @@ footer {
 }
 
 #main {
-    grid-column: 3/13;
-    // padding: 0 1rem;
-    // overflow-x: hidden;
-    // transition-property: opacity, left;
-    // transition-duration: 3s, 5s, 2s, 1s;
+    // display: grid;
+    // grid-template-columns: repeat(12, 1fr);
+    // gap: var(--grid-gap);
+    // grid-column: 3/13;
     transition-property: all;
     transition-duration: .5s;
-    // position: relative;
     opacity: 1;
 
     &::before {

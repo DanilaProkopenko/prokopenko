@@ -35,23 +35,25 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<section class="section__welcome-block" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<section class="section__welcome-block grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <div class="section__welcome-block__content">
         <div class="welcome-block__text">
             <?= $custom_block_heading ?>
         </div>
         <div class="welcome-block__caption">
             Ниже представлены мои избранные работы за последнее время
         </div>
-        <?
-        // $args = array(
-        //     'menu' => 'contact',
-        //     'depth'    => 0,
-        //     'container' => 'div',
-        //     'menu_class' => 'about-me__main-screen__description__links',
-        //     'fallback_cb' => false
-        // );
+    </div>
+    <?
+    // $args = array(
+    //     'menu' => 'contact',
+    //     'depth'    => 0,
+    //     'container' => 'div',
+    //     'menu_class' => 'about-me__main-screen__description__links',
+    //     'fallback_cb' => false
+    // );
 
-        // wp_nav_menu($args);
-        ?>
+    // wp_nav_menu($args);
+    ?>
     </div>
 </section>
