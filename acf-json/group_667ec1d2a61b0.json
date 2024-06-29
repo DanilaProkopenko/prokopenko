@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_667ec1d3bbb91",
-            "label": "experience-block_title",
-            "name": "experience-block_title",
+            "label": "experience-block_description",
+            "name": "experience-block_description",
             "aria-label": "",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,10 +17,10 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_667ec65ea4ee5",
@@ -175,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719585172
+    "modified": 1719648170
 }

@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_667f15b57893a",
-            "label": "values-block_title",
-            "name": "values-block_title",
+            "label": "values-block_big-text",
+            "name": "values-block_big-text",
             "aria-label": "",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,10 +17,10 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_667f15c87893b",
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719604716
+    "modified": 1719647671
 }

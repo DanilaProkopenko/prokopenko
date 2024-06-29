@@ -1,11 +1,11 @@
 {
     "key": "group_6678565f01744",
-    "title": "About me Main screen",
+    "title": "Contacts Block",
     "fields": [
         {
             "key": "field_6678565f57e4d",
-            "label": "about-me_main-screen_title",
-            "name": "about-me_main-screen_title",
+            "label": "contacts-block_title",
+            "name": "contacts-block_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -24,8 +24,8 @@
         },
         {
             "key": "field_667856a157e4e",
-            "label": "about-me_main-screen_description",
-            "name": "about-me_main-screen_description",
+            "label": "contacts-block_description",
+            "name": "contacts-block_description",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -44,8 +44,8 @@
         },
         {
             "key": "field_667856b457e4f",
-            "label": "about-me_main-screen_image",
-            "name": "about-me_main-screen_image",
+            "label": "contacts-block_image",
+            "name": "contacts-block_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -73,7 +73,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "prok\/section-aboout-me-main-screen"
+                "value": "prok\/contacts-block"
             }
         ]
     ],
@@ -86,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719162563
+    "modified": 1719650145
 }

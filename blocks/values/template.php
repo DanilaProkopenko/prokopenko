@@ -29,19 +29,15 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
-$title = get_field('values-block_title');
+$big_text = get_field('values-block_big-text');
 $description = get_field('values-block_description');
 ?>
 
 <section class="values grid_12" id="values">
     <div class="values__title">
-        <?= $title ?>
-        <!-- Удобно. Полезно. Обдуманно. -->
+        <?= $big_text ?>
     </div>
     <div class="values__description">
-        <?= $description ?>
-    </div>
-    <div class="values__description values__description_second">
         <?= $description ?>
     </div>
 </section>

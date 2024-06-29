@@ -30,11 +30,15 @@ $args = wp_parse_args($args, $defaults);
 ] = $args;
 
 $title = get_field('experience-block_title');
+$experience_block_description = get_field('experience-block_description');
 $experience_item_repeater = get_field('experience-item_repeater');
 ?>
 
 <section class="experience-block grid_12" id="experience">
     <!-- <h2 class="experience-block__title"><?= $title ?></h2> -->
+    <div class="experience-block__description">
+        <?= $experience_block_description ?>
+    </div>
     <? if (have_rows('experience-item_repeater')) : ?>
         <div class="experience-list">
             <? while (have_rows('experience-item_repeater')) : the_row();
@@ -48,11 +52,11 @@ $experience_item_repeater = get_field('experience-item_repeater');
                 <div class="experience-item">
                     <img src="<?= esc_url($item_img['sizes']['medium']) ?>" alt="" class="experience-item__img">
                     <div class="experience-item__content">
-                        <div class="experience-item__position">
-                            <?= $item_position ?>
-                        </div>
                         <div class="experience-item__company">
                             <?= $item_company ?>
+                        </div>
+                        <div class="experience-item__position">
+                            <?= $item_position ?>
                         </div>
                         <div class="experience-item__year">
                             <?= $item_year ?>
