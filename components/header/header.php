@@ -36,12 +36,13 @@ $header_last_update = get_field('header_last-update', 'options');
             wp_nav_menu($args);
             ?>
         </div>
+        <nav class="header__page-nav"></nav>
         <div class="header__navigation">
             <?
             $args = array(
                 'menu' => 'main',
                 'depth'    => 0,
-                'container' => 'nav',
+                'container' => 'ul',
                 'menu_class' => 'header__navigation__links',
                 'fallback_cb' => false
             );

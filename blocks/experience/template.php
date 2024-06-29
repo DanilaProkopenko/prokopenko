@@ -32,9 +32,12 @@ $args = wp_parse_args($args, $defaults);
 $title = get_field('experience-block_title');
 $experience_block_description = get_field('experience-block_description');
 $experience_item_repeater = get_field('experience-item_repeater');
+
+$block_id = get_field('block_id');
+$block_id_name = get_field('block_id_name');
 ?>
 
-<section class="experience-block grid_12" id="experience">
+<section class="experience-block grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <!-- <h2 class="experience-block__title"><?= $title ?></h2> -->
     <div class="experience-block__description">
         <?= $experience_block_description ?>

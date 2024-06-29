@@ -31,9 +31,13 @@ $args = wp_parse_args($args, $defaults);
 
 $big_text = get_field('values-block_big-text');
 $description = get_field('values-block_description');
+
+
+$block_id = get_field('block_id');
+$block_id_name = get_field('block_id_name');
 ?>
 
-<section class="values grid_12" id="values">
+<section class="values grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <div class="values__title">
         <?= $big_text ?>
     </div>

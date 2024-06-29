@@ -282,7 +282,8 @@ body {
 } */
 /*# sourceMappingURL=scroll.css.map */
 
-section {
+section,
+footer {
     margin-top: 10rem;
 }
 
@@ -459,6 +460,11 @@ section {
     body.page {
         display: flex;
         flex-direction: column;
+    }
+
+    section,
+    footer {
+        margin-top: 7rem;
     }
 
     #main {

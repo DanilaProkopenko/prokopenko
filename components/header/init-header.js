@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (headerDomElement) {
     wwzrdsHeader = new Header(headerDomElement);
     wwzrdsHeader.burger();
+    wwzrdsHeader.pageNavLinks();
     wwzrdsHeader.highlightLink();
   }
 });

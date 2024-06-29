@@ -30,9 +30,12 @@ $args = wp_parse_args($args, $defaults);
 ] = $args;
 
 $custom_block_heading = get_field('welcome-screen_text');
+
+$block_id = get_field('block_id');
+$block_id_name = get_field('block_id_name');
 ?>
 
-<section class="section__welcome-block" id="welcome">
+<section class="section__welcome-block" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
         <div class="welcome-block__text">
             <?= $custom_block_heading ?>
         </div>

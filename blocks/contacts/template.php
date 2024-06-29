@@ -32,9 +32,12 @@ $args = wp_parse_args($args, $defaults);
 $title = get_field('contacts-block_title');
 $description = get_field('contacts-block_description');
 $img = get_field('contacts-block_image');
+
+$block_id = get_field('block_id');
+$block_id_name = get_field('block_id_name');
 ?>
 
-<section class="contacts-block grid_12" id="about">
+<section class="contacts-block grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <div class="contacts-block__top">
         <h2 class="contacts-block__title"><?= $title ?></h2>
         <div class="contacts-block__description">

@@ -34,8 +34,11 @@ $posts_category = $post_list_filter_taxonomy_category->term_id;
 $post_list_filter_taxonomy_tag = get_field('post_list_filter_taxonomy_tag');
 $posts_tag = $post_list_filter_taxonomy_tag->term_id;
 
+
+$block_id = get_field('block_id');
+$block_id_name = get_field('block_id_name');
 ?>
-<section class="section__post-list__big__wrapper" id="favorites">
+<section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <div class="section__post-list__big__heading">
         <h2 class="section__post-list__big__title">
             Избранные работы

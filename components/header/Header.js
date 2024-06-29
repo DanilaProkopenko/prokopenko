@@ -12,6 +12,36 @@ class Header {
     init = () => {
     };
 
+    pageNavLinks() {
+        const navContainer = document.getElementsByClassName('header__page-nav')[0];
+        const sections = document.querySelectorAll('section');
+
+        function createPageNavLinks() {
+            sections.forEach((section, index) => {
+                const sectionId = section.getAttribute('id');
+                const sectionNameId = section.getAttribute('data-id-name');
+
+                console.log('sectionId — ', sectionId, 'sectionNameId—  ', sectionNameId)
+                if(sectionNameId != 0){
+                    links(navContainer, sectionNameId, sectionId);
+                }
+            })
+        }
+
+        function links(container, name, link) {
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            a.href = '#' + link;
+            a.title = name;
+            a.appendChild(document.createTextNode(name));
+            console.log('name — ', a.title, 'link — ', a.href)
+            li.appendChild(a);
+            container.appendChild(li);
+        }
+        createPageNavLinks();
+    }
+
+
     highlightLink() {
         // Выбираем все разделы и ссылки
         const sections = document.querySelectorAll('section');

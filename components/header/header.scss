@@ -176,6 +176,34 @@
     left: 0;
 }
 
+.header__page-nav {
+    padding: 1.5rem var(--padding);
+    position: fixed;
+    top: calc(3 * var(--padding));
+    left: var(--padding);
+
+    display: flex;
+    flex-direction: column;
+    // gap: 0.7rem 1rem;
+    gap: 1rem;
+    padding: 1rem 0;
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        font-size: var(--font-size-1);
+        font-weight: 400;
+        text-decoration: none;
+        color: var(--color-text-gray);
+
+        &.active {
+            color: var(--color-text-primary);
+        }
+    }
+}
+
 .header__navigation__links {
 
     display: flex;
