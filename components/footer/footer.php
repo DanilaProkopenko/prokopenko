@@ -1,62 +1,34 @@
 <?
-$header_year = get_field('header_year', 'options');
-$header_last_update = get_field('header_last-update', 'options');
 ?>
 
 <footer class="footer grid_12">
-    <?
-    // $args = array(
-    //     'menu' => 'menu_contact',
-    //     'depth'    => 0,
-    //     'container' => 'div',
-    //     'menu_class' => 'footer__links',
-    //     'fallback_cb' => false
-    // );
-
-    // wp_nav_menu($args);
-    ?>
     <div class="footer__content">
         <div class="footer__links__wrapper">
-            <ul class="footer__links">
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Дом</a>
-                </li>
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Работы</a>
-                </li>
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Обо мне</a>
-                </li>
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Резюме</a>
-                </li>
-            </ul>
-            <ul class="footer__links">
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">danilaprok20@gmail.com</a>
-                </li>
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Telegram</a>
-                </li>
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Instagram</a>
-                </li>
-                <li class="footer__link__item">
-                    <a href="" class="footer__link__item__link">Behance</a>
-                </li>
-            </ul>
+            <?
+            $args = array(
+                'menu' => 'footer_first',
+                'depth'    => 0,
+                'container' => 'div',
+                'menu_class' => 'footer__links',
+                'fallback_cb' => false
+            );
+
+            wp_nav_menu($args);
+            ?>
+            <?
+            $args = array(
+                'menu' => 'footer_second',
+                'depth'    => 0,
+                'container' => 'div',
+                'menu_class' => 'footer__links',
+                'fallback_cb' => false
+            );
+
+            wp_nav_menu($args);
+            ?>
         </div>
 
-        <!-- <div class="footer__bottom">
-        <div class="footer__bottom__year">
-            <div class="footer__bottom__year__title">
-                <?= $header_year ?>
-            </div>
-            <div class="footer__bottom__year__update">
-                Last update: <?= $header_last_update ?>
-            </div>
-        </div>
-    </div> -->
+
         <div class="footer__decor">
             <svg width="1099" height="182" viewBox="0 0 1099 182" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.859375 181.822V35.8089H25.4714V53.3692H26.9232C28.2137 50.7881 30.0343 48.0458 32.3849 45.1421C34.7355 42.1924 37.9157 39.6805 41.9255 37.6064C45.9353 35.4863 51.0513 34.4262 57.2734 34.4262C65.4774 34.4262 72.8749 36.5233 79.4657 40.7175C86.1027 44.8656 91.3569 51.0186 95.2285 59.1765C99.1461 67.2883 101.105 77.2438 101.105 89.0428C101.105 100.704 99.1922 110.613 95.3668 118.771C91.5413 126.929 86.3331 133.151 79.7423 137.437C73.1514 141.724 65.6848 143.867 57.3426 143.867C51.2587 143.867 46.2119 142.853 42.202 140.825C38.1922 138.797 34.9659 136.354 32.5231 133.497C30.1265 130.593 28.2598 127.85 26.9232 125.269H25.8862V181.822H0.859375ZM25.4023 88.9045C25.4023 95.7719 26.3701 101.787 28.3059 106.949C30.2878 112.111 33.1223 116.144 36.8095 119.047C40.5428 121.905 45.0596 123.334 50.3599 123.334C55.8907 123.334 60.5228 121.859 64.2561 118.909C67.9893 115.913 70.8008 111.834 72.6905 106.672C74.6263 101.464 75.5942 95.5415 75.5942 88.9045C75.5942 82.3137 74.6493 76.4602 72.7597 71.3442C70.87 66.2283 68.0585 62.2184 64.3252 59.3148C60.5919 56.4111 55.9368 54.9593 50.3599 54.9593C45.0135 54.9593 40.4737 56.365 36.7404 59.1765C33.0071 61.988 30.1726 65.9287 28.2368 70.9986C26.3471 76.0685 25.4023 82.0371 25.4023 88.9045Z" fill="white" />

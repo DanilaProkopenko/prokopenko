@@ -1,11 +1,31 @@
 {
     "key": "group_667dd01a10b1b",
-    "title": "Welcome screen",
+    "title": "Welcome Block",
     "fields": [
         {
             "key": "field_667dd01ad3e3a",
-            "label": "welcome-screen_text",
-            "name": "welcome-screen_text",
+            "label": "welcome-block_text",
+            "name": "welcome-block_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_66803839a1e1c",
+            "label": "welcome-block_caption",
+            "name": "welcome-block_caption",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -41,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719521346
+    "modified": 1719679125
 }

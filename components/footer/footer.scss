@@ -87,7 +87,6 @@
     gap: 1rem;
     grid-row: 1/2;
     width: fit-content;
-    ;
 
     li {
         list-style: none;
@@ -100,6 +99,10 @@
     &:nth-child(2) {
         align-items: flex-end;
     }
+}
+
+#menu-footer_second {
+    align-items: flex-end;
 }
 
 .footer__decor {
@@ -132,7 +135,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .footer{
+    .footer {
         padding-top: 0;
     }
 

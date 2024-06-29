@@ -100,10 +100,13 @@
 @media screen and (max-width:767px) {
     .contacts-block__top {
         grid-column: 1/13;
+        grid-row: 1/2;
     }
-
+    
     .contacts-block__links {
         grid-column: 1/13;
+        grid-row: 2/3;
+        margin-top: 3rem;
     }
 
     .contacts-block__image {

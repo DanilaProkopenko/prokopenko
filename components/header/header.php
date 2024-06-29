@@ -45,26 +45,5 @@ $header_last_update = get_field('header_last-update', 'options');
             ?>
 
         </div>
-        <!-- <div class="header__bottom">
-            <?
-            $args = array(
-                'menu' => 'contact',
-                'depth'    => 0,
-                'container' => 'div',
-                'menu_class' => 'header__bottom__links',
-                'fallback_cb' => false
-            );
-
-            wp_nav_menu($args);
-            ?>
-            <div class="header__bottom__year">
-                <div class="header__bottom__year__title">
-                    <?= $header_year ?>
-                </div>
-                <div class="header__bottom__year__update">
-                    Last update: <?= $header_last_update ?>
-                </div>
-            </div>
-        </div> -->
     </div>
 </header>
