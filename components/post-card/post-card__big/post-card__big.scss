@@ -207,8 +207,6 @@
 }
 
 .post-card__big__gallery {
-    padding: 0 0 0 var(--padding);
-    padding: 0 var(--padding);
     padding: 0 var(--padding) 0 0;
 
     position: relative;
@@ -218,7 +216,7 @@
     z-index: 5;
 
     .f-carousel {
-        border-radius: 1rem;
+        // border-radius: 1rem;
         overflow: hidden;
     }
 

@@ -252,6 +252,10 @@
         grid-column: 1/5;
 
     }
+
+    .header__navigation {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -278,8 +282,5 @@
         padding-top: 3rem;
     }
 
-    .header__navigation {
-        display: none;
-    }
 
 }

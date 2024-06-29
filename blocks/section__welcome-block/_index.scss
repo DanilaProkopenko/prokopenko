@@ -17,8 +17,6 @@
 }
 
 .welcome-block__text {
-    padding-right: 3rem;
-
     * {
         font-size: var(--font-size-5);
         line-height: 110%;
@@ -64,20 +62,14 @@
     }
 
     .welcome-block__text {
-        padding-right: 1.5rem;
-
         * {
             font-size: var(--font-size-3);
-            line-height: 110%;
-            font-weight: var(--font-weight-regular);
-            font-weight: 400;
         }
     }
 
     .welcome-block__caption,
     .welcome-block__caption * {
         font-size: var(--font-size-1);
-        padding-right: 1.5rem;
     }
 
 }

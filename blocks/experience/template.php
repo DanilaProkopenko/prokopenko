@@ -30,7 +30,6 @@ $args = wp_parse_args($args, $defaults);
 ] = $args;
 
 $experience_block_description = get_field('experience-block_description');
-$experience_item_repeater = get_field('experience-item_repeater');
 
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
@@ -51,14 +50,18 @@ $block_id_name = get_field('block_id_name');
                 $item_description = get_sub_field('experience-item_description');
             ?>
                 <div class="experience-item">
-                    <img src="<?= esc_url($item_img['sizes']['medium']) ?>" alt="" class="experience-item__img">
+                    <div class="experience-item__top">
+                        <img src="<?= esc_url($item_img['sizes']['medium']) ?>" alt="" class="experience-item__img">
+                        <div class="experience-item__top__title">
+                            <div class="experience-item__company">
+                                <?= $item_company ?>
+                            </div>
+                            <div class="experience-item__position">
+                                <?= $item_position ?>
+                            </div>
+                        </div>
+                    </div>
                     <div class="experience-item__content">
-                        <div class="experience-item__company">
-                            <?= $item_company ?>
-                        </div>
-                        <div class="experience-item__position">
-                            <?= $item_position ?>
-                        </div>
                         <div class="experience-item__year">
                             <?= $item_year ?>
                         </div>
