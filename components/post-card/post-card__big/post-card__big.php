@@ -97,7 +97,7 @@ if ($args) {
                 </div>
             <? endif; ?>
         </div>
-        <? if ($post_card_link) : ?>
+        <!-- <? if ($post_card_link) : ?>
             <div class="post-card__big__content__bottom">
                 <?
                 $link = $post_card_link;
@@ -110,6 +110,6 @@ if ($args) {
                     <i class="link-button__border"></i>
                 </a>
             </div>
-        <? endif; ?>
+        <? endif; ?> -->
     </div>
 </div>

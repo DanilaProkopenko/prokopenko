@@ -31,6 +31,7 @@ $args = wp_parse_args($args, $defaults);
 
 $welcome_block_text = get_field('welcome-block_text');
 $welcome_block_caption = get_field('welcome-block_caption');
+$welcome_block_image = get_field('welcome-block_image');
 
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
@@ -45,4 +46,9 @@ $block_id_name = get_field('block_id_name');
             <?= $welcome_block_caption ?>
         </div>
     </div>
+    <? if ($welcome_block_image) : ?>
+        <div class="welcome-block__image">
+            <img src="<?= ($welcome_block_image['sizes']['large']); ?>" alt="" class="welcome-block__image__source">
+        </div>
+    <?php endif; ?>
 </section>

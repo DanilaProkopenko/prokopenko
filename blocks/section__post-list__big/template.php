@@ -40,9 +40,9 @@ $block_id_name = get_field('block_id_name');
 ?>
 <section class="section__post-list__big__wrapper grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <div class="section__post-list__big__heading">
-        <h2 class="section__post-list__big__title">
+        <h3 class="section__post-list__big__title">
             Избранные работы
-        </h2>
+        </h3>
     </div>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>

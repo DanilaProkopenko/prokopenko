@@ -30,7 +30,7 @@ $header_last_update = get_field('header_last-update', 'options');
             wp_nav_menu($args);
             ?>
         </div>
-        <!-- <nav class="header__page-nav"></nav> -->
+        <nav class="header__page-nav"></nav>
         <div class="header__navigation">
             <?
             $args = array(
@@ -41,9 +41,14 @@ $header_last_update = get_field('header_last-update', 'options');
                 'fallback_cb' => false
             );
 
-            wp_nav_menu($args);
+            // wp_nav_menu($args);
             ?>
-
+            <nav class="menu-main-container">
+                <ul id="menu-main" class="header__navigation__links">
+                    <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">CV</a></li>
+                    <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">Telegram</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 </header>
