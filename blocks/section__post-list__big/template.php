@@ -38,13 +38,21 @@ $posts_tag = $post_list_filter_taxonomy_tag->term_id;
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
-<section class="section__post-list__big__wrapper grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <div class="section__post-list__big__heading">
-        <h3 class="section__post-list__big__title">
+<section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <div class="section__post-list__big__heading section__heading main-padding">
+        <div class="section__title">
             Избранные работы
-        </h3>
+        </div>
+        <div class="section__caption">
+            Собрал работы, над которыми работал в последнее время
+        </div>
     </div>
-    <div class="section__post-list__big">
+    <div class="section__post-list__big main-padding cards">
         <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>
     </div>
+
 </section>
+
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script>

@@ -57,6 +57,7 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
             'gallery' => get_field('post_card_gallery', $id),
             'posts_count' => $posts_count,
             'post_card_link' => $post_card_link,
+            'counter' => $counter,
         ));
 
         $counter++;

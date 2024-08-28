@@ -1,10 +1,9 @@
 .section__post-list__big__wrapper {
-    // display: flex;
-    flex-direction: column;
     position: relative;
     z-index: 1;
     // border-top: 1px solid var(--color-gray-dark);
-    margin-top: 5rem;
+    margin-top: 10rem;
+    gap: 0;
 
     .post-card__big {
         &:not(:first-child) {
@@ -15,7 +14,6 @@
             // border-top: 0;
         }
     }
-
 }
 
 .section__post-list__big {
@@ -23,25 +21,71 @@
     flex-direction: column;
     gap: 7rem;
 
-    grid-column: 4/13;
+    grid-column: 3/13;
     grid-row: 2/3;
+    padding: 0 calc(2.5 * var(--padding));
+
+}
+
+.cards {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin-bottom: 90px;
+}
+
+.custom-card {
+    position: absolute;
+    width: calc(100% - calc(2 * 2.5 * var(--padding)));
+    top: 0px;
+    // height: 70vh;
+    height: auto;
+    margin-bottom: 50px;
+    // background-color: #213F29;
+    // color: #FAEBBB;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // border-radius: 50px;
+    // box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+    // aspect-ratio: 18.2/9;
+}
+
+.card1 {}
+
+.card2 {
+    top: 40px;
+}
+
+.card3 {
+    top: 80px;
+}
+
+.opacity {
+    -moz-transition: 0.4s ease;
+    -ms-transition: 0.4s ease;
+    -o-transition: 0.4s ease;
+    transition: 0.4s ease;
+    -webkit-transition: 0.4s ease;
+    opacity: 0.6;
+}
+
+.scale {
+    moz-transition: 0.4s ease;
+    -ms-transition: 0.4s ease;
+    -o-transition: 0.4s ease;
+    transition: 0.4s ease;
+    -webkit-transition: 0.4s ease;
+    width: 95%;
 }
 
 .section__post-list__big__heading {
-    padding: var(--padding);
-    padding: 2.5rem var(--padding);
-    padding: 0;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    z-index: 10;
-    grid-column: 3/12;
-    grid-row: 1/2;
+    width: 100%;
 }
-.section__post-list__big__title{
 
-}
+.section__post-list__big__title {}
 
 @media screen and (max-width: 1600px) {
     .section__post-list__big {
@@ -74,11 +118,12 @@
 }
 
 @media screen and (max-width: 767px) {
-.section__post-list__big__wrapper {
-    padding: 0;
-    margin-top: 3rem;
+    .section__post-list__big__wrapper {
+        padding: 0;
+        margin-top: 3rem;
 
-}
+    }
+
     .section__post-list__big {
         grid-column: 1/13;
         gap: 4rem;

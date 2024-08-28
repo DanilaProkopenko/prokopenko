@@ -3,7 +3,6 @@ import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
 import "@fancyapps/ui/dist/carousel/carousel.css";
 
 const initBlockTemplate = () => {
-    console.log('archive')
     const archiveList = Array.from(document.getElementsByClassName('posts-list__archive'));
     if (archiveList) {
         archiveList.forEach((item) => {

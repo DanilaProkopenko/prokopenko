@@ -29,18 +29,17 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
+
+$block_id = get_field('block_id');
+$block_id_name = get_field('block_id_name');
 ?>
 
-<section class="posts-list__archive__wrapper">
-    <div class="posts-list__archive__heading grid_12">
-        <h3 class="posts-list__archive__title">
-            Архив
-        </h3>
-        <div class="posts-list__archive__caption">
-            (Не кликается. Пока в разработке)
-        </div>
-    </div>
+<section class="posts-list__archive__wrapper grid_12" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <h3 class="posts-list__archive__heading section__heading">
+        Архив
+    </h3>
     <div class="posts-list__archive f-carousel">
+        <?= getPostsArchive(-1); ?>
         <?= getPostsArchive(-1); ?>
     </div>
 </section>

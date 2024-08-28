@@ -1,9 +1,19 @@
 .posts-list__archive__wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--grid-gap);
     padding: 10rem 0;
-    opacity: .3;
+    // mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 15%) add;
+    position: relative;
+    gap: 0;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        content: '';
+        width: 15%;
+        height: 100%;
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, #000000e3 100%);
+        z-index: 5;
+    }
 }
 
 .posts-list__archive__heading {
@@ -11,18 +21,32 @@
     align-items: center;
 }
 
-.posts-list__archive__caption {
-    grid-column: 6/12;
-}
-
-.posts-list__archive__title {
-    grid-column: 1/3;
-}
 
 .posts-list__archive {
-    filter: blur(4px);
+    position: relative;
+    grid-column: 3/13;
+    grid-row: 2/3;
+
     --f-carousel-slide-width: 39.7% !important;
     --f-carousel-spacing: 1rem !important;
+    display: grid;
+    // mask: linear-gradient(270deg, rgba(0, 0, 0, 0) 10.41138795045045%, rgba(0, 0, 0, 1) 15%) add;
+    // overflow: visible;
+    &::after {
+        position: absolute;
+        top: 0;
+        right: -10px;
+        content: '';
+        width: 15%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000000e3 100%);
+        z-index: 5;
+    }
+
+
+    .f-carousel__viewport {
+        overflow: visible;
+    }
 
     .f-carousel__slide {
         &:first-child {
@@ -36,10 +60,10 @@
     }
 
     .post-card {
-        pointer-events: none;
+        // pointer-events: none;
 
         a {
-            pointer-events: none
+            // pointer-events: none
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 if ($args) {
     $title = $args['title'];
     $link = $args['link'];
@@ -14,9 +15,10 @@ if ($args) {
     $gallery = $args['gallery'];
     $posts_count = $args['posts_count'];
     $post_card_link = $args['post_card_link'];
+    $counter = $args['counter'] + 1;
 }
 ?>
-<div class="post-card__big">
+<div class="post-card__big custom-card card<?= $counter ?>" style="z-index: <?= $counter+1 ?>">
     <!-- <h3 class="post-card__big__heading _mobile">
         <?= $title ?>
     </h3> -->
@@ -100,10 +102,10 @@ if ($args) {
         <!-- <? if ($post_card_link) : ?>
             <div class="post-card__big__content__bottom">
                 <?
-                $link = $post_card_link;
-                $link_url = $link['url'];
-                $link_title = $link['title'];
-                $link_target = $link['target'] ? $link['target'] : '_self';
+                    $link = $post_card_link;
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
                 <a class="link-button _big" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
                     <?php echo esc_html($link_title); ?>

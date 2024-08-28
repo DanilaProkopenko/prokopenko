@@ -30,7 +30,8 @@ $header_last_update = get_field('header_last-update', 'options');
             wp_nav_menu($args);
             ?>
         </div>
-        <nav class="header__page-nav"></nav>
+        <!-- <nav class="header__page-nav">
+        </nav> -->
         <div class="header__navigation">
             <?
             $args = array(
