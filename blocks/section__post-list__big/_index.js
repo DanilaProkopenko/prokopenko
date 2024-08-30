@@ -75,12 +75,12 @@ const initBlockTemplate = () => {
             opacity: 0.7
         }, "-=0.3")
 
-        // tl.to('.card3', {
-        //     yPercent: 0,
-        //     opacity: 1
-        // })
+        tl.to('.card3', {
+            yPercent: 0,
+            opacity: 1
+        })
 
-        // tl.to('.card3', {});
+        tl.to('.card3', {});
     }
 
     function postListGallery() {

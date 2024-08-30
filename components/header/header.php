@@ -7,7 +7,7 @@ $header_last_update = get_field('header_last-update', 'options');
 
 <header class="header__wrapper">
     <div class="header">
-        <div class="header__top">
+        <div class="header__top main-padding">
             <a href="/" class="header__top__logo">
                 <h1>
                     prokopenko

@@ -1,13 +1,10 @@
 .experience-block {
-    padding-top: var(--padding);
-    padding-bottom: var(--padding);
-    // border-top: 1px solid (var(--color-gray-dark));
 }
 
 .experience-block__description {
     width: calc(2 * (100% / 3));
     width: 100%;
-
+    margin-bottom: 4rem;
     *,
     p {
         font-size: var(--font-size-3);

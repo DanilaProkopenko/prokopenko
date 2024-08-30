@@ -1,7 +1,7 @@
 <?
 ?>
 
-<footer class="footer grid_12">
+<footer class="footer main-padding">
     <div class="footer__content">
         <div class="footer__links__wrapper">
             <?

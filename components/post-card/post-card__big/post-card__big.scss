@@ -223,7 +223,7 @@
 
 .post-card__big__gallery {
     // padding: 0 var(--padding) 0 0;
-    padding: 0;
+    padding: 5px 0 5px 5px;
 
     position: relative;
     width: 100%;
@@ -352,19 +352,10 @@
     }
 
     .post-card__big__gallery {
-        // aspect-ratio: 1 / 1;
-        // height: auto;
-        padding: 0;
-
-        .f-carousel {
-            // height: 100%;
-
-        }
-
+        padding: 5px;
         .f-carousel__dots {
             margin: .1rem auto !important;
         }
-
     }
 
     .post-card__big__gallery__background {

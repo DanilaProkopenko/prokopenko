@@ -81,12 +81,7 @@ body.page {
     overflow-x: hidden;
 }
 
-.main-padding {
-    padding-top: 0;
-    padding-right: var(--padding);
-    padding-bottom: 0;
-    padding-left: var(--padding);
-}
+
 
 a {
     color: var(--color-text-primary);
@@ -156,7 +151,8 @@ div {
 
 
 .main-padding {
-    padding: 0 calc(2.5 * var(--padding));
+    padding-left: calc(2.5 * var(--padding));
+    padding-right: calc(2.5 * var(--padding));
 }
 
 .grid_12 {

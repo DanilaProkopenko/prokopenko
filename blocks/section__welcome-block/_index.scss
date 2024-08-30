@@ -14,7 +14,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: .2rem;
+    gap: 1rem;
     justify-content: flex-end;
     align-items: start;
     height: 100%;
@@ -60,9 +60,7 @@
 @media screen and (max-width: 1220px) {}
 
 @media screen and (max-width: 1024px) {
-    .section__welcome-block__content{
-        gap: 1rem
-    }
+ 
     .welcome-block__text {
         * {
             // font-size: var(--font-size-3);
