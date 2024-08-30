@@ -8,15 +8,16 @@
     overflow: hidden;
 
     background-color: var(--color-primary);
+    background-color: #0a0a0a;
 
 
     // border-top: 1px solid var(--color-gray-dark);
     border: 1px solid #212121;
-    border-radius: 1rem;
+    border-radius: calc(1rem + 5px);
     overflow: visible;
     overflow: hidden;
 
-    // padding: 1rem;
+    padding: 5px;
 }
 
 
@@ -130,6 +131,7 @@
     border: 3px solid rgb(47, 47, 47);
     border: 3px solid #1A1A1A;
     border: 3px solid var(--color-primary);
+    border: 3px solid 0a0a0a;
     border-radius: 152px;
     padding: 3px;
     width: 28px;
@@ -309,7 +311,8 @@
 
 // @media screen and (max-width: 767px) {
 
-@media screen and (max-width: 1220px) {
+// @media screen and (max-width: 1220px) {
+@media screen and (max-width: 1024px) {
     .post-card__big {
         display: flex;
         flex-direction: column;
@@ -320,13 +323,19 @@
         gap: 0;
         // padding: 0 var(--padding);
 
+        position: static;
+        width: calc(320 / 375 * 100vw) !important;
+        height: auto;
+
         .f-carousel__dots {
             left: 0 !important;
             right: 0 !important;
             bottom: .5rem !important;
         }
     }
-
+    .post-card__big__content__wrapper{
+        padding: 1.5rem ;
+    }
     .post-card__big__gallery__img__source {
         // aspect-ratio: 1/1;
 
@@ -335,13 +344,6 @@
             // width: 100%;
             // height: auto;
         }
-    }
-
-    .post-card__big__content__wrapper {
-        // padding: 20px;
-        // margin: 0 1rem;
-        padding: var(--padding) 0;
-        gap: 2rem;
     }
 
 
@@ -371,32 +373,9 @@
 }
 
 @media screen and (max-width: 767px) {
-    .post-card__big {
-        padding: 0;
-
-    }
-
-
-    .post-card__big__content__wrapper {
-        padding: var(--padding);
-        gap: 1.5rem;
-    }
-
-    .post-card__big__gallery {
-        .f-carousel {
-            border-radius: 0;
-        }
-    }
+   
 }
 
 @media screen and (max-width: 600px) {
-    .post-card__big__gallery__background {
-        overflow-x: hidden;
-    }
-
-    .post-card__big__gallery {
-        .f-carousel {
-            height: auto;
-        }
-    }
+   
 }

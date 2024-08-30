@@ -18,7 +18,7 @@ if ($args) {
     $counter = $args['counter'] + 1;
 }
 ?>
-<div class="post-card__big custom-card card<?= $counter ?>" style="z-index: <?= $counter+1 ?>">
+<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter+1 ?>">
     <!-- <h3 class="post-card__big__heading _mobile">
         <?= $title ?>
     </h3> -->
@@ -99,7 +99,7 @@ if ($args) {
                 </div>
             <? endif; ?>
         </div>
-        <!-- <? if ($post_card_link) : ?>
+        <? if ($post_card_link) : ?>
             <div class="post-card__big__content__bottom">
                 <?
                     $link = $post_card_link;
@@ -112,6 +112,6 @@ if ($args) {
                     <i class="link-button__border"></i>
                 </a>
             </div>
-        <? endif; ?> -->
+        <? endif; ?>
     </div>
 </div>

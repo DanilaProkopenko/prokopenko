@@ -47,7 +47,9 @@ $block_id_name = get_field('block_id_name');
             Собрал работы, над которыми работал в последнее время
         </div>
     </div>
-    <div class="section__post-list__big main-padding cards">
+    <!-- <div class="section__post-list__big main-padding cards"> -->
+    <div class="section__post-list__big main-padding">
+        <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>
         <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>
     </div>
 

@@ -152,9 +152,13 @@ div {
         }
     }
 }
-.main-padding{
+
+
+
+.main-padding {
     padding: 0 calc(2.5 * var(--padding));
 }
+
 .grid_12 {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -301,7 +305,8 @@ body {
 
 section,
 footer {
-    margin-top: 10rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
 
@@ -440,6 +445,7 @@ footer {
 
     &._big {
         padding: 1.1rem 0.62rem;
+        border-radius: .3rem;
     }
 
     &:hover {
@@ -459,21 +465,6 @@ footer {
 }
 
 .section__heading {
-    grid-column: 3/13;
-    grid-row: 1/2;
-    // position: sticky;
-    // top: 90px;
-
-    // border-bottom: 1px solid #212121;
-    font-size: var(--font-size--1);
-    font-weight: 400;
-    text-decoration: none;
-    color: var(--color-text-gray);
-    margin-bottom: 10px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     font-size: var(--font-size-3);
     line-height: 110%;
     font-weight: var(--font-weight-regular);
@@ -502,6 +493,8 @@ footer {
     font-weight: var(--font-weight-regular);
     font-weight: 500;
     color: var(--color-text-gray);
+
+    margin-top: .7rem;
 }
 
 @media screen and (max-width: 1600px) {
@@ -519,16 +512,27 @@ footer {
 
 }
 
+@media screen and (max-width: 1024px) {
+    .main-padding {
+        padding-left: var(--padding);
+        padding-right: var(--padding);
+    }
+
+    section, footer {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    .section__heading{
+        margin-bottom: 3rem;
+    }
+}
+
 @media screen and (max-width: 767px) {
     body.page {
         display: flex;
         flex-direction: column;
     }
 
-    section,
-    footer {
-        margin-top: 7rem;
-    }
 
     #main {
         margin-top: 54px;
@@ -544,4 +548,6 @@ footer {
         display: none;
         visibility: hidden;
     }
+}
+@media screen and (max-width: 480px) {
 }
