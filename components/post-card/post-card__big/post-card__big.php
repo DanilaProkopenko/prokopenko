@@ -37,14 +37,36 @@ if ($args) {
             </a>
             <?php
             if ($gallery) :
-                foreach ($gallery as $image) : ?>
-                    <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['medium']) ?>" data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>" data-fancybox="<?= $id ?>" class=" f-carousel__slide">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
-                            <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
-                            <img class="post-card__big__gallery__img__source" data-lazy-src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
-                        </picture>
-                    </a>
+                foreach ($gallery as $image) :
+                    $data_type = pathinfo($image['url'], PATHINFO_EXTENSION);
+                    if ($data_type == 'mp4') : ?>
+                        <div
+                            data-img-src="<?= esc_url($image['url']) ?>"
+                            data-thumb-src="<?= esc_url($image['sizes']['thumbnail']) ?>"
+                            data-fancybox="<?= $id ?>"
+                            class="<?= $data_type ?> lazy_container f-carousel__slide">
+                            <video
+                                preload="auto"
+                                no-controls
+                                autoplay
+                                loop
+                                playsinline
+                                muted
+                                class="slide__video-video__source post-card__big__gallery__img__source">
+                                <source
+                                    src="<?php echo $image['url']; ?>"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                    <? else: ?>
+                        <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['medium']) ?>" data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>" data-fancybox="<?= $id ?>" class="<?= $data_type ?> f-carousel__slide">
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
+                                <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
+                                <img class="post-card__big__gallery__img__source" data-lazy-src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
+                            </picture>
+                        </a>
+                    <? endif ?>
             <?php endforeach;
             endif;
             ?>
@@ -53,12 +75,12 @@ if ($args) {
     <div class="post-card__big__content__wrapper">
         <div class="post-card__big__content">
             <div class="post-card__big__title">
-            <h3 class="post-card__big__heading">
-                <?= $title ?>
-            </h3>
-            <div class="post-card__big__short-description">
-                <?= $short_description ?>
-            </div>
+                <h3 class="post-card__big__heading">
+                    <?= $title ?>
+                </h3>
+                <div class="post-card__big__short-description">
+                    <?= $short_description ?>
+                </div>
             </div>
             <?
             $post_meta_repeater = get_field('post_meta-repeater', $id);

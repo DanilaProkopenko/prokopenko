@@ -38,7 +38,7 @@
     // background-color: var(--color-primary);
     width: 100%;
     z-index: 90;
-    background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, #0000009e 160%);
+    // background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, #0000009e 160%);
 
 }
 
@@ -55,7 +55,7 @@
 
 .header__burger__menu {
     position: fixed;
-    transform: translateY(-100%);
+    transform: translateY(-120%);
     width: 100%;
     // height: 70vh;
     height: fit-content;

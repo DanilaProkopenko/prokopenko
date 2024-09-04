@@ -57,7 +57,7 @@ const initBlockTemplate = () => {
         tl.to('.card1', {
             scale: 0.95,
             yPercent: -0.5,
-            opacity: 0.7
+            // opacity: 0.7
         }, "-=0.3")
 
         tl.to('.card2', {
@@ -66,14 +66,15 @@ const initBlockTemplate = () => {
         })
 
         tl.from('.card3', {
-            yPercent: 75,
+            // yPercent: 75,
+            yPercent: 100,
             opacity: 0,
         })
 
         tl.to('.card2', {
             scale: 0.98,
             yPercent: -0.4,
-            opacity: 0.7
+            // opacity: 0.7
         }, "-=0.3")
 
         tl.to('.card3', {
