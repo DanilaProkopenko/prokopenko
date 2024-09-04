@@ -1,10 +1,14 @@
-// import { Thumbs } from "@fancyapps/ui/dist/carousel/carousel.thumbs.esm.js";
 import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.esm.js';
-// import { Autoplay } from "@fancyapps/ui/dist/carousel/carousel.autoplay.esm.js";
-import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
-import "@fancyapps/ui/dist/carousel/carousel.css";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
+// import { Autoplay } from "@fancyapps/ui/dist/carousel/carousel.autoplay.esm.js";
+
+import { Carousel } from '@fancyapps/ui/dist/carousel/carousel.esm.js';
+import '@fancyapps/ui/dist/carousel/carousel.css';
+
+import { Thumbs } from '@fancyapps/ui/dist/carousel/carousel.thumbs.esm.js';
+import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
+
 
 (function gallery() {
 
@@ -15,9 +19,27 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
         const postCardGalleryOptions = {
             infinite: true,
             transition: 'crossfade',
-            Dots: true,
+            Dots: false,
             Navigation: true,
             center: true,
+            Thumbs: {
+                // type: "modern",
+                type: 'classic',
+                Carousel: {
+                    slidesPerPage: 'auto',
+                    
+                    Navigation: false,
+                    center: false,
+                    fill: false,
+                    dragFree: false,
+                    axis: 'x',
+                    // breakpoints: {
+                    //     '(min-width: 768px)': {
+                    //         axis: 'y',
+                    //     },
+                    // },
+                },
+            },
             breakpoints: {
                 "(max-width: 1220px)": {
                     Navigation: false
@@ -38,7 +60,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
                 },
             },
         };
-        let mainCarousel = new Carousel(postCardGallery, postCardGalleryOptions);
+        let mainCarousel = new Carousel(postCardGallery, postCardGalleryOptions, { Thumbs });
 
         let itemDataGallery = postCardGallery.getAttribute('data-gallery');
         Fancybox.bind('[data-fancybox="' + itemDataGallery + '"]', {

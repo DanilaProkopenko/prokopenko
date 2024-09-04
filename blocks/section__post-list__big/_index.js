@@ -7,29 +7,30 @@ const initBlockTemplate = () => {
 
     //Проверка ширины окна
     // 767
-    if (window.innerWidth > 1024) {
-        postListAnimation();
-    } else {
-        postListGallery();
-    }
+    // if (window.innerWidth > 1024) {
+    //     postListAnimation();
+    // } else {
+    //     postListGallery();
+    // }
 
-    window.addEventListener("resize", (event) => {
-        if (window.innerWidth > 1024) {
-            postListAnimation();
-        } else {
-            postListGallery();
-        }
-    })
-
+    // window.addEventListener("resize", (event) => {
+    //     if (window.innerWidth > 1024) {
+    //         postListAnimation();
+    //     } else {
+    //         postListGallery();
+    //     }
+    // })
+    postListAnimation();
     function postListAnimation() {
         const postList = document.getElementsByClassName('section__post-list__big')[0];
-        if (window.innerWidth > 1024) {
-            postList.classList.add('section__post-list__big__animation')
-            postList.classList.remove('f-carousel')
-        } else {
-            postList.classList.remove('section__post-list__big__animation')
-            postList.classList.add('f-carousel')
-        }
+        postList.classList.add('section__post-list__big__animation')
+        // if (window.innerWidth > 1024) {
+        //     postList.classList.add('section__post-list__big__animation')
+        //     postList.classList.remove('f-carousel')
+        // } else {
+        //     postList.classList.remove('section__post-list__big__animation')
+        //     postList.classList.add('f-carousel')
+        // }
 
         let tl = gsap.timeline({
             scrollTrigger: {

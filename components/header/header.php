@@ -32,7 +32,7 @@ $header_last_update = get_field('header_last-update', 'options');
         </div>
         <!-- <nav class="header__page-nav">
         </nav> -->
-        <div class="header__navigation">
+        <!-- <div class="header__navigation">
             <?
             $args = array(
                 'menu' => 'main',
@@ -50,6 +50,6 @@ $header_last_update = get_field('header_last-update', 'options');
                     <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">Telegram</a></li>
                 </ul>
             </nav>
-        </div>
+        </div> -->
     </div>
 </header>

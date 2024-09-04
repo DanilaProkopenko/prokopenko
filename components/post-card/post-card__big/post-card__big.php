@@ -18,7 +18,7 @@ if ($args) {
     $counter = $args['counter'] + 1;
 }
 ?>
-<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter+1 ?>">
+<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter + 1 ?>">
     <!-- <h3 class="post-card__big__heading _mobile">
         <?= $title ?>
     </h3> -->
@@ -28,7 +28,7 @@ if ($args) {
         </div>
 
         <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="2">
-            <a href="<?= esc_url($img_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_medium); ?>" class="f-carousel__slide">
+            <a href="<?= esc_url($img_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_medium); ?>" data-thumb-src="<?= esc_url($img_medium); ?>" class="f-carousel__slide">
                 <picture>
                     <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
                     <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
@@ -38,7 +38,7 @@ if ($args) {
             <?php
             if ($gallery) :
                 foreach ($gallery as $image) : ?>
-                    <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['medium']) ?>" data-fancybox="<?= $id ?>" class=" f-carousel__slide">
+                    <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['medium']) ?>" data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>" data-fancybox="<?= $id ?>" class=" f-carousel__slide">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
                             <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
@@ -53,12 +53,12 @@ if ($args) {
     <div class="post-card__big__content__wrapper">
         <div class="post-card__big__content">
             <div class="post-card__big__title">
-                <h3 class="post-card__big__heading">
-                    <?= $title ?>
-                </h3>
-                <div class="post-card__big__short-description">
-                    <?= $short_description ?>
-                </div>
+            <h3 class="post-card__big__heading">
+                <?= $title ?>
+            </h3>
+            <div class="post-card__big__short-description">
+                <?= $short_description ?>
+            </div>
             </div>
             <?
             $post_meta_repeater = get_field('post_meta-repeater', $id);
@@ -99,7 +99,7 @@ if ($args) {
                 </div>
             <? endif; ?>
         </div>
-        <? if ($post_card_link) : ?>
+        <!-- <? if ($post_card_link) : ?>
             <div class="post-card__big__content__bottom">
                 <?
                     $link = $post_card_link;
@@ -112,6 +112,6 @@ if ($args) {
                     <i class="link-button__border"></i>
                 </a>
             </div>
-        <? endif; ?>
+        <? endif; ?> -->
     </div>
 </div>

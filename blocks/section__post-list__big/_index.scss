@@ -40,6 +40,9 @@
         width: calc(100% - calc(2 * 2.5 * var(--padding)));
         top: 0px;
         height: auto;
+        height: 70vh;
+        height: calc(100vh - 10rem);
+
         margin-bottom: 50px;
     }
 
@@ -108,12 +111,11 @@
 
         .post-card__big {
             &:first-child {
-                margin-left: var(--padding);
+                // margin-left: var(--padding);
             }
 
             &:last-child {
-                margin-right: var(--padding);
-
+                // margin-right: var(--padding);
             }
         }
     }
