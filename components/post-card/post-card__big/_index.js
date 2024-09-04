@@ -27,7 +27,7 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
                 type: 'classic',
                 Carousel: {
                     slidesPerPage: 'auto',
-                    
+
                     Navigation: false,
                     center: false,
                     fill: false,
