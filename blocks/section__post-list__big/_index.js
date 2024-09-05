@@ -39,8 +39,8 @@ const initBlockTemplate = () => {
                 pin: true,
                 pinSpacing: true,
                 markers: false,
-                start: "top-=70rem top", // when the top of the trigger hits the top of the viewport
-                end: "+=2000", // end after scrolling 1000px beyond the start
+                start: "top-=90rem top", // when the top of the trigger hits the top of the viewport
+                end: "+=2500", // end after scrolling 1000px beyond the start
                 scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
             }
         });
@@ -50,14 +50,14 @@ const initBlockTemplate = () => {
         })
 
         tl.from('.card2', {
-            yPercent: 75,
+            yPercent: 100,
             opacity: 0,
         })
         // set the active section based on the direction, and position it part-way through the transition because that's more intuitive
         tl.to('.card1', {
             scale: 0.95,
-            yPercent: -0.5,
-            // opacity: 0.7
+            yPercent: -8,
+            opacity: 0.7
         }, "-=0.3")
 
         tl.to('.card2', {
@@ -66,15 +66,21 @@ const initBlockTemplate = () => {
         })
 
         tl.from('.card3', {
-            // yPercent: 75,
             yPercent: 100,
             opacity: 0,
         })
 
         tl.to('.card2', {
-            scale: 0.98,
-            yPercent: -0.4,
-            // opacity: 0.7
+            scale: 0.95,
+            yPercent: -8,
+            opacity: 0.7
+        }, "-=0.3")
+
+        tl.to('.card1', {
+            scale: 0.7,
+            // yPercent: -0.5,
+            yPercent: -10,
+            opacity: 0
         }, "-=0.3")
 
         tl.to('.card3', {
@@ -82,6 +88,13 @@ const initBlockTemplate = () => {
             opacity: 1
         })
 
+        tl.to('.card2', {
+            scale: 0.8,
+            // yPercent: -0.5,
+            yPercent: -10,
+            opacity: 0
+        }, "-=0.3")
+        
         tl.to('.card3', {});
     }
 

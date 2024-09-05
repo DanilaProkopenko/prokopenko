@@ -35,13 +35,15 @@ $block_id_name = get_field('block_id_name');
 ?>
 
 <section class="posts-list__archive-gallery__wrapper" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <h3 class="posts-list__archive-gallery__heading section__heading main-padding">
-        Архив
-    </h3>
+    <div class="posts-list__archive__heading section__heading main-padding">
+        <div class="section__title">
+            Песочница
+        </div>
+        <div class="section__caption">
+            Личные проекты, что делаю в свободное время
+        </div>
+    </div>
     <div class="posts-list__archive-gallery main-padding">
-        <?= getPostsArchiveGallery(-1); ?>
-        <?= getPostsArchiveGallery(-1); ?>
-        <?= getPostsArchiveGallery(-1); ?>
         <?= getPostsArchiveGallery(-1); ?>
         <?= getPostsArchiveGallery(-1); ?>
     </div>

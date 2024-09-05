@@ -38,9 +38,6 @@ $block_id_name = get_field('block_id_name');
 ?>
 
 <section class="section__welcome-block" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <div class="text-container">
-        <!-- Bubbles -->
-    </div>
     <div class="section__welcome-block__content main-padding">
         <div class="welcome-block__text">
             <?= $welcome_block_text ?>
@@ -48,6 +45,10 @@ $block_id_name = get_field('block_id_name');
         <div class="welcome-block__caption">
             <?= $welcome_block_caption ?>
         </div>
+    </div>
+    <div class="section__welcome-block__link">
+        <a href="https://webisoft.com/">CV</a>
+        <a href="https://webisoft.com/">Телеграм</a>
     </div>
     <div class="gradient-bg">
         <svg xmlns="http://www.w3.org/2000/svg">

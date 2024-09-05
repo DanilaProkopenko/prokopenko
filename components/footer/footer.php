@@ -1,9 +1,8 @@
 <?
 ?>
-
 <footer class="footer main-padding">
     <div class="footer__content">
-        <div class="footer__links__wrapper">
+        <!-- <div class="footer__links__wrapper">
             <?
             $args = array(
                 'menu' => 'footer_first',
@@ -26,7 +25,7 @@
 
             wp_nav_menu($args);
             ?>
-        </div>
+        </div> -->
 
 
         <div class="footer__decor">

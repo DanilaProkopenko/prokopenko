@@ -4,9 +4,10 @@
     margin: 0;
     position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
     padding-bottom: 3rem;
+    align-items: flex-end;
 }
 
 .section__welcome-block__content {
@@ -21,7 +22,15 @@
     height: 100%;
     position: relative;
     z-index: 5;
-    padding-bottom: var(--padding);
+}
+
+.section__welcome-block__link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: var(--padding);
+    gap: .5rem;
+    z-index: 5;
 }
 
 .welcome-block__text,
@@ -79,23 +88,6 @@
 
 
 // Gradient
-// .text-container {
-//     z-index: 100;
-//     width: 100vw;
-//     height: 100vh;
-//     display: flex;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     justify-content: center;
-//     align-items: center;
-//     font-size: 96px;
-//     color: white;
-//     opacity: 0.8;
-//     user-select: none;
-//     text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
-// }
-
 :root {
     --color-bg1: rgb(108, 0, 162);
     --color-bg2: rgb(0, 17, 82);
@@ -158,11 +150,13 @@
     position: absolute;
     overflow: hidden;
     background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+    background: linear-gradient(40deg, #000, var(--color-bg2));
     top: 0;
     left: 0;
-    mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 10.41138795045045%, rgba(0, 0, 0, 1) 93.1447072072072%) add;
-~
-    svg {
+    // mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 10.41138795045045%, rgba(0, 0, 0, 1) 93.1447072072072%) add;
+    mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 1) 190%) add;
+
+    ~svg {
         display: none;
     }
 

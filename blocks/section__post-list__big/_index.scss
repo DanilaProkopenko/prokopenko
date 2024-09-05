@@ -3,6 +3,7 @@
     z-index: 1;
     // border-top: 1px solid var(--color-gray-dark);
     gap: 0;
+    padding-bottom: 10rem;
 
     .post-card__big {
         &:not(:first-child) {
@@ -40,20 +41,21 @@
         width: calc(100% - calc(2 * 2.5 * var(--padding)));
         top: 0px;
         height: auto;
-        height: 70vh;
-        height: calc(100vh - 10rem);
+        height: calc(96vh - 10rem);
 
         margin-bottom: 50px;
     }
 
-    .card1 {}
+    .card1 {
+        top: 1rem;
+    }
 
     .card2 {
-        top: 40px;
+        top: 1rem;
     }
 
     .card3 {
-        top: 80px;
+        top: 1rem;
     }
 
 
@@ -90,6 +92,26 @@
     .section__post-list__big {
         grid-column: 3/13;
     }
+}
+
+@media screen and (max-width: 1220px) {
+
+    .cards,
+    .section__post-list__big__animation {
+
+        .custom-card {
+            width: calc(100% - calc(2 * var(--padding)));
+        }
+
+        .card1 {}
+
+        .card2 {}
+
+        .card3 {}
+
+
+    }
+
 }
 
 @media screen and (max-width: 1024px) {
