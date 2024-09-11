@@ -46,10 +46,10 @@ $block_id_name = get_field('block_id_name');
             <?= $welcome_block_caption ?>
         </div>
     </div>
-    <div class="section__welcome-block__link">
+    <!-- <div class="section__welcome-block__link">
         <a href="https://webisoft.com/">CV</a>
         <a href="https://webisoft.com/">Телеграм</a>
-    </div>
+    </div> -->
     <div class="gradient-bg">
         <svg xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -69,11 +69,11 @@ $block_id_name = get_field('block_id_name');
             <div class="interactive"></div>
         </div>
     </div>
-    <!-- <? if ($welcome_block_image) : ?>
+    <!-- <? ///if ($welcome_block_image) : ?>
         <div class="welcome-block__image">
             <img src="<?= ($welcome_block_image['sizes']['large']); ?>" alt="" class="welcome-block__image__source">
         </div>
-    <?php endif; ?> -->
+    <?php //endif; ?> -->
     <!-- <div class="section__welcome-block__content main-padding">
         <div class="welcome-block__text">
             <?= $welcome_block_text ?>

@@ -169,6 +169,8 @@ div {
 .main-padding {
     padding-left: calc(2.5 * var(--padding));
     padding-right: calc(2.5 * var(--padding));
+    padding-left: var(--padding);
+    padding-right: var(--padding);
 }
 
 // Галерея
@@ -337,7 +339,7 @@ footer {
     }
 
     &._open {
-        transform: scale(.9);
+        // transform: scale(.9);
         opacity: .7;
 
         filter: blur(5px);
@@ -551,3 +553,18 @@ footer {
 }
 
 @media screen and (max-width: 480px) {}
+
+// Single page
+.single-page {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+}
+.single-page__header__img{
+    width: 100%;
+
+}
+.single-page__header__img__source{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}

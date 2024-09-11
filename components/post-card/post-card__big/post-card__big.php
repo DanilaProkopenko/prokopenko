@@ -19,22 +19,25 @@ if ($args) {
 }
 ?>
 <div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter + 1 ?>">
-    <!-- <h3 class="post-card__big__heading _mobile">
-        <?= $title ?>
-    </h3> -->
     <div class="post-card__big__gallery">
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">
         </div>
 
         <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="2">
-            <a href="<?= esc_url($img_large); ?> " data-fancybox="<?= $id ?>" data-img-src="<?= esc_url($img_medium); ?>" data-thumb-src="<?= esc_url($img_medium); ?>" class="f-carousel__slide">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
-                    <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
-                    <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
-                </picture>
-            </a>
+            <div class="f-carousel__slide _cover"
+                data-fancybox="<?= $id ?>"
+                data-img-src="<?= esc_url($img_medium); ?>"
+                data-thumb-src="<?= esc_url($img_medium); ?>">
+                <a href="<?= $link ?>"
+                    class="post-card__big__gallery__img">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
+                        <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
+                        <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
+                    </picture>
+                </a>
+            </div>
             <?php
             if ($gallery) :
                 foreach ($gallery as $image) :
@@ -59,7 +62,11 @@ if ($args) {
                             </video>
                         </div>
                     <? else: ?>
-                        <a href="<?= esc_url($image['sizes']['2048x2048']); ?>" data-img-src="<?= esc_url($image['sizes']['medium']) ?>" data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>" data-fancybox="<?= $id ?>" class="<?= $data_type ?> f-carousel__slide">
+                        <a
+                            href="<?= $link ?>"
+                            data-img-src="<?= esc_url($image['sizes']['medium']) ?>"
+                            data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>"
+                            data-fancybox="<?= $id ?>" class="<?= $data_type ?> f-carousel__slide">
                             <picture>
                                 <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
                                 <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
@@ -78,9 +85,9 @@ if ($args) {
                 <h3 class="post-card__big__heading">
                     <?= $title ?>
                 </h3>
-                <div class="post-card__big__short-description">
-                    <?= $short_description ?>
-                </div>
+            </div>
+            <div class="post-card__big__short-description">
+                <?= $short_description ?>
             </div>
             <?
             $post_meta_repeater = get_field('post_meta-repeater', $id);
@@ -121,7 +128,7 @@ if ($args) {
                 </div>
             <? endif; ?>
         </div>
-        <!-- <? if ($post_card_link) : ?>
+        <? if ($post_card_link) : ?>
             <div class="post-card__big__content__bottom">
                 <?
                     $link = $post_card_link;
@@ -134,6 +141,6 @@ if ($args) {
                     <i class="link-button__border"></i>
                 </a>
             </div>
-        <? endif; ?> -->
+        <? endif; ?>
     </div>
 </div>

@@ -136,12 +136,27 @@ class Header {
                 burgerClose();
             }
         })
-        
-        burgerMenu.addEventListener('click', function(){
+
+        burgerMenu.addEventListener('click', function () {
             burgerClose();
         })
     }
 
+    headerOut() {
+        const header = jQuery('.header__wrapper');
+        let scrollPrev = 0;
+
+        jQuery(window).scroll(function () {
+            var scrolled = jQuery(window).scrollTop();
+
+            if (scrolled > 100 && scrolled > scrollPrev) {
+                header.addClass('out');
+            } else {
+                header.removeClass('out');
+            }
+            scrollPrev = scrolled;
+        });
+    }
 }
 
 export { Header };

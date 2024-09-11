@@ -13,8 +13,29 @@ $header_last_update = get_field('header_last-update', 'options');
                     prokopenko
                 </h1>
             </a>
-            <div class="header__top__burger" id="burger-icon">
-                <div class="bar"></div>
+            <div class="header__top__right">
+                <div class="header__navigation">
+                    <?
+                    $args = array(
+                        'menu' => 'main',
+                        'depth'    => 0,
+                        'container' => 'nav',
+                        'menu_class' => 'header__navigation__links',
+                        'fallback_cb' => false
+                    );
+
+                    // wp_nav_menu($args);
+                    ?>
+                    <nav class="menu-main-container">
+                        <ul id="menu-main" class="header__navigation__links">
+                            <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">CV</a></li>
+                            <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">Telegram</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__top__burger" id="burger-icon">
+                    <div class="bar"></div>
+                </div>
             </div>
         </div>
         <div class="header__burger__menu" id="burger-menu">
@@ -32,24 +53,6 @@ $header_last_update = get_field('header_last-update', 'options');
         </div>
         <!-- <nav class="header__page-nav">
         </nav> -->
-        <!-- <div class="header__navigation">
-            <?
-            $args = array(
-                'menu' => 'main',
-                'depth'    => 0,
-                'container' => 'nav',
-                'menu_class' => 'header__navigation__links',
-                'fallback_cb' => false
-            );
 
-            // wp_nav_menu($args);
-            ?>
-            <nav class="menu-main-container">
-                <ul id="menu-main" class="header__navigation__links">
-                    <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">CV</a></li>
-                    <li id="menu-item-379" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-379"><a href="#">Telegram</a></li>
-                </ul>
-            </nav>
-        </div> -->
     </div>
 </header>

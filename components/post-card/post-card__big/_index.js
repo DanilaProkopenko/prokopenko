@@ -17,28 +17,28 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
         lazyContainer.forEach(el => {
             observerVideo(el);
         });
-    
+
         function observerVideo(el) {
             var img = el.getElementsByClassName("placeholder_image")[0];
             // var lazyContainer = document.getElementById("lazy_container");
-    
+
             const options = {
                 root: null,
                 rootMargin: "0px",
                 threshold: 0.5 // Trigger when img is 50% visible
             };
-    
+
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         // remove the img
                         el.removeChild(img);
                         // create a video instead
-    
+
                         const videoElement = document.createElement("video");
                         videoElement.src = img.getAttribute('data-src-video');
                         videoElement.className += img.getAttribute('data-src-class');
-    
+
                         videoElement.alt = "Lazy-loaded Video";
                         videoElement.poster = img.getAttribute('data-src-img');
                         if (img.getAttribute('data-video-controls') == '1') {
@@ -54,9 +54,9 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
                             videoElement.loop = true;
                         }
                         videoElement.playsInline = true;
-    
+
                         videoElement.preload = "auto";
-    
+
                         // swap it in for the img
                         el.appendChild(videoElement);
                         // load video
@@ -66,11 +66,11 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
                     }
                 });
             }, options);
-    
+
             observer.observe(img);
         }
     }
-    
+
     // lazyVideo();
     let postCardBig = Array.from(document.getElementsByClassName('post-card__big'));
     postCardBig.forEach((item) => {
@@ -123,29 +123,29 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
         let mainCarousel = new Carousel(postCardGallery, postCardGalleryOptions, { Thumbs });
 
         let itemDataGallery = postCardGallery.getAttribute('data-gallery');
-        Fancybox.bind('[data-fancybox="' + itemDataGallery + '"]', {
-            idle: false,
-            compact: false,
-            dragToClose: true,
-            groupAll: false,
+        // Fancybox.bind('[data-fancybox="' + itemDataGallery + '"]', {
+        //     idle: false,
+        //     compact: false,
+        //     dragToClose: true,
+        //     groupAll: false,
 
-            Thumbs: {
-                type: 'classic'
-            },
+        //     Thumbs: {
+        //         type: 'classic'
+        //     },
 
 
-            Toolbar: {
-                display: {
-                    left: [],
-                    middle: [],
-                    right: ["close"],
-                }
-            },
+        //     Toolbar: {
+        //         display: {
+        //             left: [],
+        //             middle: [],
+        //             right: ["close"],
+        //         }
+        //     },
 
-            Carousel: {
-                transition: 'fade',
-                preload: 3,
-            },
-        });
+        //     Carousel: {
+        //         transition: 'fade',
+        //         preload: 3,
+        //     },
+        // });
     })
 }())

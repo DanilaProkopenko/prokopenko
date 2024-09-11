@@ -3,7 +3,11 @@ import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
 import "@fancyapps/ui/dist/carousel/carousel.css";
 
 const initBlockTemplate = () => {
-    gsap.registerPlugin(ScrollTrigger);
+    const postList = document.getElementsByClassName('section__post-list__big')[0];
+    if (postList) {
+        gsap.registerPlugin(ScrollTrigger);
+        postListAnimation();
+    }
 
     //Проверка ширины окна
     // 767
@@ -20,7 +24,6 @@ const initBlockTemplate = () => {
     //         postListGallery();
     //     }
     // })
-    postListAnimation();
     function postListAnimation() {
         const postList = document.getElementsByClassName('section__post-list__big')[0];
         postList.classList.add('section__post-list__big__animation')
@@ -50,8 +53,8 @@ const initBlockTemplate = () => {
         })
 
         tl.from('.card2', {
-            yPercent: 100,
-            opacity: 0,
+            yPercent: 120,
+            opacity: 1,
         })
         // set the active section based on the direction, and position it part-way through the transition because that's more intuitive
         tl.to('.card1', {
@@ -66,8 +69,8 @@ const initBlockTemplate = () => {
         })
 
         tl.from('.card3', {
-            yPercent: 100,
-            opacity: 0,
+            yPercent: 120,
+            opacity: 1,
         })
 
         tl.to('.card2', {
@@ -94,8 +97,8 @@ const initBlockTemplate = () => {
             yPercent: -10,
             opacity: 0
         }, "-=0.3")
-        
-        tl.to('.card3', {});
+
+        // tl.to('.card3', {});
     }
 
     function postListGallery() {
