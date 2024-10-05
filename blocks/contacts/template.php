@@ -37,29 +37,29 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<section class="contacts-block grid_12 main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <div class="contacts-block__top">
+<section class="contacts-block main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <div class="contacts-block__content">
         <h2 class="contacts-block__title"><?= $title ?></h2>
         <div class="contacts-block__description">
             <?= $description ?>
         </div>
-    </div>
-    <div class="contacts-block__links">
-        <?
-        $args = array(
-            'menu' => 'contact',
-            'depth'    => 0,
-            'container' => 'div',
-            'menu_class' => 'contacts-block__description__links',
-            'fallback_cb' => false
-        );
+        <div class="contacts-block__links">
+            <?
+            $args = array(
+                'menu' => 'contact',
+                'depth'    => 0,
+                'container' => 'div',
+                'menu_class' => 'contacts-block__description__links',
+                'fallback_cb' => false
+            );
 
-        wp_nav_menu($args);
-        ?>
+            wp_nav_menu($args);
+            ?>
+        </div>
     </div>
     <? if ($img) : ?>
         <div class="contacts-block__image">
             <img src="<?= $img['sizes']['large'] ?>" alt="" class="contacts-block__image__source">
-        </div >
+        </div>
     <? endif ?>
 </section>

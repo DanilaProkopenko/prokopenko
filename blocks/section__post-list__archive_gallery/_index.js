@@ -11,7 +11,7 @@ const initBlockTemplate = () => {
             infinite: false,
             transition: 'crossfade',
             Dots: false,
-            Navigation: true,
+            Navigation: false,
             center: true,
             // Thumbs: {
             //     // type: "modern",

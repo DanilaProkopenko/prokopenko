@@ -1,10 +1,10 @@
-.experience-block {
-}
+.experience-block {}
 
 .experience-block__description {
     width: calc(2 * (100% / 3));
     width: 100%;
     margin-bottom: 4rem;
+
     *,
     p {
         font-size: var(--font-size-3);
@@ -16,7 +16,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
 
     border-top: 1px solid var(--color-text-gray);
     padding: 3rem 0;
@@ -32,7 +31,7 @@
 
     .experience-item:not(:first-child) {
         border-top: 1px solid var(--color-text-gray);
-        padding: 3rem 0 0;
+        padding: 3rem 0;
     }
 }
 
@@ -42,12 +41,13 @@
     flex-direction: column;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 25% 25% 50% ;
     padding-bottom: 3rem;
 }
 
 .experience-item__title {
-    display: grid;
+    display: flex;
+    flex-direction: row;
     grid-template-columns: 2.5rem 1fr;
     grid-column: 1/2;
     grid-row: 1/2;
@@ -76,7 +76,7 @@
 
 
 .experience-item__company {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-regular);
     // grid-column: 2/3;
     // grid-row: 1/2;
@@ -86,18 +86,17 @@
 
 
 .experience-item__position {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-regular);
     // margin-top: .7rem;
-    // grid-column: 2/3;
-    // grid-row: 1/2;
-
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
 
 .experience-item__content {
     width: 100%;
     position: relative;
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row: 1/2;
 }
 
@@ -115,32 +114,28 @@
 }
 
 .experience-item__description {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-regular);
     color: var(--color-text-gray);
-    margin-top: .4rem;
+    // margin-top: .4rem;
 }
 
-@media screen and (max-width: 1600px) {
-    
-}
+@media screen and (max-width: 1600px) {}
 
-@media screen and (max-width: 1220px) {
+@media screen and (max-width: 1220px) {}
 
-}
 @media screen and (max-width: 1024px) {
-  .experience-list__wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+    .experience-list__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {}
 
-}
 @media screen and (max-width: 480px) {
-    .experience-item{
+    .experience-item {
         display: flex;
         flex-direction: column;
         gap: 1.2rem;

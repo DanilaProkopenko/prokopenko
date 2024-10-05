@@ -29,22 +29,27 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
+$first_screen_title = get_field('first-screen_title');
+$first_screen_caption = get_field('first-screen_caption');
+$first_screen_image = get_field('first-screen_image');
 
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<section class="posts-list__archive-gallery__wrapper" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <div class="posts-list__archive__heading section__heading main-padding">
-        <div class="section__title">
-            Архив
+<section class="section__first-screen" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <div class="section__first-screen__content main-padding">
+        <div class="first-screen__text">
+            <?= $first_screen_title ?>
         </div>
-        <div class="section__caption">
-            Маленькие работы, или pet–проекты
+        <div class="first-screen__caption">
+            <?= $first_screen_caption ?>
         </div>
     </div>
-    <div class="posts-list__archive-gallery f-carousel">
-        <?= getPostsArchiveGallery(-1); ?>
-        <?= getPostsArchiveGallery(-1); ?>
-    </div>
+
+    <? if ($first_screen_image) : ?>
+        <div class="first-screen__image">
+            <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">
+        </div>
+    <?php endif; ?>
 </section>

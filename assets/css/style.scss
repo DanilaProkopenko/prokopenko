@@ -74,7 +74,7 @@
 body {}
 
 body {
-    .page {
+    &.page {
         background-color: var(--color-primary);
         color: var(--color-text-primary);
         width: 100%;
@@ -147,7 +147,7 @@ li {
 div {
     p {
         &:not(:first-child) {
-            margin-top: .5rem;
+            margin-top: 1rem;
         }
     }
 }
@@ -309,8 +309,8 @@ body {
 
 section,
 footer {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 
@@ -354,6 +354,22 @@ footer {
             visibility: visible;
         }
     }
+}
+
+body {
+    .experience-block:nth-child(n+2) {
+        padding-top: 0;
+    }
+
+    .experience-block:not(:first-child):not(:last-child) {
+        padding-bottom: 0;
+        padding-top: 7rem;
+
+        .experience-list__wrapper {
+            padding-bottom: 0;
+        }
+    }
+
 }
 
 // Buttons
@@ -490,7 +506,7 @@ footer {
 }
 
 .section__caption {
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     line-height: 110%;
     font-weight: var(--font-weight-regular);
     // font-weight: 500;

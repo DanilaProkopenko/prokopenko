@@ -19,17 +19,17 @@ if ($args) {
         <div class="post-card__heading h5">
             <?= $title ?>
         </div>
-        <? $categories = get_the_category();
-        if ($categories) :
-        ?>
-            <div class="post-card__category">
-                <?
-                foreach ($categories as $category) :
-                    $category_link = get_category_link($category->cat_ID);
-                ?>
-                    <a href="<?= $category_link ?>"><?= $category->name ?></a>
-                <? endforeach; ?>
-            </div>
-        <? endif ?>
     </a>
+    <? $categories = get_the_category();
+    if ($categories) :
+    ?>
+        <div class="post-card__category">
+            <?
+            foreach ($categories as $category) :
+                $category_link = get_category_link($category->cat_ID);
+            ?>
+                <a href="<?= $category_link ?>"><?= $category->name ?></a>
+            <? endforeach; ?>
+        </div>
+    <? endif ?>
 </div>

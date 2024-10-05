@@ -12,6 +12,7 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
 
 (function gallery() {
 
+    // ленивая загрузка видео
     function lazyVideo() {
         let lazyContainer = Array.from(document.getElementsByClassName('lazy_container'));
         lazyContainer.forEach(el => {
@@ -123,6 +124,7 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
         let mainCarousel = new Carousel(postCardGallery, postCardGalleryOptions, { Thumbs });
 
         let itemDataGallery = postCardGallery.getAttribute('data-gallery');
+
         // Fancybox.bind('[data-fancybox="' + itemDataGallery + '"]', {
         //     idle: false,
         //     compact: false,

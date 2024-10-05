@@ -76,8 +76,9 @@
 }
 
 .post-card__big__heading {
-    font-weight: 600;
+    // font-weight: 600;
     font-size: var(--font-size-2);
+    font-weight: var(--font-weight-medium);
     line-height: var(--font-size-2);
     z-index: 10;
 

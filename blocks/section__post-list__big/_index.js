@@ -56,11 +56,13 @@ const initBlockTemplate = () => {
             yPercent: 120,
             opacity: 1,
         })
-        // set the active section based on the direction, and position it part-way through the transition because that's more intuitive
+        // set the active section based on the direction, 
+        // and position it part-way through the transition because 
+        // that's more intuitive
         tl.to('.card1', {
             scale: 0.95,
             yPercent: -8,
-            opacity: 0.7
+            // opacity: 0.7
         }, "-=0.3")
 
         tl.to('.card2', {
@@ -76,27 +78,34 @@ const initBlockTemplate = () => {
         tl.to('.card2', {
             scale: 0.95,
             yPercent: -8,
-            opacity: 0.7
+            // opacity: 0.7
         }, "-=0.3")
 
         tl.to('.card1', {
-            scale: 0.7,
-            // yPercent: -0.5,
-            yPercent: -10,
-            opacity: 0
+            // scale: 0.7,
+            scale: 0.9,
+            // yPercent: -0.5/,
+            yPercent: -15,
+            // opacity: 0
         }, "-=0.3")
 
         tl.to('.card3', {
             yPercent: 0,
             opacity: 1
         })
-
-        tl.to('.card2', {
-            scale: 0.8,
-            // yPercent: -0.5,
-            yPercent: -10,
-            opacity: 0
-        }, "-=0.3")
+        // tl.to('.card1', {
+        //     // scale: 0.7,
+        //     scale: 0.8,
+        //     // yPercent: -0.5/,
+        //     yPercent: -0.5,
+        //     // opacity: 0
+        // }, "-=0.3")
+        // tl.to('.card2', {
+        //     scale: 0.8,
+        //     yPercent: -0.5,
+        //     // yPercent: -10,
+        //     // opacity: 0
+        // }, "-=0.3")
 
         // tl.to('.card3', {});
     }

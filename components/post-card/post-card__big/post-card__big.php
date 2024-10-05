@@ -15,6 +15,8 @@ if ($args) {
     $gallery = $args['gallery'];
     $posts_count = $args['posts_count'];
     $post_card_link = $args['post_card_link'];
+    $post_thumb_video = $args['post_thumb_video'];
+
     $counter = $args['counter'] + 1;
 }
 ?>
@@ -24,7 +26,7 @@ if ($args) {
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">
         </div>
 
-        <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="2">
+        <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="<?= $id ?>">
             <div class="f-carousel__slide _cover"
                 data-fancybox="<?= $id ?>"
                 data-img-src="<?= esc_url($img_medium); ?>"
@@ -131,10 +133,10 @@ if ($args) {
         <? if ($post_card_link) : ?>
             <div class="post-card__big__content__bottom">
                 <?
-                    $link = $post_card_link;
-                    $link_url = $link['url'];
-                    $link_title = $link['title'];
-                    $link_target = $link['target'] ? $link['target'] : '_self';
+                $link = $post_card_link;
+                $link_url = $link['url'];
+                $link_title = $link['title'];
+                $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
                 <a class="link-button _big" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
                     <?php echo esc_html($link_title); ?>

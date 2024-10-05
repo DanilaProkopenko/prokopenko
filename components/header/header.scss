@@ -15,7 +15,14 @@
     position: fixed;
 
     color: var(--color-primary);
+    // color: var(--color-text-primary);
     mix-blend-mode: difference;
+    *{
+        color: var(--color-primary);
+        mix-blend-mode: difference;
+        // color: var(--color-text-primary);
+
+    }
 }
 
 .header {
@@ -228,14 +235,14 @@ header.out {
         text-decoration: none;
         color: var(--color-text-gray);
 
-        &.active {
-            color: var(--color-text-primary);
-        }
+        // &.active {
+        //     color: var(--color-text-primary);
+        // }
 
-        &:hover {
-            color: var(--color-text-primary);
+        // &:hover {
+        //     color: var(--color-text-primary);
 
-        }
+        // }
 
     }
 }
@@ -256,8 +263,8 @@ header.out {
         font-size: var(--font-size-1);
         font-weight: 500;
         text-decoration: none;
-        color: var(--color-text-gray);
-        color: #fff;
+        // color: var(--color-text-gray);
+        // color: #fff;
 
         // &.active {
         //     color: var(--color-text-primary);

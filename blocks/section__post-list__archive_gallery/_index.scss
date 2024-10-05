@@ -6,6 +6,24 @@
     gap: 2rem;
     row-gap: 5rem;
 
+    &.f-carousel{
+        // --f-carousel-spacing: var(--padding);
+        --f-carousel-spacing:0;
+        // --f-carousel-slide-padding: 0 calc(var(--padding) / 2);
+        --f-carousel-slide-padding: 0;
+        
+        .f-carousel__slide{
+           padding: 0 calc(var(--padding) / 2);
+            &:first-child{
+                padding-left: var(--padding);
+                // --f-carousel-slide-padding: 0 var(--padding);
+            }
+            &:last-child{
+                padding-right: var(--padding);
+            }
+        }
+    }
+
     .post-card {
         transition: all .5s;
 
