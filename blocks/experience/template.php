@@ -36,9 +36,9 @@ $block_id_name = get_field('block_id_name');
 ?>
 
 <section class="experience-block main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <div class="experience-block__description">
+    <!-- <div class="experience-block__description">
         <?= $experience_block_description ?>
-    </div>
+    </div> -->
     <div class="experience-list__wrapper">
         <div class="experience-list__name section__heading">Работа</div>
         <? if (have_rows('experience-item_repeater')) : ?>

@@ -13,6 +13,9 @@
     z-index: 90;
 
     position: fixed;
+
+    color: var(--color-primary);
+    mix-blend-mode: difference;
 }
 
 .header {

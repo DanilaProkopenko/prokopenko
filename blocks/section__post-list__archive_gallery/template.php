@@ -37,13 +37,13 @@ $block_id_name = get_field('block_id_name');
 <section class="posts-list__archive-gallery__wrapper" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <div class="posts-list__archive__heading section__heading main-padding">
         <div class="section__title">
-            Песочница
+            Архив
         </div>
         <div class="section__caption">
-            Личные проекты, что делаю в свободное время
+            Маленькие работы, или pet–проекты
         </div>
     </div>
-    <div class="posts-list__archive-gallery main-padding">
+    <div class="posts-list__archive-gallery main-padding f-carousel">
         <?= getPostsArchiveGallery(-1); ?>
         <?= getPostsArchiveGallery(-1); ?>
     </div>

@@ -1,20 +1,22 @@
-// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;500;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-    // --font-family-primary: 'Roboto', sans-serif;
-    --font-family-primary: "Inter", sans-serif;
+    --font-family-primary: 'Roboto', sans-serif;
+    // --font-family-primary: "Inter", sans-serif;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
 
-    --color-primary: #000;
+    // --color-primary: #000;
+    --color-primary: #FEFEFE;
     // --color-primary: #0F0F0F;
     --color-secondary: #999999;
     --color-gray-dark: #373737;
 
     --color-text-primary: #fff;
-    --color-text-gray: #999999;
+    --color-text-primary: #060508;
+    --color-text-gray: #8B8B8B;
 
     --color-background-card: rgba(23, 26, 30, 0.5);
 
@@ -71,14 +73,16 @@
 
 body {}
 
-body.page {
-    background-color: var(--color-primary);
-    color: var(--color-text-primary);
-    width: 100%;
+body {
+    .page {
+        background-color: var(--color-primary);
+        color: var(--color-text-primary);
+        width: 100%;
 
-    // display: grid;
-    // grid-template-columns: repeat(12, 1fr);
-    overflow-x: hidden;
+        // display: grid;
+        // grid-template-columns: repeat(12, 1fr);
+        overflow-x: hidden;
+    }
 }
 
 
@@ -465,11 +469,10 @@ footer {
 }
 
 .section__heading {
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-2);
     line-height: 110%;
-    font-weight: var(--font-weight-regular);
-    font-weight: 600;
-    color: #fff;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
     gap: 1rem;
     margin-bottom: 2.5rem;
 
@@ -479,11 +482,10 @@ footer {
 }
 
 .section__title {
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-2);
     line-height: 110%;
-    font-weight: var(--font-weight-regular);
-    font-weight: 600;
-    color: #fff;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
 
 }
 
@@ -491,7 +493,7 @@ footer {
     font-size: var(--font-size-1);
     line-height: 110%;
     font-weight: var(--font-weight-regular);
-    font-weight: 500;
+    // font-weight: 500;
     color: var(--color-text-gray);
 
     margin-top: .7rem;
@@ -559,11 +561,13 @@ footer {
     background-color: var(--color-primary);
     color: var(--color-text-primary);
 }
-.single-page__header__img{
+
+.single-page__header__img {
     width: 100%;
 
 }
-.single-page__header__img__source{
+
+.single-page__header__img__source {
     width: 100%;
     height: auto;
     object-fit: cover;
