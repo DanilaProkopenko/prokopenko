@@ -538,12 +538,14 @@ body {
 
     section,
     footer {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
-
+    .section__caption{
+        margin-top: .2rem;
+    }
     .section__heading {
-        margin-bottom: 3rem;
+        margin-bottom: 1.7rem;
     }
 }
 

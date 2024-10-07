@@ -6,8 +6,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 3rem;
+    padding-bottom: 0;
     align-items: flex-end;
+
 
 }
 
@@ -67,16 +68,17 @@
 
 @media screen and (max-width: 1024px) {
 
-    .first-screen__text {
-        * {
-            // font-size: var(--font-size-3);
-        }
-    }
-
-    .first-screen__caption,
-    .first-screen__caption * {
-        // font-size: var(--font-size-1);
+ 
+}
+@media screen and (max-width: 1024px) {
+    .section__first-screen__content{
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .section__first-screen {
+        margin-top: -54px;
+    }
+}

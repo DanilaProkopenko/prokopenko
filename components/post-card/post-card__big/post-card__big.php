@@ -27,19 +27,40 @@ if ($args) {
         </div>
 
         <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="<?= $id ?>">
-            <div class="f-carousel__slide _cover"
-                data-fancybox="<?= $id ?>"
-                data-img-src="<?= esc_url($img_medium); ?>"
-                data-thumb-src="<?= esc_url($img_medium); ?>">
-                <a href="<?= $link ?>"
-                    class="post-card__big__gallery__img">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
-                        <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
-                        <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
-                    </picture>
-                </a>
-            </div>
+            <? if ($post_thumb_video): ?>
+                <div
+                    data-img-src="<?= esc_url($img_medium); ?>"
+                    data-thumb-src="<?= esc_url($post_thumb_video['sizes']['thumbnail']) ?>"
+                    data-fancybox="<?= $id ?>"
+                    class="lazy_container f-carousel__slide _cover">
+                    <video
+                        preload="auto"
+                        no-controls
+                        autoplay
+                        loop
+                        playsinline
+                        muted
+                        class="slide__video-video__source post-card__big__gallery__img__source _cover">
+                        <source
+                            src="<?php echo $post_thumb_video['url']; ?>"
+                            type="video/mp4">
+                    </video>
+                </div>
+            <? else: ?>
+                <div class="f-carousel__slide _cover"
+                    data-fancybox="<?= $id ?>"
+                    data-img-src="<?= esc_url($img_medium); ?>"
+                    data-thumb-src="<?= esc_url($img_medium); ?>">
+                    <a href="<?= $link ?>"
+                        class="post-card__big__gallery__img">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
+                            <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
+                            <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
+                        </picture>
+                    </a>
+                </div>
+            <? endif; ?>
             <?php
             if ($gallery) :
                 foreach ($gallery as $image) :
