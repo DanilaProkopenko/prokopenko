@@ -104,11 +104,12 @@ if ($args) {
     </div>
     <div class="post-card__big__content__wrapper">
         <div class="post-card__big__content">
-            <div class="post-card__big__title">
+            <a href="<?= $link ?> "
+                class=" post-card__big__title">
                 <h3 class="post-card__big__heading">
                     <?= $title ?>
                 </h3>
-            </div>
+            </a>
             <div class="post-card__big__short-description">
                 <?= $short_description ?>
             </div>

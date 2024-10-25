@@ -143,7 +143,7 @@ class Header {
     }
 
     headerOut() {
-        const header = jQuery('.header__wrapper');
+        const header = jQuery('.header__top__right');
         let scrollPrev = 0;
 
         jQuery(window).scroll(function () {

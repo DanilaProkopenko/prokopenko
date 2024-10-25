@@ -45,6 +45,5 @@ $block_id_name = get_field('block_id_name');
     </div>
     <div class="posts-list__archive-gallery f-carousel">
         <?= getPostsArchiveGallery(-1); ?>
-        <?= getPostsArchiveGallery(-1); ?>
     </div>
 </section>

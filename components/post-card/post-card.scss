@@ -20,7 +20,9 @@
         // border-radius: .5rem;
     }
 }
-
+.post-card__heading{
+    // font-weight: var(--font-weight-medium);
+}
 .post-card__content {
     display: flex;
     flex-direction: column;

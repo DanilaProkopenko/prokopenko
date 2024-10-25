@@ -6,7 +6,7 @@ const initBlockTemplate = () => {
     const postList = document.getElementsByClassName('section__post-list__big')[0];
     if (postList) {
         gsap.registerPlugin(ScrollTrigger);
-        postListAnimation();
+        // postListAnimation();
     }
 
     //Проверка ширины окна
@@ -24,6 +24,7 @@ const initBlockTemplate = () => {
     //         postListGallery();
     //     }
     // })
+    
     function postListAnimation() {
         const postList = document.getElementsByClassName('section__post-list__big')[0];
         postList.classList.add('section__post-list__big__animation')

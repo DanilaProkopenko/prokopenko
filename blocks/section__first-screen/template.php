@@ -37,8 +37,14 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<section class="section__first-screen" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <div class="section__first-screen__content main-padding">
+<section class="section__first-screen main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <? if ($first_screen_image) : ?>
+        <div class="first-screen__image">
+            <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">
+        </div>
+    <?php endif; ?>
+
+    <div class="section__first-screen__content">
         <div class="first-screen__text">
             <?= $first_screen_title ?>
         </div>
@@ -46,10 +52,4 @@ $block_id_name = get_field('block_id_name');
             <?= $first_screen_caption ?>
         </div>
     </div>
-
-    <? if ($first_screen_image) : ?>
-        <div class="first-screen__image">
-            <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">
-        </div>
-    <?php endif; ?>
 </section>

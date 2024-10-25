@@ -14,9 +14,8 @@
     --color-secondary: #999999;
     --color-gray-dark: #373737;
 
-    --color-text-primary: #fff;
     --color-text-primary: #060508;
-    --color-text-gray: #8B8B8B;
+    --color-text-grey: #8B8B8B;
 
     --color-background-card: rgba(23, 26, 30, 0.5);
 
@@ -62,6 +61,7 @@
     padding: 0;
     font-family: var(--font-family-primary);
     font-style: normal;
+    color: var(--color-text-primary);
 }
 
 ::selection {
@@ -147,7 +147,7 @@ li {
 div {
     p {
         &:not(:first-child) {
-            margin-top: 1rem;
+            margin-top: .5rem;
         }
     }
 }
@@ -308,9 +308,10 @@ body {
 /*# sourceMappingURL=scroll.css.map */
 
 section,
-footer {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+footer,
+.section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
 }
 
 
@@ -510,9 +511,9 @@ body {
     line-height: 110%;
     font-weight: var(--font-weight-regular);
     // font-weight: 500;
-    color: var(--color-text-gray);
+    color: var(--color-text-grey);
 
-    margin-top: .7rem;
+    margin-top: .5rem;
 }
 
 @media screen and (max-width: 1600px) {
@@ -537,13 +538,16 @@ body {
 @media screen and (max-width: 1024px) {
 
     section,
+    .section,
     footer {
         padding-top: 3rem;
         padding-bottom: 3rem;
     }
-    .section__caption{
+
+    .section__caption {
         margin-top: .2rem;
     }
+
     .section__heading {
         margin-bottom: 1.7rem;
     }
@@ -577,16 +581,14 @@ body {
 // Single page
 .single-page {
     background-color: var(--color-primary);
-    color: var(--color-text-primary);
 }
 
 .single-page__header__img {
     width: 100%;
-
 }
 
 .single-page__header__img__source {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
 }

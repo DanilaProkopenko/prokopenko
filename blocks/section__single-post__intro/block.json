@@ -1,14 +1,14 @@
 {
-    "name": "prok/intro-block",
-    "title": "Intro",
+    "name" : "prok/single-post-intro",
+    "title" : "Single Post Intro",
     "icon": "admin-site",
-    "description": "Intro block",
+    "description": "Single Post Intro",
     "apiVersion": 3,
     "textdomain": "prok",
     "supports": {
-        "align": false,
-        "mode": false,
-        "jsx": true,
+        "align" : false,
+        "mode"  : false,
+        "jsx"   : true,
         "anchor": true
     },
     "acf": {
