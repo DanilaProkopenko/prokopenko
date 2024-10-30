@@ -1,51 +1,27 @@
-.header__wrapper {
-    width: 100%;
-    top: 0;
+header {
     z-index: 100;
-    grid-column: 1/3;
-    grid-row: 1/3;
     position: sticky;
-    left: 0;
-    top: 0;
-    height: 100vh;
     height: fit-content;
-    // padding-right: var(--padding);
     z-index: 90;
 
-    position: fixed;
-
-    color: var(--color-primary);
-    // color: var(--color-text-primary);
-    mix-blend-mode: difference;
-
-    * {
-        color: var(--color-primary);
-        mix-blend-mode: difference;
-        // color: var(--color-text-primary);
-
-    }
-}
-
-.header {
-    // border-right: 1px solid var(--color-gray-dark);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    // height: 100%;
-    overflow-y: auto;
-}
-
-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     transition: all .3s ease;
-}
 
-header.out {
-    transform: translateY(-100%);
+    color: var(--color-primary);
+    mix-blend-mode: difference;
+
+    * {
+        color: var(--color-primary);
+        mix-blend-mode: difference;
+    }
+
+    .out {
+        transform: translateY(-100%);
+    }
+
 }
 
 .header__top {
@@ -55,17 +31,23 @@ header.out {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    // padding: 1.5rem 1rem;
     padding: 1.5rem var(--padding);
-    // border-bottom: 1px solid var(--color-gray-dark);
     position: sticky;
     top: 0;
-    // background-color: var(--color-primary);
     width: 100%;
     z-index: 90;
-    // background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, #0000009e 160%);
-
 }
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+
+    position: relative;
+}
+
 
 .header__top__right {
     display: flex;
@@ -97,32 +79,32 @@ header.out {
 
 
 
+
 .header__burger__menu {
     position: fixed;
-    transform: translateY(-120%);
+    // transform: translateY(-120%);
     width: 100%;
-    // height: 70vh;
-    height: fit-content;
+    height: 100vh;
     max-height: 100vh;
-    background-color: var(--color-primary);
     left: 0;
+    right: 0;
     top: 0;
+    margin: 0 auto;
 
-    // border-bottom: 1px solid var(--color-gray-dark);
-    transition: transform .5s;
+    background-color: var(--color-red);
+    transition: all .5s;
     z-index: 80;
-
-    box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 52%);
     overflow-y: auto;
-
     padding-top: 4.5rem;
 
-    &._open {
-        transform: translateY(0%);
+    text-align: center;
 
-        @media screen and (max-width:767px) {
-            // top: 54px;
-        }
+    visibility: hidden;
+    width: 0;
+    text-wrap: nowrap;
+
+    * {
+        color: var(--color-white);
     }
 
     .header__burger__links {
@@ -130,16 +112,18 @@ header.out {
         flex-direction: column;
         width: 100%;
 
+
         li {
             list-style: none;
             width: 100%;
         }
 
         a {
+            // transform: translateY(-100%);
+
             display: inline-block;
             width: 100%;
             padding: var(--padding) var(--padding);
-            color: var(--color-text-primary);
             text-decoration: none;
             font-size: var(--font-size-4);
             // font-weight: var(--font-weight-regular);
@@ -152,6 +136,30 @@ header.out {
             }
         }
     }
+
+    &._open {
+        // transform: translateY(0%);
+
+        visibility: visible;
+        width: 100%;
+
+        @media screen and (max-width:767px) {
+            // top: 54px;
+        }
+
+        .menu-burger-container {
+            visibility: visible;
+        }
+    }
+}
+
+.menu-burger-container {
+    transition: all .1s;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    visibility: hidden;
 }
 
 .header__top__burger {
@@ -290,18 +298,10 @@ header.out {
 
 }
 
-@media screen and (max-width: 1600px) {
-    .header__wrapper {
-        grid-column: 1/4;
-
-    }
-}
+@media screen and (max-width: 1600px) {}
 
 @media screen and (max-width: 1220px) {
-    .header__wrapper {
-        grid-column: 1/5;
 
-    }
 
     .header__top {
         padding: 1.5rem calc(var(--padding));
@@ -322,12 +322,6 @@ header.out {
         overflow: visible;
     }
 
-    .header__wrapper {
-        position: relative;
-        height: fit-content;
-        border: none;
-        padding: 0;
-    }
 
     .header__top {
         height: 54px;

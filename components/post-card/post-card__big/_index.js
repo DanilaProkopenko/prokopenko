@@ -81,7 +81,7 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
             infinite: true,
             transition: 'crossfade',
             Dots: false,
-            Navigation: true,
+            Navigation: false,
             center: true,
             Thumbs: {
                 // type: "modern",
@@ -152,9 +152,9 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
         // });
         function changeThumbHover() {
             const carouselThumbs = Array.from(item.getElementsByClassName('f-thumbs'));
-            console.log('carouselThumbs — ', carouselThumbs);
+            // console.log('carouselThumbs — ', carouselThumbs);
             carouselThumbs.forEach((item) => {
-                console.log('thumbSlide — ')
+                // console.log('thumbSlide — ')
                 const thumbSlide = Array.from(item.getElementsByClassName('f-thumbs__slide__button'));
                 thumbSlide.forEach((item) => {
                     item.addEventListener(
@@ -162,15 +162,15 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
                         (event) => {
                             item.classList.add('is-nav-selected');
                             const thumbIndex = item.getAttribute('data-carousel-index')
-                            console.log('thumbSlide item — ', item);
-                            console.log('thumbIndex — ', thumbIndex);
+                            // console.log('thumbSlide item — ', item);
+                            // console.log('thumbIndex — ', thumbIndex);
                             mainCarousel.slideTo(thumbIndex)
                         },
                     )
                     item.addEventListener(
                         'mouseout',
                         (event) => {
-                            console.log('event — ', event);
+                            // console.log('event — ', event);
                             item.classList.remove('is-nav-selected');
                         }
                     )
@@ -180,10 +180,7 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
         }
         setTimeout(() => {
             changeThumbHover();
-
         }, 500);
+       
     })
-    // let postCardBig = Array.from(document.getElementsByClassName('post-card__big'));
-
-
 }())

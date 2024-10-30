@@ -64,6 +64,69 @@ class Header {
         updateNavigation();
     }
 
+
+    pageHeading() {
+        const navContainer = document.getElementsByClassName('header__page-nav')[0];
+        const pageBody = document.getElementsByClassName('single')[0];
+
+        const pageHeadings = Array.from(pageBody.querySelectorAll('h2, h3, h4, h5, h6'));
+
+        // замена заголовка в окне на зголовок страницы
+        function getPageHeadingH1() {
+            const pageHeadingH1 = document.getElementsByClassName('dan__page-navigation__heading')[0];
+            pageHeadingH1.innerHTML = Array.from(pageBody.querySelectorAll('h1'))[0].textContent;
+        }
+
+        //Добавляет id к заголовкам
+        function writeHeadingId() {
+            // const pageHeadings = Array.from(pageBody.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+            pageHeadings.forEach((el, index) => {
+                el.setAttribute('id', 'element-' + [index]);
+                el.setAttribute('tag-name', el.tagName);
+            });
+            // console.log('pageHeadings —', pageHeadings);
+            // console.log('pageBody — ', pageBody);
+        }
+
+        function links(container, name, link, elemClass) {
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            a.href = '#' + link;
+            a.title = name;
+            a.appendChild(document.createTextNode(name));
+            a.setAttribute('uk-scroll', '');
+            a.classList.add('dan__page-navigation__item__' + elemClass, 'uk-' + elemClass, 'dan__page-navigation__item__heading');
+            // console.log('name — ', a.title, 'link — ', a.href)
+            li.appendChild(a);
+            container.appendChild(li);
+        }
+
+        function createPageNavLinks() {
+            pageHeadings.forEach((element, index) => {
+                const elementId = element.getAttribute('id');
+                const elementClass = element.getAttribute('tag-name').toLowerCase();
+                const elementNameId = element.textContent;
+
+                // console.log('elementId — ', elementId, 'elementNameId—  ', elementNameId)
+                // console.log('elementId — ', elementId)
+                // if (elementNameId != 0) {
+                //         // links(navContainer, elementNameId, elementId);
+                // }
+                links(navContainer, elementNameId, elementId, elementClass);
+            })
+        }
+        // getPageHeadingH1();
+        writeHeadingId();
+        createPageNavLinks();
+    }
+
+
+
+
+
+
+
+
     burger() {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
@@ -106,8 +169,11 @@ class Header {
             // burgerMenuWidth(header, burgerMenu);
         })
 
+        let burgerCount = 0;
+
         burgerIcon.addEventListener('click', function () {
-            this.getElementsByClassName('bar')[0].classList.toggle('animate')
+
+            this.getElementsByClassName('bar')[0].classList.toggle('animate');
 
             // $('.bar').toggleClass('animate');
 
@@ -115,11 +181,37 @@ class Header {
             // burgerMenuWidth(header, burgerMenu);
 
             burgerMenu.classList.toggle('_open');
+            if (burgerMenu.classList.contains('_open')) {
+                burgerCount++;
+            }
             mainPage.classList.toggle('_open');
             // headerDescription.classList.toggle('_hide');
             footer.classList.toggle('_hide');
 
-
+            console.log('burgerCount — ', burgerCount)
+            if (burgerCount == 6) {
+                burgerCount = 1
+            }
+            switch (burgerCount) {
+                case 1:
+                    burgerMenu.style.backgroundColor = 'var(--color-red)';
+                    break;
+                case 2:
+                    burgerMenu.style.backgroundColor = 'var(--color-green)';
+                    break;
+                case 3:
+                    burgerMenu.style.backgroundColor = 'var(--color-blue)';
+                    break;
+                case 4:
+                    burgerMenu.style.backgroundColor = 'var(--color-yellow)';
+                    break;
+                case 5:
+                    burgerMenu.style.backgroundColor = 'var(--color-purple)';
+                    break;
+                default:
+                    burgerMenu.style.backgroundColor = 'var(--color-blue)';
+                    break;
+            }
         })
 
         document.addEventListener(`keyup`, (e) => {

@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     wwzrdsHeader.headerOut();
     // wwzrdsHeader.pageNavLinks();
     // wwzrdsHeader.highlightLink();
+
+    // wwzrdsHeader.pageHeading();
   }
 });
 

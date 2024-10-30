@@ -5,10 +5,8 @@
 
     padding: 5px;
 
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-
     display: flex;
+    flex-direction: row-reverse;
     flex-direction: row;
     gap: 2rem;
 }
@@ -162,8 +160,7 @@
 
     .post-card__big__meta__item {
         &:not(:last-child) {
-            border-bottom: solid 1px var(--color-text-grey);
-
+            // border-bottom: solid 1px var(--color-text-grey);
         }
     }
 }
@@ -192,7 +189,7 @@
 
 .post-card__big__meta__item__value {
     width: 70%;
-    color: var(--color-text-grey);
+    color: var(--color-text-primary);
 }
 
 
@@ -521,6 +518,7 @@
 @media screen and (max-width: 1024px) {
     .post-card__big {
         flex-direction: column;
+        gap: 6rem;
     }
 
     .post-card__big__gallery {
@@ -539,9 +537,9 @@
 
     .post-card__big__gallery {
         .f-thumbs {
-            left: 1rem;
-            bottom: 1rem;
-            width: calc(100% - var(--padding));
+            // left: 1rem;
+            // bottom: 1rem;
+            // width: calc(100% - var(--padding));
 
             .f-thumbs__slide {
                 max-width: 50px;

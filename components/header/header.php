@@ -38,21 +38,21 @@ $header_last_update = get_field('header_last-update', 'options');
                 </div>
             </div>
         </div>
-        <div class="header__burger__menu" id="burger-menu">
-            <?
-            $args = array(
-                'menu' => 'burger',
-                'depth'    => 0,
-                'container' => 'div',
-                'menu_class' => 'header__burger__links',
-                'fallback_cb' => false
-            );
-
-            wp_nav_menu($args);
-            ?>
-        </div>
-        <!-- <nav class="header__page-nav">
-        </nav> -->
 
     </div>
 </header>
+<div class="header__burger__menu" id="burger-menu">
+    <?
+    $args = array(
+        'menu' => 'burger',
+        'depth'    => 0,
+        'container' => 'div',
+        'menu_class' => 'header__burger__links',
+        'fallback_cb' => false
+    );
+
+    wp_nav_menu($args);
+    ?>
+</div>
+<nav class="header__page-nav">
+</nav>

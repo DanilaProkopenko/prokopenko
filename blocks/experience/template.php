@@ -38,7 +38,7 @@ $block_caption = get_field('block_caption');
 
 ?>
 
-<section class="experience-block main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<div class="experience-block main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <!-- <div class="experience-block__description">
         <?= $experience_block_description ?>
     </div> -->
@@ -83,4 +83,4 @@ $block_caption = get_field('block_caption');
             </div>
         <? endif ?>
     </div>
-</section>
+</div>

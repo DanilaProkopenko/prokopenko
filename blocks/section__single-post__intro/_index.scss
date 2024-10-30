@@ -33,7 +33,7 @@
 
 
 .section__single-post__intro__title {
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-3);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
 }
@@ -43,7 +43,7 @@
 
     * {
         color: var(--color-text-grey);
-        font-size: var(--font-size-1);
+        font-size: var(--font-size-0);
         font-weight: var(--font-weight-regular);
     }
 }
@@ -66,7 +66,7 @@
 
     .section__single-post__meta__item {
         &:not(:last-child) {
-            border-bottom: solid 1px var(--color-text-grey);
+            // border-bottom: solid 1px var(--color-text-grey);
 
         }
     }
@@ -96,7 +96,7 @@
 
 .section__single-post__meta__item__value {
     width: 70%;
-    color: var(--color-text-grey);
+    color: var(--color-text-primary);
 }
 
 .section__single-post__meta__team {
@@ -177,7 +177,7 @@
     }
 
     .section__single-post__intro__content {
-        gap: 1rem;
+        gap: .5rem;
     }
 }
 
