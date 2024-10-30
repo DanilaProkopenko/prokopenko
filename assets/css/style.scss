@@ -354,6 +354,9 @@ footer,
     // grid-template-columns: repeat(12, 1fr);
     // gap: var(--grid-gap);
     // grid-column: 3/13;
+
+    padding-top: 4rem;
+    background-color: var(--color-primary);
     transition-property: all;
     transition-duration: .5s;
     opacity: 1;
@@ -386,6 +389,12 @@ footer,
         &::before {
             opacity: 1;
             visibility: visible;
+        }
+    }
+
+    section{
+        &:first-child{
+            padding-top: 0;
         }
     }
 }
