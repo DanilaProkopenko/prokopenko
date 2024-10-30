@@ -125,6 +125,7 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
 
         let itemDataGallery = postCardGallery.getAttribute('data-gallery');
 
+
         // Fancybox.bind('[data-fancybox="' + itemDataGallery + '"]', {
         //     idle: false,
         //     compact: false,
@@ -149,5 +150,40 @@ import '@fancyapps/ui/dist/carousel/carousel.thumbs.css';
         //         preload: 3,
         //     },
         // });
+        function changeThumbHover() {
+            const carouselThumbs = Array.from(item.getElementsByClassName('f-thumbs'));
+            console.log('carouselThumbs — ', carouselThumbs);
+            carouselThumbs.forEach((item) => {
+                console.log('thumbSlide — ')
+                const thumbSlide = Array.from(item.getElementsByClassName('f-thumbs__slide__button'));
+                thumbSlide.forEach((item) => {
+                    item.addEventListener(
+                        'mouseover',
+                        (event) => {
+                            item.classList.add('is-nav-selected');
+                            const thumbIndex = item.getAttribute('data-carousel-index')
+                            console.log('thumbSlide item — ', item);
+                            console.log('thumbIndex — ', thumbIndex);
+                            mainCarousel.slideTo(thumbIndex)
+                        },
+                    )
+                    item.addEventListener(
+                        'mouseout',
+                        (event) => {
+                            console.log('event — ', event);
+                            item.classList.remove('is-nav-selected');
+                        }
+                    )
+                })
+                console.log('thumbSlide — ', thumbSlide)
+            })
+        }
+        setTimeout(() => {
+            changeThumbHover();
+
+        }, 500);
     })
+    // let postCardBig = Array.from(document.getElementsByClassName('post-card__big'));
+
+
 }())

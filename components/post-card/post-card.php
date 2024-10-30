@@ -16,7 +16,7 @@ if ($args) {
         </picture>
     </a>
     <a href="<?= esc_html($link) ?>" class="post-card__content">
-        <div class="post-card__heading h5">
+        <div class="post-card__heading">
             <?= $title ?>
         </div>
     </a>

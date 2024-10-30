@@ -12,7 +12,7 @@ $post_id = get_the_ID();
 <?php get_header() ?>
 
 <div class="single-page main-padding">
-    <section class="single-page__header main-width section">
+    <!-- <section class="single-page__header main-width section">
         <div class="single-page__header__img">
             <img src="<?= esc_url($thumb) ?>" alt="" class="single-page__header__img__source">
         </div>
@@ -27,11 +27,9 @@ $post_id = get_the_ID();
                 </div>
             <? endif ?>
         </div>
-    </section>
+    </section> -->
 
-    <section class="single-page__content section ">
-        <?php the_content(); ?>
-    </section>
+    <?php the_content(); ?>
 
 </div>
 

@@ -45,9 +45,9 @@ $block_id_name = get_field('block_id_name');
     <?php endif; ?>
 
     <div class="section__first-screen__content">
-        <div class="first-screen__text">
+        <h1 class="first-screen__text">
             <?= $first_screen_title ?>
-        </div>
+    </h1>
         <div class="first-screen__caption">
             <?= $first_screen_caption ?>
         </div>

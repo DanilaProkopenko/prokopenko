@@ -1,12 +1,10 @@
 .footer {
-    padding-top: calc(6 * (var(--padding)));
-    padding-bottom: var(--padding);
-
     transition-property: all;
     transition-duration: .5s;
     position: relative;
     // height: 100vh;
-    background-color: var(--color-primary);
+    background-color: var(--color-black);
+    margin-top: 5rem;
 
     &._hide {
         transform: translateY(-30%) scale(0.9);
@@ -37,9 +35,8 @@
     }
 
     a {
-
         text-decoration: none;
-
+        color: var(--color-white);
         width: fit-content;
     }
 }
@@ -97,7 +94,9 @@
     }
 
     * {
+        text-decoration: none;
         font-size: var(--font-size-1);
+        color: var(--color-white);
     }
 
     &:nth-child(2) {

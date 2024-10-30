@@ -29,13 +29,16 @@
     gap: 5px;
     margin-top: 1rem;
 }
-
+.post-card__heading {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-medium);
+}
 .post-card__category {
-    margin-top: .2rem;
+    margin-top: .4rem;
 
     a {
         color: var(--color-secondary);
         text-decoration: none;
-        font-size: var(--font-size--1);
+        font-size: var(--font-size-0);
     }
 }

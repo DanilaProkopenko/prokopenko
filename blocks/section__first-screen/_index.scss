@@ -24,7 +24,7 @@
 
 .first-screen__text,
 .first-screen__text * {
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-4);
     line-height: 90%;
     font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
@@ -70,6 +70,6 @@
 
 @media screen and (max-width: 767px) {
     .section__first-screen {
-        margin-top: -45px;
+        // margin-top: -45px;
     }
 }

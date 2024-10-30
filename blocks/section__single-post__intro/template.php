@@ -39,7 +39,8 @@ $block_id_name = get_field('block_id_name');
 $id = get_the_ID();
 ?>
 
-<section class="section__single-post__intro " data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<section class="section__single-post__intro section" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+
     <? if ($image) : ?>
         <div class="section__single-post__intro__image">
             <img src="<?= ($image['sizes']['large']); ?>" alt="" class="section__single-post__intro__image__source">
@@ -47,15 +48,15 @@ $id = get_the_ID();
     <?php endif; ?>
 
     <div class="section__single-post__intro__content">
-        <div class="section__single-post__intro__text">
-            <?= $title ?>
+        <h1 class="section__single-post__intro__title">
+            <?= get_the_title($id) ?>
+        </h1>
+
+        <div class="section__single-post__intro__description__wrapper">
             <div class="section__single-post__intro__description">
                 <?= $caption ?>
             </div>
-        </div>
-        <div class="section__single-post__intro__description__wrapper">
-
-            <div class="section__single-post__meta">
+            <div class="section__single-post__meta__wrapper">
                 <?
                 $post_meta_repeater = get_field('post_meta-repeater', $id);
                 if (have_rows('post_meta-repeater', $id)) :
@@ -87,7 +88,7 @@ $id = get_the_ID();
                         <div class="section__single-post__meta__team__name">
                             Совместно с
                             <? foreach ($users as $user) : ?>
-                                <a href="<?= esc_attr($user['user_url']) ?>">
+                                <a href="<?= esc_attr($user['user_url']) ?>" target="_blank">
                                     <?= esc_attr($user['nickname']) ?>
                                 </a>
                             <? endforeach; ?>
@@ -97,4 +98,5 @@ $id = get_the_ID();
             </div>
         </div>
     </div>
+
 </section>

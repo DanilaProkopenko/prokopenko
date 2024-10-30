@@ -144,7 +144,7 @@ if ($args) {
                     <div class="post-card__meta__team__name">
                         Совместно с
                         <? foreach ($users as $user) : ?>
-                            <a href="<?= esc_attr($user['user_url']) ?>">
+                            <a href="<?= esc_attr($user['user_url']) ?>" target="_blank">
                                 <?= esc_attr($user['nickname']) ?>
                             </a>
                         <? endforeach; ?>
