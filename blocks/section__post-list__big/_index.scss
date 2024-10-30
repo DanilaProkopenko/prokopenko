@@ -20,12 +20,11 @@
 .section__post-list__big {
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: 14rem;
 
     grid-column: 3/13;
     grid-row: 2/3;
     padding: 0 var(--padding);
-
 }
 
 .cards,
@@ -117,10 +116,14 @@
 @media screen and (max-width: 1024px) {
 
     .section__post-list__big {
-       gap: 7rem;
+        gap: 7rem;
     }
 }
 
 @media screen and (max-width: 1220px) {}
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .section__post-list__big {
+        padding: 0;
+    }
+}
