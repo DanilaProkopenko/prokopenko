@@ -106,9 +106,9 @@ if ($args) {
         <div class="post-card__big__content">
             <a href="<?= $link ?> "
                 class=" post-card__big__title">
-                <h3 class="post-card__big__heading">
+                <h4 class="post-card__big__heading">
                     <?= $title ?>
-                </h3>
+                </h4>
             </a>
             <div class="post-card__big__short-description">
                 <?= $short_description ?>
@@ -160,7 +160,7 @@ if ($args) {
                 $link_title = $link['title'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
                 ?>
-                <a class="link-button _big" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+                <a class="link-button link-button_blue _big" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
                     <?php echo esc_html($link_title); ?>
                     <i class="link-button__border"></i>
                 </a>

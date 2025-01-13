@@ -31,19 +31,20 @@ function wwzrds_init_global_acf_constants()
 add_filter('protected_title_format', 'remove_protected_text');
 function remove_protected_text()
 {
-	return __('NDA: %s');
+	return __('%s (NDA)');
 }
 
 function my_password_form()
 {
 	global $post;
 	$label = 'pwbox-' . (empty($post->ID) ? rand() : $post->ID);
-	$o = '<form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="post-password-form" data-bitwarden-watching="1">
-    ' . __("Этот контент защищен паролем. Для просмотра введите свой пароль ниже:") . '
-    <label for="' . $label . '">' . __("Пароль:") . ' </label>
-	<input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" />
-	<input type="submit" name="Submit" value="' . esc_attr__("Submit") . '" />
+	$o = '<div class="post-password__page"> <form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="post-password-form" data-bitwarden-watching="1">
+	<h3 class="post-password__title h3">Этот контент <br>защищен паролем</h3>
+    <label class="post-password__caption caption" for="' . $label . '">' . __("Напишите мне, если вы его не имеете") . ' </label>
+	<input class="post-password__input" name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="Пароль"/>
+	<input class="post-password__submit link-button link-button_blue" type="submit" name="Submit" value="' . esc_attr__("Продолжить") . '" />
     </form>
+	</div>
     ';
 	return $o;
 }
