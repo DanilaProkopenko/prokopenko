@@ -47,13 +47,12 @@ $block_id_name = get_field('block_id_name');
             Собрал работы, над которыми работал в последнее время
         </div>
     </div>
-    <!-- <div class="section__post-list__big main-padding cards"> -->
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>
     </div>
 
 </section>
 
-<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script>
+<!-- <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script> -->
+<!-- <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script> -->
+<!-- <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script> -->

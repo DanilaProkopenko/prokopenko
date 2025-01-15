@@ -44,7 +44,10 @@ class Header {
 
     highlightLink() {
         // Выбираем все разделы и ссылки
-        const sections = document.querySelectorAll('section');
+        // const sections = document.querySelectorAll('section');
+        const sections = document.querySelectorAll('h2, h3, h4, h5, h6');
+        // const pageHeadings = Array.from(pageBody.querySelectorAll('h2, h3, h4, h5, h6'));
+
         const navLinks = document.querySelectorAll('header nav a');
         // Функция, которая проверяет, какой раздел виден в окне просмотра
         function updateNavigation() {
@@ -72,10 +75,10 @@ class Header {
         const pageHeadings = Array.from(pageBody.querySelectorAll('h2, h3, h4, h5, h6'));
 
         // замена заголовка в окне на зголовок страницы
-        function getPageHeadingH1() {
-            const pageHeadingH1 = document.getElementsByClassName('dan__page-navigation__heading')[0];
-            pageHeadingH1.innerHTML = Array.from(pageBody.querySelectorAll('h1'))[0].textContent;
-        }
+        // function getPageHeadingH1() {
+        //     const pageHeadingH1 = document.getElementsByClassName('dan__page-navigation__heading')[0];
+        //     pageHeadingH1.innerHTML = Array.from(pageBody.querySelectorAll('h1'))[0].textContent;
+        // }
 
         //Добавляет id к заголовкам
         function writeHeadingId() {
@@ -84,8 +87,8 @@ class Header {
                 el.setAttribute('id', 'element-' + [index]);
                 el.setAttribute('tag-name', el.tagName);
             });
-            // console.log('pageHeadings —', pageHeadings);
-            // console.log('pageBody — ', pageBody);
+            console.log('pageHeadings —', pageHeadings);
+            console.log('pageBody — ', pageBody);
         }
 
         function links(container, name, link, elemClass) {
@@ -96,7 +99,7 @@ class Header {
             a.appendChild(document.createTextNode(name));
             a.setAttribute('uk-scroll', '');
             a.classList.add('dan__page-navigation__item__' + elemClass, 'uk-' + elemClass, 'dan__page-navigation__item__heading');
-            // console.log('name — ', a.title, 'link — ', a.href)
+            console.log('name — ', a.title, 'link — ', a.href)
             li.appendChild(a);
             container.appendChild(li);
         }
@@ -107,7 +110,7 @@ class Header {
                 const elementClass = element.getAttribute('tag-name').toLowerCase();
                 const elementNameId = element.textContent;
 
-                // console.log('elementId — ', elementId, 'elementNameId—  ', elementNameId)
+                console.log('elementId — ', elementId, 'elementNameId—  ', elementNameId)
                 // console.log('elementId — ', elementId)
                 // if (elementNameId != 0) {
                 //         // links(navContainer, elementNameId, elementId);
@@ -188,7 +191,7 @@ class Header {
             // headerDescription.classList.toggle('_hide');
             footer.classList.toggle('_hide');
 
-            console.log('burgerCount — ', burgerCount)
+            // console.log('burgerCount — ', burgerCount)
             if (burgerCount == 6) {
                 burgerCount = 1
             }
@@ -232,6 +235,8 @@ class Header {
         burgerMenu.addEventListener('click', function () {
             burgerClose();
         })
+
+        // console.log('burger')
     }
 
     headerOut() {

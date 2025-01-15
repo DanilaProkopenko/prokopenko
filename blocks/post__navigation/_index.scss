@@ -1,0 +1,35 @@
+.post__navigation {
+    padding: 1.5rem var(--padding);
+    position: sticky;
+    left: var(--padding);
+    top: 64px;
+    bottom: 0;
+    height: fit-content;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding: 1rem 0;
+
+    z-index: 100;
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        font-size: var(--font-size-0);
+        font-weight: 400;
+        text-decoration: none;
+        color: var(--color-text-grey);
+
+        &.active {
+            color: var(--color-text-primary);
+        }
+
+        &:hover {
+            color: var(--color-text-primary);
+        }
+
+    }
+}

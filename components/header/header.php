@@ -54,5 +54,3 @@ $header_last_update = get_field('header_last-update', 'options');
     wp_nav_menu($args);
     ?>
 </div>
-<nav class="header__page-nav">
-</nav>

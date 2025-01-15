@@ -1,4 +1,5 @@
 import barba from '@barba/core';
+import { gsap } from "gsap";
 
 // This function helps add and remove js and css files during a page transition
 function loadjscssfile(filename, filetype) {
@@ -24,10 +25,8 @@ function loadjscssfile(filename, filetype) {
     }
     if (typeof fileref != "undefined")
         document.getElementsByTagName("head")[0].appendChild(fileref);
-
-    console.log('barba')
-
 }
+
 
 barba.hooks.beforeEnter(({ current, next }) => {
     // Set <body> classes for the 'next' page
@@ -61,7 +60,6 @@ barba.hooks.beforeEnter(({ current, next }) => {
             if (oldElementorScript) {
                 oldElementorScript.remove();
             }
-            // loadjscssfile(newScriptURL, "css");
         }
     }
 
@@ -71,71 +69,50 @@ barba.hooks.beforeEnter(({ current, next }) => {
 
     // Here we are manually reloading the gravity form scripts and styles. If you find that you get errors in future with missing assets, simply add them below.
     const gravityFormJS =
-        "/wp-content/plugins/gravityforms/js/gravityforms.min.js";
-    const gravityFormsJquery =
-        "/wp-content/plugins/gravityforms/js/jquery.json.min.js";
-    const gformReset = "/wp-content/plugins/gravityforms/css/formreset.min.css";
-    const gformMainCSS = "/wp-content/plugins/gravityforms/css/formsmain.min.css";
-    const gformReadyclass =
-        "/wp-content/plugins/gravityforms/css/readyclass.min.css";
-    const gformBrowser = "/wp-content/plugins/gravityforms/css/browsers.min.css";
-    const gformVariables =
-        'var gf_global = {"gf_currency_config":{"name":"Australian Dollar","symbol_left":"$","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2},"base_url":"' +
-        protocol +
-        "//" +
-        baseURL +
-        '/wp-content/plugins/gravityforms","number_formats":[],"spinnerUrl":"' +
-        protocol +
-        "//" +
-        baseURL +
-        '/wp-content/plugins/gravityforms/images/spinner.gif"};';
-    const gformWrapper = next.container.querySelectorAll(".gform_wrapper");
+        "/wp-content/themes/prokopenko/_dist/js/app.min.js";
+    // const gformWrapper = next.container.querySelectorAll(".container");
+    const gformWrapper = document.querySelectorAll(".container");
     //  const gformSomethingElse = '/wp-content/plugins/gravityforms/css/somethingElse.min.css';
 
+    // loadjscssfile(gravityFormJS, "js");
     if (gformWrapper) {
         // run if the page contains a form
-        const gformVariablesScript = document.createElement("script");
-        gformVariablesScript.innerHTML = gformVariables;
-        document.body.appendChild(gformVariablesScript);
+        // const gformVariablesScript = document.createElement("script");
+        // gformVariablesScript.innerHTML = gravityFormJS;
+        // gformVariablesScript.innerHTML = gformVariables;
+        // document.body.appendChild(gformVariablesScript);
 
         // loadjscssfile(gravityFormJS, "js");
-        // loadjscssfile(gravityFormsJquery, "js");
-        // loadjscssfile(gformReset, "css");
-        // loadjscssfile(gformMainCSS, "css");
-        // loadjscssfile(gformReadyclass, "css");
-        // loadjscssfile(gformBrowser, "css");
         // loadjscssfile(gformSomethingElse, 'css')
 
-        if (window["gformInitDatepicker"]) {
-            gformInitDatepicker();
-        }
+        // if (window["gformInitDatepicker"]) {
+        //     gformInitDatepicker();
+        // }
 
-        gformWrapper.forEach((element) => {
-            const parent = element.parentElement;
-            const scripts = parent.querySelectorAll("script");
-            scripts.forEach((script) => {
-                const scriptCode = script.innerHTML;
-                const newScript = document.createElement("script");
-                script.remove();
-                newScript.innerHTML = scriptCode;
-                parent.appendChild(newScript);
-            });
-        });
-
-        // ALLOW ELEMENTOR VIDEOS TO AUTOPLAY AFTER TRANSITION
-        let elementorVideos = document.querySelectorAll(".elementor-video");
-        if (typeof elementorVideos != "undefined" && elementorVideos != null) {
-            elementorVideos.forEach((video) => {
-                video.play();
-            });
-        }
+        // gformWrapper.forEach((element) => {
+        //     const parent = element.parentElement;
+        //     const scripts = parent.querySelectorAll("script");
+        //     scripts.forEach((script) => {
+        //         const scriptCode = script.innerHTML;
+        //         const newScript = document.createElement("script");
+        //         script.remove();
+        //         newScript.innerHTML = scriptCode;
+        //         parent.appendChild(newScript);
+        //     });
+        // });
 
         if (current.container) {
             // only run during a page transition - not initial load
             // add any custom JS here that you would like to load on each page
-            elementorFrontend.init();
+            // loadjscssfile(gravityFormJS, "js");
         }
     }
+    killEvents();
+
+});
+
+barba.hooks.afterEnter(() => {
+    addEvents();
 });
 
 const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
@@ -144,7 +121,7 @@ function leaveAnimation(e) {
     return new Promise(async (resolve) => {
         await tl
             .to(e, {
-                duration: 1.5,
+                duration: .5,
                 y: -100,
                 opacity: 0,
             })
@@ -162,7 +139,7 @@ function enterAnimation(e) {
     return new Promise(async (resolve) => {
         await tl
             .from(e, {
-                duration: 1.5,
+                duration: .5,
                 y: 100,
                 opacity: 0,
             })
@@ -171,6 +148,82 @@ function enterAnimation(e) {
         resolve();
     });
 }
+
+// barba.hooks.after(() => {
+//     let js = document.querySelectorAll('#wwzrds-js');
+//     console.log('after js — ', js)
+
+//     function load_js() {
+//         var head = document.getElementsByTagName('head')[0];
+//         var script = document.createElement('script');
+//         script.src = '/wp-content/themes/prokopenko/_dist/js/app.min.js' + '?' + (new Date()).getTime();
+//         head.appendChild(script);
+//     }
+//     load_js();
+// })
+// barba.hooks.after(() => {
+//     let js = document.querySelectorAll('#wwzrds-js');
+//     console.log('after js — ', js)
+
+//     if (js) {
+//         js.forEach((item) => {
+//             eval(item.innerHTML);
+//             console.log('eval(item.innerHTML)')
+//         });
+//     }
+// });
+
+// Работает перезагрузка js файла. Но он только добавляет его заного в head
+// те не перезгружает его, а создает новый. В итоге проблема с тем, что не работает js
+// при повторном перезоде на страницу ушла, но он добавялет новый файл js каждый раз
+// 
+// Совет:
+// надо попробовать перезаписывать или удалять прошлый
+// 
+barba.hooks.after((data) => {
+
+    function deleteFirstOldScript() {
+        let oldScript = document.querySelector('#wwzrds-js');
+        oldScript.remove();
+    };
+
+    function deleteOldScript(name) {
+        name.remove();
+    };
+
+    function load_js(count) {
+        var head = document.getElementsByTagName('head')[0];
+        var newScript = document.createElement('script');
+        newScript.src = '/wp-content/themes/prokopenko/_dist/js/app.min.js' + '?' + (new Date()).getTime();
+        head.appendChild(newScript);
+
+        // deleteFirstOldScript();
+        // deleteOldScript(newScript);
+
+        // const bottomDOM = document.getElementsByTagName("head")[0]
+        // const newScript = document.createElement("script")
+        // const oldScript = document.querySelector("main-script")
+        // newScript.src = "/wp-content/themes/prokopenko/_dist/js/app.min.js"
+        // newScript.className = "main-script"
+        // oldScript.remove()
+        // // newScript.id = "#wwzrds-js"
+        // bottomDOM.appendChild(newScript)
+    }
+    load_js(count);
+});
+
+// barba.hooks.afterLeave((data) => {
+//     let js = document.querySelectorAll('#wwzrds-js');
+//     // const js = data.next.container.querySelectorAll("script.reload-on-ajax");
+//     console.log('afterLeave js — ', js);
+//     [].forEach.call(js, function (script) {
+//         console.log('afterLeave script — ', script);
+//         script.src = script.src += (new Date()).getTime();
+//         // window.eval(script.innerHTML);
+//     });
+// });
+
+
 
 barba.init({
     timeout: 5000,
@@ -184,3 +237,4 @@ barba.init({
     ],
 
 });
+

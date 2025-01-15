@@ -8,5 +8,5 @@ import { Fancybox } from '@fancyapps/ui';
             // Your custom options
         }
     );
-    console.log('fancyapps')
+    // console.log('fancyapps')
 })();

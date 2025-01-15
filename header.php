@@ -9,15 +9,10 @@
     <?php wp_head(); ?>
 </head>
 
-<!-- <body <?php body_class(); ?>> -->
-
 <body data-barba="wrapper">
-
 
 
     <?php wp_body_open();
     get_template_part('components/header/header'); ?>
-    <main id="main" class='container' data-barba="container" data-barba-namespace="one-pager">
-
-        <!-- <main> -->
-            <!-- <main id="main"> -->
+    <main id="main" <?php body_class('container'); ?> data-barba="container" data-barba-namespace="one-pager">
+        <!-- <nav class="header__page-nav"></nav> -->

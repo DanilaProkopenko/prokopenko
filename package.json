@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@barba/core": "^2.10.3",
-    "@fancyapps/ui": "^5.0.36"
+    "@fancyapps/ui": "^5.0.36",
+    "gsap": "^3.12.5"
   }
 }

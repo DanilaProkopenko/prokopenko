@@ -175,7 +175,6 @@ div {
     p {
         &:not(:first-child) {
             margin-top: .5rem;
-            min-height: var(--font-size--1);
         }
     }
 }
@@ -564,7 +563,9 @@ footer,
     text-align: center;
 }
 
-
+.single-post{
+    padding: 0 var(--padding);
+}
 @media screen and (max-width: 1600px) {}
 
 @media screen and (max-width: 1220px) {

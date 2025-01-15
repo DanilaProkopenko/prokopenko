@@ -11,26 +11,8 @@ $post_id = get_the_ID();
 
 <?php get_header() ?>
 
-<div class="single-page main-padding">
-    <!-- <section class="single-page__header main-width section">
-        <div class="single-page__header__img">
-            <img src="<?= esc_url($thumb) ?>" alt="" class="single-page__header__img__source">
-        </div>
-
-        <div class="single-page__header__content">
-            <h1 class="single-page__header__content__heading">
-                <?= $title; ?>
-            </h1>
-            <? if ($except) : ?>
-                <div class="single-page__header__content__except">
-                    <?= $except; ?>
-                </div>
-            <? endif ?>
-        </div>
-    </section> -->
-
+<!-- <div class="single-page main-padding"> -->
     <?php the_content(); ?>
-
-</div>
+<!-- </div> -->
 
 <?php get_footer() ?>
