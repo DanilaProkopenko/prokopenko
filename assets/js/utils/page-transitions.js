@@ -184,7 +184,10 @@ barba.hooks.after((data) => {
 
     function deleteFirstOldScript() {
         let oldScript = document.querySelector('#wwzrds-js');
-        oldScript.remove();
+        console.log('deleteFirstOldScript');
+        if (oldScript) {
+            oldScript.remove();
+        }
     };
 
     function deleteOldScript(name) {
@@ -195,9 +198,20 @@ barba.hooks.after((data) => {
         var head = document.getElementsByTagName('head')[0];
         var newScript = document.createElement('script');
         newScript.src = '/wp-content/themes/prokopenko/_dist/js/app.min.js' + '?' + (new Date()).getTime();
+        newScript.className = "main-script";
         head.appendChild(newScript);
 
-        // deleteFirstOldScript();
+        const oldScript = Array.from(document.getElementsByClassName("main-script"));
+        // console.log('oldscript — ', oldScript);
+        if (oldScript[1]) {
+            console.log('oldscript 1 — ', oldScript[1]);
+            oldScript[0].remove()
+        } else {
+            console.log('oldscript 0 — ', oldScript[0]);
+            deleteFirstOldScript();
+        }
+
+
         // deleteOldScript(newScript);
 
         // const bottomDOM = document.getElementsByTagName("head")[0]

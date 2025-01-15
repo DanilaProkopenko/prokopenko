@@ -1,11 +1,11 @@
 .post__navigation {
     padding: 1.5rem var(--padding);
-    position: fixed;
+    position: sticky;
     left: var(--padding);
     top: 64px;
     bottom: 0;
     height: fit-content;
-    width: 15rem;
+    width: 180px;
     display: flex;
     flex-direction: column;
     gap: .8rem;
