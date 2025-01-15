@@ -208,8 +208,9 @@ barba.hooks.after((data) => {
         // oldScript.remove()
         // // newScript.id = "#wwzrds-js"
         // bottomDOM.appendChild(newScript)
+        console.log('load_js')
     }
-    load_js(count);
+    load_js();
 });
 
 // barba.hooks.afterLeave((data) => {

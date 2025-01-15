@@ -11,8 +11,12 @@ $post_id = get_the_ID();
 
 <?php get_header() ?>
 
-<!-- <div class="single-page main-padding"> -->
+<?= do_shortcode('[block_post_navigation]') ?>
+
+<div class="single-page main-padding">
     <?php the_content(); ?>
-<!-- </div> -->
+</div>
+
+<?= do_shortcode('[block_archive]') ?>
 
 <?php get_footer() ?>

@@ -52,3 +52,33 @@ add_filter('the_password_form', 'my_password_form');
 
 require_once THEME_DIR . '/includes/load.php';
 require_once THEME_DIR . '/blocks/load.php';
+
+
+// Выдает блок навигации по странице по заголовкам
+function block_post_navigation()
+{
+	ob_start();
+	echo do_blocks('<!-- wp:wwzrds/post-navigation {"name":"wwzrds/post-navigation","data":{"block_id":"","_block_id":"field_667fd5a3268ac","block_id_name":"","_block_id_name":"field_667fd621ee9a5","block_name":"","_block_name":"field_67010dc435920","block_caption":"","_block_caption":"field_67010dcf35921"},"mode":"preview"} /-->');
+
+	return ob_get_clean();
+}
+add_shortcode('block_post_navigation', 'block_post_navigation');
+
+// Выдает блок с записями листалка
+function block_archive()
+{
+	ob_start();
+	echo do_blocks('<!-- wp:prok/section-post-list-archive-gallery 
+	{
+	"name":"prok/section-post-list-archive-gallery",
+	"data":{"block_id":"",
+	"_block_id":"field_667fd5a3268ac",
+	"block_id_name":"",
+	"_block_id_name":"field_667fd621ee9a5",
+	"block_name":"","_block_name":"field_67010dc435920",
+	"block_caption":"",
+	"_block_caption":"field_67010dcf35921"},
+	"mode":"preview"} /-->');
+	return ob_get_clean();
+}
+add_shortcode('block_archive', 'block_archive');
