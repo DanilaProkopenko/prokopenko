@@ -43,24 +43,24 @@ barba.hooks.beforeEnter(({ current, next }) => {
 
         // ELEMENTOR
         // Where the magic happens - this loads the new Elementor styles and removes the old styles
-        if (bodyClasses.includes("elementor-page")) {
-            let currentPageId = current.container
-                .querySelector(".elementor")
-                .getAttribute("data-elementor-id");
-            let nextPageId = next.container
-                .querySelector(".elementor")
-                .getAttribute("data-elementor-id");
-            let oldScriptURL =
-                "/wp-content/uploads/elementor/css/post-" + currentPageId + ".css";
-            let newScriptURL =
-                "/wp-content/uploads/elementor/css/post-" + nextPageId + ".css"; // Add this for cache fix: ?cachebuster=' + new Date().getTime()
-            const oldElementorScript = document.querySelector(
-                'link[src="' + oldScriptURL + '"]'
-            );
-            if (oldElementorScript) {
-                oldElementorScript.remove();
-            }
-        }
+        // if (bodyClasses.includes("elementor-page")) {
+        //     let currentPageId = current.container
+        //         .querySelector(".elementor")
+        //         .getAttribute("data-elementor-id");
+        //     let nextPageId = next.container
+        //         .querySelector(".elementor")
+        //         .getAttribute("data-elementor-id");
+        //     let oldScriptURL =
+        //         "/wp-content/uploads/elementor/css/post-" + currentPageId + ".css";
+        //     let newScriptURL =
+        //         "/wp-content/uploads/elementor/css/post-" + nextPageId + ".css"; // Add this for cache fix: ?cachebuster=' + new Date().getTime()
+        //     const oldElementorScript = document.querySelector(
+        //         'link[src="' + oldScriptURL + '"]'
+        //     );
+        //     if (oldElementorScript) {
+        //         oldElementorScript.remove();
+        //     }
+        // }
     }
 
     // GRAVITY FORMS
@@ -75,38 +75,38 @@ barba.hooks.beforeEnter(({ current, next }) => {
     //  const gformSomethingElse = '/wp-content/plugins/gravityforms/css/somethingElse.min.css';
 
     // loadjscssfile(gravityFormJS, "js");
-    if (gformWrapper) {
-        // run if the page contains a form
-        // const gformVariablesScript = document.createElement("script");
-        // gformVariablesScript.innerHTML = gravityFormJS;
-        // gformVariablesScript.innerHTML = gformVariables;
-        // document.body.appendChild(gformVariablesScript);
+    // if (gformWrapper) {
+    //     // run if the page contains a form
+    //     // const gformVariablesScript = document.createElement("script");
+    //     // gformVariablesScript.innerHTML = gravityFormJS;
+    //     // gformVariablesScript.innerHTML = gformVariables;
+    //     // document.body.appendChild(gformVariablesScript);
 
-        // loadjscssfile(gravityFormJS, "js");
-        // loadjscssfile(gformSomethingElse, 'css')
+    //     // loadjscssfile(gravityFormJS, "js");
+    //     // loadjscssfile(gformSomethingElse, 'css')
 
-        // if (window["gformInitDatepicker"]) {
-        //     gformInitDatepicker();
-        // }
+    //     // if (window["gformInitDatepicker"]) {
+    //     //     gformInitDatepicker();
+    //     // }
 
-        // gformWrapper.forEach((element) => {
-        //     const parent = element.parentElement;
-        //     const scripts = parent.querySelectorAll("script");
-        //     scripts.forEach((script) => {
-        //         const scriptCode = script.innerHTML;
-        //         const newScript = document.createElement("script");
-        //         script.remove();
-        //         newScript.innerHTML = scriptCode;
-        //         parent.appendChild(newScript);
-        //     });
-        // });
+    //     // gformWrapper.forEach((element) => {
+    //     //     const parent = element.parentElement;
+    //     //     const scripts = parent.querySelectorAll("script");
+    //     //     scripts.forEach((script) => {
+    //     //         const scriptCode = script.innerHTML;
+    //     //         const newScript = document.createElement("script");
+    //     //         script.remove();
+    //     //         newScript.innerHTML = scriptCode;
+    //     //         parent.appendChild(newScript);
+    //     //     });
+    //     // });
 
-        if (current.container) {
-            // only run during a page transition - not initial load
-            // add any custom JS here that you would like to load on each page
-            // loadjscssfile(gravityFormJS, "js");
-        }
-    }
+    //     if (current.container) {
+    //         // only run during a page transition - not initial load
+    //         // add any custom JS here that you would like to load on each page
+    //         // loadjscssfile(gravityFormJS, "js");
+    //     }
+    // }
     killEvents();
 
 });
@@ -148,30 +148,6 @@ function enterAnimation(e) {
         resolve();
     });
 }
-
-// barba.hooks.after(() => {
-//     let js = document.querySelectorAll('#wwzrds-js');
-//     console.log('after js — ', js)
-
-//     function load_js() {
-//         var head = document.getElementsByTagName('head')[0];
-//         var script = document.createElement('script');
-//         script.src = '/wp-content/themes/prokopenko/_dist/js/app.min.js' + '?' + (new Date()).getTime();
-//         head.appendChild(script);
-//     }
-//     load_js();
-// })
-// barba.hooks.after(() => {
-//     let js = document.querySelectorAll('#wwzrds-js');
-//     console.log('after js — ', js)
-
-//     if (js) {
-//         js.forEach((item) => {
-//             eval(item.innerHTML);
-//             console.log('eval(item.innerHTML)')
-//         });
-//     }
-// });
 
 // Работает перезагрузка js файла. Но он только добавляет его заного в head
 // те не перезгружает его, а создает новый. В итоге проблема с тем, что не работает js
@@ -224,6 +200,36 @@ barba.hooks.after((data) => {
         // bottomDOM.appendChild(newScript)
         console.log('load_js')
     }
+    function load_js(count) {
+        var head = document.getElementsByTagName('head')[0];
+        var newScript = document.createElement('script');
+        newScript.src = '/wp-content/themes/prokopenko/_dist/js/app.min.js' + '?' + (new Date()).getTime();
+        newScript.className = "main-script";
+        head.appendChild(newScript);
+
+        const oldScript = Array.from(document.getElementsByClassName("main-script"));
+        // console.log('oldscript — ', oldScript);
+        if (oldScript[1]) {
+            console.log('oldscript 1 — ', oldScript[1]);
+            oldScript[0].remove()
+        } else {
+            console.log('oldscript 0 — ', oldScript[0]);
+            deleteFirstOldScript();
+        }
+
+
+        // deleteOldScript(newScript);
+
+        // const bottomDOM = document.getElementsByTagName("head")[0]
+        // const newScript = document.createElement("script")
+        // const oldScript = document.querySelector("main-script")
+        // newScript.src = "/wp-content/themes/prokopenko/_dist/js/app.min.js"
+        // newScript.className = "main-script"
+        // oldScript.remove()
+        // // newScript.id = "#wwzrds-js"
+        // bottomDOM.appendChild(newScript)
+        console.log('load_js')
+    }
     load_js();
 });
 
@@ -240,16 +246,19 @@ barba.hooks.after((data) => {
 
 
 
-barba.init({
-    timeout: 5000,
-    debug: false, // turn this to "true" to debug
-    transitions: [
-        {
-            sync: false,
-            leave: ({ current }) => leaveAnimation(current.container),
-            enter: ({ next }) => enterAnimation(next.container),
-        },
-    ],
+// barba.init({
+//     timeout: 5000,
+//     debug: false, // turn this to "true" to debug
+//     transitions: [
+//         {
+//             sync: false,
+//             leave: ({ current }) => leaveAnimation(current.container),
+//             enter: ({ next }) => {
+//                 window.scrollTo(0, 0);
+//                 enterAnimation(next.container);
+//             },
+//         },
+//     ],
 
-});
+// });
 

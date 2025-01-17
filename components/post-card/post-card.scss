@@ -3,7 +3,7 @@
     position: relative;
 
     a {
-        width: 100%;
+        // width: 100%;
     }
 }
 
@@ -40,5 +40,6 @@
         color: var(--color-secondary);
         text-decoration: none;
         font-size: var(--font-size-0);
+        border-bottom: 0;
     }
 }

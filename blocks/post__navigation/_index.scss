@@ -11,13 +11,12 @@
     gap: .8rem;
     padding: 1rem 0;
 
-    z-index: 100;
-
     li {
         list-style: none;
     }
 
     a {
+        border-bottom: 0;
         font-size: var(--font-size-0);
         font-weight: 400;
         text-decoration: none;

@@ -16,6 +16,7 @@ header {
     * {
         color: var(--color-primary);
         mix-blend-mode: difference;
+        border-bottom: 0;
     }
 
     .out {
@@ -120,7 +121,7 @@ header {
 
         a {
             // transform: translateY(-100%);
-
+            border-bottom: 0;
             display: inline-block;
             width: 100%;
             padding: var(--padding) var(--padding);
@@ -246,6 +247,7 @@ header {
     padding: 1rem 0;
 
     z-index: 100;
+
     li {
         list-style: none;
     }
