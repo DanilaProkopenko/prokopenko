@@ -2,33 +2,120 @@
     padding: 1.5rem var(--padding);
     position: sticky;
     left: var(--padding);
-    top: 64px;
+    top: 5rem;
     bottom: 0;
+    height: -moz-fit-content;
     height: fit-content;
-    width: 180px;
+    width: 209px;
     display: flex;
     flex-direction: column;
-    gap: .8rem;
-    padding: 1rem 0;
+    padding: 0;
+
+    &::before {
+        content: '';
+        width: .05rem;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: var(--color-text-grey);
+        border-radius: 10px;
+    }
 
     li {
         list-style: none;
+        margin-top: -1px;
+        // /* padding: 1.2rem 0;
     }
 
     a {
         border-bottom: 0;
-        font-size: var(--font-size-0);
+        font-size: var(--font-size--1);
         font-weight: 400;
         text-decoration: none;
         color: var(--color-text-grey);
+        padding: 0.4rem 1rem;
+        // border-left: .05rem solid currentColor;
+        display: inline-block;
+        position: relative;
 
-        &.active {
-            color: var(--color-text-primary);
+        &::before {
+            transition: all .3s;
+            // content: '';
+            width: .05rem;
+            width: .15rem;
+            height: 100%;
+            position: absolute;
+            left: -0.05rem;
+            top: 0;
+            // background-color: currentColor;
+            border-radius: 10px;
         }
 
+        &.active,
         &:hover {
             color: var(--color-text-primary);
+
+            // padding-left: calc(1rem + .15rem);
+            // border-left: .15rem solid currentColor;
+            &::before {
+                background-color: currentColor;
+            }
         }
 
     }
+}
+
+// .post__navigation {
+//     position: sticky;
+//     top: 5rem;
+//     left: var(--padding);
+//     width: 209px;
+//     display: flex;
+//     flex-direction: column;
+//     padding: 0;
+//     z-index: 10;
+//     background-color: white;
+// }
+
+.indicator {
+    position: absolute;
+    left: -.05rem;
+    /* Отступ слева */
+    width: 0.15rem;
+    background-color: var(--color-text-primary);
+    /* Цвет индикатора */
+    border-radius: 10px;
+    transition: top 0.3s ease, height 0.3s ease;
+
+    /* Плавный переход для вертикального перемещения */
+    // height: 1.2rem;
+    /* Начальная высота индикатора */
+
+
+}
+.post__navigation ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.post__navigation li {
+    list-style: none;
+    margin-top: -1px;
+}
+
+.post__navigation a {
+    border-bottom: 0;
+    font-size: var(--font-size--1);
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--color-text-grey);
+    padding: 0.4rem 1rem;
+    position: relative;
+}
+
+.post__navigation a.active {
+    color: var(--color-text-primary);
 }

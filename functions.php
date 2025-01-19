@@ -24,6 +24,18 @@ function wwzrds_init_global_acf_constants()
 	define('GLOBAL_EXAMPLE_FIELD_VALUE', get_field('global_example_field', 'options'));
 }
 
+// Подключение dashicons
+wp_enqueue_style('dashicons');
+
+function load_dashicons()
+{
+	wp_enqueue_style('dashicons');
+}
+
+add_action('wp_enqueue_scripts', 'load_dashicons');
+
+
+
 /**
  * Removes or edits the 'Protected:' part from posts titles
  */
@@ -31,7 +43,8 @@ function wwzrds_init_global_acf_constants()
 add_filter('protected_title_format', 'remove_protected_text');
 function remove_protected_text()
 {
-	return __('%s (NDA)');
+	// return __('%s (NDA)');
+	return __('%s <span class="dashicons dashicons-lock"></span>');
 }
 
 function my_password_form()
