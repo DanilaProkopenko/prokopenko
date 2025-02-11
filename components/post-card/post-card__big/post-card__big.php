@@ -14,13 +14,12 @@ if ($args) {
     $except = $args['except'];
     $gallery = $args['gallery'];
     $posts_count = $args['posts_count'];
-    $post_card_link = $args['post_card_link'];
     $post_thumb_video = $args['post_thumb_video'];
 
     $counter = $args['counter'] + 1;
 }
 ?>
-<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter + 1 ?>">
+<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?> emerge" style="z-index: <?= $counter + 1 ?>">
     <div class="post-card__big__gallery">
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">
@@ -113,58 +112,8 @@ if ($args) {
             <div class="post-card__big__short-description">
                 <?= $short_description ?>
             </div>
-            <?
-            $post_meta_repeater = get_field('post_meta-repeater', $id);
-            if (have_rows('post_meta-repeater', $id)) :
-            ?>
-                <div class="post-card__big__meta">
-                    <?
-                    while (have_rows('post_meta-repeater', $id)) : the_row();
-                        $post_meta_variable = get_sub_field('post_meta-variable');
-                        $post_meta_value = get_sub_field('post_meta-value');
-                    ?>
-                        <div class="post-card__big__meta__item">
-                            <div class="post-card__big__meta__item__variable"><?= $post_meta_variable ?></div>
-                            <div class="post-card__big__meta__item__value"><?= $post_meta_value ?></div>
-                        </div>
-                    <? endwhile; ?>
-                </div>
-            <? endif ?>
-            <?
-            $users = get_field("post_meta_team", $id);
-            if ($users) :
-            ?>
-                <div class="post-card__meta__team">
-                    <div class="post-card__meta__team__images__wrapper">
-                        <? foreach ($users as $user) : ?>
-                            <img src="<?= esc_attr(get_avatar_url($user['ID'])); ?>" alt="Аватар пользователя" class="post-card__meta__teaam__imge__source">
-                        <? endforeach; ?>
-                        <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="Аватар пользователя" class="post-card__meta__teaam__imge__source">
-                    </div>
-                    <div class="post-card__meta__team__name">
-                        Совместно с
-                        <? foreach ($users as $user) : ?>
-                            <a href="<?= esc_attr($user['user_url']) ?>" target="_blank">
-                                <?= esc_attr($user['nickname']) ?>
-                            </a>
-                        <? endforeach; ?>
-                    </div>
-                </div>
-            <? endif; ?>
+               
+            <?= do_shortcode('[block_post_meta]') ?>
         </div>
-        <? if ($post_card_link) : ?>
-            <div class="post-card__big__content__bottom">
-                <?
-                $link = $post_card_link;
-                $link_url = $link['url'];
-                $link_title = $link['title'];
-                $link_target = $link['target'] ? $link['target'] : '_self';
-                ?>
-                <a class="link-button link-button_blue _big" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
-                    <?php echo esc_html($link_title); ?>
-                    <i class="link-button__border"></i>
-                </a>
-            </div>
-        <? endif; ?>
     </div>
 </div>

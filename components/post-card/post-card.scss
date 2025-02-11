@@ -20,9 +20,7 @@
         // border-radius: .5rem;
     }
 }
-.post-card__heading{
-    // font-weight: var(--font-weight-medium);
-}
+
 .post-card__content {
     display: flex;
     flex-direction: column;
@@ -30,8 +28,13 @@
     margin-top: 1rem;
 }
 .post-card__heading {
+    display: flex;
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-medium);
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap: .3rem;
 }
 .post-card__category {
     margin-top: .4rem;

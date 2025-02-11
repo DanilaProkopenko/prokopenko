@@ -7,7 +7,7 @@ if ($args) {
     $id = $args['id'];
 }
 ?>
-<div class="post-card f-carousel__slide">
+<div class="post-card f-carousel__slide emerge">
     <a href=" <?= esc_html($link) ?>" class="post-card__thumb">
         <picture>
             <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />

@@ -215,6 +215,22 @@ class Header {
                     burgerMenu.style.backgroundColor = 'var(--color-blue)';
                     break;
             }
+
+            if (burgerMenu.classList.contains('_open')) {
+                // Убедимся, что все ссылки имеют начальное состояние скрытого текста
+                const links = burgerMenu.querySelectorAll('.header__burger__links li a');
+                links.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.add('slide-in-text');
+                    }, index * 200); // Задержка между строками в миллисекундах
+                });
+            } else {
+                // Если меню закрывается, убираем классы анимации
+                const links = burgerMenu.querySelectorAll('.header__burger__links li a');
+                links.forEach(link => {
+                    link.classList.remove('slide-in-text');
+                });
+            }
         })
 
         document.addEventListener(`keyup`, (e) => {

@@ -74,6 +74,12 @@
 
     color: var(--color-text-primary);
 
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap: .3rem;
+
     &._mobile {
         padding: var(--padding);
     }
@@ -166,7 +172,7 @@
 
     display: flex;
     flex-direction: row;
-    padding: 0.5rem 0px;
+    padding: 0.3rem 0px;
     width: fit-content;
     position: relative;
     width: 100%;
@@ -175,7 +181,7 @@
     opacity: 1;
 
     * {
-        font-size: var(--font-size-0);
+        font-size: var(--font-size--1);
     }
 }
 
@@ -245,11 +251,11 @@
 }
 
 .post-card__meta__team__name {
-    font-size: var(--font-size-0);
+    font-size: var(--font-size--1);
     color: var(--color-secondary);
 
     * {
-        font-size: var(--font-size-0);
+        font-size: var(--font-size--1);
         color: var(--color-secondary);
     }
 
@@ -261,16 +267,6 @@
 }
 
 
-.post-card__big__content__bottom {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    // display: none;
-
-    a {
-        width: 100%;
-    }
-}
 
 .post-card__big__gallery__background {
     position: absolute !important;
@@ -376,6 +372,7 @@
         // aspect-ratio: 4 / 3;
         // top: -4rem;
         border: none;
+
         &:hover {
             opacity: 1;
         }

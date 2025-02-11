@@ -17,6 +17,9 @@ $post_id = get_the_ID();
 <div class="single__wrapper">
     <?= do_shortcode('[block_post_navigation]') ?>
     <div class="single__content main-padding">
+        <h1 class="wp-block-post-title">
+            <?php single_post_title(); ?>
+        </h1>
         <?php the_content(); ?>
     </div>
 </div>

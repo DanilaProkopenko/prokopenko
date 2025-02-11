@@ -7,37 +7,37 @@
             "fontSizes": [
                 {
                     "slug": "h1",
-                    "size": "clamp(2.4883rem, 2.2183rem + 1.3499vw, 3.4332rem)",
+                    "size": "clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem)",
                     "name": "H1"
                 },
                 {
                     "slug": "h2",
-                    "size": "clamp(2.0736rem, 1.8813rem + 0.9614vw, 2.7466rem)",
+                    "size": "clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem)",
                     "name": "H2"
                 },
                 {
                     "slug": "h3",
-                    "size": "clamp(1.728rem, 1.5939rem + 0.6704vw, 2.1973rem)",
+                    "size": "clamp(1.62rem, 1.4617rem + 0.7916vw, 2.0752rem)",
                     "name": "H3"
                 },
                 {
                     "slug": "h4",
-                    "size": "clamp(1.44rem, 1.3492rem + 0.454vw, 1.7578rem)",
+                    "size": "clamp(1.35rem, 1.2421rem + 0.5394vw, 1.6602rem)",
                     "name": "H4"
                 },
                 {
                     "slug": "text_46",
-                    "size": "clamp(1.44rem, 1.3492rem + 0.454vw, 1.7578rem)",
+                    "size": "clamp(1.35rem, 1.2421rem + 0.5394vw, 1.6602rem)",
                     "name": "Text_2"
                 },
                 {
                     "slug": "text_24",
-                    "size": "clamp(1.2rem, 1.1411rem + 0.2946vw, 1.4063rem)",
+                    "size": "clamp(1.125rem, 1.0543rem + 0.3533vw, 1.3281rem)",
                     "name": "Text_1"
                 },
                 {
                     "slug": "text_16",
-                    "size": "clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem)",
+                    "size": "clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem)",
                     "name": "Text_0"
                 }
             ]

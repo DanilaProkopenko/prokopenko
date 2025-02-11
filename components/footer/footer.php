@@ -26,6 +26,10 @@
             wp_nav_menu($args);
             ?>
         </div>
+        <div class="footer__caption">
+            <a href="/wp-admin/">Войти</a>
+            <p>© 2001...2025</p>
+        </div>
     </div>
 
 </footer>

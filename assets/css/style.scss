@@ -1,10 +1,11 @@
 // @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;500;700&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --font-family-primary: 'Roboto', sans-serif;
-    // --font-family-primary: "Inter", sans-serif;
+    // --font-family-primary: 'Open Sans', sans-serif;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
@@ -18,6 +19,7 @@
 
     --color-accent: #308cf4;
     --color-link-hover: var(--color-accent);
+    --color-link-border-hover: rgb(48 140 244 / 15%);
 
     --color-white: #fff;
     --color-red: #d60427;
@@ -26,34 +28,14 @@
     --color-yellow: #f7e30d;
     --color-purple: #d32ddb;
 
-
-
-    --font-size--2: clamp(0.64rem, 0.7167rem + -0.099vi, 0.6944rem);
-    --font-size--1: clamp(0.8rem, 0.847rem + -0.0606vi, 0.8333rem);
-    --font-size-0: clamp(1rem, 1rem + 0vi, 1rem);
-    --font-size-1: clamp(1.2rem, 1.1795rem + 0.0909vi, 1.25rem);
-    --font-size-2: clamp(1.44rem, 1.3899rem + 0.2227vi, 1.5625rem);
-    --font-size-3: clamp(1.728rem, 1.6359rem + 0.4093vi, 1.9531rem);
-    --font-size-4: clamp(2.0736rem, 1.9231rem + 0.6687vi, 2.4414rem);
-    --font-size-5: clamp(2.4883rem, 2.2578rem + 1.0244vi, 3.0518rem);
-
-    // --font-size--2: clamp(0.6076rem, 0.5939rem + 0.0595vw, 0.64rem);
-    // --font-size--1: clamp(0.7292rem, 0.699rem + 0.1303vw, 0.8rem);
-    // --font-size-0: clamp(0.875rem, 0.8218rem + 0.2299vw, 1rem);
-    // --font-size-1: clamp(1.05rem, 0.9649rem + 0.3678vw, 1.25rem);
-    // --font-size-2: clamp(1.26rem, 1.1314rem + 0.5563vw, 1.5625rem);
-    // --font-size-3: clamp(1.512rem, 1.3244rem + 0.8113vw, 1.9531rem);
-    // --font-size-4: clamp(1.8144rem, 1.5477rem + 1.1531vw, 2.4414rem);
-    // --font-size-5: clamp(2.1773rem, 1.8054rem + 1.6082vw, 3.0518rem);
-
-    --font-size--2: clamp(0.6944rem, 0.6871rem + 0.0365vw, 0.72rem);
-    --font-size--1: clamp(0.8333rem, 0.8143rem + 0.0952vw, 0.9rem);
-    --font-size-0: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
-    --font-size-1: clamp(1.2rem, 1.1411rem + 0.2946vw, 1.4063rem);
-    --font-size-2: clamp(1.44rem, 1.3492rem + 0.454vw, 1.7578rem);
-    --font-size-3: clamp(1.728rem, 1.5939rem + 0.6704vw, 2.1973rem);
-    --font-size-4: clamp(2.0736rem, 1.8813rem + 0.9614vw, 2.7466rem);
-    --font-size-5: clamp(2.4883rem, 2.2183rem + 1.3499vw, 3.4332rem);
+    --font-size--2: clamp(0.651rem, 0.641rem + 0.0504vw, 0.68rem);
+    --font-size--1: clamp(0.7813rem, 0.7573rem + 0.1196vw, 0.85rem);
+    --font-size-0: clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem);
+    --font-size-1: clamp(1.125rem, 1.0543rem + 0.3533vw, 1.3281rem);
+    --font-size-2: clamp(1.35rem, 1.2421rem + 0.5394vw, 1.6602rem);
+    --font-size-3: clamp(1.62rem, 1.4617rem + 0.7916vw, 2.0752rem);
+    --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
+    --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
 
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
@@ -77,6 +59,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
 }
 
 em {
@@ -136,10 +119,11 @@ a,
     &:hover {
         // opacity: .8;
         color: var(--color-link-hover);
+        border-color: var(--color-link-border-hover);
 
         * {
             color: var(--color-link-hover);
-
+            border-color: var(--color-link-border-hover);
         }
     }
 }
@@ -192,14 +176,14 @@ a,
 li {
     font-weight: 400;
     font-size: var(--font-size-0);
-    line-height: 117%;
+    line-height: 140%;
 }
 
 
 div {
     p {
         &:not(:first-child) {
-            margin-top: .5rem;
+            margin-top: 1rem;
         }
     }
 }
@@ -207,6 +191,15 @@ div {
 :root :where(.is-layout-constrained)>* {
     margin-block-start: .5rem;
     margin-block-end: 0;
+}
+
+// .wp-block-image :where(figcaption){
+.wp-block-image {
+    figcaption {
+        font-size: var(--font-size--1);
+        color: var(--color-text-grey);
+        line-height: 117%;
+    }
 }
 
 // .wp-block-heading{
@@ -325,20 +318,19 @@ body {
     /* ширина для вертикального скролла */
     height: 5px;
     /* высота для горизонтального скролла */
-    background-color: #00000000;
+    background-color: #e5e5e500;
 }
 
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-secondary);
-    // border-radius: 9em;
+    background-color: var(--color-text-grey);
+    border-radius: 9em;
     transition: all .5s;
-    /* box-shadow: inset 1px 1px 10px #f3faf7; */
 }
 
 ::-webkit-scrollbar-thumb:hover {
     opacity: .5;
-    background-color: #fff;
+    background-color: var(--color-text-primary);
 }
 
 /* Стрелки */
@@ -417,7 +409,7 @@ footer,
         // transform: scale(.9);
         // opacity: .9;
         // filter: grayscale(1);
-        filter: blur(5px);
+        // filter: blur(5px);
         touch-action: none;
 
         &::before {
@@ -588,6 +580,19 @@ footer,
     text-align: center;
 }
 
+.wp-block-list {
+    list-style: none;
+    padding-left: 1.7rem;
+
+    li:not(:first-child) {
+        margin-top: .5rem;
+    }
+
+    li:first-child {
+        margin-top: .2rem;
+    }
+}
+
 // .single-post{
 //     padding: 0 var(--padding);
 // }
@@ -660,6 +665,10 @@ footer,
     // background-color: var(--color-primary);
     // margin-left: 15rem;
     width: calc(100% - 180px - 12rem);
+
+    h1 {
+        margin-bottom: 1.5rem;
+    }
 }
 
 .single .wp-block-post-title .dashicons {

@@ -37,7 +37,7 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<section class="section__first-screen main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<section class="section__first-screen main-padding emerge" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <? if ($first_screen_image) : ?>
         <div class="first-screen__image">
             <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">

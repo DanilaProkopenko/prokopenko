@@ -50,7 +50,6 @@ $header_last_update = get_field('header_last-update', 'options');
         'menu_class' => 'header__burger__links',
         'fallback_cb' => false
     );
-
     wp_nav_menu($args);
     ?>
 </div>

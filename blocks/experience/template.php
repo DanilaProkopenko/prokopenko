@@ -54,7 +54,7 @@ $block_caption = get_field('block_caption');
                     $item_year = get_sub_field('experience-item_year');
                     $item_description = get_sub_field('experience-item_description');
                 ?>
-                    <div class="experience-item">
+                    <div class="experience-item emerge">
                         <div class="experience-item__title">
                             <? if ($item_img): ?>
                                 <img src="<?= esc_url($item_img['sizes']['medium']) ?>" alt="" class="experience-item__img">

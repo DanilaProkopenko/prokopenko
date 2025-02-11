@@ -29,28 +29,19 @@
     }
 
     a {
-        border-bottom: 0;
-        font-size: var(--font-size--1);
-        font-weight: 400;
-        text-decoration: none;
-        color: var(--color-text-grey);
-        padding: 0.4rem 1rem;
-        // border-left: .05rem solid currentColor;
-        display: inline-block;
-        position: relative;
 
-        &::before {
-            transition: all .3s;
-            // content: '';
-            width: .05rem;
-            width: .15rem;
-            height: 100%;
-            position: absolute;
-            left: -0.05rem;
-            top: 0;
-            // background-color: currentColor;
-            border-radius: 10px;
-        }
+        // &::before {
+        //     transition: all .3s;
+        //     // content: '';
+        //     width: .05rem;
+        //     width: .15rem;
+        //     height: 100%;
+        //     position: absolute;
+        //     left: -0.05rem;
+        //     top: 0;
+        //     // background-color: currentColor;
+        //     border-radius: 10px;
+        // }
 
         &.active,
         &:hover {
@@ -58,25 +49,14 @@
 
             // padding-left: calc(1rem + .15rem);
             // border-left: .15rem solid currentColor;
-            &::before {
-                background-color: currentColor;
-            }
+            // &::before {
+            //     background-color: currentColor;
+            // }
         }
 
     }
 }
 
-// .post__navigation {
-//     position: sticky;
-//     top: 5rem;
-//     left: var(--padding);
-//     width: 209px;
-//     display: flex;
-//     flex-direction: column;
-//     padding: 0;
-//     z-index: 10;
-//     background-color: white;
-// }
 
 .indicator {
     position: absolute;
@@ -94,6 +74,7 @@
 
 
 }
+
 .post__navigation ul {
     display: flex;
     flex-direction: column;
@@ -107,6 +88,8 @@
 }
 
 .post__navigation a {
+
+    display: inline-block;
     border-bottom: 0;
     font-size: var(--font-size--1);
     font-weight: 400;
@@ -118,4 +101,53 @@
 
 .post__navigation a.active {
     color: var(--color-text-primary);
+}
+
+@media screen and (max-width: 1024px) {
+    .post__navigation {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        position: relative;
+        align-items: center;
+        left: 0;
+        position: relative;
+        top: 0;
+        padding: 1rem calc(var(--padding) - .5rem) 0;
+
+        a {
+            text-wrap: nowrap;
+            padding: 1.2rem .5rem;
+        }
+
+        &::before {
+            content: none;
+        }
+
+        &::after {
+            position: relative;
+            right: 0;
+            left: auto;
+            margin: 0 auto;
+            content: '';
+            height: 100%;
+            width: 3rem;
+            background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .indicator {
+            display: none;
+        }
+    }
+
+    .post__navigation::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    /*Убрать полосу прокрутки для всей страницы*/
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+
 }
