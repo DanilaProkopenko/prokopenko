@@ -38,7 +38,7 @@ $block_caption = get_field('block_caption');
 
 ?>
 
-<div class="experience-block main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<div class="experience-block main-padding emerge" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <!-- <div class="experience-block__description">
         <?= $experience_block_description ?>
     </div> -->
@@ -54,7 +54,7 @@ $block_caption = get_field('block_caption');
                     $item_year = get_sub_field('experience-item_year');
                     $item_description = get_sub_field('experience-item_description');
                 ?>
-                    <div class="experience-item emerge">
+                    <div class="experience-item ">
                         <div class="experience-item__title">
                             <? if ($item_img): ?>
                                 <img src="<?= esc_url($item_img['sizes']['medium']) ?>" alt="" class="experience-item__img">
@@ -70,10 +70,10 @@ $block_caption = get_field('block_caption');
                                 </div>
                             </div>
                         </div>
-                        <div class="experience-item__position">
-                            <?= $item_position ?>
-                        </div>
                         <div class="experience-item__content">
+                            <div class="experience-item__position">
+                                <?= $item_position ?>
+                            </div>
                             <div class="experience-item__description">
                                 <?= $item_description ?>
                             </div>

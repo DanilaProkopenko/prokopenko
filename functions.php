@@ -112,3 +112,111 @@ function block_post_meta()
 	return ob_get_clean();
 }
 add_shortcode('block_post_meta', 'block_post_meta');
+
+
+/**
+ * Enqueues script with WordPress and adds version number that is a timestamp of the file modified date.
+ * 
+ * @param string      $handle    Name of the script. Should be unique.
+ * @param string|bool $src       Path to the script from the theme directory of WordPress. Example: '/js/myscript.js'.
+ * @param array       $deps      Optional. An array of registered script handles this script depends on. Default empty array.
+ * @param bool        $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
+ *                               Default 'false'.
+ */
+function enqueue_versioned_script($handle, $src = false, $deps = array(), $in_footer = false)
+{
+	wp_enqueue_script($handle, get_stylesheet_directory_uri() . $src, $deps, filemtime(get_stylesheet_directory() . $src), $in_footer);
+}
+
+/**
+ * Enqueues stylesheet with WordPress and adds version number that is a timestamp of the file modified date.
+ *
+ * @param string      $handle Name of the stylesheet. Should be unique.
+ * @param string|bool $src    Path to the stylesheet from the theme directory of WordPress. Example: '/css/mystyle.css'.
+ * @param array       $deps   Optional. An array of registered stylesheet handles this stylesheet depends on. Default empty array.
+ * @param string      $media  Optional. The media for which this stylesheet has been defined.
+ *                            Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
+ *                            '(orientation: portrait)' and '(max-width: 640px)'.
+ */
+function enqueue_versioned_style($handle, $src = false, $deps = array(), $media = 'all')
+{
+	wp_enqueue_style($handle, get_stylesheet_directory_uri() . $src, $deps = array(), filemtime(get_stylesheet_directory() . $src), $media);
+}
+
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+function my_scripts_method()
+{
+	wp_enqueue_script('jquery');
+}
+
+add_action('wp_enqueue_scripts', function () {
+
+	// enqueue_versioned_style('pinta-sport', '/assets/css/style.css');
+
+	enqueue_versioned_script(
+		'main.js',
+		'/_dist/js/pagetransition.min.js',
+		array('jquery'),
+		true
+	);
+});
+
+
+// Добавление module к скрипту
+function make_scripts_modules($tag, $handle, $src)
+{
+
+	if ('main.js' !== $handle) {
+		return $tag;
+	}
+
+	$id = $handle . '-js';
+
+	$parts = explode('</script>', $tag); // Break up our string
+
+	foreach ($parts as $key => $part) {
+		if (false !== strpos($part, $src)) { // Make sure we're only altering the tag for our module script.
+			$parts[$key] = '<script type="module" src="' . esc_url($src) . '" id="' . esc_attr($id) . '">';
+		}
+	}
+
+	$tags = implode('</script>', $parts); // Bring everything back together
+
+	return $tags;
+}
+add_filter('script_loader_tag', 'make_scripts_modules', 10, 3);
+
+add_filter('upload_mimes', 'svg_upload_allow');
+
+# Добавляет SVG в список разрешенных для загрузки файлов.
+function svg_upload_allow($mimes)
+{
+	$mimes['svg']  = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5);
+
+# Исправление MIME типа для SVG файлов.
+function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
+{
+	// WP 5.1 +
+	if (version_compare($GLOBALS['wp_version'], '5.1.0', '>='))
+		$dosvg = in_array($real_mime, ['image/svg', 'image/svg+xml']);
+	else
+		$dosvg = ('.svg' === strtolower(substr($filename, -4)));
+	// mime тип был обнулен, поправим его
+	// а также проверим право пользователя
+	if ($dosvg) {
+		// разрешим
+		if (current_user_can('manage_options')) {
+			$data['ext']  = 'svg';
+			$data['type'] = 'image/svg+xml';
+		}
+		// запретим
+		else {
+			$data['ext'] = $type_and_ext['type'] = false;
+		}
+	}
+
+	return $data;
+}

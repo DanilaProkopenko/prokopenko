@@ -9,6 +9,7 @@ module.exports = {
     app: './assets/js/index.js',
     editor: './assets/js/editor.js',
     admin: './assets/js/admin.js',
+    pagetransition: './assets/js/page-transition.js',
   },
   output: {
     path: path.resolve(__dirname, '../../../_dist'),
@@ -116,13 +117,13 @@ module.exports = {
           from: path.resolve(__dirname, './../../resource/fonts'),
           to: path.resolve(__dirname, '../../../_dist/assets/fonts'),
           globOptions: {
-            ignore: ['**/*.scss'], 
+            ignore: ['**/*.scss'],
           },
         },
       ],
     }),
 
-    
+
     new CleanWebpackPlugin(),
   ].filter(Boolean),
 };

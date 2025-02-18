@@ -114,10 +114,12 @@
         position: relative;
         top: 0;
         padding: 1rem calc(var(--padding) - .5rem) 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        margin-bottom: 2rem;
 
         a {
             text-wrap: nowrap;
-            padding: 1.2rem .5rem;
+            padding: 0.2rem 0.5rem;
         }
 
         &::before {
