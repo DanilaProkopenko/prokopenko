@@ -55,7 +55,7 @@ if ($args) {
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
                             <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
-                            <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи <?= $title ?>" loading="lazy">
+                            <img class="post-card__big__gallery__img__source _cover" data-lazy-src="<?= esc_url($img_large); ?>" alt="Обложка записи" loading="lazy">
                         </picture>
                     </a>
                 </div>

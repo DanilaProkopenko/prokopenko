@@ -37,6 +37,16 @@
     --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
     --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
 
+
+    // --font-size--2: clamp(0.6076rem, 0.5964rem + 0.0563vw, 0.64rem);
+    // --font-size--1: clamp(0.7292rem, 0.7045rem + 0.1232vw, 0.8rem);
+    // --font-size-0: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
+    // --font-size-1: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);
+    // --font-size-2: clamp(1.26rem, 1.1548rem + 0.5261vw, 1.5625rem);
+    // --font-size-3: clamp(1.512rem, 1.3586rem + 0.7672vw, 1.9531rem);
+    // --font-size-4: clamp(1.8144rem, 1.5963rem + 1.0904vw, 2.4414rem);
+    // --font-size-5: clamp(2.1773rem, 1.8731rem + 1.5208vw, 3.0518rem);
+
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
     --grid-row-gap: 30px;
@@ -376,12 +386,8 @@ footer,
 
 
 #main {
-    // display: grid;
-    // grid-template-columns: repeat(12, 1fr);
-    // gap: var(--grid-gap);
-    // grid-column: 3/13;
 
-    padding-top: 4rem;
+    padding-top: 5rem;
     background-color: var(--color-primary);
     transition-property: all;
     transition-duration: .5s;

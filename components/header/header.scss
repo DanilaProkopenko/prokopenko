@@ -17,6 +17,7 @@ header {
         color: var(--color-primary);
         mix-blend-mode: difference;
         border-bottom: 0;
+        font-size: var(--font-size--1);
     }
 
     .out {
@@ -27,7 +28,7 @@ header {
 
 .header__top {
     display: flex;
-    grid-template-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr;
     align-content: space-between;
     flex-direction: row;
     justify-content: space-between;
@@ -37,6 +38,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 90;
+
 }
 
 .header {
@@ -49,14 +51,22 @@ header {
     position: relative;
 }
 
+.header__column {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+}
 
 .header__top__right {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
-    gap: 3rem;
-    width: fit-content;
+    justify-content: space-between;
+    gap: 5rem;
+    // width: fit-content;
+    // width: calc(100% - 180px - 20.9rem);
+    width: calc(50% - var(--padding));
     position: fixed;
     right: var(--padding);
     transition: all .3s ease;
@@ -69,13 +79,7 @@ header {
 
 .header__top__logo {
     text-decoration: none;
-
-
-    h1 {
-        font-size: var(--font-size-1);
-        line-height: 110%;
-        font-weight: var(--font-weight-medium);
-    }
+    font-size: var(--font-size-1);
 }
 
 
@@ -229,7 +233,13 @@ header {
     // position: fixed;
     // bottom: 0;
     // left: 0;
+
+    &._contact {
+        text-transform: uppercase;
+    }
 }
+
+
 
 .header__page-nav {
     padding: 1.5rem var(--padding);
@@ -283,25 +293,16 @@ header {
     }
 
     a {
-        font-size: var(--font-size-1);
-        font-weight: 500;
-        text-decoration: none;
-        // color: var(--color-text-grey);
-        // color: #fff;
-
-        // &.active {
-        //     color: var(--color-text-primary);
-        // }
-
-        // &:hover {
-        //     color: var(--color-text-primary);
-
-        // }
+        // text-decoration: none;
     }
 
 }
 
-@media screen and (max-width: 1600px) {}
+@media screen and (max-width: 1600px) {
+    // .header__top__right {
+    //     width: calc(100% - 180px - 15.5rem);
+    // }
+}
 
 @media screen and (max-width: 1220px) {
 
@@ -310,12 +311,25 @@ header {
         padding: 1.5rem calc(var(--padding));
     }
 
-
+    // .header__top__right {
+    //     width: calc(100% - 180px - 11.9rem);
+    // }
 }
 
 @media screen and (max-width: 1024px) {
     .header__top {
         padding: 1.5rem var(--padding);
+    }
+    .header__navigation{
+        &._main{
+            display: none;
+        }
+    }
+    .header__top__right{
+        width: fit-content;
+    }
+    .header__column{
+        gap: 1rem;
     }
 }
 

@@ -14,7 +14,7 @@
 
 .experience-list__wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 
     border-top: 1px solid var(--color-text-grey);
@@ -41,7 +41,7 @@
     flex-direction: column;
     width: 100%;
     display: grid;
-    grid-template-columns: 22.5% 49%;
+    grid-template-columns: 22.5% 70%;
     padding-bottom: 3rem;
     gap: 1rem;
 }
@@ -104,7 +104,7 @@
 }
 
 .experience-item__year {
-    font-size: var(--font-size--1);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-regular);
 
     margin-top: .3rem;
@@ -129,9 +129,19 @@
     }
 }
 
-@media screen and (max-width: 1600px) {}
+@media screen and (max-width: 1600px) {
+    // .experience-item {
+    //     grid-template-columns: 22.5% 74%;
+    // }
+    .experience-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+}
 
-@media screen and (max-width: 1220px) {}
+@media screen and (max-width: 1220px) {
+}
 
 @media screen and (max-width: 1024px) {
     .experience-list__wrapper {
