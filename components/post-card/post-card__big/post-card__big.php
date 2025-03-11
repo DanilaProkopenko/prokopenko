@@ -26,7 +26,7 @@ if ($args) {
         </div>
 
         <div class="f-carousel post-card__big__gallery_carousel" data-gallery="<?= $id ?>" id="<?= $id ?>">
-            <? if ($post_thumb_video): ?>
+            <?php if ($post_thumb_video): ?>
                 <div
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($post_thumb_video['sizes']['thumbnail']) ?>"
@@ -45,7 +45,7 @@ if ($args) {
                             type="video/mp4">
                     </video>
                 </div>
-            <? else: ?>
+            <?php else: ?>
                 <div class="f-carousel__slide _cover"
                     data-fancybox="<?= $id ?>"
                     data-img-src="<?= esc_url($img_medium); ?>"
@@ -59,7 +59,7 @@ if ($args) {
                         </picture>
                     </a>
                 </div>
-            <? endif; ?>
+            <?php endif; ?>
             <?php
             if ($gallery) :
                 foreach ($gallery as $image) :
@@ -83,7 +83,7 @@ if ($args) {
                                     type="video/mp4">
                             </video>
                         </div>
-                    <? else: ?>
+                    <?php else: ?>
                         <a
                             href="<?= $link ?>"
                             data-img-src="<?= esc_url($image['sizes']['medium']) ?>"
@@ -95,7 +95,7 @@ if ($args) {
                                 <img class="post-card__big__gallery__img__source" data-lazy-src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']) ?>" loading="lazy">
                             </picture>
                         </a>
-                    <? endif ?>
+                    <?php endif ?>
             <?php endforeach;
             endif;
             ?>

@@ -44,7 +44,7 @@ $block_id_name = get_field('block_id_name');
             <?= $description ?>
         </div>
         <div class="contacts-block__links">
-            <?
+            <?php
             $args = array(
                 'menu' => 'contact',
                 'depth'    => 0,
@@ -57,9 +57,9 @@ $block_id_name = get_field('block_id_name');
             ?>
         </div>
     </div>
-    <? if ($img) : ?>
+    <?php if ($img) : ?>
         <div class="contacts-block__image">
             <img src="<?= $img['sizes']['large'] ?>" alt="" class="contacts-block__image__source">
         </div>
-    <? endif ?>
+    <?php endif ?>
 </section>

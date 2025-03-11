@@ -13,7 +13,7 @@ $header_last_update = get_field('header_last-update', 'options');
             </a>
             <div class="header__top__right">
                 <div class="header__column header__navigation _main">
-                    <?
+                    <?php
                     $args = array(
                         'menu' => 'main',
                         'depth'    => 0,
@@ -27,7 +27,7 @@ $header_last_update = get_field('header_last-update', 'options');
                 </div>
                 <div class="header__column">
                     <div class="header__navigation _contact">
-                        <?
+                        <?php
                         $args = array(
                             'menu' => 'header_contact',
                             'depth'    => 0,
@@ -48,7 +48,7 @@ $header_last_update = get_field('header_last-update', 'options');
     </div>
 </header>
 <div class="header__burger__menu" id="burger-menu">
-    <?
+    <?php
     $args = array(
         'menu' => 'burger',
         'depth'    => 0,

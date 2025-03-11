@@ -20,16 +20,16 @@ if ($args) {
             <?= $title ?>
         </div>
     </a>
-    <? $categories = get_the_category();
+    <?php $categories = get_the_category();
     if ($categories) :
     ?>
         <div class="post-card__category">
-            <?
+            <?php
             foreach ($categories as $category) :
                 $category_link = get_category_link($category->cat_ID);
             ?>
                 <a href="<?= $category_link ?>"><?= $category->name ?></a>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </div>
-    <? endif ?>
+    <?php endif ?>
 </div>

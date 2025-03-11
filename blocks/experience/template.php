@@ -44,9 +44,9 @@ $block_caption = get_field('block_caption');
     </div> -->
     <div class="experience-list__wrapper">
         <div class="experience-list__name section__heading"><?= $block_name ?></div>
-        <? if (have_rows('experience-item_repeater')) : ?>
+        <?php if (have_rows('experience-item_repeater')) : ?>
             <div class="experience-list">
-                <? while (have_rows('experience-item_repeater')) : the_row();
+                <?php while (have_rows('experience-item_repeater')) : the_row();
 
                     $item_img = get_sub_field('experience-item_img');
                     $item_company = get_sub_field('experience-item_company');
@@ -56,9 +56,9 @@ $block_caption = get_field('block_caption');
                 ?>
                     <div class="experience-item ">
                         <div class="experience-item__title">
-                            <? if ($item_img): ?>
+                            <?php if ($item_img): ?>
                                 <img src="<?= esc_url($item_img['sizes']['medium']) ?>" alt="" class="experience-item__img">
-                            <? endif; ?>
+                            <?php endif; ?>
                             <div>
                                 <div class="experience-item__title-content">
                                     <div class="experience-item__company">
@@ -79,8 +79,8 @@ $block_caption = get_field('block_caption');
                             </div>
                         </div>
                     </div>
-                <? endwhile ?>
+                <?php endwhile ?>
             </div>
-        <? endif ?>
+        <?php endif ?>
     </div>
 </div>

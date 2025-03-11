@@ -42,12 +42,12 @@ $id = get_the_ID();
 
 
 <div class="single-post__meta__wrapper">
-    <?
+    <?php
     $post_meta_repeater = get_field('post_meta-repeater', $id);
     if (have_rows('post_meta-repeater', $id)) :
     ?>
         <div class="post__meta">
-            <?
+            <?php
             while (have_rows('post_meta-repeater', $id)) : the_row();
                 $post_meta_variable = get_sub_field('post_meta-variable');
                 $post_meta_value = get_sub_field('post_meta-value');
@@ -56,28 +56,28 @@ $id = get_the_ID();
                     <div class="post__meta__item__variable"><?= $post_meta_variable ?></div>
                     <div class="post__meta__item__value"><?= $post_meta_value ?></div>
                 </div>
-            <? endwhile; ?>
+            <?php endwhile; ?>
         </div>
-    <? endif ?>
-    <?
+    <?php endif ?>
+    <?php
     $users = get_field("post_meta_team", $id);
     if ($users) :
     ?>
         <div class="post__meta__team">
             <div class="post__meta__team__images__wrapper">
-                <? foreach ($users as $user) : ?>
+                <?php foreach ($users as $user) : ?>
                     <img src="<?= esc_attr(get_avatar_url($user['ID'])); ?>" alt="Аватар пользователя" class="post__meta__teaam__imge__source">
-                <? endforeach; ?>
+                <?php endforeach; ?>
                 <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="Аватар пользователя" class="post__meta__teaam__imge__source">
             </div>
             <div class="post__meta__team__name">
                 Совместно с
-                <? foreach ($users as $user) : ?>
+                <?php foreach ($users as $user) : ?>
                     <a href="<?= esc_attr($user['user_url']) ?>" target="_blank">
                         <?= esc_attr($user['nickname']) ?>
                     </a>
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </div>
         </div>
-    <? endif; ?>
+    <?php endif; ?>
 </div>

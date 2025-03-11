@@ -55,11 +55,11 @@ $block_id_name = get_field('block_id_name');
                     type="video/mp4">
             </video>
         </div>
-    <? elseif ($first_screen_image) : ?>
+    <?php elseif ($first_screen_image) : ?>
         <div class="first-screen__image">
             <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">
         </div>
-    <? endif; ?>
+    <?php endif; ?>
     <div class="section__first-screen__content">
         <h1 class="first-screen__text">
             <?= $first_screen_title ?>

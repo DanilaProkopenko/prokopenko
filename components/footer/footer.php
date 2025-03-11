@@ -3,7 +3,7 @@
 <footer class="footer main-padding">
     <div class="footer__content">
         <div class="footer__links__wrapper">
-            <?
+            <?php
             $args = array(
                 'menu' => 'footer_first',
                 'depth'    => 0,
@@ -14,7 +14,7 @@
 
             wp_nav_menu($args);
             ?>
-            <?
+            <?php
             $args = array(
                 'menu' => 'footer_second',
                 'depth'    => 0,
