@@ -41,12 +41,16 @@
 }
 
 .post__meta__item__variable {
-    color: var(--color-text-grey);
-    width: 30%;
+    // color: var(--color-text-primary);
+    // width: 30%;
+    &::after{
+        content: ': ';
+        margin-right: 1ch;
+    }
 }
 
 .post__meta__item__value {
-    width: 70%;
+    // width: 70%;
     color: var(--color-text-primary);
 }
 

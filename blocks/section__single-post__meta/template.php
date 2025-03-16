@@ -47,7 +47,7 @@ $id = get_the_ID();
     if (have_rows('post_meta-repeater', $id)) :
     ?>
         <div class="post__meta">
-            <?php
+            <!-- <?php
             while (have_rows('post_meta-repeater', $id)) : the_row();
                 $post_meta_variable = get_sub_field('post_meta-variable');
                 $post_meta_value = get_sub_field('post_meta-value');
@@ -55,6 +55,14 @@ $id = get_the_ID();
                 <div class="post__meta__item">
                     <div class="post__meta__item__variable"><?= $post_meta_variable ?></div>
                     <div class="post__meta__item__value"><?= $post_meta_value ?></div>
+                </div>
+            <?php endwhile; ?> -->
+            <?php
+            while (have_rows('post_meta-repeater', $id)) : the_row();
+                $post_meta_info = get_sub_field('post_meta-info');
+            ?>
+                <div class="post__meta__item">
+                    <div class="post__meta__item__info"><?= $post_meta_info ?></div>
                 </div>
             <?php endwhile; ?>
         </div>

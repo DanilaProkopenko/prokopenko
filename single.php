@@ -11,11 +11,7 @@ $post_id = get_the_ID();
 
 <?php get_header() ?>
 
-<!-- 
-    <div class="single-page main-padding">
-        </div> -->
 <div class="single__wrapper">
-    <?= do_shortcode('[block_post_navigation]') ?>
     <div class="single__content main-padding">
         <h1 class="wp-block-post-title">
             <?php single_post_title(); ?>

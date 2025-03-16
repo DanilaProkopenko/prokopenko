@@ -66,7 +66,7 @@ header {
     gap: 5rem;
     // width: fit-content;
     // width: calc(100% - 180px - 20.9rem);
-    width: calc(50% - var(--padding));
+    width: 50%;
     position: fixed;
     right: var(--padding);
     transition: all .3s ease;
@@ -299,9 +299,6 @@ header {
 }
 
 @media screen and (max-width: 1600px) {
-    // .header__top__right {
-    //     width: calc(100% - 180px - 15.5rem);
-    // }
 }
 
 @media screen and (max-width: 1220px) {
@@ -311,9 +308,6 @@ header {
         padding: 1.5rem calc(var(--padding));
     }
 
-    // .header__top__right {
-    //     width: calc(100% - 180px - 11.9rem);
-    // }
 }
 
 @media screen and (max-width: 1024px) {

@@ -85,6 +85,28 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_6676d32d3a5a1"
+                },
+                {
+                    "key": "field_67d74c7142b3f",
+                    "label": "post_meta-info",
+                    "name": "post_meta-info",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
+                    "parent_repeater": "field_6676d32d3a5a1"
                 }
             ]
         },
@@ -192,5 +214,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728124288
+    "modified": 1742163087
 }
