@@ -11,7 +11,8 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin: 0 0 0 auto;
+    margin: 0 auto 0 0;
+    max-width: 14rem;
 
     &::before {
         content: '';
@@ -108,16 +109,17 @@
 @media screen and (max-width: 780px) {
     .post__navigation {
         flex-direction: row;
-        width: 100%;
+        width: 100vw;
         overflow-x: auto;
         position: relative;
         align-items: center;
-        left: 0;
+        /* left: 0; */
         position: relative;
         top: 0;
-        padding: 1rem calc(var(--padding) - .5rem) 0;
+        padding: 1rem calc(var(--padding) - 0.5rem) 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.15);
         margin-bottom: 2rem;
+        max-width: none;
 
         a {
             text-wrap: nowrap;

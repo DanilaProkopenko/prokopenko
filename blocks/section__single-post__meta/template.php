@@ -43,30 +43,13 @@ $id = get_the_ID();
 
 <div class="single-post__meta__wrapper">
     <?php
-    $post_meta_repeater = get_field('post_meta-repeater', $id);
-    if (have_rows('post_meta-repeater', $id)) :
+    $post_meta = get_field('post_meta', $id);
+    if ($post_meta):
     ?>
         <div class="post__meta">
-            <!-- <?php
-            while (have_rows('post_meta-repeater', $id)) : the_row();
-                $post_meta_variable = get_sub_field('post_meta-variable');
-                $post_meta_value = get_sub_field('post_meta-value');
-            ?>
-                <div class="post__meta__item">
-                    <div class="post__meta__item__variable"><?= $post_meta_variable ?></div>
-                    <div class="post__meta__item__value"><?= $post_meta_value ?></div>
-                </div>
-            <?php endwhile; ?> -->
-            <?php
-            while (have_rows('post_meta-repeater', $id)) : the_row();
-                $post_meta_info = get_sub_field('post_meta-info');
-            ?>
-                <div class="post__meta__item">
-                    <div class="post__meta__item__info"><?= $post_meta_info ?></div>
-                </div>
-            <?php endwhile; ?>
+            <?= $post_meta ?>
         </div>
-    <?php endif ?>
+    <?php endif; ?>
     <?php
     $users = get_field("post_meta_team", $id);
     if ($users) :

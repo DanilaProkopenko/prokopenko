@@ -23,6 +23,27 @@
             "delay": 0
         },
         {
+            "key": "field_67d74c7142b3f",
+            "label": "post_meta",
+            "name": "post_meta",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_6676d32d3a5a1",
             "label": "post_meta-repeater",
             "name": "post_meta-repeater",
@@ -85,28 +106,6 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_6676d32d3a5a1"
-                },
-                {
-                    "key": "field_67d74c7142b3f",
-                    "label": "post_meta-info",
-                    "name": "post_meta-info",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "allow_in_bindings": 0,
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0,
-                    "parent_repeater": "field_6676d32d3a5a1"
                 }
             ]
         },
@@ -160,22 +159,6 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_667c467f31ff7",
-            "label": "post_card_link",
-            "name": "post_card_link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
             "key": "field_6701151d50341",
             "label": "post_thumb_video",
             "name": "post_thumb_video",
@@ -214,5 +197,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1742163087
+    "modified": 1742209525
 }
