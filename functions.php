@@ -113,6 +113,15 @@ function block_post_meta()
 }
 add_shortcode('block_post_meta', 'block_post_meta');
 
+// Выдает блок мета
+function pd_spacer()
+{
+	ob_start();
+	echo do_blocks('<!-- wp:wwzrds/pd-spacer {"name":"wwzrds/pd-spacer","data":{"block_id":"","_block_id":"field_667fd5a3268ac","block_id_name":"","_block_id_name":"field_667fd621ee9a5","block_name":"","_block_name":"field_67010dc435920","block_caption":"","_block_caption":"field_67010dcf35921"},"mode":"preview"} /-->');
+	return ob_get_clean();
+}
+add_shortcode('pd_spacer', 'pd_spacer');
+
 
 /**
  * Enqueues script with WordPress and adds version number that is a timestamp of the file modified date.

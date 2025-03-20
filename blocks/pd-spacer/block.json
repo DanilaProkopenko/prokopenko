@@ -1,0 +1,18 @@
+{
+    "name" : "wwzrds/pd-spacer",
+    "title" : "pd spacer",
+    "icon": "admin-site",
+    "description": "",
+    "apiVersion": 3,
+    "textdomain": "wwzrds",
+    "supports": {
+        "align" : false,
+        "mode"  : false,
+        "jsx"   : true,
+        "anchor": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "./template.php"
+    }
+}

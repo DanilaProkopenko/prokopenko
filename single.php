@@ -11,14 +11,9 @@ $post_id = get_the_ID();
 
 <?php get_header() ?>
 
-<div class="single__wrapper">
-    <div class="single__content main-padding">
-        <h1 class="wp-block-post-title">
-            <?php single_post_title(); ?>
-        </h1>
-        <?php the_content(); ?>
-    </div>
-</div>
-<?= do_shortcode('[block_archive]') ?>
+<h1 class="wp-block-post-title">
+    <?php single_post_title(); ?>
+</h1>
+<?php the_content(); ?>
 
 <?php get_footer() ?>

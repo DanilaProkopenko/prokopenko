@@ -1,6 +1,6 @@
 
 import { Carousel } from '@fancyapps/ui/dist/carousel/carousel.esm.js';
-import '@fancyapps/ui/dist/carousel/carousel.css';
+// import '@fancyapps/ui/dist/carousel/carousel.css';
 
 const initBlockTemplate = () => {
     let postList = Array.from(document.getElementsByClassName('posts-list__archive-gallery'));
