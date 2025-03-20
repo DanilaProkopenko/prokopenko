@@ -28,7 +28,7 @@
         </div>
         <div class="footer__caption">
             <a href="/wp-admin/">Войти</a>
-            <div>© 2001...2025</div>
+            <div>© 2001...сейчас</div>
         </div>
     </div>
 

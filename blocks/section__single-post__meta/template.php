@@ -50,25 +50,4 @@ $id = get_the_ID();
             <?= $post_meta ?>
         </div>
     <?php endif; ?>
-    <?php
-    $users = get_field("post_meta_team", $id);
-    if ($users) :
-    ?>
-        <div class="post__meta__team">
-            <div class="post__meta__team__images__wrapper">
-                <?php foreach ($users as $user) : ?>
-                    <img src="<?= esc_attr(get_avatar_url($user['ID'])); ?>" alt="Аватар пользователя" class="post__meta__teaam__imge__source">
-                <?php endforeach; ?>
-                <img src="<?= esc_attr(get_avatar_url('danilaprok20@gmail.com')); ?>" alt="Аватар пользователя" class="post__meta__teaam__imge__source">
-            </div>
-            <div class="post__meta__team__name">
-                Совместно с
-                <?php foreach ($users as $user) : ?>
-                    <a href="<?= esc_attr($user['user_url']) ?>" target="_blank">
-                        <?= esc_attr($user['nickname']) ?>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    <?php endif; ?>
 </div>

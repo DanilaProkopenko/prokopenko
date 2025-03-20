@@ -623,17 +623,22 @@ ul {
     display: flex;
     position: relative;
     flex-direction: row;
+    width: fit-content;
 
     figcaption {
         writing-mode: sideways-lr;
         text-align: center;
+        font-size: clamp(0.7813rem, 0.7573rem + 0.1196vw, 0.85rem);
         font-size: var(--font-size--1);
+        color: #999999;
         color: var(--color-text-grey);
         line-height: 117%;
-
         position: absolute;
-        height: 100%;
-        right: clamp(-2rem, -1.5rem + -2vw, -3rem);
+        height: 70%;
+        right: clamp(-2rem, -1.5rem - 2vw, -3rem);
+        margin: auto;
+        top: 0;
+        bottom: 0;
     }
 }
 
@@ -699,6 +704,14 @@ ul {
 
     .single__title {
         width: 100%;
+        position: relative;
+
+        .post-category {
+            position: absolute;
+            writing-mode: sideways-lr;
+            right: 0;
+            top: 0;
+        }
     }
 
     .single__title-img {
@@ -737,12 +750,11 @@ ul {
             }
         }
 
-        img,
-        .wp-video,
-        .wp-block-video {
-            max-width: 100%;
-            margin: 1rem 0;
-        }
+        // img,
+        // .wp-video,
+        // .wp-block-video {
+        //     max-width: 100%;
+        // }
 
         .wp-video,
         img,
@@ -876,9 +888,12 @@ ul {
                 width: 75%;
             }
         }
+        .single__title-img{
+            width: calc(100% - 1.5 * var(--padding));
+        }
 
     }
-
+       
     .pd_flex-column-mob {
         flex-direction: column;
         align-items: flex-start;
