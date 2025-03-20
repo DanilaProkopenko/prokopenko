@@ -11,5 +11,7 @@
         border: none;
         pointer-events: none;
         text-transform: lowercase;
+        display: inline-block;
+        height: max-content;
     }
 }
