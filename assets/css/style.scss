@@ -592,20 +592,22 @@ footer,
     text-align: center;
 }
 
-.wp-block-list, ul {
+.wp-block-list,
+ul {
     list-style: none;
-    
+
     li:not(:first-child) {
         margin-top: .5rem;
     }
-    
+
     li:first-child {
         margin-top: .2rem;
     }
-    
+
     li {
         padding-left: .8rem;
         position: relative;
+
         &:before {
             position: absolute;
             left: 0;
@@ -653,6 +655,15 @@ footer,
 
         a:has(img) {
             border: none;
+        }
+
+        p {
+            &:has(img) {
+                max-width: 100%;
+            }
+            &:has(.wp-video, video) {
+                max-width: 100%;
+            }
         }
 
         img,

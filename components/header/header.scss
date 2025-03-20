@@ -289,7 +289,19 @@ header {
     padding: 1rem 0;
 
     li {
+        margin: 0;
         list-style: none;
+        padding: 0;
+        &::before{
+            content: none;
+        }
+        &:first-child{
+            margin: 0;
+        }
+        &:not(:first-child){
+            margin: 0;
+
+        }
     }
 
     a {
