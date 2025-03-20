@@ -49,7 +49,7 @@ $block_id_name = get_field('block_id_name');
                 'menu' => 'contact',
                 'depth'    => 0,
                 'container' => 'div',
-                'menu_class' => 'contacts-block__description__links',
+                'menu_class' => 'contacts-block__description__links list-style-none',
                 'fallback_cb' => false
             );
 

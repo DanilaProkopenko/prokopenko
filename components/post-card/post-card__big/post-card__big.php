@@ -103,16 +103,16 @@ if ($args) {
     </div>
     <div class="post-card__big__content__wrapper">
         <div class="post-card__big__content">
-            <a href="<?= $link ?> "
-                class=" post-card__big__title">
+            <a href="<?= $link ?> "class=" post-card__big__title">
                 <h4 class="post-card__big__heading">
                     <?= $title ?>
                 </h4>
             </a>
             <div class="post-card__big__short-description">
                 <?= $short_description ?>
+                <?= do_shortcode('[post_category]')?>
             </div>
-               
+            
             <?= do_shortcode('[block_post_meta]') ?>
         </div>
     </div>

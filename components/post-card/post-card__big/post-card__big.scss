@@ -3,8 +3,6 @@
     height: fit-content;
     // overflow: hidden;
 
-    padding: 5px;
-
     display: flex;
     flex-direction: row-reverse;
     flex-direction: row;
@@ -44,8 +42,6 @@
     //     }
     display: flex;
     flex-direction: column;
-    grid-gap: 1.5rem;
-    gap: 1.5rem;
     position: relative;
     z-index: 5;
     width: 100%;
@@ -55,6 +51,15 @@
     * {
         color: var(--color-text-primary);
     }
+    .single-post__meta__wrapper{
+        margin-top: 2.5rem;
+    }
+    .post-category{
+        position: absolute;
+        top: .3rem;
+        left: 0;
+        writing-mode: sideways-lr;
+    }
 }
 
 .post-card__big__title {
@@ -63,6 +68,7 @@
     justify-content: flex-start;
     flex-direction: column;
     gap: 10px;
+    margin-top: .45rem;
 }
 
 .post-card__big__heading {
@@ -86,12 +92,10 @@
 }
 
 .post-card__big__short-description {
-    // grid-column: 1/2;
-    // grid-row: 1/2;
-    // color: var(--color-primary);
-    // margin-top: 2rem;
-    margin-top: -1rem;
-
+    margin-top: 0.8rem;
+    width: 100%;
+    position: relative;
+    padding-left: 2.5rem;
     * {
         color: var(--color-text-primary);
     }

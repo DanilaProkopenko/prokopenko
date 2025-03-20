@@ -65,6 +65,8 @@ add_filter('the_password_form', 'my_password_form');
 
 require_once THEME_DIR . '/includes/load.php';
 require_once THEME_DIR . '/blocks/load.php';
+// require_once get_stylesheet_directory() . '/includes/load.php';
+// require_once get_stylesheet_directory() . '/blocks/load.php';
 
 
 // Выдает блок навигации по странице по заголовкам
@@ -113,7 +115,7 @@ function block_post_meta()
 }
 add_shortcode('block_post_meta', 'block_post_meta');
 
-// Выдает блок мета
+// Выдает блок пробела
 function pd_spacer()
 {
 	ob_start();
@@ -121,6 +123,17 @@ function pd_spacer()
 	return ob_get_clean();
 }
 add_shortcode('pd_spacer', 'pd_spacer');
+
+// Выдает блок категорий поста
+function post_category()
+{
+	ob_start();
+	echo do_blocks('
+	<!-- wp:wwzrds/post-category {"name":"wwzrds/post-category","data":{"block_id":"","_block_id":"field_667fd5a3268ac","block_id_name":"","_block_id_name":"field_667fd621ee9a5","block_name":"","_block_name":"field_67010dc435920","block_caption":"","_block_caption":"field_67010dcf35921"},"mode":"preview"} /-->
+	');
+	return ob_get_clean();
+}
+add_shortcode('post_category', 'post_category');
 
 
 /**

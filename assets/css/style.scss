@@ -18,7 +18,7 @@
 
     --color-black: #060508;
     --color-text-primary: #37352f;
-    --color-text-grey: #8B8B8B;
+    --color-text-grey: var(--color-secondary);
 
     --color-accent: #308cf4;
     --color-link-hover: var(--color-accent);
@@ -56,6 +56,7 @@
 
     --padding: clamp(1rem, 5vw, 3rem);
     --grid-gap: 40px;
+    --gap: clamp(1rem, 1vw, 3rem);
 
     @media screen and (max-width: 1220px) {
         --grid-gap: 35px;
@@ -641,7 +642,76 @@ ul {
     margin-top: 0;
 }
 
+.single__title {}
+
+.list-style-none {
+    li {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+
+        &::before {
+            content: none;
+        }
+
+        &:first-child {
+            margin: 0;
+        }
+
+        &:not(:first-child) {
+            margin: 0;
+
+        }
+    }
+}
+
+
+
+.single__title-heading {
+    margin-top: 1rem;
+}
+
+.pd_flex {
+    display: flex;
+}
+
+.pd_flex-row {
+    flex-direction: row;
+    gap: var(--gap);
+}
+
+.pd_flex-75 {
+    flex-basis: 75%
+}
+
+.pd_flex-25 {
+    flex-basis: 25%
+}
+
+.pd_flex-aligned-bottom {
+    align-items: flex-end;
+}
+
 .single-page--v1 {
+    .single__content {
+        max-width: 100%;
+    }
+
+    .single__title {
+        width: 100%;
+    }
+
+    .single__title-img {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+        }
+    }
+
     .single-page__content {
 
         p,
@@ -661,21 +731,25 @@ ul {
             &:has(img) {
                 max-width: 100%;
             }
+
             &:has(.wp-video, video) {
                 max-width: 100%;
             }
         }
 
         img,
-        .wp-video {
+        .wp-video,
+        .wp-block-video {
             max-width: 100%;
             margin: 1rem 0;
         }
 
         .wp-video,
         img,
-        .wp-caption {
-            width: 100% !important;
+        .wp-caption,
+        .wp-block-video {
+            // width: 100% !important;
+            max-width: 100% !important;
         }
 
         .wp-caption {
@@ -803,6 +877,11 @@ ul {
             }
         }
 
+    }
+
+    .pd_flex-column-mob {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 

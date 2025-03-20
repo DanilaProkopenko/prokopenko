@@ -1,0 +1,15 @@
+.post-category {
+    display: flex;
+    flex-direction: row;
+    gap: .7rem;
+
+    li,
+    a {
+        font-size: var(--font-size--1);
+        color: var(--color-text-grey);
+
+        border: none;
+        pointer-events: none;
+        text-transform: lowercase;
+    }
+}

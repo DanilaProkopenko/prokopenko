@@ -107,6 +107,12 @@
 }
 
 @media screen and (max-width: 780px) {
+    .post__navigation-wrapper{
+        position: sticky; 
+        top: 1.8rem;
+        z-index: 10;
+
+    }
     .post__navigation {
         flex-direction: row;
         width: 100vw;

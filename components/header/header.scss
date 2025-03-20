@@ -117,12 +117,6 @@ header {
         flex-direction: column;
         width: 100%;
 
-
-        li {
-            list-style: none;
-            width: 100%;
-        }
-
         a {
             // transform: translateY(-100%);
             border-bottom: 0;
@@ -288,21 +282,7 @@ header {
     gap: .5rem;
     padding: 1rem 0;
 
-    li {
-        margin: 0;
-        list-style: none;
-        padding: 0;
-        &::before{
-            content: none;
-        }
-        &:first-child{
-            margin: 0;
-        }
-        &:not(:first-child){
-            margin: 0;
-
-        }
-    }
+    
 
     a {
         // text-decoration: none;

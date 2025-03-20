@@ -18,7 +18,7 @@ $header_last_update = get_field('header_last-update', 'options');
                         'menu' => 'main',
                         'depth'    => 0,
                         'container' => 'nav',
-                        'menu_class' => 'header__navigation__links',
+                        'menu_class' => 'header__navigation__links list-style-none',
                         'fallback_cb' => false
                     );
 
@@ -32,7 +32,7 @@ $header_last_update = get_field('header_last-update', 'options');
                             'menu' => 'header_contact',
                             'depth'    => 0,
                             'container' => 'nav',
-                            'menu_class' => 'header__navigation__links',
+                            'menu_class' => 'header__navigation__links list-style-none',
                             'fallback_cb' => false
                         );
 
@@ -53,7 +53,7 @@ $header_last_update = get_field('header_last-update', 'options');
         'menu' => 'burger',
         'depth'    => 0,
         'container' => 'div',
-        'menu_class' => 'header__burger__links',
+        'menu_class' => 'header__burger__links list-style-none',
         'fallback_cb' => false
     );
     wp_nav_menu($args);

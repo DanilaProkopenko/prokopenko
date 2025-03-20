@@ -8,7 +8,7 @@
                 'menu' => 'footer_first',
                 'depth'    => 0,
                 'container' => 'div',
-                'menu_class' => 'footer__links',
+                'menu_class' => 'footer__links list-style-none',
                 'fallback_cb' => false
             );
 
@@ -19,7 +19,7 @@
                 'menu' => 'footer_second',
                 'depth'    => 0,
                 'container' => 'div',
-                'menu_class' => 'footer__links',
+                'menu_class' => 'footer__links list-style-none',
                 'fallback_cb' => false
             );
 
