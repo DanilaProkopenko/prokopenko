@@ -420,9 +420,7 @@ footer,
 
     &._open {
         // transform: scale(.9);
-        // opacity: .9;
-        // filter: grayscale(1);
-        // filter: blur(5px);
+        filter: blur(20px);
         touch-action: none;
 
         &::before {
@@ -838,6 +836,8 @@ ul {
     #main {
 
         // margin-top: 54px;
+        padding-top: 54px;
+
         section:first-child {
             // padding-top: 3.5rem;
         }
@@ -888,12 +888,13 @@ ul {
                 width: 75%;
             }
         }
-        .single__title-img{
+
+        .single__title-img {
             width: calc(100% - 1.5 * var(--padding));
         }
 
     }
-       
+
     .pd_flex-column-mob {
         flex-direction: column;
         align-items: flex-start;

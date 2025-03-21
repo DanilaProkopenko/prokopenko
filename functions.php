@@ -242,26 +242,3 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 
 	return $data;
 }
-
-
-function gb_gutenberg_admin_styles() {
-    echo '
-        <style>
-            /* Main column width */
-            .wp-block {
-                max-width: 720px;
-            }
- 
-            /* Width of "wide" blocks */
-            .wp-block[data-align="wide"] {
-                max-width: 1080px;
-            }
- 
-            /* Width of "full-wide" blocks */
-            .wp-block[data-align="full"] {
-                max-width: none;
-            }	
-        </style>
-    ';
-}
-add_action('admin_head', 'gb_gutenberg_admin_styles');

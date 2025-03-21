@@ -29,6 +29,8 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
+$post_list_category = get_field('post_list_category');
+$post_list_tag = get_field('post_list_tag');
 
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
@@ -44,6 +46,6 @@ $block_id_name = get_field('block_id_name');
         </div>
     </div>
     <div class="posts-list__archive-gallery f-carousel">
-        <?= getPostsArchiveGallery(-1); ?>
+        <?= getPostsArchiveGallery(-1, null, $post_list_tag, $post_list_category); ?>
     </div>
 </section>

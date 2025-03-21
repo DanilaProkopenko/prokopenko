@@ -48,14 +48,20 @@ $header_last_update = get_field('header_last-update', 'options');
     </div>
 </header>
 <div class="header__burger__menu" id="burger-menu">
-    <?php
-    $args = array(
-        'menu' => 'burger',
-        'depth'    => 0,
-        'container' => 'div',
-        'menu_class' => 'header__burger__links list-style-none',
-        'fallback_cb' => false
-    );
-    wp_nav_menu($args);
-    ?>
+    <div class="header__burger__menu-background" id="burger-menu-bg">
+
+    </div>
+    <div class="header__burger__menu-list">
+        <?php
+        $args = array(
+            'menu' => 'burger',
+            'depth'    => 0,
+            'container' => 'div',
+            'menu_class' => 'header__burger__links list-style-none',
+            'fallback_cb' => false
+        );
+        wp_nav_menu($args);
+        ?>
+        тест
+    </div>
 </div>

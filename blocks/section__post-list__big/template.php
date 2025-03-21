@@ -29,11 +29,8 @@ $args = wp_parse_args($args, $defaults);
     'value'         => $value,
 ] = $args;
 
-$post_list_filter_taxonomy_category = get_field('post_list_filter_taxonomy_category');
-$posts_category = $post_list_filter_taxonomy_category->term_id;
-$post_list_filter_taxonomy_tag = get_field('post_list_filter_taxonomy_tag');
-$posts_tag = $post_list_filter_taxonomy_tag->term_id;
-
+$post_list_category = get_field('post_list_category');
+$post_list_tag = get_field('post_list_tag');
 
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
@@ -48,11 +45,7 @@ $block_id_name = get_field('block_id_name');
         </div>
     </div>
     <div class="section__post-list__big">
-        <?= getPostsCardBig(-1, null, $posts_tag, $posts_category) ?>
+        <?= getPostsCardBig(-1, null, $post_list_tag, $post_list_category) ?>
     </div>
 
 </section>
-
-<!-- <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script> -->
-<!-- <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script> -->
-<!-- <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script> -->
