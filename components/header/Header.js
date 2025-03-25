@@ -134,6 +134,7 @@ class Header {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
         let mainPage = document.getElementById('main');
+        let body = document.getElementsByTagName('body')[0];
 
         let header = document.getElementsByClassName('header__wrapper')[0];
         let footer = document.getElementsByClassName('footer')[0];
@@ -143,27 +144,28 @@ class Header {
         // }
 
         // Изменение ширины выпадающего меню
-        function burgerMenuWidth(header, burgerMenu) {
+        // function burgerMenuWidth(header, burgerMenu) {
 
-            let headerWidth = header.offsetWidth;
-            let windowWidth = window.screen.width;
-            let burgerMenuWidth = windowWidth - headerWidth
+        //     let headerWidth = header.offsetWidth;
+        //     let windowWidth = window.screen.width;
+        //     let burgerMenuWidth = windowWidth - headerWidth
 
-            // Проверка ширины экрана
-            if (window.innerWidth > 767) {
-                burgerMenu.style.left = headerWidth + 'px';
-                burgerMenu.style.width = burgerMenuWidth + 'px';
-            } else {
-                burgerMenu.style.left = 0 + 'px';
-                burgerMenu.style.width = 100 + '%'
-            }
-        }
+        //     // Проверка ширины экрана
+        //     if (window.innerWidth > 767) {
+        //         burgerMenu.style.left = headerWidth + 'px';
+        //         burgerMenu.style.width = burgerMenuWidth + 'px';
+        //     } else {
+        //         burgerMenu.style.left = 0 + 'px';
+        //         burgerMenu.style.width = 100 + '%'
+        //     }
+        // }
 
         function burgerClose() {
             burgerIcon.getElementsByClassName('bar')[0].classList.remove('animate')
             // headerDescription.classList.remove('_hide');
             burgerMenu.classList.remove('_open');
             mainPage.classList.remove('_open');
+            body.classList.remove('_open');
             burgerIcon.classList.remove('_open');
             footer.classList.remove('_hide');
         }
@@ -188,49 +190,113 @@ class Header {
                 burgerCount++;
             }
             mainPage.classList.toggle('_open');
+            body.classList.toggle('_open');
             // headerDescription.classList.toggle('_hide');
             footer.classList.toggle('_hide');
 
             // console.log('burgerCount — ', burgerCount)
-            if (burgerCount == 6) {
+            if (burgerCount == 8) {
                 burgerCount = 1
             }
             switch (burgerCount) {
                 case 1:
-                    burgerMenu.style.backgroundColor = 'var(--color-red)';
+                    burgerMenu.classList.remove('_blue');
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.add('_red');
+                    // burgerMenu.style.backgroundColor = 'var(--color-red)';
                     break;
                 case 2:
-                    burgerMenu.style.backgroundColor = 'var(--color-green)';
+                    burgerMenu.classList.remove('_blue');
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.add('_green');
+                    // burgerMenu.style.backgroundColor = 'var(--color-green)';
                     break;
                 case 3:
-                    burgerMenu.style.backgroundColor = 'var(--color-blue)';
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.add('_blue');
+                    // burgerMenu.style.backgroundColor = 'var(--color-blue)';
                     break;
                 case 4:
-                    burgerMenu.style.backgroundColor = 'var(--color-yellow)';
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_blue');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.add('_yellow');
+                    // burgerMenu.style.backgroundColor = 'var(--color-yellow)';
                     break;
                 case 5:
-                    burgerMenu.style.backgroundColor = 'var(--color-purple)';
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_blue');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.add('_purple');
+                    // burgerMenu.style.backgroundColor = 'var(--color-purple)';
+                    break;
+                case 6:
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_blue');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.add('_color_5');
+                    // burgerMenu.style.backgroundColor = 'var(--color-purple)';
+                    break;
+                case 7:
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_blue');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.add('_color_6');
+                    // burgerMenu.style.backgroundColor = 'var(--color-purple)';
                     break;
                 default:
-                    burgerMenu.style.backgroundColor = 'var(--color-blue)';
+                    burgerMenu.classList.remove('_color_6');
+                    burgerMenu.classList.remove('_color_5');
+                    burgerMenu.classList.remove('_red');
+                    burgerMenu.classList.remove('_green');
+                    burgerMenu.classList.remove('_yellow');
+                    burgerMenu.classList.remove('_purple');
+                    burgerMenu.classList.add('_blue');
+                    // burgerMenu.style.backgroundColor = 'var(--color-blue)';
                     break;
             }
 
-            if (burgerMenu.classList.contains('_open')) {
-                // Убедимся, что все ссылки имеют начальное состояние скрытого текста
-                const links = burgerMenu.querySelectorAll('.header__burger__links li a');
-                links.forEach((link, index) => {
-                    setTimeout(() => {
-                        link.classList.add('slide-in-text');
-                    }, index * 200); // Задержка между строками в миллисекундах
-                });
-            } else {
-                // Если меню закрывается, убираем классы анимации
-                const links = burgerMenu.querySelectorAll('.header__burger__links li a');
-                links.forEach(link => {
-                    link.classList.remove('slide-in-text');
-                });
-            }
+            // if (burgerMenu.classList.contains('_open')) {
+            //     // Убедимся, что все ссылки имеют начальное состояние скрытого текста
+            //     const links = burgerMenu.querySelectorAll('.header__burger__links li a');
+            //     links.forEach((link, index) => {
+            //         setTimeout(() => {
+            //             link.classList.add('slide-in-text');
+            //         }, index * 200); // Задержка между строками в миллисекундах
+            //     });
+            // } else {
+            //     // Если меню закрывается, убираем классы анимации
+            //     const links = burgerMenu.querySelectorAll('.header__burger__links li a');
+            //     links.forEach(link => {
+            //         link.classList.remove('slide-in-text');
+            //     });
+            // }
         })
 
         document.addEventListener(`keyup`, (e) => {
@@ -259,8 +325,8 @@ class Header {
         const header = jQuery('.header__top__right');
         let scrollPrev = 0;
 
-        jQuery(window).scroll(function () {
-            var scrolled = jQuery(window).scrollTop();
+        jQuery('#main').scroll(function () {
+            var scrolled = jQuery('#main').scrollTop();
 
             if (scrolled > 100 && scrolled > scrollPrev) {
                 header.addClass('out');

@@ -60,6 +60,14 @@
     gap: 1.5rem;
 }
 
+.footer__disclaimer,
+.footer__disclaimer * {
+    margin-top: 3rem;
+    color: var(--color-text-grey);
+    font-size: var(--font-size--1);
+    max-width: 42rem;
+}
+
 .footer__links {
     display: flex;
     flex-direction: row;
@@ -104,8 +112,8 @@
 
 @media screen and (max-width: 767px) {
     .footer {
-        padding-top: 0;
-        padding-bottom: 2rem;
+
+        padding: 2rem var(--padding);
     }
 
     .footer__content {

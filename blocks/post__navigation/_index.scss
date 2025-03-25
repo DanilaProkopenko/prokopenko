@@ -3,7 +3,7 @@
     position: sticky;
     left: auto;
     right: var(--padding);
-    top: 5rem;
+    top: 2rem;
     bottom: 0;
     height: -moz-fit-content;
     height: fit-content;
@@ -110,7 +110,7 @@
 @media screen and (max-width: 780px) {
     .post__navigation-wrapper{
         position: sticky; 
-        top: 1.8rem;
+        top: -.5rem;
         z-index: 10;
 
     }
@@ -123,9 +123,8 @@
         /* left: 0; */
         position: relative;
         top: 0;
-        padding: 1rem calc(var(--padding) - 0.5rem) 0;
+        padding: 0 calc(var(--padding) - 0.5rem) 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-        margin-bottom: 2rem;
         max-width: none;
 
         a {

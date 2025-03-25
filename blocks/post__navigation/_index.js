@@ -113,7 +113,7 @@ const initBlockTemplate = () => {
         });
     
         // Слушаем событие прокрутки страницы и сразу обновляем навигацию
-        window.addEventListener('scroll', updateNavigation);
+        document.getElementById('main').addEventListener('scroll', updateNavigation);
     
         // Вызываем сразу при загрузке страницы
         updateNavigation();

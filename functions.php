@@ -80,20 +80,33 @@ function block_post_navigation()
 add_shortcode('block_post_navigation', 'block_post_navigation');
 
 // Выдает блок с записями листалка
-function block_archive()
+function block_archive($atts)
 {
 	ob_start();
+	$atts = shortcode_atts(array(
+        'category' => null,
+        'tag' => null,
+    ), $atts, 'block_archive');
+
 	echo do_blocks('<!-- wp:prok/section-post-list-archive-gallery 
 	{
 	"name":"prok/section-post-list-archive-gallery",
-	"data":{"block_id":"",
+	"data":
+	{
+	"block_id":"",
 	"_block_id":"field_667fd5a3268ac",
 	"block_id_name":"",
 	"_block_id_name":"field_667fd621ee9a5",
-	"block_name":"","_block_name":"field_67010dc435920",
+	"block_name":"",
+	"_block_name":"field_67010dc435920",
 	"block_caption":"",
-	"_block_caption":"field_67010dcf35921"},
-	"mode":"preview"} /-->');
+	"_block_caption":"field_67010dcf35921",
+	"post_list_category":"' . esc_html($atts['category']) . '",
+	"_post_list_category":"field_67dd27498f69e",
+	"post_list_tag":"' . esc_html($atts['tag']) . '",
+	"_post_list_tag":"field_67dd27fe8f69f"},
+	"mode":"preview"
+	} /-->');
 	return ob_get_clean();
 }
 add_shortcode('block_archive', 'block_archive');

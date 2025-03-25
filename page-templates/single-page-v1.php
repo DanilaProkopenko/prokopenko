@@ -14,7 +14,10 @@ $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
 $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
 $short_description = get_field('post_short-description', $id);
 
-
+$categories = get_the_category();
+if (!empty($categories)) {
+    $category_id = $categories[0]->term_id; // ID первой категории
+}
 ?>
 
 <?php get_header() ?>
@@ -62,13 +65,17 @@ $short_description = get_field('post_short-description', $id);
             </div>
 
             <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow single-page__content" style="flex-basis:75%">
-            <?= $short_description ?>
-                
-            <?php the_content(); ?>
+                <?= $short_description ?>
+
+                <?php the_content(); ?>
+                <?php //previous_post_link('%link','← Предыдущая статья из категории %title',true );
+                ?>
+                <?php //next_post_link('%link', 'Следующая статья из категории →', true); 
+                ?>
             </div>
         </div>
     </div>
+    <?php echo do_shortcode('[block_archive category=' . $category_id . ']') ?>
 </div>
-<?= do_shortcode('[block_archive]') ?>
 
 <?php get_footer() ?>

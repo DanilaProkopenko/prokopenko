@@ -13,15 +13,18 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
         'tax_query' => array(
             'relation' => 'AND',
             array(
-                'taxonomy' => 'category',
-                'field' => 'id',
-                'terms' => 4,
-                'include_children' => true
-            ),
-            array(
-                'taxonomy' => 'post_tag',
-                'field' => 'id',
-                'terms' => $tag,
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'id',
+                    'terms' => $category,
+                    'include_children' => true
+                ),
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field' => 'id',
+                    'terms' => $tag,
+                )
             )
         )
     );
