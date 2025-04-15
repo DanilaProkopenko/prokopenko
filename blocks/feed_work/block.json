@@ -1,0 +1,18 @@
+{
+    "name" : "wwzrds/feed-work",
+    "title" : "Feed work",
+    "icon": "admin-site",
+    "description": "My awesome custom block.",
+    "apiVersion": 3,
+    "textdomain": "wwzrds",
+    "supports": {
+        "align" : false,
+        "mode"  : false,
+        "jsx"   : true,
+        "anchor": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "./template.php"
+    }
+}

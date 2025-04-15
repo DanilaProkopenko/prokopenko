@@ -66,20 +66,26 @@ header {
     gap: 5rem;
     // width: fit-content;
     // width: calc(100% - 180px - 20.9rem);
-    width: calc(50% - var(--padding) - 10px);
+    width: calc(50% - var(--gap) - var(--padding) + 5px);
     position: fixed;
     right: calc(var(--padding) + 5px);
     transition: all .3s ease;
+.header__navigation{
+    transition: all .3s ease;
 
-    &.out {
+    &.out{
+        
         transform: translateY(-100%);
+    }
+}
+    &.out {
 
     }
 }
 
 .header__top__logo {
     text-decoration: none;
-    font-size: var(--font-size-1);
+    font-size: var(--font-size--1);
 }
 
 
@@ -182,7 +188,7 @@ header {
             border-bottom: 0;
             display: inline-block;
             width: 100%;
-            padding: var(--padding) 50% var(--padding);
+            padding: var(--padding) calc(50% + var(--gap)) var(--padding);
             text-decoration: none;
             font-size: var(--font-size-4);
             // font-weight: var(--font-weight-regular);
@@ -224,13 +230,13 @@ header {
 
 .header__top__burger {
     position: relative;
-    top: -1px;
+    top: -3px;
     left: 0;
     right: 0;
     bottom: 0;
     margin: 0;
-    width: 21px;
-    height: 21px;
+    width: 17px;
+    height: 17px;
     cursor: pointer;
 
 }
@@ -238,7 +244,7 @@ header {
 .bar,
 .bar:after,
 .bar:before {
-    width: 21px;
+    width: 17px;
     height: 2px;
 }
 
@@ -257,7 +263,7 @@ header {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 5.5px;
+    bottom: 5px;
     background: white;
     transition: bottom 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -266,7 +272,7 @@ header {
     content: "";
     position: absolute;
     left: 0;
-    top: 6px;
+    top: 5px;
     background: white;
     transition: top 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -392,7 +398,7 @@ header {
     .bar,
     .bar:after,
     .bar:before {
-        width: 21px;
+        // width: 21px;
         height: 1.8px;
     }
 
@@ -403,7 +409,7 @@ header {
     }
 
     .header__burger__menu {
-        height: calc(93vh - 1.5 * var(--padding));
+        height: calc(93dvh - 1.5 * var(--padding));
 
         .header__burger__links {
 

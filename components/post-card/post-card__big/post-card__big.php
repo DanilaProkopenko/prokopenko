@@ -19,7 +19,7 @@ if ($args) {
     $counter = $args['counter'] + 1;
 }
 ?>
-<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?> emerge" style="z-index: <?= $counter + 1 ?>">
+<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter + 1 ?>">
     <div class="post-card__big__gallery">
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">
@@ -31,7 +31,7 @@ if ($args) {
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($post_thumb_video['sizes']['thumbnail']) ?>"
                     data-fancybox="<?= $id ?>"
-                    class="lazy_container f-carousel__slide _cover">
+                    class="lazy_container f-carousel__slide _cover emerge">
                     <video
                         preload="auto"
                         no-controls
@@ -46,7 +46,7 @@ if ($args) {
                     </video>
                 </div>
             <?php else: ?>
-                <div class="f-carousel__slide _cover"
+                <div class="f-carousel__slide _cover emerge"
                     data-fancybox="<?= $id ?>"
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($img_medium); ?>">
@@ -69,7 +69,7 @@ if ($args) {
                             data-img-src="<?= esc_url($image['url']) ?>"
                             data-thumb-src="<?= esc_url($image['sizes']['thumbnail']) ?>"
                             data-fancybox="<?= $id ?>"
-                            class="<?= $data_type ?> lazy_container f-carousel__slide">
+                            class="<?= $data_type ?> lazy_container f-carousel__slide emerge">
                             <video
                                 preload="auto"
                                 no-controls
@@ -88,7 +88,7 @@ if ($args) {
                             href="<?= $link ?>"
                             data-img-src="<?= esc_url($image['sizes']['medium']) ?>"
                             data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>"
-                            data-fancybox="<?= $id ?>" class="<?= $data_type ?> f-carousel__slide">
+                            data-fancybox="<?= $id ?>" class="<?= $data_type ?> f-carousel__slide emerge">
                             <picture>
                                 <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
                                 <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />

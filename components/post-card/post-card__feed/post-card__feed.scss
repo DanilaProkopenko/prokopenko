@@ -1,0 +1,23 @@
+.feed-post-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: 100%;
+    img, video{
+        width: 100%;
+    }
+    .post-card-heading {
+        font-size: var(--font-size--1);
+        color: var(--color-text-grey);
+        margin-top: calc(0.2 * var(--padding));
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        /* Макс. число строк */
+        overflow: hidden;
+        
+        overflow-wrap: anywhere;
+    }
+}

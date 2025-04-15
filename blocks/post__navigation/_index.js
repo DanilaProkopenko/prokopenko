@@ -122,7 +122,8 @@ const initBlockTemplate = () => {
 
     function pageHeading() {
         const navContainer = document.getElementsByClassName('post__navigation')[0];
-        const pageBody = document.getElementsByClassName('single')[0];
+        // const pageBody = document.getElementsByClassName('single')[0];
+        const pageBody = document.getElementById('main');
         const pageHeadings = Array.from(pageBody.querySelectorAll('h2, h3, h4, h5, h6'));
 
         // замена заголовка в окне на зголовок страницы

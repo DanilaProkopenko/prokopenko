@@ -137,13 +137,4 @@ document.addEventListener('DOMContentLoaded', function () {
     // });
 
 
-    // **
-    // *
-    //
-    // Code V2
-    //
-    // *
-    // **
-    //
-    //
 });

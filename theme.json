@@ -39,6 +39,16 @@
                     "slug": "text_16",
                     "size": "clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem)",
                     "name": "Text_0"
+                },
+                {
+                    "slug": "text_-1",
+                    "size": "clamp(0.7813rem, 0.7573rem + 0.1196vw, 0.85rem)",
+                    "name": "Text_-1"
+                },
+                {
+                    "slug": "text_-2",
+                    "size": "clamp(0.651rem, 0.641rem + 0.0504vw, 0.68rem)",
+                    "name": "Text_-2"
                 }
             ]
         },
@@ -100,6 +110,5 @@
                 }
             ]
         }
-        
     }
 }

@@ -63,6 +63,13 @@
                 "operator": "==",
                 "value": "prok\/section-post-list-archive-gallery"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "wwzrds\/feed-work"
+            }
         ]
     ],
     "menu_order": 0,
@@ -74,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1742549160
+    "modified": 1743929665
 }

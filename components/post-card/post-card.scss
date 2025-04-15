@@ -5,6 +5,12 @@
     a {
         // width: 100%;
     }
+
+    .post-category {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 
 .post-card__thumb {
@@ -27,15 +33,13 @@
     gap: 5px;
     margin-top: 1rem;
 }
+
 .post-card__heading {
     display: flex;
-    font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
     font-weight: var(--font-weight-medium);
     flex-direction: row;
     align-content: center;
     align-items: center;
     gap: .3rem;
-}
-.post-card__category {
-    margin-top: .4rem;
 }

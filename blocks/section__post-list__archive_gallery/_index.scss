@@ -17,7 +17,12 @@
 
             &:first-child {
                 padding-left: var(--padding);
+
                 // --f-carousel-slide-padding: 0 var(--padding);
+                .post-category {
+                    top: 0;
+                    left: calc(.5 * var(--padding));
+                }
             }
 
             &:last-child {
@@ -95,6 +100,23 @@
 
 @media screen and (max-width: 767px) {
     .posts-list__archive-gallery {
+        &.f-carousel {
+            .f-carousel__slide {
+                padding: 0 calc(1.3 * var(--padding));
+
+                &:first-child {
+                    padding-left: calc(2.3 * var(--padding));
+
+                    .post-category {
+                        left: calc(var(--padding));
+                    }
+                }
+
+                &:last-child {
+                    padding-right: calc(var(--padding));
+                }
+            }
+        }
 
         .post-card {
 

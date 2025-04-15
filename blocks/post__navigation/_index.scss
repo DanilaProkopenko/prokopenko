@@ -1,3 +1,10 @@
+.post__navigation-wrapper {
+    position: sticky;
+    top: -.5rem;
+    z-index: 10;
+
+}
+
 .post__navigation {
     padding: 1.5rem var(--padding);
     position: sticky;
@@ -21,7 +28,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        background-color: var(--color-text-grey);
+        background-color: rgba(0, 0, 0, 0.15);
         border-radius: 10px;
     }
 
@@ -108,12 +115,13 @@
 
 
 @media screen and (max-width: 780px) {
-    .post__navigation-wrapper{
-        position: sticky; 
+    .post__navigation-wrapper {
+        position: sticky;
         top: -.5rem;
         z-index: 10;
-
+        width: calc(100vw - var(--padding));
     }
+
     .post__navigation {
         flex-direction: row;
         width: 100vw;
@@ -124,7 +132,7 @@
         position: relative;
         top: 0;
         padding: 0 calc(var(--padding) - 0.5rem) 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        border-bottom: var(--border);
         max-width: none;
 
         a {

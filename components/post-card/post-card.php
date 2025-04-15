@@ -20,8 +20,5 @@ if ($args) {
             <?= $title ?>
         </div>
     </a>
-        <div class="post-card__category">
-        <?= do_shortcode('[post_category]')?>
-
-        </div>
+    <?= do_shortcode('[post_category]') ?>
 </div>

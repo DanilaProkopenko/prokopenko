@@ -322,7 +322,7 @@ class Header {
     }
 
     headerOut() {
-        const header = jQuery('.header__top__right');
+        const header = jQuery('.header__top__right .header__navigation._main');
         let scrollPrev = 0;
 
         jQuery('#main').scroll(function () {
