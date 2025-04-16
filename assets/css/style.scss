@@ -221,7 +221,7 @@ body {
 
     section {
         &:first-child {
-            padding-top: 0;
+            // padding-top: 0;
         }
     }
 
@@ -503,8 +503,8 @@ div {
 
 section,
 .section {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-top: var(--padding);
+    padding-bottom:var(--padding);
 }
 
 
