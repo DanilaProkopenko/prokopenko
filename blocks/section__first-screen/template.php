@@ -39,6 +39,17 @@ $block_id_name = get_field('block_id_name');
 ?>
 
 <section class="section__first-screen main-padding emerge" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+    <!-- <div class="section__first-screen__content"> -->
+    <div class="pd_flex pd_flex-column pd_width_50 pd_margin-right">
+        <h1 class="first-screen__text pd_flex-50">
+            <!-- <?= $first_screen_title ?> -->
+             Данила Прокопенко
+        </h1>
+        <div class="first-screen__caption pd_flex-50">
+            <!-- <?= $first_screen_caption ?> -->
+            Веб и графический дизайнер
+        </div>
+    </div>
     <?php if ($first_screen_video): ?>
         <div class="lazy_container first-screen__image">
             <video
@@ -60,12 +71,8 @@ $block_id_name = get_field('block_id_name');
             <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">
         </div>
     <?php endif; ?>
-    <div class="section__first-screen__content">
-        <h1 class="first-screen__text">
-            <?= $first_screen_title ?>
-        </h1>
-        <div class="first-screen__caption">
-            <?= $first_screen_caption ?>
-        </div>
+    <div class="first-screen__about">
+        Разрабатываю сайты и различную коммуникационную продукцию: баннеры, каталоги, роллапы, меню, календари и тд.
     </div>
+    <!-- </div> -->
 </section>
