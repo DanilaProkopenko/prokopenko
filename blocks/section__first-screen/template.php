@@ -39,7 +39,7 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<section class="section__first-screen main-padding emerge" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<section class="section__first-screen main-padding" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <div class="first-screen-title">
         <h1 class="first-screen-title__heading">
             <?= $first_screen_title ?>
@@ -49,7 +49,7 @@ $block_id_name = get_field('block_id_name');
         </div>
     </div>
     <?php if ($first_screen_video): ?>
-        <div class="lazy_container first-screen__image">
+        <div class="lazy_container first-screen__image emerge">
             <video
                 preload="auto"
                 no-controls
@@ -65,7 +65,7 @@ $block_id_name = get_field('block_id_name');
             </video>
         </div>
     <?php elseif ($first_screen_image) : ?>
-        <div class="first-screen__image">
+        <div class="first-screen__image emerge">
             <img src="<?= ($first_screen_image['sizes']['large']); ?>" alt="" class="first-screen__image__source">
         </div>
     <?php endif; ?>

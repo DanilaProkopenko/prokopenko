@@ -6,6 +6,25 @@
     justify-content: space-between;
 }
 
+.post-category {
+    display: flex;
+    flex-direction: row;
+    gap: .7rem;
+    writing-mode: sideways-lr;
+
+    li,
+    a {
+        font-size: var(--font-size--1);
+        color: var(--color-text-black);
+
+        border: none;
+        pointer-events: none;
+        text-transform: lowercase;
+        display: inline-block;
+        height: max-content;
+    }
+}
+
 .post__meta {
     display: flex;
     align-items: flex-start;
@@ -19,17 +38,16 @@
         // color: var(--color-secondary);
         font-size: var(--font-size--1);
     }
-    p{
-        &:not(:first-child){
+
+    p {
+        &:not(:first-child) {
             margin-top: .5rem;
         }
     }
 }
 
 
-@media screen and (max-width: 1024px) {
-
-}
+@media screen and (max-width: 1024px) {}
 
 @media screen and (max-width:780px) {
     .section__single-post__intro__image {

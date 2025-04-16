@@ -176,19 +176,16 @@ body {
 }
 
 #main {
-
     padding-top: 5rem;
     background-color: var(--color-primary);
-    transition-property: all;
-    transition-duration: .4s;
+    transition: all 0.4s ease-in-out;
     opacity: 1;
-
     height: 100vh;
     overflow-y: auto;
+    position: relative;
 
     &::before {
-
-        // content: '';
+        content: '';
         position: absolute;
         display: inline-block;
         z-index: 10;
@@ -197,20 +194,14 @@ body {
         width: 100%;
         height: 100%;
         background-color: rgb(0 0 0 / 65%);
-        transition-property: all;
-        transition-duration: .5s;
-
+        transition: all 0.5s ease-in-out;
         visibility: hidden;
         opacity: 0;
     }
 
     &._open {
-        transform: scale(.85);
-        opacity: .7;
-        // overflow: hidden;
-        // overflow-y: inherit;
-        // max-height: 100vh;
-        // filter: blur(10px);
+        transform: scale(0.85);
+        opacity: 0.7;
         touch-action: none;
 
         &::before {
@@ -274,7 +265,15 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 110%;
+    line-height: 100%;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
 }
 
 h1 {
@@ -285,23 +284,29 @@ h1 {
 
 h2 {
     font-weight: 500;
+    font-weight: 600;
     font-size: 34px;
     font-size: var(--font-size-3);
+    font-size: var(--font-size-0);
 }
 
 h3 {
     font-weight: 500;
+    font-weight: 600;
     font-size: var(--font-size-2);
+    font-size: var(--font-size-0);
 }
 
 h4,
 h4 a {
     font-weight: 400;
+    font-weight: 600;
     font-size: var(--font-size-1);
+    font-size: var(--font-size-0);
 }
 
 h5 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: var(--font-size-0);
 }
 
@@ -330,9 +335,35 @@ div {
     h5,
     h6 {
         &:not(:first-child) {
-            margin-top: 4rem;
+            // margin-top: 16rem;
         }
     }
+
+    // h3 {
+    //     &:not(:first-child) {
+    //         margin-top: 10rem;
+    //         padding-left: 2ch;
+
+    //     }
+    // }
+
+    // h4 {
+    //     &:not(:first-child) {
+    //         margin-top: 16rem;
+    //     }
+    // }
+
+    // h5 {
+    //     &:not(:first-child) {
+    //         margin-top: 16rem;
+    //     }
+    // }
+
+    // h6 {
+    //     &:not(:first-child) {
+    //         margin-top: 16rem;
+    //     }
+    // }
 }
 
 :root :where(.is-layout-constrained)>* {
@@ -504,7 +535,7 @@ div {
 section,
 .section {
     padding-top: var(--padding);
-    padding-bottom:var(--padding);
+    padding-bottom: var(--padding);
 }
 
 
@@ -553,11 +584,105 @@ section,
     text-align: left;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Базовые стили для заголовков */
+h2, h3, h4, h5, h6 {
+    margin-top: 0; /* Убираем стандартные отступы */
+    margin-bottom: 0; /* Убираем стандартные отступы */
+  }
+  
+  /* Индивидуальные отступы для каждого уровня заголовков */
+  h2 {
+    --large-margin: 16rem; /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75); /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5); /* Малый отступ (50%) */
+  }
+  
+  h3 {
+    --large-margin: 11rem; /* Большой отступ */
+    --medium-margin: calc(11em * 0.75); /* Средний отступ (75%) */
+    --small-margin: calc(11rem * 0.5); /* Малый отступ (50%) */
+  }
+  
+  h4 {
+    --large-margin: 12rem; /* Большой отступ */
+    --medium-margin: calc(12rem * 0.75); /* Средний отступ (75%) */
+    --small-margin: calc(12rem * 0.5); /* Малый отступ (50%) */
+  }
+  
+  h5 {
+    --large-margin: 10rem; /* Большой отступ */
+    --medium-margin: calc(10rem * 0.75); /* Средний отступ (75%) */
+    --small-margin: calc(10rem * 0.5); /* Малый отступ (50%) */
+  }
+  
+  h6 {
+    --large-margin: 8rem; /* Большой отступ */
+    --medium-margin: calc(8rem * 0.75); /* Средний отступ (75%) */
+    --small-margin: calc(8rem * 0.5); /* Малый отступ (50%) */
+  }
+  
+  /* Классы для управления отступами */
+  .large-margin-top {
+    margin-top: var(--large-margin);
+  }
+  
+  .medium-margin-top {
+    margin-top: var(--medium-margin);
+  }
+  
+  .small-margin-top {
+    margin-top: var(--small-margin);
+  }
+  
+  .large-margin-all {
+    margin-top: var(--large-margin);
+    margin-bottom: var(--large-margin);
+  }
+  
+  .medium-margin-all {
+    margin-top: var(--medium-margin);
+    margin-bottom: var(--medium-margin);
+  }
+  
+  .small-margin-all {
+    margin-top: var(--small-margin);
+    margin-bottom: var(--small-margin);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .section__title {
-    font-size: var(--font-size-3);
-    line-height: 110%;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
 
 }
 
@@ -771,9 +896,7 @@ figcaption {
 
 
 
-.single__title-heading {
-    margin-top: 1rem;
-}
+.single__title-heading {}
 
 .pd_flex {
     display: flex;
@@ -827,20 +950,24 @@ figcaption {
         max-width: 100%;
     }
 
+    .single-post__meta__wrapper {
+        padding-right: var(--padding);
+    }
+
     .single__title {
         width: 100%;
         position: relative;
 
         .post-category {
             position: absolute;
-            writing-mode: sideways-lr;
-            right: 0;
+            right: calc(-2 * var(--gap));
             top: 0;
         }
     }
 
     .single__title-img {
         width: 100%;
+        position: relative;
 
         img {
             width: 100%;
@@ -971,12 +1098,24 @@ figcaption {
         visibility: hidden;
     }
 
+    section,
+    .section {
+        padding-top: calc(2 * var(--padding));
+        padding-bottom: calc(2 * var(--padding));
+    }
+
     .flex-col-reverse--mob {
         flex-direction: column-reverse;
     }
 
     .single-page--v1 {
-        .single-page__content {}
+        .single-page__content {
+            margin-top: calc(2 * var(--padding) - var(--gap));
+        }
+
+        .single-post__meta__wrapper {
+            padding: 0 var(--padding);
+        }
 
         .single__title-img {
             width: calc(100% - 1.5 * var(--padding));
@@ -988,11 +1127,16 @@ figcaption {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .pd_width_50 {
         width: 100%;
         margin: auto;
     }
-    
+
+    .pd_flex-25 {
+        width: 100%;
+    }
+
 }
 
 @media screen and (max-width: 480px) {

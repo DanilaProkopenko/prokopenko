@@ -28,11 +28,9 @@ if (!empty($tags)) {
 <?php get_header() ?>
 
 <div class="single__wrapper single-page--v1">
-    <div class="single__content main-padding">
-        <section class="single__title section">
-
-            <?= do_shortcode('[post_category]') ?>
-            <div class="single__title-heading">
+    <div class="single__content">
+        <section class="single__title section ">
+            <div class="single__title-heading _padding">
                 <h1 class="wp-block-post-title">
                     <?php single_post_title(); ?>
                 </h1>
@@ -44,15 +42,16 @@ if (!empty($tags)) {
                         <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
                         <img class=" wp-block-image size-full" fetchpriority="high" decoding="async" src="<?= esc_html($img_large) ?>" alt='Обложка записи' loading="lazy">
                     </picture>
+                    <?= do_shortcode('[post_category]') ?>
                 </div>
-                <div class="single__title-meta pd_flex-25">
+                <div class="pd_flex-25">
                     <div class="single__title-meta wp-block-column is-vertically-aligned-bottom is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:25%">
                         <?= do_shortcode('[block_post_meta]') ?>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="pd_flex pd_flex-row pd_flex-column-mob">
+        <div class="pd_flex pd_flex-row pd_flex-column-mob main-padding">
             <div class="post__navigation-wrapper pd_flex-25">
                 <?php echo do_shortcode('[block_post_navigation]')
                 ?>
@@ -60,10 +59,14 @@ if (!empty($tags)) {
             <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
                 <?php the_content();
                 ?>
+                
             </div>
         </div>
     </div>
+
+    <?php echo do_shortcode('[pd_spacer]') ?>
     <?php echo do_shortcode('[block_archive tag=' . $tag_id . ']') ?>
+
 </div>
 
 <?php get_footer() ?>

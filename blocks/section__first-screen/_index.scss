@@ -20,7 +20,6 @@
 .first-screen-title__heading,
 .first-screen-title__heading * {
     font-size: var(--font-size-5);
-    line-height: 100%;
     font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
 }
@@ -28,6 +27,11 @@
 
 .first-screen-title__caption {
     margin-top: calc(var(--gap) * .7);
+}
+
+.first-screen-caption,
+.first-screen-caption * {
+    max-width: 100% !important;
 }
 
 .first-screen__image {
@@ -51,8 +55,7 @@
 
 @media screen and (max-width: 1024px) {}
 
-@media screen and (max-width: 1024px) {
-}
+@media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 767px) {
     .section__first-screen {
