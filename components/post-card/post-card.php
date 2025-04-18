@@ -16,9 +16,9 @@ if ($args) {
         </picture>
     </a>
     <a href="<?= esc_html($link) ?>" class="post-card__content">
-        <div class="post-card__heading">
+        <h3 class="post-card__heading">
             <?= $title ?>
-        </div>
+</h3>
     </a>
     <?= do_shortcode('[post_category]') ?>
 </div>

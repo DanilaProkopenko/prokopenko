@@ -27,44 +27,42 @@ if (!empty($tags)) {
 
 <?php get_header() ?>
 
-<div class="single__wrapper single-page--v1">
-    <div class="single__content">
-        <section class="single__title section ">
-            <div class="single__title-heading _padding">
-                <h1 class="wp-block-post-title">
-                    <?php single_post_title(); ?>
-                </h1>
+<div class="single__wrapper single-page--v1 ">
+    <section class="single__title section _padding">
+        <div class="single__title-heading">
+            <h1 class="wp-block-post-title">
+                <?php single_post_title(); ?>
+            </h1>
+        </div>
+        <div class="pd_flex pd_flex-column">
+            <div class="single__title-img emerge">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
+                    <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
+                    <img class=" wp-block-image size-full" fetchpriority="high" decoding="async" src="<?= esc_html($img_large) ?>" alt='Обложка записи' loading="lazy">
+                </picture>
+                <?= do_shortcode('[post_category]') ?>
             </div>
-            <div class="pd_flex pd_flex-row pd_flex-column-mob pd_flex-aligned-bottom">
-                <div class="single__title-img pd_flex-75 emerge">
-                    <picture>
-                        <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
-                        <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
-                        <img class=" wp-block-image size-full" fetchpriority="high" decoding="async" src="<?= esc_html($img_large) ?>" alt='Обложка записи' loading="lazy">
-                    </picture>
-                    <?= do_shortcode('[post_category]') ?>
-                </div>
-                <div class="pd_flex-25">
-                    <div class="single__title-meta wp-block-column is-vertically-aligned-bottom is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:25%">
-                        <?= do_shortcode('[block_post_meta]') ?>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="pd_flex pd_flex-row pd_flex-column-mob main-padding">
-            <div class="post__navigation-wrapper pd_flex-25">
-                <?php echo do_shortcode('[block_post_navigation]')
-                ?>
-            </div>
-            <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
-                <?php the_content();
-                ?>
-                
+            <div class="single__title-meta">
+                <?= do_shortcode('[block_post_meta]') ?>
             </div>
         </div>
+    </section>
+    <div class="single__content small-margin-top">
+        <div class="post__navigation-wrapper pd_flex-25">
+            <?php echo do_shortcode('[block_post_navigation]')
+            ?>
+        </div>
+        <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
+            <?php the_content();
+            ?>
+
+        </div>
+        <!-- </div> -->
     </div>
 
-    <?php echo do_shortcode('[pd_spacer]') ?>
+    <h2 class="_padding">Другие работы</h2>
+    <div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
     <?php echo do_shortcode('[block_archive tag=' . $tag_id . ']') ?>
 
 </div>

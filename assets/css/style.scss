@@ -61,6 +61,14 @@
     --grid-gap: 40px;
     --gap: clamp(1rem, 1vw, 3rem);
 
+
+    --width-100-parent-padding-bleed: calc(100% + var(--padding));
+
+    --width-50-parent-padding: calc(50% - var(--gap) + 7px);
+    --width-50-parent-padding-bleed: calc(50% - var(--gap) + 7px + var(--padding));
+    --width-50-bleed: calc(50% - var(--gap) + 7px);
+    --margin-width-50: calc(50% + var(--gap) - 7px);
+
     @media screen and (max-width: 1220px) {
         --grid-gap: 35px;
     }
@@ -71,6 +79,10 @@
 
     @media screen and (max-width: 767px) {
         --grid-gap: 20px;
+        --width-50-parent-padding: 100%;
+        --width-50-parent-padding-bleed: calc(100% + var(--padding));
+
+        --margin-width-50: 0;
     }
 }
 
@@ -265,9 +277,10 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 100%;
+    line-height: 110%;
 }
 
+h1,
 h2,
 h3,
 h4,
@@ -279,7 +292,7 @@ h6 {
 h1 {
     font-weight: 500;
     // font-size: 60px;
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-3);
 }
 
 h2 {
@@ -366,6 +379,93 @@ div {
     // }
 }
 
+
+/* Базовые стили для заголовков */
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    /* Убираем стандартные отступы */
+    margin-bottom: 0;
+    /* Убираем стандартные отступы */
+}
+
+/* Индивидуальные отступы для каждого уровня заголовков */
+h2 {
+    --large-margin: 16rem;
+    /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+h3 {
+    --large-margin: 16rem;
+    /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+h4 {
+    --large-margin: 12rem;
+    /* Большой отступ */
+    --medium-margin: calc(12rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(12rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+h5 {
+    --large-margin: 10rem;
+    /* Большой отступ */
+    --medium-margin: calc(10rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(10rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+h6 {
+    --large-margin: 8rem;
+    /* Большой отступ */
+    --medium-margin: calc(8rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(8rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+/* Классы для управления отступами */
+.large-margin-top {
+    margin-top: var(--large-margin);
+}
+
+.medium-margin-top {
+    margin-top: var(--medium-margin);
+}
+
+.small-margin-top {
+    margin-top: var(--small-margin);
+}
+
+.large-margin-all {
+    margin-top: var(--large-margin);
+    margin-bottom: var(--large-margin);
+}
+
+.medium-margin-all {
+    margin-top: var(--medium-margin);
+    margin-bottom: var(--medium-margin);
+}
+
+.small-margin-all {
+    margin-top: var(--small-margin);
+    margin-bottom: var(--small-margin);
+}
+
 :root :where(.is-layout-constrained)>* {
     margin-block-start: .5rem;
     margin-block-end: 0;
@@ -408,7 +508,10 @@ div {
     padding-left: var(--padding);
     padding-right: var(--padding);
 }
-
+._margin{
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
 // Галерея
 .f-carousel {
     --f-carousel-slide-width: 100%;
@@ -599,70 +702,6 @@ section,
 
 
 
-/* Базовые стили для заголовков */
-h2, h3, h4, h5, h6 {
-    margin-top: 0; /* Убираем стандартные отступы */
-    margin-bottom: 0; /* Убираем стандартные отступы */
-  }
-  
-  /* Индивидуальные отступы для каждого уровня заголовков */
-  h2 {
-    --large-margin: 16rem; /* Большой отступ */
-    --medium-margin: calc(16rem * 0.75); /* Средний отступ (75%) */
-    --small-margin: calc(16rem * 0.5); /* Малый отступ (50%) */
-  }
-  
-  h3 {
-    --large-margin: 11rem; /* Большой отступ */
-    --medium-margin: calc(11em * 0.75); /* Средний отступ (75%) */
-    --small-margin: calc(11rem * 0.5); /* Малый отступ (50%) */
-  }
-  
-  h4 {
-    --large-margin: 12rem; /* Большой отступ */
-    --medium-margin: calc(12rem * 0.75); /* Средний отступ (75%) */
-    --small-margin: calc(12rem * 0.5); /* Малый отступ (50%) */
-  }
-  
-  h5 {
-    --large-margin: 10rem; /* Большой отступ */
-    --medium-margin: calc(10rem * 0.75); /* Средний отступ (75%) */
-    --small-margin: calc(10rem * 0.5); /* Малый отступ (50%) */
-  }
-  
-  h6 {
-    --large-margin: 8rem; /* Большой отступ */
-    --medium-margin: calc(8rem * 0.75); /* Средний отступ (75%) */
-    --small-margin: calc(8rem * 0.5); /* Малый отступ (50%) */
-  }
-  
-  /* Классы для управления отступами */
-  .large-margin-top {
-    margin-top: var(--large-margin);
-  }
-  
-  .medium-margin-top {
-    margin-top: var(--medium-margin);
-  }
-  
-  .small-margin-top {
-    margin-top: var(--small-margin);
-  }
-  
-  .large-margin-all {
-    margin-top: var(--large-margin);
-    margin-bottom: var(--large-margin);
-  }
-  
-  .medium-margin-all {
-    margin-top: var(--medium-margin);
-    margin-bottom: var(--medium-margin);
-  }
-  
-  .small-margin-all {
-    margin-top: var(--small-margin);
-    margin-bottom: var(--small-margin);
-  }
 
 
 
@@ -682,9 +721,7 @@ h2, h3, h4, h5, h6 {
 
 
 
-.section__title {
-
-}
+.section__title {}
 
 .section__caption {
     // font-weight: 500;
@@ -896,7 +933,12 @@ figcaption {
 
 
 
-.single__title-heading {}
+.single__title-heading {
+
+    h1 {
+        max-width: 100%;
+    }
+}
 
 .pd_flex {
     display: flex;
@@ -948,26 +990,36 @@ figcaption {
 .single-page--v1 {
     .single__content {
         max-width: 100%;
+        margin-top: calc(16rem * 0.5);
+        display: inline-block;
     }
 
-    .single-post__meta__wrapper {
-        padding-right: var(--padding);
+    .single__title-meta {
+        width: var(--width-50-parent-padding);
+        margin-left: var(--margin-width-50);
     }
 
     .single__title {
         width: 100%;
         position: relative;
 
+        .single__title-heading {
+            width: var(--width-50-parent-padding);
+            margin-right: 0;
+            margin-left: var(--margin-width-50);
+        }
+
         .post-category {
             position: absolute;
-            right: calc(-2 * var(--gap));
+            left: calc(-2 * var(--gap));
             top: 0;
         }
     }
 
     .single__title-img {
-        width: 100%;
+        width: var(--width-100-parent-padding-bleed);
         position: relative;
+        margin-top: calc(2 * var(--gap));
 
         img {
             width: 100%;
@@ -984,9 +1036,23 @@ figcaption {
         h3,
         h4,
         h5,
-        h6 {
-            // max-width: 42rem;
+        h6,
+
+        .wp-caption {
+            width: var(--width-50-parent-padding);
+            padding-right: var(--padding);
+            margin-left: var(--margin-width-50);
         }
+
+        .wp-video,
+        .wp-block-image,
+        img,
+        .wp-block-video {
+            width: var(--width-50-bleed);
+            margin-left: var(--margin-width-50);
+        }
+
+
 
         a:has(img) {
             border: none;
@@ -1002,23 +1068,51 @@ figcaption {
             }
         }
 
-        // img,
-        // .wp-video,
-        // .wp-block-video {
-        //     max-width: 100%;
-        // }
-
+        .wp-block-image,
         .wp-video,
         img,
         .wp-caption,
         .wp-block-video {
-            // width: 100% !important;
-            max-width: 100% !important;
+            // max-width: 100% !important;
         }
 
+        figure img {
+            margin-left: 0;
+            width: 100%;
+        }
 
+        .project-media-small,
+        .img--small {
+            width: var(--width-50-bleed);
+            margin-right: 0;
+            margin-left: var(--margin-width-50);
+            margin-top: 0;
+        }
+
+        .project-media-large,
+        .img--large {
+            width: 100%;
+            padding-right: 0;
+            margin-left: 0;
+            margin-top: 0;
+            z-index: 10;
+            display: inline-block;
+            position: relative;
+            // box-shadow: 0px -10px 20px var(--color-white), 0px 10px 20px var(--color-white);
+        }
+
+        .project-media-double {
+            float: left;
+            width: 50%;
+            margin-left: 0;
+            margin-top: 0;
+            padding-right: 0;
+
+            z-index: 10;
+            display: inline-block;
+            position: relative;
+        }
     }
-
 }
 
 .fancybox__container {
@@ -1109,17 +1203,48 @@ figcaption {
     }
 
     .single-page--v1 {
+        .single__title {
+            .post-category {
+                left: calc(-1.2 * var(--gap));
+            }
+
+        }
+
         .single-page__content {
-            margin-top: calc(2 * var(--padding) - var(--gap));
+            margin-top: calc(2 * var(--padding));
+
+            p,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                width: 100%;
+                padding: 0 var(--padding);
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .wp-block-image,
+            .wp-video,
+            img,
+            .wp-caption,
+            .wp-block-video,
+            .project-media-double,
+            .project-media-large,
+            .project-media-small {
+                float: none;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .img--large,
+            .project-media-large {
+                box-shadow: none;
+                z-index: 0;
+            }
         }
 
-        .single-post__meta__wrapper {
-            padding: 0 var(--padding);
-        }
-
-        .single__title-img {
-            width: calc(100% - 1.5 * var(--padding));
-        }
 
     }
 
@@ -1189,7 +1314,6 @@ figcaption {
 
     .single__content {
         width: 100%;
-        padding-right: var(--padding);
     }
 }
 

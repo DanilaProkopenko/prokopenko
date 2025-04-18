@@ -36,10 +36,11 @@
 
 .post-card__heading {
     display: flex;
-    font-size: var(--font-size-0);
-    font-weight: var(--font-weight-medium);
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    gap: .3rem;
+    margin: 0 !important;
+    // font-size: var(--font-size-0);
+    // font-weight: var(--font-weight-medium);
+    // flex-direction: row;
+    // align-content: center;
+    // align-items: center;
+    // gap: .3rem;
 }
