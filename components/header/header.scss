@@ -188,9 +188,10 @@ header {
             border-bottom: 0;
             display: inline-block;
             width: 100%;
-            padding: var(--padding) calc(50% + var(--gap)) var(--padding);
+            padding: var(--padding) var(--margin-width-50) var(--padding);
             text-decoration: none;
-            font-size: var(--font-size-4);
+            font-size: var(--font-size-0);
+            text-transform: uppercase;
             // font-weight: var(--font-weight-regular);
             font-weight: var(--font-weight-medium);
             transition: all .1s;

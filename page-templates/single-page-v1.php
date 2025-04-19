@@ -28,37 +28,20 @@ if (!empty($tags)) {
 <?php get_header() ?>
 
 <div class="single__wrapper single-page--v1 ">
-    <section class="single__title section _padding">
-        <div class="single__title-heading">
-            <h1 class="wp-block-post-title">
-                <?php single_post_title(); ?>
-            </h1>
-        </div>
-        <div class="pd_flex pd_flex-column">
-            <div class="single__title-img emerge">
-                <picture>
-                    <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />
-                    <source media="(min-width: 769px)" srcset="<?= esc_html($img_large) ?>" />
-                    <img class=" wp-block-image size-full" fetchpriority="high" decoding="async" src="<?= esc_html($img_large) ?>" alt='Обложка записи' loading="lazy">
-                </picture>
-                <?= do_shortcode('[post_category]') ?>
-            </div>
-            <div class="single__title-meta">
-                <?= do_shortcode('[block_post_meta]') ?>
-            </div>
-        </div>
-    </section>
     <div class="single__content small-margin-top">
         <div class="post__navigation-wrapper pd_flex-25">
             <?php echo do_shortcode('[block_post_navigation]')
             ?>
         </div>
         <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
+            <h1 class="wp-block-post-title">
+                <?php single_post_title(); ?>
+            </h1>
+            <?= do_shortcode('[post_category]') ?>
+            <?= do_shortcode('[block_post_meta]') ?>
             <?php the_content();
             ?>
-
         </div>
-        <!-- </div> -->
     </div>
 
     <h2 class="_padding">Другие работы</h2>

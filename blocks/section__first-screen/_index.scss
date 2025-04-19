@@ -26,18 +26,13 @@
 
 
 .first-screen-title__caption {
-    margin-top: calc(var(--gap) * .7);
+    margin-top: calc(var(--gap) * .3);
 }
 
 .first-screen-caption {
     width: calc(49.75% - 5px);
     margin-right: 0;
     margin-left: auto;
-}
-
-.first-screen-caption,
-.first-screen-caption * {
-    max-width: 100% !important;
 }
 
 .first-screen__image {
