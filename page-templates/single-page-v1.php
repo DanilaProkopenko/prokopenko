@@ -45,8 +45,7 @@ if (!empty($tags)) {
         </div>
     </div>
 
-    <h2 class="_padding">Другие работы</h2>
-    <div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+    <p class="_padding has-h-2-font-size small-margin-all">Другие работы</p>
     <?php echo do_shortcode('[block_archive tag=' . $tag_id . ']') ?>
 
 </div>

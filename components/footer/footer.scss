@@ -12,7 +12,7 @@
 
 .footer__content {
     border-top: var(--border);
-    margin-top: calc(2 * var(--padding));
+    margin-top: calc(3 * var(--padding));
     padding: calc(.7 * var(--padding)) var(--padding);
 
     display: flex;
@@ -50,6 +50,7 @@
 
 @media screen and (max-width: 767px) {
     .footer__content{
+        margin-top: calc(3 * var(--padding));
         padding: var(--padding);
 
     }
