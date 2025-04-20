@@ -415,8 +415,8 @@ h6 {
 }
 
 .medium-margin-all {
-    margin-top: var(--medium-margin);
-    margin-bottom: var(--medium-margin);
+    margin-top: var(--medium-margin) !important;
+    margin-bottom: var(--medium-margin) !important;
 }
 
 .small-margin-all {
