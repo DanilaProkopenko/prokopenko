@@ -271,22 +271,44 @@ a,
     border: none;
 }
 
+.more-button{
+    width: fit-content !important;
+    padding-right: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.more-content {
+    overflow: hidden;
+    height: 0; /* Начальная высота */
+    transition: height 0.3s ease-out; /* Плавный переход высоты */
+}
+.more-content.active {
+    // max-height: 4000px; /* Установите значение, достаточное для вашего контента */
+    /* Показываем содержимое при активации */
+}
+
 /* Базовые стили для заголовков */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.has-h-1-font-size,
+.has-h-2-font-size,
+.has-h-3-font-size,
+.has-h-4-font-size,
+.has-h-5-font-size
+ {
     margin-top: 0;
     margin-bottom: 0;
-    
+
     font-weight: 600;
     font-size: var(--font-size-0);
     text-transform: uppercase;
     line-height: 110%;
 
-    a{
+    a {
         font-size: var(--font-size-0);
         text-transform: uppercase;
         font-weight: 600;
@@ -448,7 +470,7 @@ div {
 
 
 :root :where(.is-layout-constrained)>* {
-    margin-block-start: .5rem;
+    // margin-block-start: .5rem;
     margin-block-end: 0;
 }
 
@@ -1012,11 +1034,61 @@ figcaption {
         h4,
         h5,
         h6,
-
         .wp-caption {
             width: var(--width-50-parent-padding);
             padding-right: var(--padding);
             margin-left: var(--margin-width-50);
+        }
+
+        .wp-block-group {
+
+            h1,
+            p,
+            ul,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            .wp-caption,
+            .wp-video,
+
+            img,
+            .wp-block-video {
+                margin-left: var(--margin-width-50) !important;
+            }
+
+            .project-media-small,
+            .img--small {
+                // width: var(--width-50-bleed);
+                // margin-right: 0;
+                margin-left: var(--margin-width-50) !important;
+                // margin-top: 0;
+            }
+
+            .project-media-large,
+            .img--large {
+                // width: 100%;
+                // padding-right: 0;
+                margin-left: 0 !important;
+                // margin-top: 0;
+                // z-index: 10;
+                // display: inline-block;
+                // position: relative;
+                // box-shadow: 0px -10px 20px var(--color-white), 0px 10px 20px var(--color-white);
+            }
+
+            .project-media-double {
+                // float: left;
+                // width: 50%;
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+                // padding-right: 0;
+
+                // z-index: 10;
+                // display: inline-block;
+                // position: relative;
+            }
         }
 
         .wp-video,

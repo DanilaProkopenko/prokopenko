@@ -96,6 +96,16 @@ const initBlockTemplate = () => {
                 e.preventDefault(); // Останавливаем стандартное поведение якоря
                 manualScroll = true; // Устанавливаем флаг ручного управления
 
+                document.querySelectorAll('.more-button').forEach(button => {
+                    console.log(button);
+                    const content = button.nextElementSibling;
+                    if (content && content.classList.contains('more-content')) {
+                        content.style.height = content.scrollHeight + 'px'; // Устанавливаем высоту по содержимому
+                        button.textContent = 'Свернуть';
+                    }
+                });
+
+
                 // Прокручиваем к нужному заголовку
                 sections[index].scrollIntoView({
                     behavior: 'smooth',

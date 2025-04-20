@@ -7,22 +7,22 @@
             "fontSizes": [
                 {
                     "slug": "h1",
-                    "size": "clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem)",
+                    "size": "clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem)",
                     "name": "H1"
                 },
                 {
                     "slug": "h2",
-                    "size": "clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem)",
+                    "size": "clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem)",
                     "name": "H2"
                 },
                 {
                     "slug": "h3",
-                    "size": "clamp(1.62rem, 1.4617rem + 0.7916vw, 2.0752rem)",
+                    "size": "clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem)",
                     "name": "H3"
                 },
                 {
                     "slug": "h4",
-                    "size": "clamp(1.35rem, 1.2421rem + 0.5394vw, 1.6602rem)",
+                    "size": "clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem)",
                     "name": "H4"
                 },
                 {
