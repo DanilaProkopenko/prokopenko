@@ -101,15 +101,8 @@ const initBlockTemplate = () => {
                     const content = button.nextElementSibling;
                     if (content && content.classList.contains('more-content')) {
                         content.style.height = content.scrollHeight + 'px'; // Устанавливаем высоту по содержимому
-                        button.textContent = 'Свернуть';
+                        button.textContent = 'Свернуть ▲';
                     }
-                });
-
-
-                // Прокручиваем к нужному заголовку
-                sections[index].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
                 });
 
                 // Обновляем активное состояние ссылки
@@ -124,6 +117,15 @@ const initBlockTemplate = () => {
 
                 // Устанавливаем высоту индикатора, чтобы она соответствовала высоте активного заголовка
                 indicator.style.height = `${linkRect.height}px`;
+
+                setTimeout(() => {
+                }, 400);
+                // Прокручиваем к нужному заголовку
+                sections[index].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                });
+
 
                 // Сбрасываем флаг через небольшой таймаут после завершения скролла
                 setTimeout(() => {

@@ -38,7 +38,8 @@ if (!empty($tags)) {
                 <?php single_post_title(); ?>
             </h1>
             <?= do_shortcode('[post_category]') ?>
-            <?php echo do_shortcode('[block_post_meta]') ?>
+            <?= $short_description ?>
+            <?php //echo do_shortcode('[block_post_meta]') ?>
             <?php the_content();
             ?>
         </div>

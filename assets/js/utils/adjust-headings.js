@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Функция для обработки заголовков
     function adjustHeadings() {
       // Находим все заголовки на странице
-      const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
   
       headings.forEach((heading) => {
         // Получаем следующий элемент после текущего заголовка

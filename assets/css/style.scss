@@ -95,7 +95,7 @@ body,
 #main {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
-    scroll-padding-top: 4rem;
+    scroll-padding-top: 6rem;
 }
 
 em {
@@ -144,6 +144,7 @@ body {
         // transform: scale(.9);
     }
 
+    // Страница в редакторе
     &.block-editor-iframe__body {
         background-color: var(--color-primary);
         padding: 0 var(--padding);
@@ -153,6 +154,10 @@ body {
 
         &::-webkit-scrollbar {
             width: 5px;
+        }
+
+        .more-content{
+            height: fit-content !important;
         }
     }
 
@@ -271,18 +276,26 @@ a,
     border: none;
 }
 
-.more-button{
+.more-button {
     width: fit-content !important;
     padding-right: 0 !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+    &::after {
+        content: '';
+    }
 }
 
 .more-content {
     overflow: hidden;
-    height: 0; /* Начальная высота */
-    transition: height 0.3s ease-out; /* Плавный переход высоты */
+    height: 0;
+    /* Начальная высота */
+    // transition: height 0.3s ease-out;
+    /* Плавный переход высоты */
 }
+
 .more-content.active {
+    height: fit-content;
     // max-height: 4000px; /* Установите значение, достаточное для вашего контента */
     /* Показываем содержимое при активации */
 }
@@ -298,8 +311,7 @@ h6,
 .has-h-2-font-size,
 .has-h-3-font-size,
 .has-h-4-font-size,
-.has-h-5-font-size
- {
+.has-h-5-font-size {
     margin-top: 0;
     margin-bottom: 0;
 
@@ -317,7 +329,14 @@ h6,
 }
 
 /* Индивидуальные отступы для каждого уровня заголовков */
-h1 {
+
+
+h1,
+.has-h-1-font-size,
+.has-h-2-font-size,
+.has-h-3-font-size,
+.has-h-4-font-size,
+.has-h-5-font-size {
     --large-margin: 16rem;
     /* Большой отступ */
     --medium-margin: calc(16rem * 0.75);
@@ -326,8 +345,6 @@ h1 {
     --small-margin: calc(var(--font-size-0) * 9);
     --small-margin: 5rem;
     /* Малый отступ (50%) */
-
-    margin-top: 0 !important;
 }
 
 h2 {
@@ -389,7 +406,7 @@ h6 {
 }
 
 .small-margin-top {
-    margin-top: var(--small-margin);
+    margin-top: var(--small-margin) !important;
 }
 
 .large-margin-all {
@@ -403,11 +420,13 @@ h6 {
 }
 
 .small-margin-all {
-    margin-top: var(--small-margin);
-    margin-bottom: var(--small-margin);
+    margin-top: var(--small-margin) !important;
+    margin-bottom: var(--small-margin) !important;
 }
 
-
+h1 {
+    margin-top: 0 !important;
+}
 
 p,
 div,
@@ -995,6 +1014,7 @@ figcaption {
 
     .single-post__meta__wrapper {
         margin-top: calc(16rem * 0.5);
+        margin-top: 5rem;
         // width: var(--width-50-parent-padding);
         // margin-left: var(--margin-width-50);
     }
@@ -1298,6 +1318,11 @@ figcaption {
             .post-category {
                 // top: calc(2 * var(--padding) + 0.4rem + 1.5 * var(--font-size--1));
                 // left: calc(-1.1 * var(--font-size-1));
+            }
+
+            .more-button {
+                padding-left: 0;
+                margin-left: var(--padding);
             }
         }
 

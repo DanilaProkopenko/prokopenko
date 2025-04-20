@@ -1,4 +1,6 @@
 document.querySelectorAll('.more-button').forEach(button => {
+    const buttonContentFirst = button.textContent;
+  
     button.addEventListener('click', () => {
         // Находим следующий элемент с классом 'more-content'
         const content = button.nextElementSibling;
@@ -7,11 +9,12 @@ document.querySelectorAll('.more-button').forEach(button => {
             // Если контент уже раскрыт, сворачиваем его
             if (content.style.height) {
                 content.style.height = null; // Сбрасываем высоту до auto
-                button.textContent = 'Читать далее';
+                // button.textContent = 'Читать далее';
+                button.textContent = buttonContentFirst;
             } else {
                 // Иначе раскрываем контент
                 content.style.height = content.scrollHeight + 'px'; // Устанавливаем высоту по содержимому
-                button.textContent = 'Свернуть';
+                button.textContent = 'Свернуть ▲';
             }
         }
     });
