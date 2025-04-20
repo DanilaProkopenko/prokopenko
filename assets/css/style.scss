@@ -10,7 +10,7 @@
     --font-family-primary: 'Roboto', sans-serif;
     --font-family-secondary: 'Roboto Condensed', sans-serif;
     --font-weight-regular: 400;
-    --font-weight-medium: 500;
+    --font-weight-medium: 600;
     --font-weight-bold: 700;
 
     --color-primary: #FEFEFE;
@@ -271,59 +271,121 @@ a,
     border: none;
 }
 
+/* Базовые стили для заголовков */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    line-height: 110%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-transform: uppercase;
-}
-
-h1 {
-    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+    
     font-weight: 600;
-    // font-size: 60px;
-    font-size: var(--font-size-3);
     font-size: var(--font-size-0);
+    text-transform: uppercase;
+    line-height: 110%;
+
+    a{
+        font-size: var(--font-size-0);
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 110%;
+    }
+}
+
+/* Индивидуальные отступы для каждого уровня заголовков */
+h1 {
+    --large-margin: 16rem;
+    /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5);
+    --small-margin: calc(var(--font-size-0) * 9);
+    --small-margin: 5rem;
+    /* Малый отступ (50%) */
+
+    margin-top: 0 !important;
 }
 
 h2 {
-    font-weight: 500;
-    font-weight: 600;
-    font-size: 34px;
-    font-size: var(--font-size-3);
-    font-size: var(--font-size-0);
+    --large-margin: 16rem;
+    /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5);
+    --small-margin: calc(var(--font-size-0) * 9);
+    --small-margin: 5rem;
+    /* Малый отступ (50%) */
 }
 
 h3 {
-    font-weight: 500;
-    font-weight: 600;
-    font-size: var(--font-size-2);
-    font-size: var(--font-size-0);
+    --large-margin: 16rem;
+    /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5);
+    --small-margin: calc(var(--font-size-0) * 7);
+    --small-margin: 5rem;
+    /* Малый отступ (50%) */
 }
 
-h4,
-h4 a {
-    font-weight: 400;
-    font-weight: 600;
-    font-size: var(--font-size-1);
-    font-size: var(--font-size-0);
+h4 {
+    --large-margin: 12rem;
+    /* Большой отступ */
+    --medium-margin: calc(12rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(12rem * 0.5);
+    /* Малый отступ (50%) */
 }
 
 h5 {
-    font-weight: 500;
-    font-size: var(--font-size-0);
+    --large-margin: 10rem;
+    /* Большой отступ */
+    --medium-margin: calc(10rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(10rem * 0.5);
+    /* Малый отступ (50%) */
 }
+
+h6 {
+    --large-margin: 8rem;
+    /* Большой отступ */
+    --medium-margin: calc(8rem * 0.75);
+    /* Средний отступ (75%) */
+    --small-margin: calc(8rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+/* Классы для управления отступами */
+.large-margin-top {
+    margin-top: var(--large-margin);
+}
+
+.medium-margin-top {
+    margin-top: var(--medium-margin);
+}
+
+.small-margin-top {
+    margin-top: var(--small-margin);
+}
+
+.large-margin-all {
+    margin-top: var(--large-margin);
+    margin-bottom: var(--large-margin);
+}
+
+.medium-margin-all {
+    margin-top: var(--medium-margin);
+    margin-bottom: var(--medium-margin);
+}
+
+.small-margin-all {
+    margin-top: var(--small-margin);
+    margin-bottom: var(--small-margin);
+}
+
+
 
 p,
 div,
@@ -382,91 +444,8 @@ div {
 }
 
 
-/* Базовые стили для заголовков */
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-top: 0;
-    /* Убираем стандартные отступы */
-    margin-bottom: 0;
-    /* Убираем стандартные отступы */
-}
 
-/* Индивидуальные отступы для каждого уровня заголовков */
-h2 {
-    --large-margin: 16rem;
-    /* Большой отступ */
-    --medium-margin: calc(16rem * 0.75);
-    /* Средний отступ (75%) */
-    --small-margin: calc(16rem * 0.5);
-    /* Малый отступ (50%) */
-}
 
-h3 {
-    --large-margin: 16rem;
-    /* Большой отступ */
-    --medium-margin: calc(16rem * 0.75);
-    /* Средний отступ (75%) */
-    --small-margin: calc(16rem * 0.5);
-    /* Малый отступ (50%) */
-}
-
-h4 {
-    --large-margin: 12rem;
-    /* Большой отступ */
-    --medium-margin: calc(12rem * 0.75);
-    /* Средний отступ (75%) */
-    --small-margin: calc(12rem * 0.5);
-    /* Малый отступ (50%) */
-}
-
-h5 {
-    --large-margin: 10rem;
-    /* Большой отступ */
-    --medium-margin: calc(10rem * 0.75);
-    /* Средний отступ (75%) */
-    --small-margin: calc(10rem * 0.5);
-    /* Малый отступ (50%) */
-}
-
-h6 {
-    --large-margin: 8rem;
-    /* Большой отступ */
-    --medium-margin: calc(8rem * 0.75);
-    /* Средний отступ (75%) */
-    --small-margin: calc(8rem * 0.5);
-    /* Малый отступ (50%) */
-}
-
-/* Классы для управления отступами */
-.large-margin-top {
-    margin-top: var(--large-margin);
-}
-
-.medium-margin-top {
-    margin-top: var(--medium-margin);
-}
-
-.small-margin-top {
-    margin-top: var(--small-margin);
-}
-
-.large-margin-all {
-    margin-top: var(--large-margin);
-    margin-bottom: var(--large-margin);
-}
-
-.medium-margin-all {
-    margin-top: var(--medium-margin);
-    margin-bottom: var(--medium-margin);
-}
-
-.small-margin-all {
-    margin-top: var(--small-margin);
-    margin-bottom: var(--small-margin);
-}
 
 :root :where(.is-layout-constrained)>* {
     margin-block-start: .5rem;
@@ -986,6 +965,7 @@ figcaption {
 
 .single-page--v1 {
     .single__content {
+        width: calc(100vw - 5px);
         max-width: 100%;
         margin-top: calc(6rem * 0.5);
         display: inline-block;
@@ -997,20 +977,33 @@ figcaption {
         // margin-left: var(--margin-width-50);
     }
 
-  
 
 
-  
+
+
     .single-page__content {
+        position: relative;
+
         .post-category {
             position: relative;
             writing-mode: initial;
-            margin-top: calc(var(--gap) * 0.7);
-    
-            * {
-                font-size: var(--font-size-0);
-            }
+            margin-top: calc(var(--gap) * 0.4);
+
+            // * {
+            //     font-size: var(--font-size-0);
+            // }
         }
+
+        .post-category {
+            // position: absolute;
+            // left: calc(-1.5 * var(--font-size-1));
+            // top: 0;
+        }
+
+        h1 {
+            // margin-top: .7rem !important;
+        }
+
         h1,
         p,
         ul,
@@ -1186,17 +1179,21 @@ figcaption {
 
     .single-page--v1 {
 
-        
+
 
         .single__content {
             margin-top: 0;
+            width: 100%;
+
             // margin-top: calc(1 * var(--padding));
         }
 
         .single-page__content {
 
-            p,h1,
-            h2,ul,
+            p,
+            h1,
+            h2,
+            ul,
             h3,
             h4,
             h5,
@@ -1224,6 +1221,11 @@ figcaption {
             .project-media-large {
                 box-shadow: none;
                 z-index: 0;
+            }
+
+            .post-category {
+                // top: calc(2 * var(--padding) + 0.4rem + 1.5 * var(--font-size--1));
+                // left: calc(-1.1 * var(--font-size-1));
             }
         }
 

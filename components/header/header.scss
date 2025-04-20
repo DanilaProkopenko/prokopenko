@@ -188,7 +188,7 @@ header {
             border-bottom: 0;
             display: inline-block;
             width: 100%;
-            padding: var(--padding) var(--margin-width-50) var(--padding);
+            padding: calc(.5 * var(--padding)) var(--margin-width-50);
             text-decoration: none;
             font-size: var(--font-size-0);
             text-transform: uppercase;

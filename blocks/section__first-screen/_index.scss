@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
-    padding-bottom: 6rem;
+    // padding-bottom: 6rem;
 }
 
 .first-screen-title {
@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 767px) {
     .section__first-screen {
-        height: 96vh;
+        height: 90vh;
         gap: 1rem;
     }
 

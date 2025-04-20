@@ -28,7 +28,7 @@ if (!empty($tags)) {
 <?php get_header() ?>
 
 <div class="single__wrapper single-page--v1 ">
-    <div class="single__content small-margin-top">
+    <div class="single__content">
         <div class="post__navigation-wrapper pd_flex-25">
             <?php echo do_shortcode('[block_post_navigation]')
             ?>
@@ -38,7 +38,7 @@ if (!empty($tags)) {
                 <?php single_post_title(); ?>
             </h1>
             <?= do_shortcode('[post_category]') ?>
-            <?= do_shortcode('[block_post_meta]') ?>
+            <?php echo do_shortcode('[block_post_meta]') ?>
             <?php the_content();
             ?>
         </div>
