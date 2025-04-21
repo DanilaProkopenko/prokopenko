@@ -28,15 +28,17 @@
 }
 
 .post-card__content {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 1rem;
+    // display: flex;
+    // flex-direction: column;
+    // gap: 5px;
+    // margin-top: 1rem;
 }
 
 .post-card__heading {
-    display: flex;
-    margin: 0 !important;
+    // display: flex;
+    margin: 0;
+    margin-top: 1rem !important;
+
     // font-size: var(--font-size-0);
     // font-weight: var(--font-weight-medium);
     // flex-direction: row;

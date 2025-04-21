@@ -15,10 +15,10 @@ if ($args) {
             <img class="post-card__thumb__source" src="<?= esc_html($img_large) ?>" alt='Обложка записи' loading="lazy">
         </picture>
     </a>
-    <a href="<?= esc_html($link) ?>" class="post-card__content">
-        <h3 class="post-card__heading">
+    <h3 class="post-card__heading">
+        <a href="<?= esc_html($link) ?>" class="post-card__content">
             <?= $title ?>
-</h3>
-    </a>
+        </a>
+    </h3>
     <?= do_shortcode('[post_category]') ?>
 </div>
