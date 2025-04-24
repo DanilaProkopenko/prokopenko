@@ -118,8 +118,6 @@ const initBlockTemplate = () => {
                 // Устанавливаем высоту индикатора, чтобы она соответствовала высоте активного заголовка
                 indicator.style.height = `${linkRect.height}px`;
 
-                setTimeout(() => {
-                }, 400);
                 // Прокручиваем к нужному заголовку
                 sections[index].scrollIntoView({
                     behavior: 'smooth',

@@ -95,7 +95,7 @@ body,
 #main {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 4rem;
 }
 
 em {
@@ -256,6 +256,7 @@ a,
 
     width: fit-content;
     text-decoration: none;
+
     // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     &:hover {
         // opacity: .8;
@@ -585,8 +586,27 @@ div {
     }
 }
 
+.fancybox__container {
+    --fancybox-color: #fff;
+}
+
 .f-button {
-    backdrop-filter: blur(4px);
+    // backdrop-filter: blur(4px);
+    --f-button-bg: #ffffff00;
+
+    svg {
+        fill: #fff;
+        stroke: #fff;
+    }
+}
+
+.fancybox__toolbar {
+    --f-button-color: #fff;
+    --f-button-hover-color: #fff;
+
+    position: absolute !important;
+    right: var(--padding) !important;
+    top: 1.5rem !important;
 }
 
 .f-carousel__dots {
@@ -609,6 +629,20 @@ div {
 
 .fancybox__backdrop {
     backdrop-filter: blur(4px);
+}
+
+.fancybox__toolbar {
+    --f-button-color: #fff;
+    --f-button-hover-color: #fff;
+    --f-button-bg: #000;
+    --f-button-hover-bg: #333;
+    --f-button-active-bg: #444;
+}
+
+.link-border-none {
+    &:link {
+        border-bottom: none;
+    }
 }
 
 /* Скролл */
