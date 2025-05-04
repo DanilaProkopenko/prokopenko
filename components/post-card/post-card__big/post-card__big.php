@@ -30,7 +30,6 @@ if ($args) {
                 <div
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($post_thumb_video['sizes']['thumbnail']) ?>"
-                    data-fancybox="<?= $id ?>"
                     class="lazy_container f-carousel__slide _cover emerge">
                     <video
                         preload="auto"
@@ -47,7 +46,7 @@ if ($args) {
                 </div>
             <?php else: ?>
                 <div class="f-carousel__slide _cover emerge"
-                    data-fancybox="<?= $id ?>"
+                    
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($img_medium); ?>">
                     <a href="<?= $link ?>"
@@ -68,7 +67,6 @@ if ($args) {
                         <div
                             data-img-src="<?= esc_url($image['url']) ?>"
                             data-thumb-src="<?= esc_url($image['sizes']['thumbnail']) ?>"
-                            data-fancybox="<?= $id ?>"
                             class="<?= $data_type ?> lazy_container f-carousel__slide emerge">
                             <video
                                 preload="auto"
@@ -88,7 +86,7 @@ if ($args) {
                             href="<?= $link ?>"
                             data-img-src="<?= esc_url($image['sizes']['medium']) ?>"
                             data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>"
-                            data-fancybox="<?= $id ?>" class="<?= $data_type ?> f-carousel__slide emerge">
+                            class="<?= $data_type ?> f-carousel__slide emerge">
                             <picture>
                                 <source media="(max-width: 768px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />
                                 <source media="(min-width: 769px)" srcset="<?= esc_url($image['sizes']['large']); ?>" />

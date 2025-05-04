@@ -19,4 +19,3 @@ $page_color = get_field('page-color');
     get_template_part('components/header/header'); ?>
 
     <main id="main" data-barba="container" data-barba-namespace="one-pager">
-        <!-- <nav class="header__page-nav"></nav> -->
