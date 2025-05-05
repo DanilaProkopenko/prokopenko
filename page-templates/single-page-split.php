@@ -29,9 +29,8 @@ $post_media = get_field('post_media', $id);
 ?>
 
 <?php get_header() ?>
-<!-- <main id="main" data-barba="container" data-barba-namespace="one-pager" <?php body_class('split-container'); ?>> -->
 
-<div class="single__wrapper ">
+<div class="single__wrapper">
     <div class="split-container" id="split-container">
         <div class="split-left" id="media-block">
             <div class="content-wrapper">
@@ -92,7 +91,7 @@ $post_media = get_field('post_media', $id);
                     ?>
                     <div class="single-page-content">
                         <?php the_content();
-                    ?>
+                        ?>
                     </div>
                     <div class="post__navigation-wrapper pd_flex-25">
                         <?php echo do_shortcode('[block_post_navigation]')
