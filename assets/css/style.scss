@@ -42,6 +42,8 @@
     --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
     --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
 
+    --text-indent-1: calc(3 * var(--font-size-1));
+
     --border: 1px solid var(--color-grey-border);
 
     // --font-size--2: clamp(0.6076rem, 0.5964rem + 0.0563vw, 0.64rem);
@@ -292,13 +294,16 @@ a,
 .more-content {
     overflow: hidden;
     height: 0;
+    // visibility: hidden;
+    // display: inline-block;
     /* Начальная высота */
-    // transition: height 0.3s ease-out;
+    transition: height 0.3s ease-out;
     /* Плавный переход высоты */
 }
 
 .more-content.active {
-    height: fit-content;
+    // height: auto;
+    // visibility: visible;
     // max-height: 4000px; /* Установите значение, достаточное для вашего контента */
     /* Показываем содержимое при активации */
 }
@@ -318,7 +323,7 @@ h6,
     margin-top: 0;
     margin-bottom: 0;
 
-    font-weight: 600;
+    font-weight: 500;
     font-size: var(--font-size-0);
     text-transform: uppercase;
     line-height: 124%;
@@ -326,7 +331,7 @@ h6,
     a {
         font-size: var(--font-size-0);
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 124%;
     }
 }
@@ -1253,6 +1258,8 @@ figcaption {
 }
 
 .style-text-indent {
+
+
     #main {
         // padding-top: 0;
 
@@ -1262,26 +1269,33 @@ figcaption {
 
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-
-        &.more-button {
-            margin-left: calc(3 * var(--font-size-1)) !important;
-        }
-    }
-
     h1 {
         font-size: var(--font-size-4);
         text-transform: none;
         font-weight: 500;
     }
 
+    /* Базовые стили для заголовков */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .has-h-1-font-size,
+    .has-h-2-font-size,
+    .has-h-3-font-size,
+    .has-h-4-font-size,
+    .has-h-5-font-size {
+        text-transform: none;
+
+        a {
+            text-transform: none;
+        }
+    }
+
     .post__navigation-wrapper {
-        bottom: 3rem;
+        // bottom: 3rem;
     }
 
     .split-right {
@@ -1293,7 +1307,7 @@ figcaption {
     .single__short-description {
         padding-left: calc(12 * var(--font-size-1));
         position: relative;
-        
+
         p {
             text-indent: calc(-12 * var(--font-size-1));
             max-width: 100% !important;
@@ -1302,8 +1316,8 @@ figcaption {
 
         .post-category {
             position: absolute;
-            top:  calc(1.8 * var(--font-size-1));
-            left:  calc(10 * var(--font-size-1));
+            top: calc(1.8 * var(--font-size-1));
+            left: calc(10 * var(--font-size-1));
 
             li {
                 display: contents;
@@ -1320,10 +1334,30 @@ figcaption {
         margin-left: calc(9 * var(--font-size-1));
 
     }
-    h2,
-    h3,
-    p {
-        text-indent: calc(3 * var(--font-size-1));
+
+
+    /* Отступ для всех <p>, кроме тех, что идут сразу после заголовков */
+    p:not(:first-of-type):not(h2 + p):not(h3 + p) {
+        text-indent: var(--text-indent-1);
+
+        &.more-button{
+            text-indent: 0;
+            margin-block-start: 24px !important; 
+        }
+    }
+
+
+    /* Исключение для <p>, которые идут после <h2> */
+    h2+p,
+    h2~p {
+        margin-left: 0;
+    }
+
+    /* Отступ для всех <p>, которые идут после <h3> */
+    h3~p {
+        // padding-left: var(--text-indent-1);
+        text-indent: var(--text-indent-1);
+
     }
 
     h2,
@@ -1335,37 +1369,24 @@ figcaption {
         }
     }
 
+    h3 {
+        text-indent: var(--text-indent-1);
+    }
+
     p {
         margin-top: 0 !important;
     }
 
     .more-button {
         text-indent: 0;
-        margin-top: 5rem !important;
     }
 
     .more-content {
-        text-indent: 0;
-
-        h2,
-        h3,
-        p {
-            text-indent: calc(3 * var(--font-size-1));
-        }
-    }
-
-    .more-button {
-        margin-left: calc(15 * var(--font-size-1));
-        text-indent: 0;
-    }
-
-    .more-content {
-        text-indent: 0;
+        width: 100%;
     }
 
     .post__meta {
         margin-top: 5rem;
-        // margin-left: calc(3 * var(--font-size-1));
         margin-left: 0;
 
         p {
@@ -1394,9 +1415,10 @@ figcaption {
     }
 }
 
-.split-left{
+.split-left {
     margin-top: calc(-2 * var(--padding));
 }
+
 .split-left,
 .split-right {
     width: 50%;

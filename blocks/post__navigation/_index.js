@@ -37,108 +37,110 @@ const initBlockTemplate = () => {
             navLinks = mainBlock.querySelectorAll('.post__navigation a'); // Все ссылки навигации
             indicator = mainBlock.querySelector('.post__navigation .indicator'); // Индикатор
             navContainer = mainBlock.querySelector('.post__navigation'); // Контейнер навигации
-            console.log('main block yes');
         } else {
             sections = document.querySelectorAll('h2, h3, h4, h5, h6'); // Все заголовки
             navLinks = document.querySelectorAll('.post__navigation a'); // Все ссылки навигации
             indicator = document.querySelector('.post__navigation .indicator'); // Индикатор
             navContainer = document.querySelector('.post__navigation'); // Контейнер навигации
-            console.log('main block not');
         }
+    
         let lastActiveIndex = -1; // Храним индекс последнего активного заголовка
         let manualScroll = false; // Флаг для отключения автообновления при клике
-
+    
         function updateNavigation() {
-            if (manualScroll) return; // Если управление вручную, пропускаем обновление
-
+            if (manualScroll) return;
+    
             let activeIndex = -1;
-
-            // Определяем текущий активный заголовок
+    
             sections.forEach((section, index) => {
                 const rect = section.getBoundingClientRect();
-
-                // Проверяем, находится ли заголовок в зоне видимости
                 if (rect.top <= 500 && rect.bottom > 0) {
                     activeIndex = index;
                 }
             });
-
-            // Если ни один заголовок не виден, выделяем последний активный заголовок
+    
             if (activeIndex === -1 && lastActiveIndex !== -1) {
                 activeIndex = lastActiveIndex;
             } else if (activeIndex !== -1) {
-                lastActiveIndex = activeIndex; // Обновляем последний активный заголовок
+                lastActiveIndex = activeIndex;
             }
-
-            // Обновляем классы для ссылок и перемещаем индикатор
+    
             navLinks.forEach((link, index) => {
                 if (index === activeIndex) {
-                    link.classList.add('active'); // Выделяем активный заголовок
-                    // Перемещаем индикатор
+                    link.classList.add('active');
                     const linkRect = link.getBoundingClientRect();
-                    const navRect = navContainer.getBoundingClientRect(); // Получаем размеры контейнера
-
-                    // Вычисляем позицию индикатора на середину активной ссылки
+                    const navRect = navContainer.getBoundingClientRect();
                     const indicatorPosition = (linkRect.top - navRect.top) + linkRect.height / 2 - indicator.offsetHeight / 2;
-                    indicator.style.top = `${indicatorPosition}px`; // Устанавливаем top индикатора в контейнере
-
-                    // Устанавливаем высоту индикатора, чтобы она соответствовала высоте активного заголовка
+                    indicator.style.top = `${indicatorPosition}px`;
                     indicator.style.height = `${linkRect.height}px`;
                 } else {
-                    link.classList.remove('active'); // Убираем выделение с остальных
+                    link.classList.remove('active');
                 }
             });
         }
-
-        // Обработчик клика на ссылки
+    
+        // Добавляем обработчик на каждую ссылку навигации
         navLinks.forEach((link, index) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault(); // Останавливаем стандартное поведение якоря
                 manualScroll = true; // Устанавливаем флаг ручного управления
-
-                document.querySelectorAll('.more-button').forEach(button => {
-                    console.log(button);
-                    const content = button.nextElementSibling;
-                    if (content && content.classList.contains('more-content')) {
-                        content.style.height = content.scrollHeight + 'px'; // Устанавливаем высоту по содержимому
+    
+                const targetSection = sections[index];
+    
+                // Ищем ближайший .more-content
+                const parentContentBlock = targetSection.closest('.more-content');
+    
+                // Если блок закрыт — открываем его
+                if (parentContentBlock && !parentContentBlock.classList.contains('active')) {
+                    const button = parentContentBlock.previousElementSibling;
+    
+                    // Открываем блок
+                    parentContentBlock.style.height = parentContentBlock.scrollHeight + 'px';
+                    parentContentBlock.classList.add('active');
+                    if (button && button.classList.contains('more-button')) {
                         button.textContent = 'Свернуть ▲';
                     }
-                });
-
-                // Обновляем активное состояние ссылки
-                navLinks.forEach((l) => l.classList.remove('active'));
-                link.classList.add('active');
-
-                // Перемещаем индикатор
-                const linkRect = link.getBoundingClientRect();
-                const navRect = navContainer.getBoundingClientRect();
-                const indicatorPosition = (linkRect.top - navRect.top) + linkRect.height / 2 - indicator.offsetHeight / 2;
-                indicator.style.top = `${indicatorPosition}px`;
-
-                // Устанавливаем высоту индикатора, чтобы она соответствовала высоте активного заголовка
-                indicator.style.height = `${linkRect.height}px`;
-
-                // Прокручиваем к нужному заголовку
-                sections[index].scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-
-
-                // Сбрасываем флаг через небольшой таймаут после завершения скролла
-                setTimeout(() => {
-                    manualScroll = false;
-                }, 1000);
+    
+                    // Ждём окончания анимации перед скроллом
+                    parentContentBlock.addEventListener('transitionend', function onTransitionEnd() {
+                        parentContentBlock.removeEventListener('transitionend', onTransitionEnd);
+                        scrollToSection(targetSection, link, index);
+                    }, { once: true });
+                } else {
+                    // Блок уже открыт или не more-content
+                    scrollToSection(targetSection, link, index);
+                }
             });
         });
-
+    
+        // Плавный скролл к секции
+        function scrollToSection(section, link, index) {
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+    
+            // Обновляем активную ссылку и индикатор
+            navLinks.forEach((l) => l.classList.remove('active'));
+            link.classList.add('active');
+    
+            const linkRect = link.getBoundingClientRect();
+            const navRect = navContainer.getBoundingClientRect();
+            const indicatorPosition = (linkRect.top - navRect.top) + linkRect.height / 2 - indicator.offsetHeight / 2;
+            indicator.style.top = `${indicatorPosition}px`;
+            indicator.style.height = `${linkRect.height}px`;
+    
+            setTimeout(() => {
+                manualScroll = false;
+            }, 1000);
+        }
+    
         // Слушаем событие прокрутки страницы и сразу обновляем навигацию
-        document.getElementById('main').addEventListener('scroll', updateNavigation);
-
+        document.getElementById('main')?.addEventListener('scroll', updateNavigation);
+    
         // Вызываем сразу при загрузке страницы
         updateNavigation();
     }
-
 
     function pageHeading() {
         const navContainer = document.getElementsByClassName('post__navigation')[0];

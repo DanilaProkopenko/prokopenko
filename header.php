@@ -13,7 +13,7 @@
 $page_color = get_field('page-color');
 ?>
 
-<body data-barba="wrapper" id="barba-wrapper" <?php body_class("container " . $page_color); ?>>
+<body data-barba="wrapper" id="barba-wrapper" <?php body_class("container style-text-indent " . $page_color); ?>>
 
     <?php wp_body_open();
     get_template_part('components/header/header'); ?>
