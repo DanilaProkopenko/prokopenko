@@ -96,6 +96,7 @@
     padding: 0.4rem 1rem;
     position: relative;
     text-transform: lowercase;
+        pointer-events: auto;
 }
 
 .post__navigation a.active {
@@ -162,3 +163,4 @@
     }
 
 }
+

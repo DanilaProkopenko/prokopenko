@@ -37,16 +37,18 @@ if (!empty($tags)) {
             <h1 class="wp-block-post-title">
                 <?php single_post_title(); ?>
             </h1>
-            <?= do_shortcode('[post_category]') ?>
+            <?php // echo do_shortcode('[post_category]') 
+            ?>
             <?= $short_description ?>
-            <?php //echo do_shortcode('[block_post_meta]') ?>
+            <?php //echo do_shortcode('[block_post_meta]') 
+            ?>
             <?php the_content();
             ?>
         </div>
     </div>
 
     <p class="_padding has-h-2-font-size small-margin-all">Другие работы</p>
-    <?php echo do_shortcode('[block_archive tag=' . $tag_id . ']') ?>
+    <?php echo do_shortcode('[block_archive tag=' . $tag_id . ' post_not_in=' . $post_id . ']') ?> 
 
 </div>
 

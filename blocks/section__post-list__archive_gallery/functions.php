@@ -9,7 +9,8 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
         'post_status' => 'publish',
         'orderby' => 'date',
         'order' => 'DESC',
-        'post__not_in' => [$post__not_in],
+        // 'post__not_in' => [$post__not_in],
+        'post__not_in' => [17],
         'tax_query' => array(
             'relation' => 'AND',
             array(

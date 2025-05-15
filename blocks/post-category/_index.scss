@@ -1,0 +1,19 @@
+.post-category {
+    display: flex;
+    flex-direction: row;
+    gap: .7rem;
+    writing-mode: sideways-lr;
+
+    li,
+    a {
+        font-size: var(--font-size--1);
+        font-size: var(--font-size-0);
+        color: var(--color-text-black);
+
+        border: none;
+        pointer-events: none;
+        text-transform: lowercase;
+        display: inline-block;
+        height: max-content;
+    }
+}

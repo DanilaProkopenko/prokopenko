@@ -3,24 +3,7 @@
     display: block;
 }
 
-.post-category {
-    display: flex;
-    flex-direction: row;
-    gap: .7rem;
-    writing-mode: sideways-lr;
 
-    li,
-    a {
-        font-size: var(--font-size--1);
-        color: var(--color-text-black);
-
-        border: none;
-        pointer-events: none;
-        text-transform: lowercase;
-        display: inline-block;
-        height: max-content;
-    }
-}
 
 .post__meta {
     height: fit-content;
@@ -28,6 +11,7 @@
     * {
         // color: var(--color-secondary);
         font-size: var(--font-size--1);
+        font-size: var(--font-size-0);
     }
 
     p {
