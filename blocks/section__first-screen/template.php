@@ -71,7 +71,7 @@ $block_id_name = get_field('block_id_name');
             $video_img = $first_screen_video['sizes']['1536x1536'];
             ?>
             
-            <img class="slide__video-video__source first-screen__image__source placeholder_image" data-src-class="first-screen__image__source" data-src-img="<?= esc_url($video_img); ?>" data-src-video="<?= $first_screen_video['url']; ?>" data-video-loop="1" data-video-autoplay="1" data-video-controls="0" data-video-muted="1" src="<?= esc_url($video_img); ?>" fetchpriority="high" />
+            <img class="first-screen__image__source placeholder_image" data-src-class="first-screen__image__source" data-src-img="<?= esc_url($video_img); ?>" data-src-video="<?= $first_screen_video['url']; ?>" data-video-loop="1" data-video-autoplay="1" data-video-controls="0" data-video-muted="1" src="<?= esc_url($video_img); ?>" fetchpriority="high" />
             <!-- <video
                 preload="auto"
                 no-controls
