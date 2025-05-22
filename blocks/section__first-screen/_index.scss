@@ -1,6 +1,6 @@
 .section__first-screen {
     height: 96vh;
-    max-height: 98vh;
+    max-height:calc(98vh - var(--padding));
     margin: 0;
     position: relative;
     display: flex;

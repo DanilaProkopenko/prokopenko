@@ -1,6 +1,6 @@
 <?php
 /* 
-Template name: Одиночная страница V1 
+Template name: Одиночная страница V2
 Template Post Type: post
 */
 
