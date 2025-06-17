@@ -19,7 +19,7 @@ if ($args) {
     $counter = $args['counter'] + 1;
 }
 ?>
-<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?>" style="z-index: <?= $counter + 1 ?>">
+<div class="post-card__big f-carousel__slide custom-card card<?= $counter ?> active" style="z-index: <?= $counter + 1 ?>">
     <div class="post-card__big__gallery">
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">

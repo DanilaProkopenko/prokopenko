@@ -52,13 +52,9 @@
 
 .section__post-list__big__title {}
 
-@media screen and (max-width: 1600px) {
-}
+@media screen and (max-width: 1600px) {}
 
-@media screen and (max-width: 1220px) {
-
-
-}
+@media screen and (max-width: 1220px) {}
 
 @media screen and (max-width: 1024px) {
 
@@ -70,10 +66,37 @@
 @media screen and (max-width: 1220px) {}
 
 @media screen and (max-width: 767px) {
-.section__post-list__big__wrapper {
-    padding-bottom: 0;
-}
+    .section__post-list__big__wrapper {
+        padding-bottom: 0;
+    }
+
     .section__post-list__big {
         padding: 0;
     }
+}
+
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #f44336;
+    color: white;
 }
