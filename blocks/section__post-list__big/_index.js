@@ -53,7 +53,7 @@ const initBlockTemplate = () => {
     // Добавляем новые фильтры
     uniqueCategories.forEach(slug => {
         const btn = document.createElement('button');
-        btn.className = 'filter-btn dynamic-category';
+        btn.className = 'filter-btn dynamic-category ';
         btn.setAttribute('data-filter', slug);
         btn.textContent = categoryLabels[slug]; // Показываем кириллическое название
         filterBar.insertBefore(btn, resetBtn);
@@ -77,14 +77,25 @@ const initBlockTemplate = () => {
                 .map(link => link.getAttribute('data-catslug'))
                 .filter(slug => slug);
 
-            // Если нет активных фильтров или есть хотя бы один совпадающий — показываем
-            if (
-                selectedFilters.size === 0 ||
-                slugsInCard.some(slug => selectedFilters.has(slug))
-            ) {
+            const matchesFilter = selectedFilters.size === 0 ||
+                slugsInCard.some(slug => selectedFilters.has(slug));
+
+            if (matchesFilter) {
+                // Показываем карточку
+                card.style.display = 'flex'; // или block, inline-block и т.д.
+                void card.offsetWidth; // Принудительный reflow для анимации
                 card.classList.add('active');
+                card.classList.remove('card-hidden');
+
             } else {
+                // Скрываем карточку
                 card.classList.remove('active');
+                card.classList.add('card-hidden');
+
+                // Через время после анимации полностью убираем из потока
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 410); // Время анимации + небольшой запас
             }
         });
     }
