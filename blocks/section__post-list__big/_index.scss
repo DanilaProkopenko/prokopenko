@@ -83,7 +83,7 @@
     display: flex;
     gap: .6rem;
     margin-bottom: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     margin-left: auto;
 }
@@ -94,7 +94,10 @@
     // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     color: var(--color-text-grey);
     cursor: pointer;
+    font-size: var(--font-size-0);
     transition: background-color 0.3s ease;
+    padding: .3rem .7rem;
+    border: 1px solid currentColor;
 }
 
 .filter-btn.active {
