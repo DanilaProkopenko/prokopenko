@@ -43,14 +43,15 @@ $block_id_name = get_field('block_id_name');
         <!-- <div class="section__caption">
             Собрал работы, над которыми работал в последнее время
         </div> -->
-        <p class=".title__caption">
-        <div class="filter-bar">
-            <button class="filter-btn  active" data-filter="all">Все</button>
-            <button class="filter-btn  reset-btn" data-filter="reset" style="display: none;">Сбросить</button>
-            <!-- <button class="filter-btn reset-btn" style="display: none;">Сбросить</button> -->
-        </div>
-        </p>
     </div>
+    <p class=".title__caption">
+    <div class="filter-bar">
+        <button class="filter-btn  active" data-filter="all">Все</button>
+        <!-- <button class="filter-btn" data-filter="fotografiya">Фотография</button> -->
+    <!-- <button class="filter-btn" data-filter="marketing">Маркетинг</button> -->
+        <!-- <button class="filter-btn  reset-btn" data-filter="reset" style="display: none;">Сбросить</button> -->
+    </div>
+    </p>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $post_list_tag, $post_list_category) ?>
     </div>

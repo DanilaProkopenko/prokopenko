@@ -22,17 +22,17 @@
 
 .post-card__big.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    // transform: translateY(0) scale(1);
 }
 
 .post-card__big.card-hidden {
     opacity: 0;
-    transform: translateY(15px) scale(1);
+    // transform: translateY(15px) scale(1);
     pointer-events: none;
 }
 
 .animate-fade {
-    animation: fadeInScale 0.4s ease forwards;
+    animation: fadeInScale .8s ease forwards;
 }
 
 @keyframes fadeInScale {

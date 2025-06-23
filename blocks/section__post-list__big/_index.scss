@@ -80,12 +80,16 @@
 }
 
 .filter-bar {
+    width: var(--width-50-parent-padding);
+    margin-right: var(--padding);
+    margin-left: var(--margin-width-50);
+
     display: flex;
     gap: .6rem;
     margin-bottom: 2rem;
-    flex-wrap: nowrap;
-    width: 100%;
-    margin-left: auto;
+    flex-wrap: wrap;
+    position: sticky;
+    top: calc(-.4 * var(--padding));
 }
 
 .filter-btn {
@@ -109,6 +113,19 @@
     color: #f44336;
 }
 
-@media screen and (max-width: 767px) {
-    .filter-bar {}
+.filter-btn.more-btn {
+    // background: transparent;
+    // border: none;
+    // cursor: pointer;
+    // font-size: 16px;
+}
+
+.category-hidden {
+    display: none !important;
+}
+
+.filter-btn.more-btn.expanded {
+    color: var(--color-text-primary);
+    /* Подсветка активной стрелки */
+    font-weight: bold;
 }
