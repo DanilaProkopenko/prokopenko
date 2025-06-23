@@ -81,15 +81,17 @@
 
 .filter-bar {
     width: var(--width-50-parent-padding);
-    margin-right: var(--padding);
+    margin-right: auto;
+    padding-right: var(--padding);
     margin-left: var(--margin-width-50);
 
     display: flex;
     gap: .6rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
-    position: sticky;
-    top: calc(-.4 * var(--padding));
+    // position: sticky;
+    // top: calc(0 * var(--padding));
+    z-index: 10;
 }
 
 .filter-btn {
@@ -102,6 +104,7 @@
     transition: background-color 0.3s ease;
     padding: .3rem .7rem;
     border: 1px solid currentColor;
+    height: calc(2 * var(--font-size-0));
 }
 
 .filter-btn.active {
@@ -128,4 +131,11 @@
     color: var(--color-text-primary);
     /* Подсветка активной стрелки */
     font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+    .filter-bar {
+        width: 100%;
+        padding: 0 var(--padding);
+    }
 }

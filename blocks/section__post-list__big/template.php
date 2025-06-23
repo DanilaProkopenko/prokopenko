@@ -47,9 +47,6 @@ $block_id_name = get_field('block_id_name');
     <p class=".title__caption">
     <div class="filter-bar">
         <button class="filter-btn  active" data-filter="all">Все</button>
-        <!-- <button class="filter-btn" data-filter="fotografiya">Фотография</button> -->
-    <!-- <button class="filter-btn" data-filter="marketing">Маркетинг</button> -->
-        <!-- <button class="filter-btn  reset-btn" data-filter="reset" style="display: none;">Сбросить</button> -->
     </div>
     </p>
     <div class="section__post-list__big">
