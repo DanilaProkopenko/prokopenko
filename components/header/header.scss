@@ -19,7 +19,8 @@ header {
         border-bottom: 0;
         font-size: var(--font-size--1);
     }
-    *:link{
+
+    *:link {
         border-bottom: 0;
     }
 
@@ -27,6 +28,77 @@ header {
         transform: translateY(-100%);
     }
 
+}
+
+.blur__container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+    z-index: 80;
+    transform: rotate(180deg);
+}
+
+.blur__container>.blur-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.blur__container>.blur-filter:nth-child(1) {
+    z-index: 70;
+    backdrop-filter: blur(1px);
+    mask: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 40%);
+}
+
+.blur__container>.blur-filter:nth-child(2) {
+    z-index: 60;
+    backdrop-filter: blur(2px);
+    mask: linear-gradient(rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 50%);
+}
+
+.blur__container>.blur-filter:nth-child(3) {
+    z-index: 50;
+    backdrop-filter: blur(4px);
+    mask: linear-gradient(rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 60%);
+}
+
+.blur__container>.blur-filter:nth-child(4) {
+    z-index: 40;
+    backdrop-filter: blur(8px);
+    mask: linear-gradient(rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 70%);
+}
+
+.blur__container>.blur-filter:nth-child(5) {
+    z-index: 30;
+    backdrop-filter: blur(16px);
+    mask: linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 90%);
+}
+
+.blur__container>.blur-filter:nth-child(6) {
+    z-index: 20;
+    backdrop-filter: blur(32px);
+    mask: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 80%);
+}
+
+.blur__container>.blur-filter:nth-child(7) {
+    z-index: 10;
+    backdrop-filter: blur(64px);
+    mask: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%);
+}
+
+.blur__container>.nav__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: linear-gradient(transparent, rgba(255, 255, 255, 0.9));
 }
 
 .header__top {
@@ -73,17 +145,17 @@ header {
     position: fixed;
     right: calc(var(--padding) + 5px);
     transition: all .3s ease;
-.header__navigation{
-    transition: all .3s ease;
 
-    &.out{
-        
-        transform: translateY(-100%);
-    }
-}
-    &.out {
+    .header__navigation {
+        transition: all .3s ease;
 
+        &.out {
+
+            transform: translateY(-100%);
+        }
     }
+
+    &.out {}
 }
 
 .header__top__logo {
@@ -128,7 +200,7 @@ header {
 
     &._purple {
         background-color: #FF6CF1;
-       
+
         * {
             color: #000;
         }
@@ -165,6 +237,7 @@ header {
             color: #000;
         }
     }
+
     &._color_6 {
         background-color: #A2726E;
 

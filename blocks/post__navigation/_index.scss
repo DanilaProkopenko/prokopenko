@@ -1,7 +1,7 @@
 .post__navigation-wrapper {
     position: sticky;
     top: 3rem;
-    z-index: 10;
+    z-index: 80;
     float: left;
     left: var(--padding);
 }
@@ -109,7 +109,6 @@
         position: sticky;
         // top: -.5rem;
         top: 0;
-        z-index: 10;
         width: calc(100vw - var(--padding));
         margin-bottom: calc(2 * var(--padding)) !important;
     }

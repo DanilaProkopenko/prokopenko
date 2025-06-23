@@ -4,13 +4,23 @@ $header_last_update = get_field('header_last-update', 'options');
 
 
 ?>
+<div class="blur__container">
+    <div class="blur-filter"></div>
+    <div class="blur-filter"></div>
+    <div class="blur-filter"></div>
+    <div class="blur-filter"></div>
+    <div class="blur-filter"></div>
+    <div class="blur-filter"></div>
+    <div class="blur-filter"></div>
+    <div class="nav__gradient"></div>
+</div>
 
 <header class="header__wrapper">
     <div class="header">
         <div class="header__top main-padding">
             <a href="/" class="header__top__logo">
                 <!-- Данила Прокопенко -->
-                 prokopenko
+                prokopenko
             </a>
             <div class="header__top__right">
                 <div class="header__column header__navigation _main">

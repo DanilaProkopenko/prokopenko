@@ -1,6 +1,5 @@
 .section__post-list__big__wrapper {
     position: relative;
-    z-index: 1;
     gap: 0;
     // padding-bottom: 15rem;
     padding-bottom: 0;
@@ -89,9 +88,9 @@
     gap: .6rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
-    // position: sticky;
-    // top: calc(0 * var(--padding));
-    z-index: 10;
+    position: sticky;
+    top: calc(0 * var(--padding));
+    z-index: 80;
 }
 
 .filter-btn {
@@ -135,7 +134,27 @@
 
 @media screen and (max-width: 767px) {
     .filter-bar {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* Для плавности на iOS */
+        scrollbar-width: none;
+        /* Убираем скроллбар в Firefox */
+    }
+
+    .filter-bar::-webkit-scrollbar {
+        display: none;
+        /* Убираем скроллбар в Chrome/Safari */
+    }
+
+    .filter-bar {
         width: 100%;
         padding: 0 var(--padding);
+    }
+
+    .filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
     }
 }

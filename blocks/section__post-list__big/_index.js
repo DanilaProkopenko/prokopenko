@@ -113,7 +113,11 @@ const initBlockTemplate = () => {
         }
 
         // Вызываем функцию после генерации кнопок
-        toggleExtraCategories();
+        // toggleExtraCategories();
+        // Условие: только если это не мобильное устройство
+        if (!isMobile()) {
+            toggleExtraCategories();
+        }
 
         let selectedFilters = new Set();
 
@@ -198,6 +202,10 @@ const initBlockTemplate = () => {
                 applyFilterMulti();
             });
         });
+
+        function isMobile() {
+            return window.matchMedia("(max-width: 768px)").matches;
+        }
     }
 };
 
