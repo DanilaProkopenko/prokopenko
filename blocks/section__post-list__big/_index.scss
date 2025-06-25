@@ -6,6 +6,10 @@
     padding-top: 0;
     padding-bottom: calc(var(--padding) * 2);
 
+    h2 {
+        margin-bottom: 0 !important;
+    }
+
     .post-card__big {
         &:not(:first-child) {
             // padding-top: 3rem;
@@ -15,6 +19,16 @@
             // border-top: 0;
         }
     }
+}
+
+.section__post-list__big__heading {
+    width: var(--width-50-parent-padding);
+    margin-right: auto;
+    padding-right: var(--padding);
+    margin-left: var(--margin-width-50);
+    margin-bottom: calc(var(--gap) * .7);
+    --medium-margin: 9rem;
+    --small-margin: 5rem;
 }
 
 .section__post-list__big {
@@ -61,6 +75,11 @@
 @media screen and (max-width: 1220px) {}
 
 @media screen and (max-width: 767px) {
+    .section__post-list__big__heading {
+        padding: 0 var(--padding);
+        width: 100%;
+    }
+
     .section__post-list__big__wrapper {
         padding-bottom: 0;
     }
@@ -70,49 +89,43 @@
     }
 }
 
-.section__post-list__big__heading {
-    width: var(--width-50-parent-padding);
-    margin-right: var(--padding);
-    margin-left: auto;
-    --medium-margin: 9rem;
-    --small-margin: 5rem;
-}
+
 
 .filter-bar {
     width: var(--width-50-parent-padding);
     margin-right: auto;
     padding-right: var(--padding);
     margin-left: var(--margin-width-50);
+    margin-bottom: 9rem;
 
     display: flex;
     gap: .6rem;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
     position: sticky;
-    top: calc(0 * var(--padding));
+    top: calc(-.5 * var(--padding));
     z-index: 80;
+    mix-blend-mode: difference;
 }
 
 .filter-btn {
     background-color: transparent;
     border: none;
     // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    color: var(--color-text-grey);
     cursor: pointer;
     font-size: var(--font-size-0);
     transition: background-color 0.3s ease;
     padding: .3rem .7rem;
     border: 1px solid currentColor;
     height: calc(2 * var(--font-size-0));
+    min-width: calc(2 * var(--font-size-0));
+    color: var(--color-secondary-blend);
 }
 
 .filter-btn.active {
     // background-color: #4CAF50;
-    color: var(--color-text-primary);
-}
+    // color: var(--color-text-primary);
+    color: var(--color-primary-blend);
 
-.reset-btn {
-    color: #f44336;
 }
 
 .filter-btn.more-btn {
@@ -127,9 +140,11 @@
 }
 
 .filter-btn.more-btn.expanded {
-    color: var(--color-text-primary);
+    // color: var(--color-text-primary);
+    // color: var(--color-secondary-blend);
+
     /* Подсветка активной стрелки */
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 @media screen and (max-width: 767px) {
@@ -141,16 +156,15 @@
         /* Для плавности на iOS */
         scrollbar-width: none;
         /* Убираем скроллбар в Firefox */
+        top: 0;
+        width: 100%;
+        padding: 0 var(--padding);
+        margin-bottom: 1rem;
     }
 
     .filter-bar::-webkit-scrollbar {
         display: none;
         /* Убираем скроллбар в Chrome/Safari */
-    }
-
-    .filter-bar {
-        width: 100%;
-        padding: 0 var(--padding);
     }
 
     .filter-btn {

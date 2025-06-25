@@ -14,7 +14,8 @@ header {
     mix-blend-mode: difference;
 
     * {
-        color: var(--color-primary);
+        // color: var(--color-primary);
+        color: var(--color-primary-blend);
         mix-blend-mode: difference;
         border-bottom: 0;
         font-size: var(--font-size--1);
@@ -33,10 +34,10 @@ header {
 .blur__container {
     position: fixed;
     left: 0;
-    top: 0;
+    top: -4px;
     right: 0;
     width: 100%;
-    height: 80px;
+    height: 90px;
     pointer-events: none;
     z-index: 80;
     transform: rotate(180deg);

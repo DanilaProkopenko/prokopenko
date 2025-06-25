@@ -67,9 +67,9 @@ const initBlockTemplate = () => {
             if (oldMoreBtn) oldMoreBtn.remove();
 
             // Если категорий <= 3 — ничего не делаем
-            if (filterButtons.length <= 3) return;
+            if (filterButtons.length <= 4) return;
 
-            const visibleCount = 2; // "Все" + 2 категории
+            const visibleCount = 3; // "Все" + 2 категории
             const moreButtons = filterButtons.slice(visibleCount);
 
             // Создаём кнопку "еще"

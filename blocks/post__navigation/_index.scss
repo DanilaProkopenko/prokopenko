@@ -4,6 +4,7 @@
     z-index: 80;
     float: left;
     left: var(--padding);
+    mix-blend-mode: difference;
 }
 
 .post__navigation {
@@ -30,6 +31,7 @@
         left: 0;
         top: 0;
         background-color: rgba(0, 0, 0, 0.15);
+        background-color: var(--color-secondary-blend);
         border-radius: 10px;
     }
 
@@ -44,6 +46,7 @@
         &.active,
         &:hover {
             color: var(--color-text-primary);
+            color: var(--color-primary-blend);
 
             // padding-left: calc(1rem + .15rem);
             // border-left: .15rem solid currentColor;
@@ -62,6 +65,7 @@
     /* Отступ слева */
     width: 0.15rem;
     background-color: var(--color-text-primary);
+    background-color: var(--color-primary-blend);
     /* Цвет индикатора */
     border-radius: 10px;
     transition: top 0.3s ease, height 0.3s ease;
@@ -92,15 +96,19 @@
     font-size: var(--font-size--1);
     font-weight: 400;
     text-decoration: none;
-    color: var(--color-text-grey);
+    // color: var(--color-text-grey);
+    color: var(--color-secondary-blend);
+
     padding: 0.4rem 1rem;
     position: relative;
     text-transform: lowercase;
-        pointer-events: auto;
+    pointer-events: auto;
 }
 
 .post__navigation a.active {
     color: var(--color-text-primary);
+    color: var(--color-primary-blend);
+
 }
 
 
@@ -123,7 +131,8 @@
         position: relative;
         top: 0;
         padding: 0 calc(var(--padding) - 0.5rem) 0;
-        border-bottom: var(--border);
+        // border-bottom: var(--border);
+        // border-bottom: 1px solid var(--color-secondary-blend);
         max-width: none;
 
         a {
@@ -162,4 +171,3 @@
     }
 
 }
-

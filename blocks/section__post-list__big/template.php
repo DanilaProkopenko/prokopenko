@@ -36,7 +36,7 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 <section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="postslist">
-    <div class="section__post-list__big__heading section__heading main-padding medium-margin-all">
+    <div class="section__post-list__big__heading section__heading">
         <h2 class="section__title">
             Избранные работы
         </h2>
@@ -44,11 +44,9 @@ $block_id_name = get_field('block_id_name');
             Собрал работы, над которыми работал в последнее время
         </div> -->
     </div>
-    <p class=".title__caption">
     <div class="filter-bar">
         <button class="filter-btn  active" data-filter="all">Все</button>
     </div>
-    </p>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $post_list_tag, $post_list_category) ?>
     </div>
