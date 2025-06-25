@@ -20,7 +20,9 @@
         }
     }
 }
-
+.section__post-list__big {
+    scroll-margin-top: 80px; /* Отступ сверху */
+}
 .section__post-list__big__heading {
     width: var(--width-50-parent-padding);
     margin-right: auto;

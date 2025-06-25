@@ -165,6 +165,17 @@ const initBlockTemplate = () => {
         // Устанавливаем начальный фильтр как "all"
         applyFilterMulti();
 
+        function scrollToPostsSection() {
+            const postsSection = document.querySelector('.section__post-list__big');
+            if (!postsSection) return;
+
+            // Плавно прокручиваем к секции
+            postsSection.scrollIntoView({
+                behavior: 'auto',
+                block: 'start'
+            });
+        }
+
         // Обработчики кликов по кнопкам фильтров
         filterBar.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -200,6 +211,9 @@ const initBlockTemplate = () => {
                 }
 
                 applyFilterMulti();
+
+                // Скроллим к секции с постами
+                scrollToPostsSection();
             });
         });
 
