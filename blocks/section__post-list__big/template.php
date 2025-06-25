@@ -37,7 +37,7 @@ $block_id_name = get_field('block_id_name');
 ?>
 <section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="postslist">
     <div class="section__post-list__big__heading section__heading">
-        <h2 class="section__title">
+        <h2 class="section__title" id="favorites">
             Избранные работы
         </h2>
         <!-- <div class="section__caption">
