@@ -37,8 +37,9 @@ $categories = get_the_category();
 if (! empty($categories)) {
     echo '<ul class="post-category list-style-none">';
     foreach ($categories as $category) {
-        echo '<li><a href="' . get_category_link($category->term_id) . '" data-catname=' . $category->cat_name . ' data-catslug=' . $category->category_nicename . '>/' . $category->cat_name . '</a></li>';
+        echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '" data-catname="' . esc_attr($category->cat_name) . '" data-catslug="' . esc_attr($category->category_nicename) . '">/' . esc_html($category->cat_name) . '</a></li>';
+        // echo '<li><a href="' . get_category_link($category->term_id) . '" data-catname=' . $category->cat_name . ' data-catslug=' . $category->category_nicename . '>/' . $category->cat_name . '</a></li>';
     }
     echo '</ul>';
-} 
+}
 ?>

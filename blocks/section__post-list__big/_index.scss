@@ -20,9 +20,6 @@
         }
     }
 }
-.section__post-list__big {
-    scroll-margin-top: 80px; /* Отступ сверху */
-}
 .section__post-list__big__heading {
     width: var(--width-50-parent-padding);
     margin-right: auto;
@@ -34,6 +31,8 @@
 }
 
 .section__post-list__big {
+    scroll-margin-top: 80px; /* Отступ сверху */
+    scroll-margin-top: calc(1.25 * var(--font-size-0)); /* Отступ сверху */
     display: flex;
     flex-direction: column;
     gap: 14rem;
