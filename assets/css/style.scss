@@ -114,6 +114,8 @@ body,
     scroll-padding-top: 5.1rem;
 }
 
+
+
 em {
     font-style: italic !important;
 }
@@ -206,6 +208,31 @@ body {
             * {}
         }
     }
+}
+
+body {}
+
+/* Скрываем скроллбар, но оставляем возможность скроллить */
+body,
+html {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    padding-right: calc(100vw - 100%);
+    box-sizing: content-box;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    -ms-overflow-style: none;
+    /* Для IE и Edge */
+    scrollbar-width: none;
+    /* Для Firefox */
 }
 
 #main {
