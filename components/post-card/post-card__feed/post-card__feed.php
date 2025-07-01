@@ -5,6 +5,9 @@ if ($args) {
     $feed_thumb = $args['feed_thumb'];
     $feed_link = $args['feed_link'];
     $id = $args['id'];
+
+    $short_description = $args['short_description'];
+    $archive_link = $args['archive_link'];
 }
 ?>
 <div class="feed-post-card emerge">
@@ -20,13 +23,17 @@ if ($args) {
 
         // Display image thumbnail when possible.
         if ($file['type'] == 'image') :
-            $icon =  $file['sizes']['large']; ?>
+            $icon =  $file['sizes']['large'];
+            // $img_full = $file['sizes']['full'];
+            $img_url = $file['url']; ?>
             <? // Begin caption wrap.
             if ($caption): ?>
                 <div class="wp-caption">
                 <?php endif; ?>
+                <?php //var_dump($file)
+                ?>
                 <a
-                    href="<?php echo esc_attr($icon); ?>"
+                    href="<?php echo esc_attr($img_url); ?>"
                     data-fancybox="<?= $id ?>"
                     class="post-card-img link-border-none">
                     <img src="<?php echo esc_attr($icon); ?>" />
@@ -67,6 +74,8 @@ if ($args) {
     ?>
         <a class="post-card-heading" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
             <?= $title ?>
+            <?php //echo $short_description 
+            ?>
         </a>
     <? else: ?>
         <div class="post-card-heading">

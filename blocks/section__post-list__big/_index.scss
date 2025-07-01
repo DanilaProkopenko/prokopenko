@@ -102,9 +102,9 @@
     display: flex;
     gap: .6rem;
     flex-wrap: wrap;
-    position: sticky;
-    top: calc(-.5 * var(--padding));
-    z-index: 80;
+    // position: sticky;
+    // top: calc(-.5 * var(--padding));
+    // z-index: 80;
     mix-blend-mode: difference;
 }
 
@@ -157,7 +157,7 @@
         /* Для плавности на iOS */
         scrollbar-width: none;
         /* Убираем скроллбар в Firefox */
-        top: 0;
+        // top: 0;
         width: 100%;
         padding: 0 var(--padding);
         margin-bottom: 1rem;

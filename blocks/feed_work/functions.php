@@ -35,7 +35,9 @@ function getPostsCardFeed($posts_per_page = 50, $post__not_in = null, $tag = nul
     while ($loop->have_posts()) : $loop->the_post();
         $id = get_the_ID();
 
-        // $short_description = get_field('post_short-description', $id);
+        $short_description = get_field('archive_short-description', $id);
+        $archive_link = get_field('archive_link', $id);
+
         $feed_thumb = get_field('pd_worksfeed_thumb', $id);
         $feed_link = get_field('pd_worksfeed_link', $id);
 
@@ -48,6 +50,9 @@ function getPostsCardFeed($posts_per_page = 50, $post__not_in = null, $tag = nul
             'feed_thumb' => $feed_thumb,
             'feed_link' => $feed_link,
             'counter' => $counter,
+
+            'short_description' => $short_description,
+            'archive_link' => $archive_link,
         ));
 
         $counter++;
