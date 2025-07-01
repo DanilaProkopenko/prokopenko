@@ -41,6 +41,8 @@ header {
     pointer-events: none;
     z-index: 80;
     transform: rotate(180deg);
+
+    display: none;
 }
 
 .blur__container>.blur-filter {
