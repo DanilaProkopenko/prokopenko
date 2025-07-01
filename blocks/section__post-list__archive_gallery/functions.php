@@ -35,18 +35,18 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
 
     while ($loop->have_posts()) : $loop->the_post();
 
-        // $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
-        // $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+        $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
+        $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
         
         get_template_part('components/post-card/post-card', null, array(
             'title' => get_the_title(),
             'link' => get_the_permalink(),
             'id' => get_the_ID(),
 
-            // 'img_large' => $img_large,
-            // 'img_medium_large' => $img_medium_large,
+            'img_large' => $img_large,
+            'img_medium_large' => $img_medium_large,
 
-            // 'except' =>  has_excerpt() ? get_the_excerpt() : null,
+            'except' =>  has_excerpt() ? get_the_excerpt() : null,
         ));
 
         $counter++;
