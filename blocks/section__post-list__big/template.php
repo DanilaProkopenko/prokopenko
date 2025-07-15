@@ -34,12 +34,15 @@ $post_list_tag = get_field('post_list_tag');
 
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
+$block_name = get_field('block_name');
 ?>
 <section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="postslist">
     <div class="section__post-list__big__heading section__heading">
-        <h2 class="section__title" id="favorites">
-            Избранные работы
-        </h2>
+        <?php if ($block_name): ?>
+            <h2 class="section__title" id="favorites">
+                <?= $block_name ?>
+            </h2>
+        <? endif ?>
         <!-- <div class="section__caption">
             Собрал работы, над которыми работал в последнее время
         </div> -->

@@ -4,29 +4,40 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
 {
     ob_start();
 
-
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => $posts_per_page,
         'post_status' => 'publish',
         'orderby' => 'date',
         'order' => 'DESC',
-        'post__not_in' => [$post__not_in],
-        'tax_query' => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'category',
-                'field' => 'id',
-                'terms' => $category,
-                'include_children' => true
-            ),
-            array(
-                'taxonomy' => 'post_tag',
-                'field' => 'id',
-                'terms' => $tag,
-            )
-        )
+        'post__not_in' => $post__not_in ? [$post__not_in] : [],
     );
+
+    // Подготавливаем tax_query
+    $tax_query = [];
+
+    if ($category) {
+        $tax_query[] = array(
+            'taxonomy' => 'category',
+            'field' => 'id',
+            'terms' => $category,
+            'include_children' => true
+        );
+    }
+
+    if ($tag) {
+        $tax_query[] = array(
+            'taxonomy' => 'post_tag',
+            'field' => 'id',
+            'terms' => $tag
+        );
+    }
+
+    // Добавляем tax_query только если он не пустой
+    if (!empty($tax_query)) {
+        $tax_query['relation'] = $tag && $category ? 'AND' : 'OR';
+        $args['tax_query'] = $tax_query;
+    }
 
     $loop = new WP_Query($args);
     $posts_count = $loop->found_posts;
