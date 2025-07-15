@@ -300,13 +300,15 @@ class Header {
         })
 
         document.addEventListener(`keyup`, (e) => {
-            if (e.keyCode === 27) { // если нажали на ESC
-                // код при нажатии на ESC
+            if (e.keyCode === 27 && burgerMenu.classList.contains('_open')) {
                 burgerClose();
             }
         });
-
         document.addEventListener('click', (e) => {
+            // Проверяем, открыто ли бургер-меню
+            if (!burgerMenu.classList.contains('_open')) {
+                return; // Если не открыто — ничего не делаем
+            }
             const withinBoundaries = e.composedPath().includes(header);
 
             if (!withinBoundaries) {

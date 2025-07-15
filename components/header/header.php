@@ -58,6 +58,10 @@ $header_last_update = get_field('header_last-update', 'options');
         </div>
     </div>
 </header>
+<div class="search-modal">
+    <input type="text" id="search-input" placeholder="Введите запрос...">
+    <div id="search-results"></div>
+</div>
 <div class="header__burger__menu" id="burger-menu">
     <div class="header__burger__menu-list">
         <?php

@@ -8,10 +8,11 @@ $footer_date = get_field('footer-date', 'Options');
             <div class="footer__disclaimer">
                 <?= $footer_disclaimer ?>
             </div>
-        <?php endif ?>
-        <?php if ($footer_date) : ?>
-            <div class="footer__caption">
-                <?= $footer_date ?>
+            <?php endif ?>
+            <?php if ($footer_date) : ?>
+                <div class="footer__caption">
+                    <button class="search-trigger">Тестовый поиск</button>
+                    <?= $footer_date ?>
             </div>
         <?php endif ?>
     </div>
