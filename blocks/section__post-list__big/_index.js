@@ -44,12 +44,30 @@ const initBlockTemplate = () => {
         existingButtons.forEach(btn => btn.remove());
 
         // Добавляем новые фильтры
-        uniqueCategories.forEach(slug => {
+        // uniqueCategories.forEach(slug => {
+        //     const btn = document.createElement('button');
+        //     btn.className = 'filter-btn dynamic-category';
+        //     btn.setAttribute('data-filter', slug);
+        //     btn.textContent = categoryLabels[slug]; // Показываем кириллическое название
+        //     filterBar.appendChild(btn); // Просто добавляем в конец
+        // });
+        
+        // Преобразуем в массив объектов { slug, label }
+        const categoryArray = uniqueCategories.map(slug => ({
+            slug,
+            label: categoryLabels[slug]
+        }));
+
+        // Сортируем по алфавиту по кириллическому названию
+        categoryArray.sort((a, b) => a.label.localeCompare(b.label));
+
+        // Добавляем кнопки в отсортированном порядке
+        categoryArray.forEach(({ slug, label }) => {
             const btn = document.createElement('button');
             btn.className = 'filter-btn dynamic-category';
             btn.setAttribute('data-filter', slug);
-            btn.textContent = categoryLabels[slug]; // Показываем кириллическое название
-            filterBar.appendChild(btn); // Просто добавляем в конец
+            btn.textContent = label;
+            filterBar.appendChild(btn);
         });
 
         // Добавляем класс active всем карточкам (фильтр "Все")
@@ -164,6 +182,72 @@ const initBlockTemplate = () => {
 
         // Устанавливаем начальный фильтр как "all"
         applyFilterMulti();
+        // 🔁 Переключатель режимов (multi / single)
+        const filterMode = 'single'; // или 'single' — можно динамически получать из data-атрибута
+
+        // 🔘 Обработчик кликов по кнопкам фильтров
+        filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const slug = btn.getAttribute('data-filter');
+
+                // Пропускаем служебные кнопки
+                if (btn.classList.contains('more-btn')) return;
+
+                // Определяем, какой режим сейчас активен
+                if (filterMode === 'multi') {
+                    handleMultiSelect(slug, btn);
+                } else {
+                    handleSingleSelect(slug, btn);
+                }
+
+                applyFilterMulti();
+                // scrollToPostsSection();
+            });
+        });
+
+        function handleMultiSelect(slug, btn) {
+            if (slug === 'all') {
+                selectedFilters.clear();
+                filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else {
+                const allBtn = filterBar.querySelector('[data-filter="all"]');
+                allBtn?.classList.remove('active');
+
+                if (selectedFilters.has(slug)) {
+                    selectedFilters.delete(slug);
+                    btn.classList.remove('active');
+                } else {
+                    selectedFilters.add(slug);
+                    btn.classList.add('active');
+                }
+            }
+
+            // Автоматически активируем "Все", если нет выбранных фильтров
+            const allBtn = filterBar.querySelector('[data-filter="all"]');
+            if (selectedFilters.size === 0 && !allBtn.classList.contains('active')) {
+                allBtn.classList.add('active');
+            }
+        }
+
+        function handleSingleSelect(slug, btn) {
+            const allBtn = filterBar.querySelector('[data-filter="all"]');
+
+            if (slug === 'all') {
+                // Выбираем "Все"
+                selectedFilters.clear();
+                filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else {
+                // Сбрасываем всё и выбираем только одну категорию
+                selectedFilters.clear();
+                filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+
+                selectedFilters.add(slug);
+                btn.classList.add('active');
+                allBtn.classList.remove('active');
+            }
+        }
 
         function scrollToPostsSection() {
             const postsSection = document.querySelector('.section__post-list__big');
@@ -176,46 +260,46 @@ const initBlockTemplate = () => {
             });
         }
 
-        // Обработчики кликов по кнопкам фильтров
-        filterBar.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const slug = btn.getAttribute('data-filter');
+        // // Обработчики кликов по кнопкам фильтров
+        // filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+        //     btn.addEventListener('click', () => {
+        //         const slug = btn.getAttribute('data-filter');
 
-                // Добавь проверку: если кнопка — more-btn, выходим из функции
-                if (btn.classList.contains('more-btn')) return;
+        //         // Добавь проверку: если кнопка — more-btn, выходим из функции
+        //         if (btn.classList.contains('more-btn')) return;
 
-                if (slug === 'all') {
-                    // Выбираем "Все"
-                    selectedFilters.clear();
-                    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                } else {
-                    // Убираем "Все", если выбрали конкретную категорию
-                    const allBtn = filterBar.querySelector('[data-filter="all"]');
-                    allBtn?.classList.remove('active');
+        //         if (slug === 'all') {
+        //             // Выбираем "Все"
+        //             selectedFilters.clear();
+        //             filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        //             btn.classList.add('active');
+        //         } else {
+        //             // Убираем "Все", если выбрали конкретную категорию
+        //             const allBtn = filterBar.querySelector('[data-filter="all"]');
+        //             allBtn?.classList.remove('active');
 
-                    // Переключаем текущую кнопку
-                    if (selectedFilters.has(slug)) {
-                        selectedFilters.delete(slug);
-                        btn.classList.remove('active');
-                    } else {
-                        selectedFilters.add(slug);
-                        btn.classList.add('active');
-                    }
-                }
+        //             // Переключаем текущую кнопку
+        //             if (selectedFilters.has(slug)) {
+        //                 selectedFilters.delete(slug);
+        //                 btn.classList.remove('active');
+        //             } else {
+        //                 selectedFilters.add(slug);
+        //                 btn.classList.add('active');
+        //             }
+        //         }
 
-                // Автоматически активируем "Все", если нет выбранных фильтров
-                const allBtn = filterBar.querySelector('[data-filter="all"]');
-                if (selectedFilters.size === 0 && !allBtn.classList.contains('active')) {
-                    allBtn.classList.add('active');
-                }
+        //         // Автоматически активируем "Все", если нет выбранных фильтров
+        //         const allBtn = filterBar.querySelector('[data-filter="all"]');
+        //         if (selectedFilters.size === 0 && !allBtn.classList.contains('active')) {
+        //             allBtn.classList.add('active');
+        //         }
 
-                applyFilterMulti();
+        //         applyFilterMulti();
 
-                // Скроллим к секции с постами
-                // scrollToPostsSection();
-            });
-        });
+        //         // Скроллим к секции с постами
+        //         // scrollToPostsSection();
+        //     });
+        // });
 
         function isMobile() {
             return window.matchMedia("(max-width: 768px)").matches;

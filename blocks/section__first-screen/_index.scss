@@ -1,6 +1,6 @@
 .section__first-screen {
-    height: 96vh;
-    max-height:calc(98vh - var(--padding));
+    height: calc(94vh - var(--padding));
+    max-height: 1600px;
     margin: 0;
     position: relative;
     display: flex;
@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 767px) {
     .section__first-screen {
-        height: 90vh;
+        height: calc(90vh - 2 * var(--padding));
         gap: 1rem;
     }
 
@@ -68,7 +68,8 @@
         width: calc(100vw - var(--padding));
     }
 
-    .first-screen-title, .first-screen-caption {
+    .first-screen-title,
+    .first-screen-caption {
         width: 100%;
     }
 }
