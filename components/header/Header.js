@@ -130,7 +130,8 @@ class Header {
 
 
 
-    burger() {
+    // Начальная версия
+    burger_1() {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
         let mainPage = document.getElementById('main');
@@ -139,30 +140,8 @@ class Header {
         let header = document.getElementsByClassName('header__wrapper')[0];
         let footer = document.getElementsByClassName('footer')[0];
 
-        // if (window.innerWidth > 767) {
-        //     burgerMenuWidth(header, burgerMenu);
-        // }
-
-        // Изменение ширины выпадающего меню
-        // function burgerMenuWidth(header, burgerMenu) {
-
-        //     let headerWidth = header.offsetWidth;
-        //     let windowWidth = window.screen.width;
-        //     let burgerMenuWidth = windowWidth - headerWidth
-
-        //     // Проверка ширины экрана
-        //     if (window.innerWidth > 767) {
-        //         burgerMenu.style.left = headerWidth + 'px';
-        //         burgerMenu.style.width = burgerMenuWidth + 'px';
-        //     } else {
-        //         burgerMenu.style.left = 0 + 'px';
-        //         burgerMenu.style.width = 100 + '%'
-        //     }
-        // }
-
         function burgerClose() {
-            burgerIcon.getElementsByClassName('bar')[0].classList.remove('animate')
-            // headerDescription.classList.remove('_hide');
+            burgerIcon.getElementsByClassName('bar')[0].classList.remove('animate');
             burgerMenu.classList.remove('_open');
             mainPage.classList.remove('_open');
             body.classList.remove('_open');
@@ -177,24 +156,22 @@ class Header {
         let burgerCount = 0;
 
         burgerIcon.addEventListener('click', function () {
-
             this.getElementsByClassName('bar')[0].classList.toggle('animate');
 
-            // $('.bar').toggleClass('animate');
+            // jQuery('.bar').toggleClass('animate');
 
             this.classList.toggle('_open');
             // burgerMenuWidth(header, burgerMenu);
 
             burgerMenu.classList.toggle('_open');
+
             if (burgerMenu.classList.contains('_open')) {
                 burgerCount++;
             }
             mainPage.classList.toggle('_open');
             body.classList.toggle('_open');
-            // headerDescription.classList.toggle('_hide');
             footer.classList.toggle('_hide');
 
-            // console.log('burgerCount — ', burgerCount)
             if (burgerCount == 8) {
                 burgerCount = 1
             }
@@ -208,7 +185,6 @@ class Header {
                     burgerMenu.classList.remove('_color_5');
                     burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_red');
-                    // burgerMenu.style.backgroundColor = 'var(--color-red)';
                     break;
                 case 2:
                     burgerMenu.classList.remove('_blue');
@@ -218,7 +194,6 @@ class Header {
                     burgerMenu.classList.remove('_color_5');
                     burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_green');
-                    // burgerMenu.style.backgroundColor = 'var(--color-green)';
                     break;
                 case 3:
                     burgerMenu.classList.remove('_red');
@@ -228,7 +203,6 @@ class Header {
                     burgerMenu.classList.remove('_color_5');
                     burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_blue');
-                    // burgerMenu.style.backgroundColor = 'var(--color-blue)';
                     break;
                 case 4:
                     burgerMenu.classList.remove('_red');
@@ -238,7 +212,6 @@ class Header {
                     burgerMenu.classList.remove('_color_5');
                     burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_yellow');
-                    // burgerMenu.style.backgroundColor = 'var(--color-yellow)';
                     break;
                 case 5:
                     burgerMenu.classList.remove('_red');
@@ -248,7 +221,6 @@ class Header {
                     burgerMenu.classList.remove('_color_5');
                     burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_purple');
-                    // burgerMenu.style.backgroundColor = 'var(--color-purple)';
                     break;
                 case 6:
                     burgerMenu.classList.remove('_red');
@@ -258,7 +230,6 @@ class Header {
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_color_5');
-                    // burgerMenu.style.backgroundColor = 'var(--color-purple)';
                     break;
                 case 7:
                     burgerMenu.classList.remove('_red');
@@ -268,7 +239,6 @@ class Header {
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.remove('_color_5');
                     burgerMenu.classList.add('_color_6');
-                    // burgerMenu.style.backgroundColor = 'var(--color-purple)';
                     break;
                 default:
                     burgerMenu.classList.remove('_color_6');
@@ -278,7 +248,6 @@ class Header {
                     burgerMenu.classList.remove('_yellow');
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.add('_blue');
-                    // burgerMenu.style.backgroundColor = 'var(--color-blue)';
                     break;
             }
 
@@ -322,7 +291,218 @@ class Header {
 
         // console.log('burger')
     }
+    // С переключением иконки поиска
+    burger_2() {
+        // === Обработчик клика по бургеру и поиску ===
+        jQuery('#burger-icon, .search-trigger-icon').on('click', function (e) {
+            e.stopPropagation();
 
+            const isSearchOpen = jQuery('.search-modal').hasClass('_open');
+            const isBurgerOpen = jQuery('#burger-menu').hasClass('_open');
+
+            // Нажали на бургер
+            if (jQuery(this).is('#burger-icon')) {
+                if (isSearchOpen) {
+                    // Поиск открыт → закрываем и открываем бургер
+                    jQuery('.search-modal').removeClass('_open');
+                    jQuery('#main').removeClass('_open');
+                    jQuery('.search-trigger-icon').removeClass('_open');
+                    jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
+
+                    jQuery('#burger-menu').addClass('_open');
+                    jQuery('#main').addClass('_open');
+                    jQuery('.footer').addClass('_hide');
+                    jQuery('#burger-icon').addClass('_open');
+                    jQuery('#burger-icon .bar').addClass('animate');
+                } else {
+                    jQuery('#burger-menu').toggleClass('_open');
+                    jQuery('#main').toggleClass('_open');
+                    jQuery('.footer').toggleClass('_hide');
+                    jQuery('#burger-icon').toggleClass('_open');
+                    jQuery('#burger-icon .bar').toggleClass('animate');
+                }
+            }
+
+            // Нажали на иконку поиска
+            if (jQuery(this).is('.search-trigger-icon')) {
+                if (isBurgerOpen) {
+                    // Бургер открыт → закрываем его и открываем поиск
+                    jQuery('#burger-menu').removeClass('_open');
+                    jQuery('#main').removeClass('_open');
+                    jQuery('.footer').removeClass('_hide');
+                    jQuery('#burger-icon .bar').removeClass('animate');
+
+                    jQuery('.search-modal').addClass('_open');
+                    jQuery('#main').addClass('_open');
+                    jQuery('#search-input').focus();
+                    jQuery('.search-trigger-icon').addClass('_open');
+                } else {
+                    // Бургер закрыт → просто открываем поиск
+                    jQuery('.search-modal').toggleClass('_open');
+                    jQuery('#main').toggleClass('_open');
+                    jQuery('.search-trigger-icon').toggleClass('_open');
+                }
+            }
+        });
+
+        jQuery(document).on('keydown', function (e) {
+            if (e.key === 'Escape') {
+                jQuery('.search-modal').removeClass('_open');
+                jQuery('#main').removeClass('_open');
+                jQuery('.search-trigger-icon').removeClass('_open');
+                jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
+
+                jQuery('#burger-menu').removeClass('_open');
+                jQuery('#main').removeClass('_open');
+                jQuery('.footer').removeClass('_hide');
+                jQuery('#burger-icon .bar').removeClass('animate');
+            }
+        });
+    }
+    // С переключением иконки поиска и цвета меню
+    burger() {
+        let burgerIcon = document.getElementById('burger-icon');
+        let burgerMenu = document.getElementById('burger-menu');
+        let mainPage = document.getElementById('main');
+        let body = document.getElementsByTagName('body')[0];
+        let header = document.getElementsByClassName('header__wrapper')[0];
+        let footer = document.getElementsByClassName('footer')[0];
+        let burgerCount = 0;
+
+        function burgerClose() {
+            if (burgerMenu) burgerMenu.classList.remove('_open');
+            if (mainPage) mainPage.classList.remove('_open');
+            if (body) body.classList.remove('_open');
+            if (footer) footer.classList.remove('_hide');
+            if (burgerIcon) {
+                burgerIcon.classList.remove('_open');
+                burgerIcon.querySelector('.bar').classList.remove('animate');
+            }
+        }
+
+        // === Обработчик клика по бургеру и поиску ===
+        jQuery('#burger-icon, .search-trigger-icon').on('click', function (e) {
+            e.stopPropagation();
+
+            const isSearchOpen = jQuery('.search-modal').hasClass('_open');
+            const isBurgerOpen = jQuery('#burger-menu').hasClass('_open');
+
+            // Нажали на бургер
+            if (jQuery(this).is('#burger-icon')) {
+                if (isSearchOpen) {
+                    // Поиск открыт → закрываем его и открываем бургер
+                    jQuery('.search-modal').removeClass('_open');
+                    jQuery('#main').removeClass('_open');
+                    jQuery('.search-trigger-icon').removeClass('_open');
+                    jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
+                }
+
+                // Переключаем состояние бургера
+                jQuery('#burger-menu').toggleClass('_open');
+                jQuery('#main').toggleClass('_open');
+                jQuery('.footer').toggleClass('_hide');
+                jQuery('#burger-icon').toggleClass('_open');
+                jQuery('#burger-icon .bar').toggleClass('animate');
+
+                if (jQuery('#burger-menu').hasClass('_open')) {
+                    burgerCount++;
+                }
+
+                // === Смена цвета меню ===
+                if (burgerCount === 8) {
+                    burgerCount = 1;
+                }
+
+                switch (burgerCount) {
+                    case 1:
+                        burgerMenu.classList.remove('_blue', '_green', '_yellow', '_purple', '_color_5', '_color_6');
+                        burgerMenu.classList.add('_red');
+                        break;
+                    case 2:
+                        burgerMenu.classList.remove('_red', '_green', '_yellow', '_purple', '_color_5', '_color_6');
+                        burgerMenu.classList.add('_green');
+                        break;
+                    case 3:
+                        burgerMenu.classList.remove('_red', '_green', '_yellow', '_blue', '_color_5', '_color_6');
+                        burgerMenu.classList.add('_blue');
+                        break;
+                    case 4:
+                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_color_5', '_color_6');
+                        burgerMenu.classList.add('_yellow');
+                        break;
+                    case 5:
+                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_color_5', '_color_6');
+                        burgerMenu.classList.add('_purple');
+                        break;
+                    case 6:
+                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_6');
+                        burgerMenu.classList.add('_color_5');
+                        break;
+                    case 7:
+                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_5');
+                        burgerMenu.classList.add('_color_6');
+                        break;
+                    default:
+                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_5', '_color_6');
+                        burgerMenu.classList.add('_red');
+                        break;
+                }
+            }
+
+            // Нажали на иконку поиска
+            if (jQuery(this).is('.search-trigger-icon')) {
+                if (isBurgerOpen) {
+                    // Бургер открыт → закрываем его и открываем поиск
+                    jQuery('#burger-menu').removeClass('_open');
+                    jQuery('#main').removeClass('_open');
+                    jQuery('.footer').removeClass('_hide');
+                    jQuery('#burger-icon').removeClass('_open');
+                    jQuery('#burger-icon .bar').removeClass('animate');
+                }
+
+                // Открываем/закрываем поиск
+                jQuery('.search-modal').toggleClass('_open');
+                jQuery('#main').toggleClass('_open');
+                jQuery('.search-trigger-icon').toggleClass('_open');
+                jQuery('.search-trigger-icon .search-icon__circle').toggleClass('animate');
+            }
+        });
+
+        // === Закрытие поиска при клике вне области ===
+        jQuery(document).on('click', function (e) {
+            const jQuerytarget = jQuery(e.target);
+            if (jQuery('.search-modal._open').length && !jQuerytarget.closest('.search-modal, .search-trigger-icon').length) {
+                jQuery('.search-modal').removeClass('_open');
+                jQuery('#main').removeClass('_open');
+                jQuery('.search-trigger-icon').removeClass('_open');
+                jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
+            }
+
+            if (jQuery('#burger-menu._open').length && !jQuerytarget.closest('#burger-menu, #burger-icon').length) {
+                jQuery('#burger-menu').removeClass('_open');
+                jQuery('#main').removeClass('_open');
+                jQuery('.footer').removeClass('_hide');
+                jQuery('#burger-icon').removeClass('_open');
+                jQuery('#burger-icon .bar').removeClass('animate');
+            }
+        });
+
+        // === Закрытие поиска/бургера по Escape ===
+        jQuery(document).on('keydown', function (e) {
+            if (e.key === 'Escape') {
+                jQuery('.search-modal').removeClass('_open');
+                jQuery('#main').removeClass('_open');
+                jQuery('.search-trigger-icon').removeClass('_open');
+                jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
+
+                jQuery('#burger-menu').removeClass('_open');
+                jQuery('#main').removeClass('_open');
+                jQuery('.footer').removeClass('_hide');
+                jQuery('#burger-icon').removeClass('_open');
+                jQuery('#burger-icon .bar').removeClass('animate');
+            }
+        });
+    }
     headerOut() {
         const header = jQuery('.header__top__right .header__navigation._main');
         let scrollPrev = 0;

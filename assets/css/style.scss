@@ -300,6 +300,12 @@ a,
     width: fit-content;
     text-decoration: none;
 
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    /* расстояние от линии до текста, аналогично padding-bottom */
+    text-decoration-color: rgba(0, 0, 0, 0.15);
+    text-decoration-thickness: 1px;
+
     // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     &:hover {
         // opacity: .8;
@@ -313,7 +319,7 @@ a,
     }
 
     &:link {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -340,6 +346,7 @@ a,
     // display: inline-block;
     /* Начальная высота */
     transition: height 0.3s ease-out;
+    // display: inline;
     /* Плавный переход высоты */
 }
 
@@ -539,7 +546,7 @@ div {
     // }
 }
 
-.pd_margin-bottom-0{
+.pd_margin-bottom-0 {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
 }
@@ -647,8 +654,8 @@ div {
     --f-button-bg: #ffffff00;
 
     svg {
-        fill: #fff;
-        stroke: #fff;
+        // fill: #fff;
+        stroke: #ffffff84;
     }
 }
 
@@ -659,6 +666,12 @@ div {
     position: absolute !important;
     right: var(--padding) !important;
     top: 1.5rem !important;
+}
+
+.fancybox__toolbar__column.is-right .f-button[title="Close"],
+.fancybox__toolbar__column.is-right [data-fancybox-close],
+.f-button[title="Close"] {
+    display: none !important;
 }
 
 .f-carousel__dots {
@@ -695,7 +708,7 @@ div {
 //     }
 // }
 .fancybox__backdrop {
-    backdrop-filter: blur(4px);
+    // backdrop-filter: blur(4px);
 }
 
 .fancybox__toolbar {
@@ -1251,15 +1264,23 @@ figure {
                 margin-left: var(--margin-width-50) !important;
             }
 
+            figure {
+                z-index: 90;
 
-
-
-            figure img {
-                margin-left: 0 !important;
-                width: 100%;
+                img {
+                    margin-left: 0 !important;
+                    width: 100%;
+                }
             }
+        }
 
+        figure {
+            z-index: 80;
 
+        }
+
+        img {
+            z-index: 80;
         }
 
         // .wp-video,

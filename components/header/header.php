@@ -50,18 +50,20 @@ $header_last_update = get_field('header_last-update', 'options');
                         wp_nav_menu($args);
                         ?>
                     </div>
-                    <div class="header__top__burger" id="burger-icon">
-                        <div class="bar"></div>
+                    <div class="header__top__action">
+                        <?= do_shortcode('[search_trigger_icon]') ?>
+                        <div class="header__top__burger" id="burger-icon">
+                            <div class="bar"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<div class="search-modal">
-    <input type="text" id="search-input" placeholder="Введите запрос...">
-    <div id="search-results"></div>
-</div>
+
+<?= do_shortcode('[search_modal]') ?>
+
 <div class="header__burger__menu" id="burger-menu">
     <div class="header__burger__menu-list">
         <?php

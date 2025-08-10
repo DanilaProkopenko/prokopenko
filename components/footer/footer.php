@@ -11,8 +11,8 @@ $footer_date = get_field('footer-date', 'Options');
             <?php endif ?>
             <?php if ($footer_date) : ?>
                 <div class="footer__caption">
-                    <button class="search-trigger">Тестовый поиск</button>
                     <?= $footer_date ?>
+                    <?php //do_shortcode('[search_button]') ?>
             </div>
         <?php endif ?>
     </div>

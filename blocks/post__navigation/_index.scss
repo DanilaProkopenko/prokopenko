@@ -93,13 +93,13 @@
 
     display: inline-block;
     border-bottom: 0;
-    font-size: var(--font-size--1);
+    font-size: var(--font-size-0);
     font-weight: 400;
     text-decoration: none;
     // color: var(--color-text-grey);
     color: var(--color-secondary-blend);
 
-    padding: 0.25rem 1rem;
+    padding: 0.35rem 1rem;
     position: relative;
     text-transform: lowercase;
     pointer-events: auto;

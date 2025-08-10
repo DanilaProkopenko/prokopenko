@@ -28,7 +28,7 @@ if (!empty($tags)) {
 <?php get_header() ?>
 
 <div class="single__wrapper single-page--v1 ">
-    <div class="single__content">
+    <div class="single__content single-page--v1__content">
         <div class="post__navigation-wrapper pd_flex-25">
             <?php echo do_shortcode('[block_post_navigation]')
             ?>
