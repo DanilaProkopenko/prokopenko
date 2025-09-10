@@ -210,7 +210,7 @@ body {
     }
 }
 
-body {}
+
 
 /* Скрываем скроллбар, но оставляем возможность скроллить */
 body,
@@ -234,6 +234,99 @@ body {
     scrollbar-width: none;
     /* Для Firefox */
 }
+
+
+
+
+// Темы
+/* === ТЁМНАЯ ТЕМА === */
+body.theme-dark {
+    --color-primary: #000;
+    /* фон #main */
+    --color-secondary: #b0b0b0;
+    --color-secondary-blend: #888888;
+    --color-primary-blend: #444444;
+
+    --color-black: #fff;
+    /* цвет текста на тёмном */
+    --color-text-primary: #e0e0e0;
+    --color-text-grey: var(--color-secondary);
+
+    --color-accent: #00aaff;
+    --color-link-hover: var(--color-accent);
+    --color-link-border-hover: rgba(0, 170, 255, 0.15);
+
+    --color-white: #fff;
+    --color-grey-border: rgba(255, 255, 255, 0.15);
+    --border: 1px solid var(--color-grey-border);
+
+    /* Фон body — "подложка" */
+    background-color: #121212;
+}
+
+body.theme-dark #main {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+}
+
+/* === ОРАНЖЕВАЯ ТЕМА === */
+body.theme-orange {
+    --color-primary: #e65100;
+    /* фон #main */
+    --color-secondary: #e0883e;
+    --color-secondary: #7a7a7a63;
+    --color-secondary-blend: #d0782e;
+    --color-secondary-blend: #7a7a7a63;
+    --color-primary-blend: #ffe0c0;
+    --color-primary-blend: #7a7a7a63;
+
+    --color-black: #332200;
+    --color-text-primary: #fff;
+    --color-text-grey: #775522;
+
+    --color-accent: #e65100;
+    --color-link-hover: #c43e00;
+    --color-link-border-hover: rgba(230, 81, 0, 0.15);
+
+    --color-white: #fff;
+    --color-grey-border: rgba(51, 34, 0, 0.1);
+    --border: 1px solid var(--color-grey-border);
+
+    /* Фон body — мягкий оранжевый фон */
+    background-color: #fff8f0;
+}
+
+body.theme-orange #main {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+}
+
+/* === СВЕТЛАЯ ТЕМА (по умолчанию) === */
+/* У тебя уже есть в :root — но для ясности */
+:root:not(.theme-dark):not(.theme-orange),
+body:not(.theme-dark):not(.theme-orange) {
+    --color-primary: #FEFEFE;
+    --color-secondary: #999999;
+    --color-secondary-blend: #505050;
+    --color-primary-blend: #cdcdcd;
+    --color-black: #060508;
+    --color-text-primary: #37352f;
+    --color-text-grey: var(--color-secondary);
+    --color-accent: #308cf4;
+    --color-link-hover: var(--color-accent);
+    --color-link-border-hover: rgba(48, 140, 244, 0.15);
+    --color-grey-border: rgba(0, 0, 0, 0.15);
+    --border: 1px solid var(--color-grey-border);
+
+    background-color: var(--color-black);
+}
+
+:root:not(.theme-dark):not(.theme-orange) #main,
+body:not(.theme-dark):not(.theme-orange) #main {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+}
+
 
 #main {
     padding-top: 5rem;
