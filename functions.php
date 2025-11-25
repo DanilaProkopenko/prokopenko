@@ -51,9 +51,9 @@ function my_password_form()
 {
 	global $post;
 	$label = 'pwbox-' . (empty($post->ID) ? rand() : $post->ID);
-	$o = '<div class="post-password__page"> <form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="post-password-form" data-bitwarden-watching="1">
-	<h3 class="post-password__title h3">Этот контент <br>защищен паролем</h3>
-    <label class="post-password__caption caption" for="' . $label . '">' . __("Напишите мне, если вы его не имеете") . ' </label>
+	$o = '<div class="post-password__page"> 
+	<form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="post-password-form" data-bitwarden-watching="1">
+	<p>Этот контент защищен паролем. Напишите мне, если вы его не имеете.</p>
 	<input class="post-password__input" name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="Пароль"/>
 	<input class="post-password__submit link-button link-button_blue" type="submit" name="Submit" value="' . esc_attr__("Продолжить") . '" />
     </form>

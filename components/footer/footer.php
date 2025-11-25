@@ -2,8 +2,20 @@
 $footer_disclaimer = get_field('footer-disclaimer', 'Options');
 $footer_date = get_field('footer-date', 'Options');
 ?>
+<!-- .pd_width_50 {
+    width: calc(50% - 5px);
+}
+
+.pd_margin-auto {
+    margin: 0 auto;
+}
+
+.pd_margin-right {
+    margin-right: 0;
+    margin-left: auto;
+} -->
 <footer class="footer">
-    <div class="footer__content">
+    <div class="footer__content pd_width_50 pd-margin-auto">
         <?php if ($footer_disclaimer) : ?>
             <div class="footer__disclaimer">
                 <?= $footer_disclaimer ?>

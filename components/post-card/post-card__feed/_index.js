@@ -1,66 +1,84 @@
-import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.esm.js';
-// import '@fancyapps/ui/dist/fancybox/fancybox.css';
+// import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.esm.js';
+// // import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
-const initBlockTemplate = () => {
-    let scrollPosition = 0;
+// const initBlockTemplate = () => {
+//     let scrollPosition = 0;
 
-    Fancybox.bind('[data-fancybox]', {
-        // 🔥 Отключаем группировку, даже если data-fancybox одинаковый
-        getGroupSettings: () => ({
-            groupAttr: null, // Игнорируем data-fancybox → нет галереи
-        }),
+//     Fancybox.bind('[data-fancybox]', {
+//         // 🔥 Отключаем группировку, даже если data-fancybox одинаковый
+//         getGroupSettings: () => ({
+//             groupAttr: null, // Игнорируем data-fancybox → нет галереи
+//         }),
 
-        // 🔥 Отключаем возврат фокуса (чтобы не скроллило)
-        returnFocus: false,
+//         // 🔥 Отключаем возврат фокуса (чтобы не скроллило)
+//         returnFocus: false,
 
-        // Управление скроллом
-        on: {
-            beforeShow: () => {
-                scrollPosition = window.pageYOffset;
-            },
-            destroy: () => {
-                // Возвращаем скролл на место ПОСЛЕ закрытия
-                setTimeout(() => {
-                    window.scrollTo({ top: scrollPosition, behavior: 'auto' });
-                }, 50);
-            }
-        },
+//         // Управление скроллом
+//         on: {
+//             beforeShow: () => {
+//                 scrollPosition = window.pageYOffset;
+//                 window.__fancybox_scroll_pos = window.pageYOffset;
 
-        // ⚠️ preventScroll: true может мешать — лучше убрать или оставить false
-        preventScroll: false,
+//             },
+//             destroy: () => {
+//                 // Возвращаем скролл на место ПОСЛЕ закрытия
+//                 setTimeout(() => {
+//                     window.scrollTo({ top: scrollPosition, behavior: 'auto' });
+//                 }, 50);
+//             }
+//         },
+//         // preventScroll: false,
+//         on: {
+//             // Запомнить позицию до открытия
+//             beforeShow: () => {
+//                 window.__fancybox_scroll_pos = window.pageYOffset;
+//             },
+//             // Восстановить скролл после закрытия
+//             destroy: () => {
+//                 setTimeout(() => {
+//                     window.scrollTo({
+//                         top: window.__fancybox_scroll_pos || 0,
+//                         behavior: 'auto'
+//                     });
+//                 }, 50);
+//             }
+//         },
+//         returnFocus: false,
+//         // ⚠️ preventScroll: true может мешать — лучше убрать или оставить false
+//         preventScroll: false,
 
-        idle: false,
-        compact: false,
-        dragToClose: true,
-        groupAll: false, // уже не так важно, но пусть будет
+//         idle: false,
+//         compact: false,
+//         dragToClose: true,
+//         groupAll: false, // уже не так важно, но пусть будет
 
-        // 🖼️ Миниатюры — ОСТАВЛЯЕМ, ЕСЛИ НУЖНЫ
-        // Если ты хочешь, чтобы миниатюры были, но только для одного изображения — они будут пустые
-        // Лучше отключить, если галереи нет
-        Thumbs: false, // ✅ Рекомендую отключить, если нет галереи
+//         // 🖼️ Миниатюры — ОСТАВЛЯЕМ, ЕСЛИ НУЖНЫ
+//         // Если ты хочешь, чтобы миниатюры были, но только для одного изображения — они будут пустые
+//         // Лучше отключить, если галереи нет
+//         Thumbs: false, // ✅ Рекомендую отключить, если нет галереи
 
-        // Если всё же хочешь оставить миниатюры (например, для будущих галерей) — оставь:
-        // Thumbs: { type: 'classic', autoStart: true },
+//         // Если всё же хочешь оставить миниатюры (например, для будущих галерей) — оставь:
+//         // Thumbs: { type: 'classic', autoStart: true },
 
-        Toolbar: false,
+//         Toolbar: false,
 
-        // 🔺 Отключаем стрелки навигации
-        Carousel: {
-            transition: 'fadeFast',
-            preload: 3,
-            Navigation: false, // 🔥 Убираем стрелки влево/вправо
-        },
+//         // 🔺 Отключаем стрелки навигации
+//         Carousel: {
+//             transition: 'fadeFast',
+//             preload: 3,
+//             Navigation: false, // 🔥 Убираем стрелки влево/вправо
+//         },
 
-        Images: {
-            zoom: false,
-            Panzoom: { panMode: 'mousemove', mouseMoveFactor: 1.1 },
-            initialSize: 'fit',
-            minScale: 0.1,
-            maxScale: 1,
-        }
-    });
+//         Images: {
+//             zoom: false,
+//             Panzoom: { panMode: 'mousemove', mouseMoveFactor: 1.1 },
+//             initialSize: 'fit',
+//             minScale: 0.1,
+//             maxScale: 1,
+//         }
+//     });
 
-};
+// };
 
-initBlockTemplate();
+// initBlockTemplate();
 

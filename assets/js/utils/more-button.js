@@ -77,3 +77,43 @@ window.addEventListener('resize', debounce(() => {
         });
     });
 }, 200));
+
+// Раскрытие скрытых блоков при переходе по якорю
+document.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    
+    if (!hash) return; // Если якоря нет, ничего не делаем
+    
+    // Убираем # из хеша
+    const targetId = hash.substring(1);
+    
+    // Ищем элемент с этим ID
+    const targetElement = document.getElementById(targetId);
+    
+    if (!targetElement) return; // Элемент не найден
+    
+    // Ищем ближайший родительский блок .more-content
+    const moreContent = targetElement.closest('.more-content');
+    
+    if (!moreContent) return; // Блок не внутри .more-content
+    
+    // Если блок уже открыт, ничего не делаем
+    if (moreContent.classList.contains('active')) return;
+    
+    // Находим кнопку (предыдущий сосед с классом .more-button)
+    const button = moreContent.previousElementSibling;
+    
+    if (button && button.classList.contains('more-button')) {
+        // Открываем блок БЕЗ анимации (мгновенно)
+        moreContent.classList.add('active');
+        moreContent.style.height = 'auto'; // Сразу устанавливаем полную высоту
+        
+        // Меняем текст кнопки
+        button.textContent = 'Свернуть ▲';
+        
+        // Сразу скроллим к целевому элементу
+        requestAnimationFrame(() => {
+            targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+        });
+    }
+});

@@ -3,6 +3,30 @@ const initBlockTemplate_v2 = () => {
     let manualScroll = false;
 
     /**
+     * 🔤 Транслитерирует текст в английский и делает slug (с тире вместо пробелов)
+     */
+    function transliterate(text) {
+        const map = {
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh',
+            'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+            'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'ts',
+            'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu',
+            'я': 'ya'
+        };
+
+        return text
+            .toLowerCase()
+            .split('')
+            .map(char => map[char] || char)
+            .join('')
+            .replace(/[^a-z0-9\s-]/g, '') // Убираем не-буквенные символы
+            .trim()
+            .replace(/\s+/g, '-') // Пробелы → тире
+            .replace(/-+/g, '-') // Убираем дублированные тире
+            .replace(/^-+|-+$/g, ''); // Убираем тире в начале/конце
+    }
+
+    /**
      * 1️⃣ Создаёт ссылки в меню навигации на основе секций с атрибутом data-id-name.
      */
     function pageNavLinks() {
@@ -59,20 +83,14 @@ const initBlockTemplate_v2 = () => {
      */
     function highlightLink() {
         const mainBlock = document.querySelector('.single__content') || document.body;
-        let sections, navLinks, indicator, navContainer;
+        // Sections should come from the content block (if present).
+        const sections = mainBlock.querySelectorAll('h2, h3, h4, h5, h6');
 
-        // Выбираем правильные элементы в зависимости от наличия .single__content
-        if (mainBlock) {
-            sections = mainBlock.querySelectorAll('h2, h3, h4, h5, h6');
-            navLinks = mainBlock.querySelectorAll('.post__navigation a');
-            indicator = mainBlock.querySelector('.post__navigation .indicator');
-            navContainer = mainBlock.querySelector('.post__navigation');
-        } else {
-            sections = document.querySelectorAll('h2, h3, h4, h5, h6');
-            navLinks = document.querySelectorAll('.post__navigation a');
-            indicator = document.querySelector('.post__navigation .indicator');
-            navContainer = document.querySelector('.post__navigation');
-        }
+        // Navigation elements usually live outside the content block (sidebar).
+        // Select navContainer and its links from document to avoid empty NodeLists.
+        const navContainer = document.querySelector('.post__navigation');
+        const navLinks = navContainer ? navContainer.querySelectorAll('a') : document.querySelectorAll('.post__navigation a');
+        const indicator = navContainer ? navContainer.querySelector('.indicator') : document.querySelector('.post__navigation .indicator');
 
         let lastActiveIndex = -1;
 
@@ -129,6 +147,26 @@ const initBlockTemplate_v2 = () => {
                 const targetSection = sections[index];
                 const parentContentBlock = targetSection.closest('.more-content');
 
+                // Функция для обновления позиции индикатора
+                const updateIndicatorPosition = () => {
+                    const linkRect = link.getBoundingClientRect();
+                    const navRect = navContainer.getBoundingClientRect();
+                    const indicatorPosition =
+                        (linkRect.top - navRect.top) + linkRect.height / 2 - (indicator?.offsetHeight || 0) / 2;
+
+                    if (indicator) {
+                        indicator.style.top = `${indicatorPosition}px`;
+                        indicator.style.height = `${linkRect.height}px`;
+                    }
+
+                    const scrollAmount = link.offsetLeft - (navContainer.clientWidth / 2) + (link.offsetWidth / 2);
+                    navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                };
+
+                // Сразу обновляем класс active, но ждём конца скролла для позиции индикатора
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
                 // Если раздел скрыт внутри "ещё", раскрываем его
                 if (parentContentBlock && !parentContentBlock.classList.contains('active')) {
                     const button = parentContentBlock.previousElementSibling;
@@ -144,31 +182,19 @@ const initBlockTemplate_v2 = () => {
                     parentContentBlock.addEventListener('transitionend', function onTransitionEnd() {
                         parentContentBlock.removeEventListener('transitionend', onTransitionEnd);
                         setTimeout(() => {
-                            scrollToSection(targetSection, link, index);
+                            scrollToSection(targetSection, index);
+                            // Обновляем индикатор ПОСЛЕ окончания скролла
+                            setTimeout(updateIndicatorPosition, 600);
                         }, 100);
                     }, { once: true });
                 } else {
                     // Иначе просто прокручиваем
                     setTimeout(() => {
-                        scrollToSection(targetSection, link, index);
+                        scrollToSection(targetSection, index);
+                        // Обновляем индикатор ПОСЛЕ окончания скролла
+                        setTimeout(updateIndicatorPosition, 600);
                     }, 50);
                 }
-
-                // Ручное обновление состояния активной ссылки
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-
-                const linkRect = link.getBoundingClientRect();
-                const navRect = navContainer.getBoundingClientRect();
-
-                const indicatorPosition =
-                    (linkRect.top - navRect.top) + linkRect.height / 2 - indicator.offsetHeight / 2;
-
-                indicator.style.top = `${indicatorPosition}px`;
-                indicator.style.height = `${linkRect.height}px`;
-
-                const scrollAmount = link.offsetLeft - (navContainer.clientWidth / 2) + (link.offsetWidth / 2);
-                navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
             });
         });
 
@@ -186,10 +212,23 @@ const initBlockTemplate_v2 = () => {
         const pageBody = mainBlock || document.body;
         const pageHeadings = Array.from(pageBody.querySelectorAll('h2, h3, h4, h5, h6'));
 
-        // Назначаем уникальные ID заголовкам и сохраняем их теги
+        // Назначаем уникальные ID заголовкам на основе их текста (транслитерированы)
         function writeHeadingId() {
-            pageHeadings.forEach((el, index) => {
-                el.setAttribute('id', 'element-' + index);
+            const usedIds = new Set();
+            pageHeadings.forEach((el) => {
+                let id = transliterate(el.textContent);
+                
+                // Если ID уже использован, добавляем номер
+                if (usedIds.has(id)) {
+                    let counter = 1;
+                    while (usedIds.has(`${id}-${counter}`)) {
+                        counter++;
+                    }
+                    id = `${id}-${counter}`;
+                }
+                
+                usedIds.add(id);
+                el.setAttribute('id', id);
                 el.setAttribute('tag-name', el.tagName);
             });
         }

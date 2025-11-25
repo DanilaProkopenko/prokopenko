@@ -47,7 +47,7 @@ if (!empty($tags)) {
         </div>
     </div>
 
-    <p class="_padding has-h-2-font-size small-margin-all">Другие работы</p>
+    <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p>
     <?php echo do_shortcode('[block_archive tag=' . $tag_id . ' post_not_in=' . $post_id . ']') ?> 
 
 </div>
