@@ -48,19 +48,17 @@ const initBlockTemplate_v2 = () => {
         const handleScrollEnd = () => {
             manualScroll = false;
             window.removeEventListener('scroll', handleScrollEnd);
-            document.getElementById('main')?.removeEventListener('scroll', handleScrollEnd);
         };
 
         // Ждём конца скролла один раз
         window.addEventListener('scroll', handleScrollEnd, { once: true });
-        document.getElementById('main')?.addEventListener('scroll', handleScrollEnd, { once: true });
     }
 
     /**
      * 3️⃣ Отслеживает текущую секцию при скролле и выделяет соответствующую ссылку.
      */
     function highlightLink() {
-        const mainBlock = document.querySelector('.single__content') || document.getElementById('main');
+        const mainBlock = document.querySelector('.single__content') || document.body;
         let sections, navLinks, indicator, navContainer;
 
         // Выбираем правильные элементы в зависимости от наличия .single__content
@@ -175,7 +173,7 @@ const initBlockTemplate_v2 = () => {
         });
 
         // Слушаем скролл и обновляем активную ссылку
-        document.getElementById('main').addEventListener('scroll', updateNavigation);
+        window.addEventListener('scroll', updateNavigation);
         updateNavigation(); // Инициализация
     }
 
@@ -185,7 +183,7 @@ const initBlockTemplate_v2 = () => {
     function pageHeading() {
         const navContainer = document.querySelector('.post__navigation');
         const mainBlock = document.querySelector('.single__content');
-        const pageBody = mainBlock || document.getElementById('main');
+        const pageBody = mainBlock || document.body;
         const pageHeadings = Array.from(pageBody.querySelectorAll('h2, h3, h4, h5, h6'));
 
         // Назначаем уникальные ID заголовкам и сохраняем их теги

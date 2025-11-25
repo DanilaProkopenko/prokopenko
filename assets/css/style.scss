@@ -107,11 +107,12 @@
 }
 
 html,
-body,
-#main {
+body {
     scroll-behavior: smooth;
     // scrollbar-gutter: stable;
     scroll-padding-top: 5.1rem;
+
+    background-color: #000;
 }
 
 
@@ -144,10 +145,9 @@ em {
 
 
 body {
-    background-color: var(--color-black);
+    background-color: var(--color-white);
     color: var(--color-text-primary);
     width: 100%;
-    height: 100vh;
     overflow: hidden;
 
     &::-webkit-scrollbar {
@@ -181,31 +181,21 @@ body {
 
     &.black {
         background-color: var(--color-white);
+        color: #fff;
 
-        #main {
-            background-color: var(--color-black);
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        a {
+            color: #fff;
 
-            :root {
-                --border: 1px solid rgba(255, 255, 255, 0.15);
-
-            }
-
-            p,
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            a {
+            &* {
                 color: #fff;
 
-                &* {
-                    color: #fff;
-
-                }
             }
-
-            * {}
         }
     }
 }
@@ -242,7 +232,7 @@ body {
 /* === ТЁМНАЯ ТЕМА === */
 body.theme-dark {
     --color-primary: #000;
-    /* фон #main */
+    /* фон body */
     --color-secondary: #b0b0b0;
     --color-secondary-blend: #888888;
     --color-primary-blend: #444444;
@@ -264,7 +254,7 @@ body.theme-dark {
     background-color: #121212;
 }
 
-body.theme-dark #main {
+body.theme-dark {
     background-color: var(--color-primary);
     color: var(--color-text-primary);
 }
@@ -272,7 +262,7 @@ body.theme-dark #main {
 /* === ОРАНЖЕВАЯ ТЕМА === */
 body.theme-orange {
     --color-primary: #e65100;
-    /* фон #main */
+    /* фон body */
     --color-secondary: #e0883e;
     --color-secondary: #7a7a7a63;
     --color-secondary-blend: #d0782e;
@@ -296,7 +286,7 @@ body.theme-orange {
     background-color: #fff8f0;
 }
 
-body.theme-orange #main {
+body.theme-orange {
     background-color: var(--color-primary);
     color: var(--color-text-primary);
 }
@@ -321,19 +311,18 @@ body:not(.theme-dark):not(.theme-orange) {
     background-color: var(--color-black);
 }
 
-:root:not(.theme-dark):not(.theme-orange) #main,
-body:not(.theme-dark):not(.theme-orange) #main {
+:root:not(.theme-dark):not(.theme-orange) body,
+body:not(.theme-dark):not(.theme-orange) {
     background-color: var(--color-primary);
     color: var(--color-text-primary);
 }
 
 
-#main {
+body {
     padding-top: 5rem;
     background-color: var(--color-primary);
     transition: all 0.4s ease-in-out;
     opacity: 1;
-    height: 100vh;
     overflow-y: auto;
     position: relative;
 
@@ -353,9 +342,9 @@ body:not(.theme-dark):not(.theme-orange) #main {
     // }
 
     &._open {
-        transform: scale(0.85);
-        opacity: 0.6;
-        touch-action: none;
+        // transform: scale(0.85);
+        // opacity: 0.6;
+        // touch-action: none; 
 
         // &::before {
         //     opacity: 1;
@@ -1367,14 +1356,14 @@ figure {
             }
         }
 
-        figure {
-            z-index: 80;
+        // figure {
+        //     z-index: 80;
 
-        }
+        // }
 
-        img {
-            z-index: 80;
-        }
+        // img {
+        //     z-index: 80;
+        // }
 
         // .wp-video,
         // .wp-block-image,
@@ -1437,7 +1426,7 @@ figure {
 .style-text-indent {
 
 
-    #main {
+    body {
         // padding-top: 0;
 
         &::-webkit-scrollbar {
@@ -1643,17 +1632,12 @@ figure {
 
 @media screen and (max-width: 767px) {
 
-    body,
-    #main {
-        height: 100dvh;
-    }
-
     body.page {
         display: flex;
         flex-direction: column;
     }
 
-    #main {
+    body {
 
         // margin-top: 54px;
         padding-top: 54px;

@@ -134,7 +134,7 @@ class Header {
     burger_1() {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
-        let mainPage = document.getElementById('main');
+        let mainPage = document.body;
         let body = document.getElementsByTagName('body')[0];
 
         let header = document.getElementsByClassName('header__wrapper')[0];
@@ -305,18 +305,18 @@ class Header {
                 if (isSearchOpen) {
                     // Поиск открыт → закрываем и открываем бургер
                     jQuery('.search-modal').removeClass('_open');
-                    jQuery('#main').removeClass('_open');
+                    jQuery('body').removeClass('_open');
                     jQuery('.search-trigger-icon').removeClass('_open');
                     jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
 
                     jQuery('#burger-menu').addClass('_open');
-                    jQuery('#main').addClass('_open');
+                    jQuery('body').addClass('_open');
                     jQuery('.footer').addClass('_hide');
                     jQuery('#burger-icon').addClass('_open');
                     jQuery('#burger-icon .bar').addClass('animate');
                 } else {
                     jQuery('#burger-menu').toggleClass('_open');
-                    jQuery('#main').toggleClass('_open');
+                    jQuery('body').toggleClass('_open');
                     jQuery('.footer').toggleClass('_hide');
                     jQuery('#burger-icon').toggleClass('_open');
                     jQuery('#burger-icon .bar').toggleClass('animate');
@@ -328,18 +328,18 @@ class Header {
                 if (isBurgerOpen) {
                     // Бургер открыт → закрываем его и открываем поиск
                     jQuery('#burger-menu').removeClass('_open');
-                    jQuery('#main').removeClass('_open');
+                    jQuery('body').removeClass('_open');
                     jQuery('.footer').removeClass('_hide');
                     jQuery('#burger-icon .bar').removeClass('animate');
 
                     jQuery('.search-modal').addClass('_open');
-                    jQuery('#main').addClass('_open');
+                    jQuery('body').addClass('_open');
                     jQuery('#search-input').focus();
                     jQuery('.search-trigger-icon').addClass('_open');
                 } else {
                     // Бургер закрыт → просто открываем поиск
                     jQuery('.search-modal').toggleClass('_open');
-                    jQuery('#main').toggleClass('_open');
+                    jQuery('body').toggleClass('_open');
                     jQuery('.search-trigger-icon').toggleClass('_open');
                 }
             }
@@ -348,12 +348,12 @@ class Header {
         jQuery(document).on('keydown', function (e) {
             if (e.key === 'Escape') {
                 jQuery('.search-modal').removeClass('_open');
-                jQuery('#main').removeClass('_open');
+                jQuery('body').removeClass('_open');
                 jQuery('.search-trigger-icon').removeClass('_open');
                 jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
 
                 jQuery('#burger-menu').removeClass('_open');
-                jQuery('#main').removeClass('_open');
+                jQuery('body').removeClass('_open');
                 jQuery('.footer').removeClass('_hide');
                 jQuery('#burger-icon .bar').removeClass('animate');
             }
@@ -363,7 +363,7 @@ class Header {
     burger() {
         let burgerIcon = document.getElementById('burger-icon');
         let burgerMenu = document.getElementById('burger-menu');
-        let mainPage = document.getElementById('main');
+        let mainPage = document.body;
         let body = document.getElementsByTagName('body')[0];
         let header = document.getElementsByClassName('header__wrapper')[0];
         let footer = document.getElementsByClassName('footer')[0];
@@ -392,14 +392,14 @@ class Header {
                 if (isSearchOpen) {
                     // Поиск открыт → закрываем его и открываем бургер
                     jQuery('.search-modal').removeClass('_open');
-                    jQuery('#main').removeClass('_open');
+                    jQuery('body').removeClass('_open');
                     jQuery('.search-trigger-icon').removeClass('_open');
                     jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
                 }
 
                 // Переключаем состояние бургера
                 jQuery('#burger-menu').toggleClass('_open');
-                jQuery('#main').toggleClass('_open');
+                jQuery('body').toggleClass('_open');
                 jQuery('.footer').toggleClass('_hide');
                 jQuery('#burger-icon').toggleClass('_open');
                 jQuery('#burger-icon .bar').toggleClass('animate');
@@ -454,7 +454,7 @@ class Header {
                 if (isBurgerOpen) {
                     // Бургер открыт → закрываем его и открываем поиск
                     jQuery('#burger-menu').removeClass('_open');
-                    jQuery('#main').removeClass('_open');
+                    jQuery('body').removeClass('_open');
                     jQuery('.footer').removeClass('_hide');
                     jQuery('#burger-icon').removeClass('_open');
                     jQuery('#burger-icon .bar').removeClass('animate');
@@ -462,7 +462,7 @@ class Header {
 
                 // Открываем/закрываем поиск
                 jQuery('.search-modal').toggleClass('_open');
-                jQuery('#main').toggleClass('_open');
+                jQuery('body').toggleClass('_open');
                 jQuery('.search-trigger-icon').toggleClass('_open');
                 jQuery('.search-trigger-icon .search-icon__circle').toggleClass('animate');
             }
@@ -473,14 +473,14 @@ class Header {
             const jQuerytarget = jQuery(e.target);
             if (jQuery('.search-modal._open').length && !jQuerytarget.closest('.search-modal, .search-trigger-icon').length) {
                 jQuery('.search-modal').removeClass('_open');
-                jQuery('#main').removeClass('_open');
+                jQuery('body').removeClass('_open');
                 jQuery('.search-trigger-icon').removeClass('_open');
                 jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
             }
 
             if (jQuery('#burger-menu._open').length && !jQuerytarget.closest('#burger-menu, #burger-icon').length) {
                 jQuery('#burger-menu').removeClass('_open');
-                jQuery('#main').removeClass('_open');
+                jQuery('body').removeClass('_open');
                 jQuery('.footer').removeClass('_hide');
                 jQuery('#burger-icon').removeClass('_open');
                 jQuery('#burger-icon .bar').removeClass('animate');
@@ -491,12 +491,12 @@ class Header {
         jQuery(document).on('keydown', function (e) {
             if (e.key === 'Escape') {
                 jQuery('.search-modal').removeClass('_open');
-                jQuery('#main').removeClass('_open');
+                jQuery('body').removeClass('_open');
                 jQuery('.search-trigger-icon').removeClass('_open');
                 jQuery('.search-trigger-icon .search-icon__circle').removeClass('animate');
 
                 jQuery('#burger-menu').removeClass('_open');
-                jQuery('#main').removeClass('_open');
+                jQuery('body').removeClass('_open');
                 jQuery('.footer').removeClass('_hide');
                 jQuery('#burger-icon').removeClass('_open');
                 jQuery('#burger-icon .bar').removeClass('animate');
@@ -507,8 +507,8 @@ class Header {
         const header = jQuery('.header__top__right .header__navigation._main');
         let scrollPrev = 0;
 
-        jQuery('#main').scroll(function () {
-            var scrolled = jQuery('#main').scrollTop();
+        jQuery('body').scroll(function () {
+            var scrolled = jQuery('body').scrollTop();
 
             if (scrolled > 100 && scrolled > scrollPrev) {
                 header.addClass('out');
