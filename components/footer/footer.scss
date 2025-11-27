@@ -1,6 +1,8 @@
 .footer {
     position: relative;
     width: 100%;
+    border-top: var(--border);
+    margin-top: calc(3 * var(--padding));
 
     &._hide {
         // transform: translateY(-30%) scale(0.9);
@@ -15,10 +17,7 @@
 }
 
 .footer__content {
-    border-top: var(--border);
-    margin-top: calc(3 * var(--padding));
     padding: calc(.7 * var(--padding)) 0;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -47,8 +46,11 @@
 @media screen and (max-width: 1220px) {}
 
 @media screen and (max-width: 767px) {
-    .footer__content {
+    .footer {
         margin-top: calc(3 * var(--padding));
+    }
+
+    .footer__content {
         padding: var(--padding);
 
     }

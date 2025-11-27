@@ -1,6 +1,6 @@
 <?php
 /* 
-Template name: Обычная страница c навигацией
+Template name: Обычная страница без навигации
 */
 
 $title  = get_the_title();
@@ -29,8 +29,6 @@ if (!empty($tags)) {
 <div class="single__wrapper single-page--v1 ">
     <div class="single__content single-page--v1__content">
         <div class="post__navigation-wrapper pd_flex-25">
-            <?php echo do_shortcode('[block_post_navigation]')
-            ?>
         </div>
         <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
             <h1 class="wp-block-post-title">

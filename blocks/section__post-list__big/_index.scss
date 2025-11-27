@@ -20,6 +20,7 @@
         }
     }
 }
+
 .section__post-list__big__heading {
     width: var(--width-50-parent-padding);
     margin-right: auto;
@@ -31,8 +32,10 @@
 }
 
 .section__post-list__big {
-    scroll-margin-top: 80px; /* Отступ сверху */
-    scroll-margin-top: calc(1.25 * var(--font-size-0)); /* Отступ сверху */
+    scroll-margin-top: 80px;
+    /* Отступ сверху */
+    scroll-margin-top: calc(1.25 * var(--font-size-0));
+    /* Отступ сверху */
     display: flex;
     flex-direction: column;
     gap: 14rem;
@@ -105,27 +108,15 @@
     // position: sticky;
     // top: calc(-.5 * var(--padding));
     // z-index: 80;
-    mix-blend-mode: difference;
 }
 
-.filter-btn {
-    background-color: transparent;
-    border: none;
-    // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-    font-size: var(--font-size-0);
-    transition: background-color 0.3s ease;
-    padding: .3rem .7rem;
-    border: 1px solid currentColor;
-    height: calc(2 * var(--font-size-0));
-    min-width: calc(2 * var(--font-size-0));
-    color: var(--color-secondary-blend);
-}
+
+
+.filter-btn {}
 
 .filter-btn.active {
     // background-color: #4CAF50;
     // color: var(--color-text-primary);
-    color: var(--color-primary-blend);
 
 }
 
@@ -166,10 +157,5 @@
     .filter-bar::-webkit-scrollbar {
         display: none;
         /* Убираем скроллбар в Chrome/Safari */
-    }
-
-    .filter-btn {
-        flex-shrink: 0;
-        white-space: nowrap;
     }
 }

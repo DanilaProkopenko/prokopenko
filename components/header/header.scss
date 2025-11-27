@@ -10,16 +10,18 @@ header {
     width: 100%;
     transition: all .3s ease;
 
-    color: var(--color-primary);
-    mix-blend-mode: difference;
+    color: var(--color-text-primary);
+    // mix-blend-mode: difference;
 
     * {
         // color: var(--color-primary);
-        color: var(--color-primary-blend);
-        mix-blend-mode: difference;
+        // color: var(--color-primary-blend);
+        color: var(--color-text-primary);
         border-bottom: 0;
         font-size: var(--font-size-0);
         // font-weight: 365;
+        text-decoration: none;
+
     }
 
     *:link {
@@ -194,13 +196,14 @@ body ul.header__burger__links {
     height: calc(99vh - var(--padding));
     height: 100vh;
 
-    padding-top: calc(1.5rem + var(--font-size-0) + calc(1 * var(--padding)));
+    padding-top: calc(5rem + calc(var(--padding)) - calc(.5 * var(--padding)));
+    top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     margin: 0 auto;
 
-    transition: all .3s;
+    // transition: all .3s;
     z-index: 100;
     overflow-y: auto;
     // padding-top: var(--padding);
@@ -213,12 +216,14 @@ body ul.header__burger__links {
     // mix-blend-mode: difference;
 
     background-color: var(--color-red);
+    opacity: 0;
+    visibility: hidden;
 
     &._red {
         background-color: #FF4903;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
@@ -226,15 +231,15 @@ body ul.header__burger__links {
         background-color: #FF6CF1;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
     &._green {
-        background-color: #029954;
+        background-color: #1fdd00;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
@@ -242,7 +247,7 @@ body ul.header__burger__links {
         background-color: #EDFF55;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
@@ -250,7 +255,7 @@ body ul.header__burger__links {
         background-color: #AD55FF;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
@@ -258,7 +263,7 @@ body ul.header__burger__links {
         background-color: #EEE6CF;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
@@ -266,7 +271,7 @@ body ul.header__burger__links {
         background-color: #A2726E;
 
         * {
-            color: #000;
+            color: var(--color-text-primary);
         }
     }
 
@@ -289,7 +294,7 @@ body ul.header__burger__links {
             border-bottom: 0;
             display: inline-block;
             width: 100%;
-            padding: calc(.5 * var(--padding)) var(--margin-width-50);
+            padding: calc(.5 * var(--padding)) 0 calc(.5 * var(--padding)) var(--margin-width-50);
             text-decoration: none;
             font-size: var(--font-size-0);
             text-transform: uppercase;
@@ -308,7 +313,8 @@ body ul.header__burger__links {
     &._open {
         transform: translateY(0);
 
-        // visibility: visible;
+        visibility: visible;
+        opacity: 1;
         // width: 100%;
 
         @media screen and (max-width:767px) {
@@ -353,7 +359,8 @@ body ul.header__burger__links {
 .bar {
     position: relative;
     transform: translateY(10px);
-    background: var(--color-primary-blend);
+    // background: var(--color-primary-blend);
+    background: var(--color-text-primary);
     transition: all 0ms 200ms;
 }
 
@@ -366,7 +373,7 @@ body ul.header__burger__links {
     position: absolute;
     left: 0;
     bottom: 5px;
-    background: var(--color-primary-blend);
+    background: var(--color-text-primary);
     transition: bottom 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -375,7 +382,7 @@ body ul.header__burger__links {
     position: absolute;
     left: 0;
     top: 5px;
-    background: var(--color-primary-blend);
+    background: var(--color-text-primary);
     transition: top 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -540,8 +547,8 @@ body ul.header__burger__links {
     }
 
     .header__burger__menu {
-        height: calc(90dvh - 1.5 * var(--padding));
         height: 100vh;
+        padding-top: calc(54px + calc(2 * var(--padding)) - var(--padding));
 
         .header__burger__links {
 

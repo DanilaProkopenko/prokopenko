@@ -20,7 +20,7 @@
     --color-primary-blend: #cdcdcd;
 
     --color-black: #060508;
-    --color-text-primary: #37352f;
+    --color-text-primary: #040404;
     --color-text-grey: var(--color-secondary);
 
     --color-accent: #308cf4;
@@ -50,6 +50,7 @@
 
     --border: 1px solid var(--color-grey-border);
 
+    --input-padding: 1rem;
     // --font-size--2: clamp(0.6076rem, 0.5964rem + 0.0563vw, 0.64rem);
     // --font-size--1: clamp(0.7292rem, 0.7045rem + 0.1232vw, 0.8rem);
     // --font-size-0: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
@@ -110,12 +111,11 @@ html,
 body {
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
-    scroll-padding-top: 5.1rem;
-
-    background-color: #000;
+    scroll-padding-top: calc(5rem + calc(var(--padding)));
+    // background-color: #000;
 }
 
-body{
+body {
     min-height: 100vh;
 }
 
@@ -180,7 +180,7 @@ body {
             height: fit-content !important;
         }
 
-        .project-media-small{
+        .project-media-small {
             margin-left: 0 !important;
         }
     }
@@ -565,7 +565,9 @@ li {
 
 
 div {
-    p {
+
+    p,
+    .pd_block {
         &:not(:first-child) {
             margin-top: 1rem;
         }
@@ -932,15 +934,26 @@ section,
     }
 }
 
-.post-password__input {
-    padding: 1rem;
+input {
+    padding: var(--input-padding);
     font-size: var(--font-size-0);
-    color: #8B8B8B;
-    color: var(--color-text-grey);
+    color: var(--color-text-primary);
     border: none;
     background-color: #f2f2f2;
-    // margin-top: 2rem;
-    // border-radius: .2rem;
+    width: 100%;
+
+    &::placeholder {
+        font-size: var(--font-size-0);
+        color: var(--color-text-grey);
+    }
+}
+
+select {
+    padding: var(--input-padding);
+    font-size: var(--font-size-0);
+    color: var(--color-text-primary);
+    border: none;
+    background-color: #f2f2f2;
     width: 100%;
 
     &::placeholder {
@@ -1059,6 +1072,11 @@ figcaption {
     width: calc(50% - var(--padding));
     margin-left: var(--margin-width-50);
     padding-right: var(--padding);
+}
+
+.pd_section {
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
 }
 
 .pd_margin-auto {
@@ -1510,6 +1528,29 @@ figure {
 //     width: calc(100vw - var(--padding));
 //     margin-bottom: calc(2 * var(--padding));
 // }
+button {
+    background-color: transparent;
+    border: none;
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: var(--font-size-0);
+    transition: background-color 0.3s ease;
+    padding: .3rem .7rem;
+    border: 1px solid currentColor;
+    height: calc(2 * var(--font-size-0));
+    min-width: calc(2 * var(--font-size-0));
+    color: var(--color-text-grey);
+
+    &.active {
+        color: var(--color-text-primary);
+    }
+}
+
+// input{
+//     font-size: var(--font-size-0);
+//     color: var(--color-text-primary);
+
+// }
 
 @media screen and (max-width: 1600px) {}
 
@@ -1540,6 +1581,17 @@ figure {
 }
 
 @media screen and (max-width: 767px) {
+    button {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+
+
+    html,
+    body {
+        scroll-padding-top: calc(54px + calc(2 * var(--padding)));
+    }
 
     body.page {
         display: flex;
@@ -1685,7 +1737,10 @@ figure {
         padding: 0 var(--padding);
     }
 
-
+    .pd_section {
+        padding-top: calc(2 * var(--padding));
+        padding-bottom: calc(2 * var(--padding));
+    }
 
     .pd_flex-25 {
         width: 100%;

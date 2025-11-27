@@ -286,7 +286,7 @@ function custom_post_type_pd_worksfeed()
 
 	$args = array(
 		'label'               => __('pd-worksfeed'),
-		'description'         => __('Архив работ, малые привьюшки, как шоты на drible'),
+		'description'         => __('Архив работ, малые привьюшки, как шоты на dribble'),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
 		// 'supports'            => array('title', 'editor', 'revisions', 'custom-fields',),

@@ -3,56 +3,55 @@
 
 get_header();
 ?>
-
-
-<div class="_padding ">
-    <h2>🎨 Конструктор: Кнопка или Текст</h2>
-
-    <div class="mode-switch">
+<div class=" pd_width_50 pd_section">
+    <h1 class="wp-block-post-title">
+        <?php single_post_title(); ?>
+    </h1>
+    <div class="pd_block mode-switch">
         <button class="mode-btn active" data-mode="button">Кнопка</button>
         <button class="mode-btn" data-mode="text">Только текст</button>
     </div>
 
-    <div class="controls">
+    <div class="pd_block controls">
         <!-- Общее -->
-        <div class="control-group">
+        <p class="control-group">
             <label for="content">Текст</label>
             <input type="text" id="content" value="Нажми меня" placeholder="Введите текст...">
-        </div>
+        </p>
 
         <!-- Для кнопки -->
-        <div class="control-group button-only">
-            <label for="width">Ширина (например: 200px, 50mm)</label>
+        <p class="control-group button-only">
+            <label for="width">Ширина</label>
             <input type="text" id="width" value="200px" placeholder="200px">
-        </div>
+        </p>
 
-        <div class="control-group button-only">
-            <label for="height">Высота (например: 50px, 20pt)</label>
+        <p class="control-group button-only">
+            <label for="height">Высота</label>
             <input type="text" id="height" value="50px" placeholder="50px">
-        </div>
+        </p>
 
-        <div class="control-group button-only">
-            <label for="radius">Радиус скругления (например: 10px, 5mm)</label>
+        <p class="control-group button-only">
+            <label for="radius">Радиус скругления</label>
             <input type="text" id="radius" value="10px" placeholder="10px">
-        </div>
+        </p>
 
-        <div class="control-group button-only">
-            <label for="bgColor">Цвет фона кнопки</label>
+        <p class="control-group button-only">
+            <label for="bgColor">Цвет фона</label>
             <input type="color" id="bgColor" value="#007bff">
-        </div>
+        </p>
 
-        <div class="control-group button-only">
-            <label for="textColor">Цвет текста кнопки</label>
+        <p class="control-group button-only">
+            <label for="textColor">Цвет текста</label>
             <input type="color" id="textColor" value="#ffffff">
-        </div>
+        </p>
 
         <!-- Только для текста -->
-        <div class="control-group text-only hidden">
-            <label for="fontSize">Размер шрифта (например: 24px, 18pt)</label>
+        <p class="control-group text-only hidden">
+            <label for="fontSize">Размер шрифта</label>
             <input type="text" id="fontSize" value="24px" placeholder="24px">
-        </div>
+        </p>
 
-        <div class="control-group text-only hidden">
+        <p class="control-group text-only hidden">
             <label for="fontFamily">Шрифт</label>
             <select id="fontFamily">
                 <option value="Arial, sans-serif">Arial</option>
@@ -67,15 +66,15 @@ get_header();
                 <option value="'Ubuntu', sans-serif">Ubuntu</option>
                 <option value="'Noto Sans', sans-serif">Noto Sans</option>
             </select>
-        </div>
+        </p>
 
-        <div class="control-group text-only hidden">
+        <p class="control-group text-only hidden">
             <label for="textColorPlain">Цвет текста</label>
             <input type="color" id="textColorPlain" value="#333333">
-        </div>
+        </p>
     </div>
 
-    <div class="preview">
+    <div class="preview pd_block">
         <div id="preview-element" class="button-preview">Нажми меня</div>
     </div>
 
@@ -178,88 +177,13 @@ get_header();
 
 
     <style>
-
-        .mode-switch {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .mode-btn {
-            padding: 10px 20px;
-            border: none;
-            background: #e0e0e0;
-            cursor: pointer;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .mode-btn.active {
-            background: #007bff;
-            color: white;
-        }
-
-        .controls {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input,
-        select {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .preview {
-            text-align: center;
-            padding: 30px;
-        }
-
         .button-preview {
-            display: inline-block;
-            background: #007bff;
-            color: white;
             text-align: center;
-            line-height: 1;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s;
-            padding: 10px 20px;
-            border: none;
-            font-family: inherit;
         }
 
         .text-preview {
-            display: inline-block;
-            font-size: 16px;
-            color: #333;
-            padding: 0;
-            background: transparent;
-            border: none;
-            cursor: text;
-            font-family: inherit;
-        }
+            text-align: left;
 
-        h2 {
-            margin-top: 0;
         }
 
         .hidden {
@@ -274,6 +198,8 @@ get_header();
         }
     </style>
 </div>
+
+
 
 <?
 get_footer();

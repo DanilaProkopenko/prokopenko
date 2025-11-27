@@ -9,7 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
         function observerVideo(el) {
             var img = el.getElementsByClassName("placeholder_image")[0];
             // var lazyContainer = document.getElementById("lazy_container");
-
+            // ✅ Добавь эту проверку
+            if (!img) {
+                console.warn('placeholder_image не найден:', el);
+                return;
+            }
             const options = {
                 root: null,
                 rootMargin: "0px",

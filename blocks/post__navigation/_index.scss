@@ -3,7 +3,6 @@
     top: 8rem;
     z-index: 80;
     left: var(--padding);
-    mix-blend-mode: difference;
 }
 
 .post__navigation {
@@ -30,7 +29,7 @@
         left: 0;
         top: 0;
         background-color: rgba(0, 0, 0, 0.15);
-        background-color: var(--color-secondary-blend);
+        background-color: var(--color-text-grey);
         border-radius: 10px;
     }
 
@@ -45,7 +44,6 @@
         &.active,
         &:hover {
             color: var(--color-text-primary);
-            color: var(--color-primary-blend);
 
             // padding-left: calc(1rem + .15rem);
             // border-left: .15rem solid currentColor;
@@ -64,7 +62,6 @@
     /* Отступ слева */
     width: 0.15rem;
     background-color: var(--color-text-primary);
-    background-color: var(--color-primary-blend);
     /* Цвет индикатора */
     border-radius: 10px;
     transition: top 0.3s ease, height 0.3s ease;
@@ -95,8 +92,7 @@
     font-size: var(--font-size-0);
     font-weight: 400;
     text-decoration: none;
-    // color: var(--color-text-grey);
-    color: var(--color-secondary-blend);
+    color: var(--color-text-grey);
 
     padding: 0.35rem 1rem;
     position: relative;
@@ -106,7 +102,6 @@
 
 .post__navigation a.active {
     color: var(--color-text-primary);
-    color: var(--color-primary-blend);
 
 }
 
@@ -146,14 +141,13 @@
         }
 
         &::after {
-            position: relative;
-            right: 0;
-            left: auto;
-            margin: 0 auto;
-            content: '';
-            height: 100%;
-            width: 3rem;
-            background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+            // position: relative;
+            // right: 0;
+            // left: auto;
+            // margin: 0 auto;
+            // content: '';
+            // height: 100%;
+            // width: 3rem;
         }
 
         .indicator {
