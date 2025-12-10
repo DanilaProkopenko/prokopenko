@@ -975,6 +975,7 @@ select {
 .wp-block-list,
 ul {
     list-style: none;
+    margin-top: .5rem;
 
     li:not(:first-child) {
         margin-top: .5rem;
@@ -982,16 +983,17 @@ ul {
 
     li:first-child {
         margin-top: .2rem;
+        margin-top: 0;
     }
 
     li {
-        padding-left: .8rem;
         position: relative;
 
         &:before {
             position: absolute;
-            left: 0;
-            content: "⋅ ";
+            left: -1rem;
+            content: "⋅";
+            font-size: var(--font-size-2);
         }
     }
 }
@@ -1088,9 +1090,10 @@ figcaption {
     margin-left: auto;
 }
 
-// .title__caption {
-//     margin-top: calc(var(--gap) * 0.3) !important
-// }
+.title__caption {
+    margin-top: calc(var(--gap) * 0.3) !important;
+    margin-bottom: 1rem;
+}
 
 figure {
     a {
@@ -1746,6 +1749,16 @@ button {
         width: 100%;
     }
 
+    .wp-block-list,
+    ul {
+
+        li {
+
+            &:before {
+                left: calc(-.5 * var(--padding));
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1753,6 +1766,17 @@ button {
     .post-password-form {
         max-width: 100%;
         width: 100%;
+    }
+
+    .wp-block-list,
+    ul {
+
+        li {
+
+            &:before {
+                left: calc(-.7 * var(--padding));
+            }
+        }
     }
 }
 

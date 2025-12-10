@@ -44,9 +44,9 @@ $block_id_name = get_field('block_id_name');
         <h1 class="first-screen-title__heading">
             <?= $first_screen_title ?>
         </h1>
-        <!-- <p class="first-screen-title__caption pd_flex-50"> -->
+        <div class="first-screen-title__caption pd_flex-50">
             <?= $first_screen_title_caption ?>
-        <!-- </p> -->
+        </div>
     </div>
     <?php if ($first_screen_video): ?>
         <!-- <div class="lazy_container first-screen__image emerge">
@@ -70,7 +70,7 @@ $block_id_name = get_field('block_id_name');
             <?php
             $video_img = $first_screen_video['sizes']['1536x1536'];
             ?>
-
+            
             <img class="first-screen__image__source placeholder_image" data-src-class="first-screen__image__source" data-src-img="<?= esc_url($video_img); ?>" data-src-video="<?= $first_screen_video['url']; ?>" data-video-loop="1" data-video-autoplay="1" data-video-controls="0" data-video-muted="1" src="<?= esc_url($video_img); ?>" fetchpriority="high" />
             <!-- <video
                 preload="auto"
@@ -80,11 +80,9 @@ $block_id_name = get_field('block_id_name');
                 playsinline
                 muted
                 class="first-screen__image__source"
-                poster="<?php //echo esc_url($first_screen_video['url']) 
-                        ?>">
+                poster="<?php //echo esc_url($first_screen_video['url']) ?>">
                 <source
-                    src="<?php //echo $first_screen_video['url']; 
-                            ?>"
+                    src="<?php //echo $first_screen_video['url']; ?>"
                     type="video/mp4">
             </video> -->
         </div>
