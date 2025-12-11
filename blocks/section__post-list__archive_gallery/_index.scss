@@ -13,7 +13,7 @@
         --f-carousel-slide-padding: 0;
 
         .f-carousel__slide {
-            padding: 0 calc(var(--padding) / 2);
+            padding: 0 calc(var(--gap) / 2);
 
             &:first-child {
                 padding-left: var(--padding);
@@ -108,7 +108,7 @@
     .posts-list__archive-gallery {
         &.f-carousel {
             .f-carousel__slide {
-                padding: 0 calc(1.3 * var(--padding));
+                padding: 0 calc(.5 * var(--gap));
 
                 &:first-child {
                     // padding-left: calc(2.3 * var(--padding));

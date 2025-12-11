@@ -105,7 +105,9 @@ function block_archive($atts)
 	"post_list_category":"' . esc_html($atts['category']) . '",
 	"_post_list_category":"field_67dd27498f69e",
 	"post_list_tag":"' . esc_html($atts['tag']) . '",
-	"_post_list_tag":"field_67dd27fe8f69f"},
+	"_post_list_tag":"field_67dd27fe8f69f",
+	"post_not_in":"' . esc_html($atts['post_not_in']) . '",
+	"_post_not_in":"field_archive_post_not_in"},
 	"mode":"preview"
 	} /-->');
 	return ob_get_clean();
@@ -444,3 +446,21 @@ function custom_post_type_pd_works()
 }
 
 add_action('init', 'custom_post_type_pd_works', 0);
+
+function get_parent_category_for_post($post_id)
+{
+	// 1. Получаем все категории для данной записи
+	$categories = get_the_terms($post_id, 'category');
+
+	if ($categories && ! is_wp_error($categories)) {
+		foreach ($categories as $category) {
+			// 2. Проверяем, есть ли у категории родитель
+			if ($category->parent) {
+				// 3. Если есть, получаем объект родительской категории
+				$parent_category = get_term($category->parent, 'category');
+				return $parent_category; // Возвращаем родительскую категорию
+			}
+		}
+	}
+	return null; // Если родителя нет
+}

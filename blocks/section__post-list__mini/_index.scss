@@ -45,7 +45,7 @@
     align-content: stretch;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1220px) {
     .section__post-list__mini__grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -73,13 +73,10 @@
     .filter-bar--mini::-webkit-scrollbar {
         display: none;
     }
-
-    .section__post-list__mini__grid {
-        // grid-template-columns: repeat(2, 1fr);
-    }
 }
 
-@media screen and (max-width: 480px) {
+// 480px
+@media screen and (max-width: 600px) {
     .section__post-list__mini__grid {
         grid-template-columns: repeat(1, 1fr);
         padding-right: 0;

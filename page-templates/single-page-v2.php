@@ -16,9 +16,15 @@ $short_description = get_field('post_short-description', $id);
 
 $categories = get_the_category();
 $tags = get_the_tags();
+
+$category_id = null;
 if (!empty($categories)) {
-    $category_id = $categories[0]->term_id; // ID первой категории
+    $first_category = $categories[0];
+    // Если у категории есть родитель, используем его ID, иначе используем саму категорию
+    $category_id = $first_category->parent ? $first_category->parent : $first_category->term_id;
 }
+
+$tag_id = null;
 if (!empty($tags)) {
     $first_tag = reset($tags); // Берём первый элемент массива
     $tag_id = $first_tag->term_id; // Выводим название
