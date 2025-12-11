@@ -54,16 +54,13 @@
 }
 
 .scale {
-    moz-transition: 0.4s ease;
+    -moz-transition: 0.4s ease;
     -ms-transition: 0.4s ease;
     -o-transition: 0.4s ease;
     transition: 0.4s ease;
     -webkit-transition: 0.4s ease;
     width: 95%;
 }
-
-
-.section__post-list__big__title {}
 
 @media screen and (max-width: 1600px) {}
 
@@ -110,33 +107,8 @@
     // z-index: 80;
 }
 
-
-
-.filter-btn {}
-
-.filter-btn.active {
-    // background-color: #4CAF50;
-    // color: var(--color-text-primary);
-
-}
-
-.filter-btn.more-btn {
-    // background: transparent;
-    // border: none;
-    // cursor: pointer;
-    // font-size: 16px;
-}
-
 .category-hidden {
     display: none !important;
-}
-
-.filter-btn.more-btn.expanded {
-    // color: var(--color-text-primary);
-    // color: var(--color-secondary-blend);
-
-    /* Подсветка активной стрелки */
-    // font-weight: bold;
 }
 
 @media screen and (max-width: 767px) {

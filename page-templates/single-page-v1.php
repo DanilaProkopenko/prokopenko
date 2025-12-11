@@ -1,7 +1,7 @@
 <?php
 /* 
 Template name: Одиночная страница V1 
-Template Post Type: post
+Template Post Type: post, pd-works
 */
 
 $title  = get_the_title();

@@ -1,6 +1,6 @@
 <?php
 // функции, необходимые для блока и только для блока
-function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null, $category = null)
+function getPostsCardMini($posts_per_page = 50, $post__not_in = null, $tag = null, $category = null)
 {
     ob_start();
 
@@ -53,7 +53,7 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
         $short_description = get_field('post_short-description', $id);
         $post_thumb_video = get_field('post_thumb_video', $id);
 
-        get_template_part('components/post-card/post-card__big/post-card__big', null, array(
+        get_template_part('components/post-card/post-card__mini/post-card__mini', null, array(
             'title' => get_the_title(),
             'link' => get_the_permalink(),
             'id' => $id,
@@ -65,7 +65,8 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
             'short_description' => $short_description,
 
             'except' =>  has_excerpt() ? get_the_excerpt() : null,
-            'gallery' => get_field('post_card_gallery', $id),
+            'gallery_big' => get_field('post_card_gallery', $id),
+            'gallery_mini' => get_field('post_card_gallery_mini', $id),
             'posts_count' => $posts_count,
             'post_thumb_video' => $post_thumb_video,
             'counter' => $counter,

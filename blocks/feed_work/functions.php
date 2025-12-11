@@ -6,7 +6,7 @@ function getPostsCardFeed($posts_per_page = 50, $post__not_in = null, $tag = nul
 
 
     $args = array(
-        'post_type' => 'pd-worksfeed',
+        'post_type' => ['post', 'pd-works'],
         'posts_per_page' => $posts_per_page,
         'post_status' => 'publish',
         'orderby' => 'date',

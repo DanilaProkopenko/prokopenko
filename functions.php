@@ -259,7 +259,7 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 
 
 /*
-* Создание CPT покрытий и цветов
+* Создание CPT Архивные работы
 */
 
 function custom_post_type_pd_worksfeed()
@@ -344,3 +344,103 @@ function custom_post_type_pd_worksfeed()
 }
 
 add_action('init', 'custom_post_type_pd_worksfeed', 0);
+
+
+/*
+* Создание CPT Работы
+*/
+
+function custom_post_type_pd_works()
+{
+
+	// Set UI labels for Custom Post Type
+	$labels = array(
+		'name'                => __('Работы'),
+		'singular_name'       => __('Работа'),
+		'menu_name'           => __('Работы'),
+		'parent_item_colon'   => __('Parent menu'),
+		'all_items'           => __('Все работы'),
+		'view_item'           => __('Просмотреть работу'),
+		'add_new_item'        => __('Добавить новую работу'),
+		'add_new'             => __('Добавить новую'),
+		'edit_item'           => __('Редактировать работу'),
+		'update_item'         => __('Обновить работу'),
+		'search_items'        => __('Искать работу'),
+		'not_found'           => __('Не найдено'),
+		'not_found_in_trash'  => __('Не найдено в мусорке'),
+	);
+
+	// Set other options for Custom Post Type
+
+	$args = array(
+		'label'               => __('pd-works'),
+		'description'         => __('Работы из портфолио'),
+		'labels'              => $labels,
+		// Features this CPT supports in Post Editor
+		// 'supports'            => array('title', 'revisions', 'custom-fields',),
+		'supports'            => array(
+			'title',           // Заголовок поста
+			'editor',          // Редактор контента (Gutenberg/HTML)
+			'comments',        // Комментарии
+			'revisions',       // Ревизии
+			'trackbacks',      // Трекбэки/пинги
+			'author',          // Автор
+			'excerpt',         // Отрывок
+			'page-attributes', // Порядок сортировки (меню order)
+			'thumbnail',       // Изображение-заглушка (featured image)
+			'custom-fields',   // Пользовательские поля (ACF)
+			'post-formats'     // Форматы поста (если включены)
+		),
+		// You can associate this CPT with a taxonomy or custom taxonomy. 
+		//'taxonomies'          => array('nika_products-category'),
+		'taxonomies'          => array('category', 'post_tag'),
+		/* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 7,
+		'menu_icon'           => 'dashicons-archive',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'rewrite'     => array('slug' => 'works'), // my custom slug
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+		'show_in_rest' => true,
+
+	);
+
+	// ; register_taxonomy(
+	// ;     'nika_products-category',
+	// ;     'nika-products',
+	// ;     array(
+	// ;         'labels' => array(
+	// ;             'name'              => 'Категории',
+	// ;             'singular_name'     => 'Категория',
+	// ;             'search_items'      => 'Search Article Categories',
+	// ;             'all_items'         => 'All Article Categories',
+	// ;             'edit_item'         => 'Edit Article Categories',
+	// ;             'update_item'       => 'Update Article Category',
+	// ;             'add_new_item'      => 'Add New Article Category',
+	// ;             'new_item_name'     => 'New Article Category Name',
+	// ;             'menu_name'         => 'Article Category',
+	// ;         ),
+	// ;         'rewrite' => array('slug' => 'product-category'),
+	// ;         'hierarchical' => true,
+	// ;         'sort' => true,
+	// ;         'args' => array('orderby' => 'term_order'),
+	// ;         'show_admin_column' => true
+	// ;     )
+	// ; );
+
+	// Registering your Custom Post Type
+	register_post_type('pd-works', $args);
+}
+
+add_action('init', 'custom_post_type_pd_works', 0);

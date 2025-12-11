@@ -67,7 +67,7 @@
     --padding: clamp(1rem, 5vw, 3rem);
     --grid-gap: 40px;
     --gap: clamp(1rem, 1vw, 3rem);
-
+    --row-gap: clamp(1rem, 10vw, 20rem);
 
     --width-100-parent-padding-bleed: calc(100% + var(--padding));
 
@@ -382,6 +382,9 @@ a,
     &:link {
         // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     }
+}
+a.no-underline{
+    text-decoration: none ;
 }
 
 .dashicons,

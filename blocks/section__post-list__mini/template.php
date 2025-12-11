@@ -36,21 +36,18 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 $block_name = get_field('block_name');
 ?>
-<section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="postslist">
-    <div class="section__post-list__big__heading section__heading">
+<section class="section__post-list__mini__wrapper" data-id-name="<?= $block_id_name ?>" id="postslist-mini">
+    <div class="section__post-list__mini__heading section__heading">
         <?php if ($block_name): ?>
             <h2 class="section__title" id="favorites">
                 <?= $block_name ?>
             </h2>
         <? endif ?>
-        <!-- <div class="section__caption">
-            Собрал работы, над которыми работал в последнее время
-        </div> -->
     </div>
-    <div class="filter-bar">
-        <button class="filter-btn  active" data-filter="all">Все</button>
+    <div class="filter-bar filter-bar--mini">
+        <button class="filter-btn active" data-filter="all">Все</button>
     </div>
-    <div class="section__post-list__big">
-        <?= getPostsCardBig(-1, null, $post_list_tag, $post_list_category) ?>
+    <div class="section__post-list__mini__grid">
+        <?= getPostsCardMini(-1, null, $post_list_tag, $post_list_category) ?>
     </div>
 </section>

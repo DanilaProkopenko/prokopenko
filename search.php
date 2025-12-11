@@ -19,7 +19,7 @@ get_header();
     // Берём все записи
     $args = [
         'posts_per_page' => -1,
-        'post_type' => ['post', 'page', 'works'],
+        'post_type' => ['post', 'page', 'works', 'pd-works'],
         'post_status' => 'publish'
     ];
     $all_posts = get_posts($args);

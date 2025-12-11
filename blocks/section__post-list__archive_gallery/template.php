@@ -48,5 +48,6 @@ $block_id_name = get_field('block_id_name');
     <p></p> -->
     <div class="posts-list__archive-gallery f-carousel">
         <?= getPostsArchiveGallery(-1, null, $post_list_tag, $post_list_category); ?>
+        <?php echo $post_list_category; ?>
     </div>
 </div>

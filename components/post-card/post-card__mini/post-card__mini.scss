@@ -1,0 +1,114 @@
+.post-card__mini {
+    // display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInScale 0.8s ease forwards;
+    width: fit-content;
+
+    &.active {
+        opacity: 1;
+    }
+
+    &.card-hidden {
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.post-card__mini__image {
+    // width: ;
+    display: inline-block;
+}
+
+.post-card__mini__image-link__wrapper {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    // padding-left: calc(.25 * (var(--padding)));
+    // padding-right: calc(.25 * (var(--padding)));
+    // padding-left: calc(.5 * (var(--gap)));
+    // padding-right: calc(.5 * (var(--gap)));
+
+    .post-category {
+        display: none;
+    }
+
+    &[data-counter='1'] {
+        // padding-left: calc(2 * var(--gap));
+    }
+}
+
+.post-card__mini__content {
+    position: absolute;
+    top: 0;
+    left: calc(-.85 * var(--gap));
+
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    transform: rotate(180deg);
+    white-space: nowrap;
+
+    h2,
+    h3,
+    h4,
+    h2 a,
+    h3 a,
+    h4 a {
+        margin: 0 !important;
+        // text-transform: none;
+        font-size: var(--font-size--2);
+        // font-weight: var(--font-weight-regular);
+    }
+}
+
+.post-card__mini__image-link {
+    height: fit-content;
+    width: 100%;
+    display: inline-block;
+
+
+
+    picture {
+        width: 100%;
+        display: flex;
+        height: auto;
+    }
+}
+
+.post-card__mini__gallery__img__source {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0.25;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 480px) {
+    .post-card__mini__image-link__wrapper {}
+
+    .section__post-list__mini__grid {
+        .post-card__mini__image-link__wrapper {
+            &:not(:first-child) {
+                &[data-counter='1'] {
+                    // padding-left: calc(2 * var(--gap));
+                    margin-top: var(--row-gap);
+                }
+            }
+        }
+    }
+}
