@@ -7,7 +7,7 @@
     text-orientation: sideways;
     transform: rotate(180deg);
     white-space: nowrap;
-
+    pointer-events: none;
     li,
     a {
         font-size: var(--font-size--1);

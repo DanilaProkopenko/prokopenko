@@ -18,16 +18,37 @@ $categories = get_the_category();
 $tags = get_the_tags();
 
 $category_id = null;
+$tag_id = null;
+
+// Получаем категорию с её родителем если есть
 if (!empty($categories)) {
     $first_category = $categories[0];
-    // Если у категории есть родитель, используем его ID, иначе используем саму категорию
     $category_id = $first_category->parent ? $first_category->parent : $first_category->term_id;
 }
 
-$tag_id = null;
+// Получаем первый тег
 if (!empty($tags)) {
-    $first_tag = reset($tags); // Берём первый элемент массива
-    $tag_id = $first_tag->term_id; // Выводим название
+    $first_tag = reset($tags);
+    $tag_id = $first_tag->term_id;
+}
+
+// Логика выбора фильтра:
+// 1. Если есть тег - используем тег И родительскую категорию
+// 2. Если нет тега но есть категория - используем родительскую категорию
+// 3. Если нет категории но есть тег - используем тег
+$archive_category = null;
+$archive_tag = null;
+
+if ($tag_id) {
+    // Есть тег - используем его с категорией
+    $archive_tag = $tag_id;
+    $archive_category = $category_id;
+} elseif ($category_id) {
+    // Нет тега, но есть категория
+    $archive_category = $category_id;
+} elseif ($tag_id) {
+    // Только тег
+    $archive_tag = $tag_id;
 }
 ?>
 
@@ -54,7 +75,7 @@ if (!empty($tags)) {
     </div>
 
     <p class="_padding has-h-2-font-size small-margin-all">Другие работы</p>
-    <?php echo do_shortcode('[block_archive tag=' . $tag_id . ' post_not_in=' . $post_id . ']') ?>
+    <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag . ' post_not_in=' . $post_id . ']') ?>
 
 </div>
 

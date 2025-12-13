@@ -77,3 +77,6 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
     wp_reset_query();
     return ob_get_clean();
 }
+
+//Отмена ограничения загрузки файла выше 2560 пикселей
+add_filter( 'big_image_size_threshold', '__return_false' );
