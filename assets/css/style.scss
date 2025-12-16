@@ -56,28 +56,28 @@
     // Burger Menu Background (by page color)
     --burger-menu-bg-default: #FF4903;
     --burger-menu-text-default: var(--color-text-primary);
-    
+
     --burger-menu-bg-red: #FF4903;
     --burger-menu-text-red: var(--color-text-primary);
-    
+
     --burger-menu-bg-purple: #FF6CF1;
     --burger-menu-text-purple: var(--color-text-primary);
-    
+
     --burger-menu-bg-green: #1fdd00;
     --burger-menu-text-green: var(--color-text-primary);
-    
+
     --burger-menu-bg-yellow: #EDFF55;
     --burger-menu-text-yellow: var(--color-text-primary);
-    
+
     --burger-menu-bg-blue: #5B9FFF;
     --burger-menu-text-blue: var(--color-text-primary);
-    
+
     --burger-menu-bg-grey: #B3B3B3;
     --burger-menu-text-grey: var(--color-text-primary);
-    
+
     --burger-menu-bg-black: #4D4D4D;
     --burger-menu-text-black: var(--color-text-primary);
-    
+
     --burger-menu-bg-white: #F0F0F0;
     --burger-menu-text-white: var(--color-text-primary);
 
@@ -132,33 +132,42 @@
     // Background colors and text colors for different page color states
     // Format: --page-color-{name}: {background-color}
     // Format: --page-text-{name}: {text-color} for readability
-    
+
     --page-color-white: var(--color-white);
-    --page-text-white: #040404;      // Black text on white
-    
+    --page-text-white: #040404; // Black text on white
+    --page-icon-white: #040404; // Black icon on white
+
     --page-color-grey: #858585;
-    --page-text-grey: #ffffff;       // White text on grey
-    
+    --page-text-grey: #ffffff; // White text on grey
+    --page-icon-grey: #ffffff; // White icon on grey
+
     --page-color-black: #1a1a1a;
-    --page-text-black: #ffffff;      // White text on black
-    
+    --page-text-black: #ffffff; // White text on black
+    --page-icon-black: #ffffff; // White icon on black
+
     --page-color-yellow: #EDFF55;
-    --page-text-yellow: #000000;     // Black text on yellow
-    
+    --page-text-yellow: #000000; // Black text on yellow
+    --page-icon-yellow: #000000; // Black icon on yellow
+
     --page-color-red: #FF4903;
-    --page-text-red: #ffffff;        // White text on red
-    
+    --page-text-red: #ffffff; // White text on red
+    --page-icon-red: #ffffff; // White icon on red
+
     --page-color-blue: #5B9FFF;
-    --page-text-blue: #ffffff;       // White text on blue (dark blue needs white)
-    
+    --page-text-blue: #ffffff; // White text on blue (dark blue needs white)
+    --page-icon-blue: #ffffff; // White icon on blue (dark blue needs white)
+
     --page-color-green: #1fdd00;
-    --page-text-green: #000000;      // Black text on bright green
-    
+    --page-text-green: #000000; // Black text on bright green
+    --page-icon-green: #000000; // Black icon on bright green
+
     --page-color-purple: #FF6CF1;
-    --page-text-purple: #000000;     // Black text on light purple
-    
+    --page-text-purple: #000000; // Black text on light purple
+    --page-icon-purple: #000000; // Black icon on light purple
+
     --page-color-orange: #FF6B00;
-    --page-text-orange: #ffffff;     // White text on orange
+    --page-text-orange: #ffffff; // White text on orange
+    --page-icon-orange: #ffffff; // White icon on orange
 
     @media screen and (max-width: 1220px) {
         --grid-gap: 35px;
@@ -239,9 +248,42 @@ body {
     //     width: 0;
     // }
 
-    &.page {}
-
     &._open {
+        .header__wrapper {
+            * {
+                color: var(--page-text-white) !important;
+            }
+
+            a {
+                color: var(--page-text-white) !important;
+
+                &:hover {
+                    color: var(--page-text-white) !important;
+                    opacity: 0.8;
+                }
+
+                &.active {
+                    color: var(--page-text-white) !important;
+                }
+            }
+
+            .search-icon__handle::before,
+            .search-icon__handle::after {
+                background-color: var(--page-icon-white);
+            }
+
+            .search-icon__circle {
+                border-color: var(--page-icon-white);
+            }
+
+            .bar,
+            .bar:after,
+            .bar:before {
+                background-color: var(--page-icon-white);
+            }
+
+        }
+
         // overflow: hidden;
         // max-height: 100vh;
         // transform: scale(.9);
@@ -350,40 +392,56 @@ body {
     background-color: var(--page-color-red);
 
     * {
-        color: var(--page-text-red) !important;
+        color: var(--page-text-red);
     }
 
     a {
-        color: var(--page-text-red) !important;
+        color: var(--page-text-red);
 
         &:hover {
-            color: var(--page-text-red) !important;
+            color: var(--page-text-red);
             opacity: 0.8;
         }
 
         &.active {
-            color: var(--page-text-red) !important;
+            color: var(--page-text-red);
         }
     }
+
+    .search-icon__handle::before,
+    .search-icon__handle::after {
+        background-color: var(--page-icon-red);
+    }
+
+    .search-icon__circle {
+        border-color: var(--page-icon-red);
+    }
+
+    .bar,
+    .bar:after,
+    .bar:before {
+        background-color: var(--page-icon-red);
+    }
 }
+
 
 .page__color-blue {
     background-color: var(--page-color-blue);
 
     * {
-        color: var(--page-text-blue) !important;
+        color: var(--page-text-blue);
     }
 
     a {
-        color: var(--page-text-blue) !important;
+        color: var(--page-text-blue);
 
         &:hover {
-            color: var(--page-text-blue) !important;
+            color: var(--page-text-blue);
             opacity: 0.8;
         }
 
         &.active {
-            color: var(--page-text-blue) !important;
+            color: var(--page-text-blue);
         }
     }
 }
@@ -392,19 +450,19 @@ body {
     background-color: var(--page-color-yellow);
 
     * {
-        color: var(--page-text-yellow) !important;
+        color: var(--page-text-yellow);
     }
 
     a {
-        color: var(--page-text-yellow) !important;
+        color: var(--page-text-yellow);
 
         &:hover {
-            color: var(--page-text-yellow) !important;
+            color: var(--page-text-yellow);
             opacity: 0.8;
         }
 
         &.active {
-            color: var(--page-text-yellow) !important;
+            color: var(--page-text-yellow);
         }
     }
 }
@@ -413,19 +471,19 @@ body {
     background-color: var(--page-color-green);
 
     * {
-        color: var(--page-text-green) !important;
+        color: var(--page-text-green);
     }
 
     a {
-        color: var(--page-text-green) !important;
+        color: var(--page-text-green);
 
         &:hover {
-            color: var(--page-text-green) !important;
+            color: var(--page-text-green);
             opacity: 0.8;
         }
 
         &.active {
-            color: var(--page-text-green) !important;
+            color: var(--page-text-green);
         }
     }
 }
@@ -434,19 +492,19 @@ body {
     background-color: var(--page-color-orange);
 
     * {
-        color: var(--page-text-orange) !important;
+        color: var(--page-text-orange);
     }
 
     a {
-        color: var(--page-text-orange) !important;
+        color: var(--page-text-orange);
 
         &:hover {
-            color: var(--page-text-orange) !important;
+            color: var(--page-text-orange);
             opacity: 0.8;
         }
 
         &.active {
-            color: var(--page-text-orange) !important;
+            color: var(--page-text-orange);
         }
     }
 }
@@ -474,13 +532,8 @@ body {
 
 body {
     padding-top: 5rem;
-    background-color: var(--color-primary);
-    transition: all 0.4s ease-in-out;
-    opacity: 1;
     overflow-y: auto;
     position: relative;
-
-    &._open {}
 
     p,
     ul,
@@ -500,7 +553,7 @@ a,
 .link {
     color: var(--color-text-primary);
     opacity: 1;
-    transition: all .3s;
+    // transition: all .3s;
 
     width: fit-content;
     text-decoration: none;

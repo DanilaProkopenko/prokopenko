@@ -1,4 +1,9 @@
 <?php
+/* 
+Template name: Одиночная страница V1 
+Template Post Type: post, pd-works
+*/
+
 $title  = get_the_title();
 $id = get_the_ID();
 $thumb = get_the_post_thumbnail_url(get_the_ID(), 'full');

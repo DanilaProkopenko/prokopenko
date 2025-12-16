@@ -1,0 +1,65 @@
+{
+    "key": "group_6941b7fba86d5",
+    "title": "Page Color",
+    "fields": [
+        {
+            "key": "field_6941b7fb94667",
+            "label": "page_color",
+            "name": "page_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "black": "Black",
+                "grey": "Grey",
+                "red": "Red",
+                "blue": "Blue",
+                "yellow": "Yellow",
+                "green": "Green",
+                "orange": "Orange"
+            },
+            "default_value": "white",
+            "return_format": "array",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pd-works"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "junk"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1765915714
+}
