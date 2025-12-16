@@ -1,5 +1,8 @@
 <?php
-/* Template name: Конструктор кнопок */
+/* 
+Template name: Конструктор кнопок 
+Template Post Type: junk
+*/
 
 get_header();
 ?>

@@ -296,7 +296,7 @@ body {
     background-color: var(--page-color-white);
 
     * {
-        color: var(--page-text-white) !important;
+        color: var(--page-text-white);
     }
 
     a,
@@ -305,7 +305,7 @@ body {
     }
 
     a {
-        color: var(--page-text-white) !important;
+        color: var(--page-text-white);
     }
 }
 
@@ -1570,10 +1570,10 @@ button {
     border: 1px solid currentColor;
     height: calc(2 * var(--font-size-0));
     min-width: calc(2 * var(--font-size-0));
-    color: var(--color-text-grey);
+    color: var(--color-text-grey) !important;
 
     &.active {
-        color: var(--color-text-primary);
+        color: var(--color-text-primary) !important;
     }
 }
 
