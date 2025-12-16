@@ -183,7 +183,6 @@ class Header {
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.remove('_green');
                     burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_red');
                     break;
                 case 2:
@@ -192,7 +191,6 @@ class Header {
                     burgerMenu.classList.remove('_yellow');
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_green');
                     break;
                 case 3:
@@ -201,7 +199,6 @@ class Header {
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.remove('_green');
                     burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_blue');
                     break;
                 case 4:
@@ -210,7 +207,6 @@ class Header {
                     burgerMenu.classList.remove('_green');
                     burgerMenu.classList.remove('_blue');
                     burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_yellow');
                     break;
                 case 5:
@@ -219,7 +215,6 @@ class Header {
                     burgerMenu.classList.remove('_blue');
                     burgerMenu.classList.remove('_yellow');
                     burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_purple');
                     break;
                 case 6:
@@ -228,25 +223,15 @@ class Header {
                     burgerMenu.classList.remove('_blue');
                     burgerMenu.classList.remove('_yellow');
                     burgerMenu.classList.remove('_purple');
-                    burgerMenu.classList.remove('_color_6');
                     burgerMenu.classList.add('_color_5');
                     break;
-                case 7:
+                default:
                     burgerMenu.classList.remove('_red');
                     burgerMenu.classList.remove('_green');
                     burgerMenu.classList.remove('_blue');
                     burgerMenu.classList.remove('_yellow');
                     burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.add('_color_6');
-                    break;
-                default:
-                    burgerMenu.classList.remove('_color_6');
-                    burgerMenu.classList.remove('_color_5');
-                    burgerMenu.classList.remove('_red');
-                    burgerMenu.classList.remove('_green');
-                    burgerMenu.classList.remove('_yellow');
-                    burgerMenu.classList.remove('_purple');
                     burgerMenu.classList.add('_blue');
                     break;
             }
@@ -438,12 +423,8 @@ class Header {
                         burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_6');
                         burgerMenu.classList.add('_color_5');
                         break;
-                    case 7:
-                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_5');
-                        burgerMenu.classList.add('_color_6');
-                        break;
                     default:
-                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_5', '_color_6');
+                        burgerMenu.classList.remove('_red', '_green', '_blue', '_yellow', '_purple', '_color_5');
                         burgerMenu.classList.add('_red');
                         break;
                 }

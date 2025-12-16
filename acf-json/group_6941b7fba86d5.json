@@ -19,12 +19,7 @@
             "choices": {
                 "white": "White",
                 "black": "Black",
-                "grey": "Grey",
-                "red": "Red",
-                "blue": "Blue",
-                "yellow": "Yellow",
-                "green": "Green",
-                "orange": "Orange"
+                "grey": "Grey"
             },
             "default_value": "white",
             "return_format": "array",
@@ -61,5 +56,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1765915714
+    "modified": 1765924309
 }

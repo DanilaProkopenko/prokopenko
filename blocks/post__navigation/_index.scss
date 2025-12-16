@@ -40,16 +40,11 @@
     }
 
     a {
+        color: var(--color-text-grey) !important;
 
         &.active,
         &:hover {
-            color: var(--color-text-primary);
-
-            // padding-left: calc(1rem + .15rem);
-            // border-left: .15rem solid currentColor;
-            // &::before {
-            //     background-color: currentColor;
-            // }
+            color: var(--color-text-primary) !important;
         }
 
     }
@@ -92,17 +87,11 @@
     font-size: var(--font-size-0);
     font-weight: 400;
     text-decoration: none;
-    color: var(--color-text-grey);
 
     padding: 0.35rem 1rem;
     position: relative;
     text-transform: lowercase;
     pointer-events: auto;
-}
-
-.post__navigation a.active {
-    color: var(--color-text-primary);
-
 }
 
 

@@ -136,38 +136,19 @@
     --page-color-white: var(--color-white);
     --page-text-white: #040404; // Black text on white
     --page-icon-white: #040404; // Black icon on white
+    --text-decoration-color-white: #00000026;
 
-    --page-color-grey: #858585;
-    --page-text-grey: #ffffff; // White text on grey
-    --page-icon-grey: #ffffff; // White icon on grey
-
-    --page-color-black: #1a1a1a;
+    --page-color-black: #000000;
     --page-text-black: #ffffff; // White text on black
     --page-icon-black: #ffffff; // White icon on black
+    --text-decoration-color-black: #ffffff26;
 
-    --page-color-yellow: #EDFF55;
-    --page-text-yellow: #000000; // Black text on yellow
-    --page-icon-yellow: #000000; // Black icon on yellow
+    --page-color-grey: #B9B9B9;
+    --page-text-grey: #2E2E2E; // Black text on yellow
+    --page-icon-grey: #2E2E2E; // Black icon on yellow
+    --text-decoration-color-grey: #2E2E2E;
 
-    --page-color-red: #FF4903;
-    --page-text-red: #ffffff; // White text on red
-    --page-icon-red: #ffffff; // White icon on red
 
-    --page-color-blue: #5B9FFF;
-    --page-text-blue: #ffffff; // White text on blue (dark blue needs white)
-    --page-icon-blue: #ffffff; // White icon on blue (dark blue needs white)
-
-    --page-color-green: #1fdd00;
-    --page-text-green: #000000; // Black text on bright green
-    --page-icon-green: #000000; // Black icon on bright green
-
-    --page-color-purple: #FF6CF1;
-    --page-text-purple: #000000; // Black text on light purple
-    --page-icon-purple: #000000; // Black icon on light purple
-
-    --page-color-orange: #FF6B00;
-    --page-text-orange: #ffffff; // White text on orange
-    --page-icon-orange: #ffffff; // White icon on orange
 
     @media screen and (max-width: 1220px) {
         --grid-gap: 35px;
@@ -318,17 +299,13 @@ body {
         color: var(--page-text-white) !important;
     }
 
+    a,
+    .link {
+        text-decoration-color: var(--text-decoration-color-white);
+    }
+
     a {
         color: var(--page-text-white) !important;
-
-        &:hover {
-            color: var(--page-text-white) !important;
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-white) !important;
-        }
     }
 }
 
@@ -341,27 +318,26 @@ body {
 
     a {
         color: var(--page-text-grey) !important;
+    }
 
-        &:hover {
-            color: var(--page-text-grey) !important;
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-grey) !important;
-        }
+    a,
+    .link {
+        text-decoration-color: var(--text-decoration-color-grey);
     }
 
     .single__tree {
         a {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: var(--page-text-grey) !important;
+            opacity: .5;
 
             &:hover {
-                color: var(--page-text-grey) !important;
+                color: var(--color-link-hover) !important;
+                text-decoration-color: var(--color-link-border-hover) !important;
+                opacity: 1;
             }
 
             &.active {
-                color: var(--page-text-grey) !important;
+                opacity: 1;
             }
         }
     }
@@ -374,6 +350,11 @@ body {
         color: var(--page-text-black) !important;
     }
 
+    a,
+    .link {
+        text-decoration-color: var(--text-decoration-color-black);
+    }
+
     a {
         color: var(--page-text-black) !important;
 
@@ -388,147 +369,6 @@ body {
     }
 }
 
-.page__color-red {
-    background-color: var(--page-color-red);
-
-    * {
-        color: var(--page-text-red);
-    }
-
-    a {
-        color: var(--page-text-red);
-
-        &:hover {
-            color: var(--page-text-red);
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-red);
-        }
-    }
-
-    .search-icon__handle::before,
-    .search-icon__handle::after {
-        background-color: var(--page-icon-red);
-    }
-
-    .search-icon__circle {
-        border-color: var(--page-icon-red);
-    }
-
-    .bar,
-    .bar:after,
-    .bar:before {
-        background-color: var(--page-icon-red);
-    }
-}
-
-
-.page__color-blue {
-    background-color: var(--page-color-blue);
-
-    * {
-        color: var(--page-text-blue);
-    }
-
-    a {
-        color: var(--page-text-blue);
-
-        &:hover {
-            color: var(--page-text-blue);
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-blue);
-        }
-    }
-}
-
-.page__color-yellow {
-    background-color: var(--page-color-yellow);
-
-    * {
-        color: var(--page-text-yellow);
-    }
-
-    a {
-        color: var(--page-text-yellow);
-
-        &:hover {
-            color: var(--page-text-yellow);
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-yellow);
-        }
-    }
-}
-
-.page__color-green {
-    background-color: var(--page-color-green);
-
-    * {
-        color: var(--page-text-green);
-    }
-
-    a {
-        color: var(--page-text-green);
-
-        &:hover {
-            color: var(--page-text-green);
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-green);
-        }
-    }
-}
-
-.page__color-orange {
-    background-color: var(--page-color-orange);
-
-    * {
-        color: var(--page-text-orange);
-    }
-
-    a {
-        color: var(--page-text-orange);
-
-        &:hover {
-            color: var(--page-text-orange);
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-orange);
-        }
-    }
-}
-
-.page__color-purple {
-    background-color: var(--page-color-purple);
-
-    * {
-        color: var(--page-text-purple) !important;
-    }
-
-    a {
-        color: var(--page-text-purple) !important;
-
-        &:hover {
-            color: var(--page-text-purple) !important;
-            opacity: 0.8;
-        }
-
-        &.active {
-            color: var(--page-text-purple) !important;
-        }
-    }
-}
 
 body {
     padding-top: 5rem;
@@ -562,13 +402,14 @@ a,
     text-underline-offset: 4px;
     /* расстояние от линии до текста, аналогично padding-bottom */
     text-decoration-color: rgba(0, 0, 0, 0.15);
+    text-decoration-color: var(--text-decoration-color-white);
     text-decoration-thickness: 1px;
 
     // border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     &:hover {
         // opacity: .8;
-        color: var(--color-link-hover);
-        border-color: var(--color-link-border-hover);
+        color: var(--color-link-hover) !important;
+        border-color: var(--color-link-border-hover) !important;
 
         * {
             color: var(--color-link-hover) !important;
