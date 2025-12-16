@@ -18,6 +18,9 @@ if (defined('HIDE_ADMIN_BAR') && HIDE_ADMIN_BAR) {
 	add_filter('show_admin_bar', '__return_false');
 }
 
+// Подключение встроенного поиска в теме (компонент)
+require_once THEME_DIR . '/components/search/init-search.php';
+
 add_action('acf/init', 'wwzrds_init_global_acf_constants');
 function wwzrds_init_global_acf_constants()
 {
