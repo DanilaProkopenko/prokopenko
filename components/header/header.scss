@@ -210,69 +210,68 @@ body ul.header__burger__links {
     // padding-top: var(--padding);
 
     text-align: center;
-
-    // visibility: hidden;
     text-wrap: nowrap;
-    color: var(--color-primary);
-    // mix-blend-mode: difference;
-
-    background-color: var(--color-red);
+    background-color: var(--burger-menu-bg-default);
     opacity: 0;
     visibility: hidden;
 
+    * {
+        color: var(--burger-menu-text-default);
+    }
+
     &._red {
-        background-color: #FF4903;
+        background-color: var(--burger-menu-bg-red);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-red);
         }
     }
 
     &._purple {
-        background-color: #FF6CF1;
+        background-color: var(--burger-menu-bg-purple);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-purple);
         }
     }
 
     &._green {
-        background-color: #1fdd00;
+        background-color: var(--burger-menu-bg-green);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-green);
         }
     }
 
     &._yellow {
-        background-color: #EDFF55;
+        background-color: var(--burger-menu-bg-yellow);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-yellow);
         }
     }
 
     &._blue {
-        background-color: #AD55FF;
+        background-color: var(--burger-menu-bg-blue);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-blue);
         }
     }
 
     &._color_5 {
-        background-color: #EEE6CF;
+        background-color: var(--burger-menu-bg-grey);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-grey);
         }
     }
 
     &._color_6 {
-        background-color: #A2726E;
+        background-color: var(--burger-menu-bg-black);
 
         * {
-            color: var(--color-text-primary);
+            color: var(--burger-menu-text-black);
         }
     }
 
@@ -301,12 +300,12 @@ body ul.header__burger__links {
             text-transform: uppercase;
             // font-weight: var(--font-weight-regular);
             font-weight: var(--font-weight-medium);
-            transition: all .1s;
+            transition: all .2s ease;
             text-align: left;
 
             &:hover {
-                background-color: #fff;
-                color: #000;
+                background-color: var(--burger-link-hover-bg);
+                color: var(--burger-link-hover-text);
             }
         }
     }
@@ -360,13 +359,12 @@ body ul.header__burger__links {
 .bar {
     position: relative;
     transform: translateY(10px);
-    // background: var(--color-primary-blend);
-    background: var(--color-text-primary);
+    background: var(--color-burger-icon);
     transition: all 0ms 200ms;
 }
 
 .bar.animate {
-    background: rgba(255, 255, 255, 0);
+    background: var(--color-burger-icon-animate);
 }
 
 .bar:before {
@@ -374,7 +372,7 @@ body ul.header__burger__links {
     position: absolute;
     left: 0;
     bottom: 5px;
-    background: var(--color-text-primary);
+    background: var(--color-burger-icon);
     transition: bottom 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -383,7 +381,7 @@ body ul.header__burger__links {
     position: absolute;
     left: 0;
     top: 5px;
-    background: var(--color-text-primary);
+    background: var(--color-burger-icon);
     transition: top 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -397,6 +395,15 @@ body ul.header__burger__links {
     bottom: 0;
     transform: rotate(-45deg);
     transition: bottom 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#burger-icon {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .header__navigation {

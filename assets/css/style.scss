@@ -13,9 +13,9 @@
     --font-weight-medium: 600;
     --font-weight-bold: 700;
 
+    // === BASE COLORS ===
     --color-primary: #FEFEFE;
     --color-secondary: #999999;
-
     --color-secondary-blend: #505050;
     --color-primary-blend: #cdcdcd;
 
@@ -37,6 +37,58 @@
 
     --color-grey-border: rgba(0, 0, 0, 0.15);
 
+    // === UI ELEMENT COLORS ===
+    // Search Modal & Search-related
+    --color-search-bg: #6aff00;
+    --color-search-text: #000000;
+    --color-search-input: #000000;
+    --color-search-input-placeholder: rgba(0, 0, 0, 0.5);
+
+    // Burger Menu Icon
+    --color-burger-icon: var(--color-text-primary);
+    --color-burger-icon-hover: var(--color-accent);
+    --color-burger-icon-animate: rgba(255, 255, 255, 0);
+
+    // Search Trigger Icon
+    --color-search-icon: var(--color-text-primary);
+    --color-search-icon-hover: var(--color-accent);
+
+    // Burger Menu Background (by page color)
+    --burger-menu-bg-default: #FF4903;
+    --burger-menu-text-default: var(--color-text-primary);
+    
+    --burger-menu-bg-red: #FF4903;
+    --burger-menu-text-red: var(--color-text-primary);
+    
+    --burger-menu-bg-purple: #FF6CF1;
+    --burger-menu-text-purple: var(--color-text-primary);
+    
+    --burger-menu-bg-green: #1fdd00;
+    --burger-menu-text-green: var(--color-text-primary);
+    
+    --burger-menu-bg-yellow: #EDFF55;
+    --burger-menu-text-yellow: var(--color-text-primary);
+    
+    --burger-menu-bg-blue: #5B9FFF;
+    --burger-menu-text-blue: var(--color-text-primary);
+    
+    --burger-menu-bg-grey: #B3B3B3;
+    --burger-menu-text-grey: var(--color-text-primary);
+    
+    --burger-menu-bg-black: #4D4D4D;
+    --burger-menu-text-black: var(--color-text-primary);
+    
+    --burger-menu-bg-white: #F0F0F0;
+    --burger-menu-text-white: var(--color-text-primary);
+
+    // Burger Menu Link Hover
+    --burger-link-hover-bg: rgba(0, 0, 0, 0.15);
+    --burger-link-hover-text: var(--color-text-primary);
+
+    // Search Result Highlight
+    --color-search-highlight-bg: #ffff00;
+    --color-search-highlight-text: #000;
+
     --font-size--2: clamp(0.651rem, 0.641rem + 0.0504vw, 0.68rem);
     --font-size--1: clamp(0.7813rem, 0.7573rem + 0.1196vw, 0.85rem);
     --font-size-0: clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem);
@@ -46,7 +98,6 @@
     --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
     --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
 
-
     --lh-0: 1.24;
 
     --text-indent-1: calc(3 * var(--font-size-1));
@@ -54,14 +105,6 @@
     --border: 1px solid var(--color-grey-border);
 
     --input-padding: 1rem;
-    // --font-size--2: clamp(0.6076rem, 0.5964rem + 0.0563vw, 0.64rem);
-    // --font-size--1: clamp(0.7292rem, 0.7045rem + 0.1232vw, 0.8rem);
-    // --font-size-0: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
-    // --font-size-1: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);
-    // --font-size-2: clamp(1.26rem, 1.1548rem + 0.5261vw, 1.5625rem);
-    // --font-size-3: clamp(1.512rem, 1.3586rem + 0.7672vw, 1.9531rem);
-    // --font-size-4: clamp(1.8144rem, 1.5963rem + 1.0904vw, 2.4414rem);
-    // --font-size-5: clamp(2.1773rem, 1.8731rem + 1.5208vw, 3.0518rem);
 
     --grid-gap: 1.88rem;
     --grid-column-gap: 30px;
@@ -84,6 +127,38 @@
 
     --margin-width-50: calc(50% + var(--gap) - 7px);
     --margin-width-75: calc(25% + var(--gap) - 7px);
+
+    // === PAGE COLOR SYSTEM ===
+    // Background colors and text colors for different page color states
+    // Format: --page-color-{name}: {background-color}
+    // Format: --page-text-{name}: {text-color} for readability
+    
+    --page-color-white: var(--color-white);
+    --page-text-white: #040404;      // Black text on white
+    
+    --page-color-grey: #858585;
+    --page-text-grey: #ffffff;       // White text on grey
+    
+    --page-color-black: #1a1a1a;
+    --page-text-black: #ffffff;      // White text on black
+    
+    --page-color-yellow: #EDFF55;
+    --page-text-yellow: #000000;     // Black text on yellow
+    
+    --page-color-red: #FF4903;
+    --page-text-red: #ffffff;        // White text on red
+    
+    --page-color-blue: #5B9FFF;
+    --page-text-blue: #ffffff;       // White text on blue (dark blue needs white)
+    
+    --page-color-green: #1fdd00;
+    --page-text-green: #000000;      // Black text on bright green
+    
+    --page-color-purple: #FF6CF1;
+    --page-text-purple: #000000;     // Black text on light purple
+    
+    --page-color-orange: #FF6B00;
+    --page-text-orange: #ffffff;     // White text on orange
 
     @media screen and (max-width: 1220px) {
         --grid-gap: 35px;
@@ -192,119 +267,210 @@ body {
             margin-left: 0 !important;
         }
     }
+}
 
-    &.black {
-        background-color: var(--color-white);
-        color: #fff;
+.page__color-white {
+    background-color: var(--page-color-white);
 
-        p,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
+    * {
+        color: var(--page-text-white) !important;
+    }
+
+    a {
+        color: var(--page-text-white) !important;
+
+        &:hover {
+            color: var(--page-text-white) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-white) !important;
+        }
+    }
+}
+
+.page__color-grey {
+    background-color: var(--page-color-grey);
+
+    * {
+        color: var(--page-text-grey) !important;
+    }
+
+    a {
+        color: var(--page-text-grey) !important;
+
+        &:hover {
+            color: var(--page-text-grey) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-grey) !important;
+        }
+    }
+
+    .single__tree {
         a {
-            color: #fff;
+            color: rgba(255, 255, 255, 0.7) !important;
 
-            &* {
-                color: #fff;
+            &:hover {
+                color: var(--page-text-grey) !important;
+            }
 
+            &.active {
+                color: var(--page-text-grey) !important;
             }
         }
     }
 }
 
+.page__color-black {
+    background-color: var(--page-color-black);
 
+    * {
+        color: var(--page-text-black) !important;
+    }
 
-// Темы
-/* === ТЁМНАЯ ТЕМА === */
-body.theme-dark {
-    --color-primary: #000;
-    /* фон body */
-    --color-secondary: #b0b0b0;
-    --color-secondary-blend: #888888;
-    --color-primary-blend: #444444;
+    a {
+        color: var(--page-text-black) !important;
 
-    --color-black: #fff;
-    /* цвет текста на тёмном */
-    --color-text-primary: #e0e0e0;
-    --color-text-grey: var(--color-secondary);
+        &:hover {
+            color: var(--page-text-black) !important;
+            opacity: 0.8;
+        }
 
-    --color-accent: #00aaff;
-    --color-link-hover: var(--color-accent);
-    --color-link-border-hover: rgba(0, 170, 255, 0.15);
-
-    --color-white: #fff;
-    --color-grey-border: rgba(255, 255, 255, 0.15);
-    --border: 1px solid var(--color-grey-border);
-
-    /* Фон body — "подложка" */
-    background-color: #121212;
+        &.active {
+            color: var(--page-text-black) !important;
+        }
+    }
 }
 
-body.theme-dark {
-    background-color: var(--color-primary);
-    color: var(--color-text-primary);
+.page__color-red {
+    background-color: var(--page-color-red);
+
+    * {
+        color: var(--page-text-red) !important;
+    }
+
+    a {
+        color: var(--page-text-red) !important;
+
+        &:hover {
+            color: var(--page-text-red) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-red) !important;
+        }
+    }
 }
 
-/* === ОРАНЖЕВАЯ ТЕМА === */
-body.theme-orange {
-    --color-primary: #e65100;
-    /* фон body */
-    --color-secondary: #e0883e;
-    --color-secondary: #7a7a7a63;
-    --color-secondary-blend: #d0782e;
-    --color-secondary-blend: #7a7a7a63;
-    --color-primary-blend: #ffe0c0;
-    --color-primary-blend: #7a7a7a63;
+.page__color-blue {
+    background-color: var(--page-color-blue);
 
-    --color-black: #332200;
-    --color-text-primary: #fff;
-    --color-text-grey: #775522;
+    * {
+        color: var(--page-text-blue) !important;
+    }
 
-    --color-accent: #e65100;
-    --color-link-hover: #c43e00;
-    --color-link-border-hover: rgba(230, 81, 0, 0.15);
+    a {
+        color: var(--page-text-blue) !important;
 
-    --color-white: #fff;
-    --color-grey-border: rgba(51, 34, 0, 0.1);
-    --border: 1px solid var(--color-grey-border);
+        &:hover {
+            color: var(--page-text-blue) !important;
+            opacity: 0.8;
+        }
 
-    /* Фон body — мягкий оранжевый фон */
-    background-color: #fff8f0;
+        &.active {
+            color: var(--page-text-blue) !important;
+        }
+    }
 }
 
-body.theme-orange {
-    background-color: var(--color-primary);
-    color: var(--color-text-primary);
+.page__color-yellow {
+    background-color: var(--page-color-yellow);
+
+    * {
+        color: var(--page-text-yellow) !important;
+    }
+
+    a {
+        color: var(--page-text-yellow) !important;
+
+        &:hover {
+            color: var(--page-text-yellow) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-yellow) !important;
+        }
+    }
 }
 
-/* === СВЕТЛАЯ ТЕМА (по умолчанию) === */
-/* У тебя уже есть в :root — но для ясности */
-:root:not(.theme-dark):not(.theme-orange),
-body:not(.theme-dark):not(.theme-orange) {
-    --color-primary: #FEFEFE;
-    --color-secondary: #999999;
-    --color-secondary-blend: #505050;
-    --color-primary-blend: #cdcdcd;
-    --color-black: #060508;
-    --color-text-primary: #37352f;
-    --color-text-grey: var(--color-secondary);
-    --color-accent: #308cf4;
-    --color-link-hover: var(--color-accent);
-    --color-link-border-hover: rgba(48, 140, 244, 0.15);
-    --color-grey-border: rgba(0, 0, 0, 0.15);
-    --border: 1px solid var(--color-grey-border);
+.page__color-green {
+    background-color: var(--page-color-green);
 
-    background-color: var(--color-black);
+    * {
+        color: var(--page-text-green) !important;
+    }
+
+    a {
+        color: var(--page-text-green) !important;
+
+        &:hover {
+            color: var(--page-text-green) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-green) !important;
+        }
+    }
 }
 
-:root:not(.theme-dark):not(.theme-orange) body,
-body:not(.theme-dark):not(.theme-orange) {
-    background-color: var(--color-primary);
-    color: var(--color-text-primary);
+.page__color-orange {
+    background-color: var(--page-color-orange);
+
+    * {
+        color: var(--page-text-orange) !important;
+    }
+
+    a {
+        color: var(--page-text-orange) !important;
+
+        &:hover {
+            color: var(--page-text-orange) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-orange) !important;
+        }
+    }
 }
 
+.page__color-purple {
+    background-color: var(--page-color-purple);
+
+    * {
+        color: var(--page-text-purple) !important;
+    }
+
+    a {
+        color: var(--page-text-purple) !important;
+
+        &:hover {
+            color: var(--page-text-purple) !important;
+            opacity: 0.8;
+        }
+
+        &.active {
+            color: var(--page-text-purple) !important;
+        }
+    }
+}
 
 body {
     padding-top: 5rem;
@@ -314,37 +480,7 @@ body {
     overflow-y: auto;
     position: relative;
 
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     display: inline-block;
-    //     z-index: 10;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     background-color: rgb(0 0 0 / 65%);
-    //     transition: all 0.5s ease-in-out;
-    //     visibility: hidden;
-    //     opacity: 0;
-    // }
-
-    &._open {
-        // transform: scale(0.85);
-        // opacity: 0.6;
-        // touch-action: none; 
-
-        // &::before {
-        //     opacity: 1;
-        //     visibility: visible;
-        // }
-    }
-
-    section {
-        &:first-child {
-            // padding-top: 0;
-        }
-    }
+    &._open {}
 
     p,
     ul,
@@ -1725,6 +1861,15 @@ button {
         }
     }
 
+    ._padding {
+
+        figure,
+        .wp-block-image {
+            figcaption {
+                padding: 0 !important;
+            }
+        }
+    }
 
     .pd_flex-column-mob {
         flex-direction: column;
