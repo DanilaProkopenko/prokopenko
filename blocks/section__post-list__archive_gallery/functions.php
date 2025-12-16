@@ -3,13 +3,14 @@
 function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag = null, $category = null)
 {
     ob_start();
-    
+
     $args = array(
         'post_type' => ['post', 'pd-works'],
         'posts_per_page' => $posts_per_page,
         'post_status' => 'publish',
         'orderby' => 'date',
         'order' => 'DESC',
+        'post_parent' => 0,
     );
 
     // Добавляем post__not_in если он передан
@@ -52,7 +53,7 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
 
         $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
         $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
-        
+
         get_template_part('components/post-card/post-card', null, array(
             'title' => get_the_title(),
             'link' => get_the_permalink(),

@@ -259,8 +259,11 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 	return $data;
 }
 
+//Отмена ограничения загрузки файла выше 2560 пикселей
+add_filter('big_image_size_threshold', '__return_false');
 
 /*
+* НЕ ИСПОЛЬЗУЕТСЯ
 * Создание CPT Архивные работы
 */
 
@@ -345,7 +348,7 @@ function custom_post_type_pd_worksfeed()
 	register_post_type('pd-worksfeed', $args);
 }
 
-add_action('init', 'custom_post_type_pd_worksfeed', 0);
+// add_action('init', 'custom_post_type_pd_worksfeed', 0);
 
 
 /*
@@ -379,7 +382,6 @@ function custom_post_type_pd_works()
 		'description'         => __('Работы из портфолио'),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		// 'supports'            => array('title', 'revisions', 'custom-fields',),
 		'supports'            => array(
 			'title',           // Заголовок поста
 			'editor',          // Редактор контента (Gutenberg/HTML)
@@ -400,7 +402,7 @@ function custom_post_type_pd_works()
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
         */
-		'hierarchical'        => false,
+		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
@@ -409,7 +411,7 @@ function custom_post_type_pd_works()
 		'menu_position'       => 7,
 		'menu_icon'           => 'dashicons-archive',
 		'can_export'          => true,
-		'has_archive'         => true,
+		'has_archive'         => false,
 		'rewrite'     => array('slug' => 'works'), // my custom slug
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
@@ -446,6 +448,71 @@ function custom_post_type_pd_works()
 }
 
 add_action('init', 'custom_post_type_pd_works', 0);
+
+
+/*
+* Создание CPT Работы
+*/
+
+function custom_post_type_pd_junk()
+{
+
+	// Лейблы для админки
+	$labels = array(
+		'name'                  => __('Свалка', 'textdomain'),
+		'singular_name'         => __('Запись свалки', 'textdomain'),
+		'menu_name'             => __('Свалка', 'textdomain'),
+		'parent_item_colon'     => __('Родительская запись', 'textdomain'),
+		'all_items'             => __('Все записи свалки', 'textdomain'),
+		'view_item'             => __('Просмотреть запись', 'textdomain'),
+		'add_new_item'          => __('Добавить новую запись', 'textdomain'),
+		'add_new'               => __('Добавить новую', 'textdomain'),
+		'edit_item'             => __('Редактировать запись', 'textdomain'),
+		'update_item'           => __('Обновить запись', 'textdomain'),
+		'search_items'          => __('Искать в свалке', 'textdomain'),
+		'not_found'             => __('Ничего не найдено', 'textdomain'),
+		'not_found_in_trash'    => __('В корзине ничего нет', 'textdomain'),
+	);
+
+	$args = array(
+		'label'                 => __('Junk', 'textdomain'),
+		'description'           => __('Произвольные записи для всего подряд', 'textdomain'),
+		'labels'                => $labels,
+		'supports'              => array(
+			'title',
+			'editor',
+			'comments',
+			'revisions',
+			'author',
+			'excerpt',
+			'page-attributes',
+			'thumbnail',
+			'custom-fields',
+			'post-formats',
+		),
+		'taxonomies'            => array('category', 'post_tag'),
+		'hierarchical'          => true,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'show_in_nav_menus'     => true,
+		'show_in_admin_bar'     => true,
+		'menu_position'         => 7,
+		'menu_icon'             => 'dashicons-trash',
+		'can_export'            => true,
+		'has_archive'           => true,
+		'rewrite'               => array('slug' => 'junk'),
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'show_in_rest'          => true,
+	);
+
+	// Регистрируем CPT с ключом `junk`
+	register_post_type('junk', $args);
+}
+
+add_action('init', 'custom_post_type_pd_junk', 0);
 
 function get_parent_category_for_post($post_id)
 {

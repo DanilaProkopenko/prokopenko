@@ -11,6 +11,7 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
         'orderby' => 'date',
         'order' => 'DESC',
         'post__not_in' => $post__not_in ? [$post__not_in] : [],
+        'post_parent' => 0,
     );
 
     // Подготавливаем tax_query
@@ -77,6 +78,3 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
     wp_reset_query();
     return ob_get_clean();
 }
-
-//Отмена ограничения загрузки файла выше 2560 пикселей
-add_filter( 'big_image_size_threshold', '__return_false' );

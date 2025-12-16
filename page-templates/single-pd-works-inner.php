@@ -1,9 +1,7 @@
 <?php
 /* 
-ВЫНЕС ЭТОТ ШАБЛОН В КОРЕНЬ ДЛЯ ДЕФОЛТНОГО ВЫБОРА ТЕМОЙ
-
-Template name: Одиночная страница V1 
-Template Post Type: post, pd-works
+Template name: Одиночная страница Внутренняя 
+Template Post Type: pd-works
 */
 
 $title  = get_the_title();
@@ -56,41 +54,53 @@ if ($tag_id) {
 
 <?php get_header() ?>
 
-<div class="single__wrapper single-page--v1 ">
-    <div class="single__content single-page--v1__content">
-        <div class="post__navigation-wrapper pd_flex-25">
-            <?php echo do_shortcode('[block_post_navigation]')
-            ?>
-        </div>
-        <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
-            <h1 class="wp-block-post-title">
-                <?php single_post_title(); ?>
-            </h1>
 
-            <?php
-            global $post;
+<?php
+global $post;
 
-            if ($post->post_type === 'pd-works') :
+// Работаем только с pd-works
+if ($post->post_type === 'pd-works') :
 
-                // ID текущего поста
-                $current_id = get_queried_object_id();
+    // Если есть родитель — считаем, что это внутренняя страница
+    $parent_id = $post->post_parent ? $post->post_parent : $post->ID;
 
-                $children = get_children([
-                    'post_type'   => 'pd-works',
-                    'post_parent' => $post->ID,
-                    'orderby'     => 'menu_order',
-                    'order'       => 'ASC',
-                    'post_status' => 'publish',
-                ]);
+    // Родительский пост (для заголовка и ссылки)
+    $parent_post = get_post($parent_id);
 
-                if ($children) : ?>
+    // ID текущего поста
+    $current_id = get_queried_object_id();
+
+    // Дочерние записи родителя (все внутренние страницы)
+    $children = get_children([
+        'post_type'   => 'pd-works',
+        'post_parent' => $parent_id,
+        'orderby'     => 'menu_order',
+        'order'       => 'ASC',
+        'post_status' => 'publish',
+    ]);
+?>
+    <div class="single__wrapper single-page--v1">
+        <div class="single__content single-page--v1__content">
+            <div class="post__navigation-wrapper pd_flex-25">
+                <?php echo do_shortcode('[block_post_navigation]'); ?>
+            </div>
+
+            <div class="single-page__content pd_flex-75 wp-block-column is-layout-flow">
+
+                <?php
+                // Заголовок всегда берём у родителя
+                ?>
+                <h1 class="wp-block-post-title">
+                    <?php echo esc_html(get_the_title($parent_post)); ?>
+                </h1>
+
+                <?php if ($children) : ?>
                     <ul class="single__tree title__caption list-style-none">
+                        <!-- Родитель -->
                         <li>
-                            <!-- Родитель -->
                             <a
-                                href="<?php echo esc_url(get_permalink($post->ID)); ?>"
-                                class="<?php echo $current_id === $post->ID ? 'active' : ''; ?>">
-                                <?php //echo esc_html(get_the_title($post->ID)); ?>
+                                href="<?php echo esc_url(get_permalink($parent_post->ID)); ?>"
+                                class="<?php echo $current_id === $parent_post->ID ? 'active' : ''; ?>">
                                 Описание
                             </a>
                         </li>
@@ -105,25 +115,18 @@ if ($tag_id) {
                             </li>
                         <?php endforeach; ?>
                     </ul>
-            <?php endif;
+                <?php endif; ?>
 
-            endif;
-            ?>
-
-
-            <?php echo do_shortcode('[post_category]')
-            ?>
-            <?= $short_description ?>
-            <?php //echo do_shortcode('[block_post_meta]') 
-            ?>
-            <?php the_content();
-            ?>
+                <?php
+                // Здесь уже контент текущей (внутренней) страницы
+                echo do_shortcode('[post_category]');
+                the_content();
+                ?>
+            </div>
         </div>
     </div>
-
-    <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p>
-    <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']') ?>
-
-</div>
+<?php
+endif;
+?>
 
 <?php get_footer() ?>

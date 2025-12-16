@@ -46,6 +46,9 @@
     --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
     --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
 
+
+    --lh-0: 1.24;
+
     --text-indent-1: calc(3 * var(--font-size-1));
 
     --border: 1px solid var(--color-grey-border);
@@ -113,6 +116,11 @@ body {
     scrollbar-gutter: stable;
     scroll-padding-top: calc(5rem + calc(var(--padding)));
     // background-color: #000;
+}
+
+html.with-fancybox body.hide-scrollbar {
+    margin-right: 0;
+    overflow: auto !important;
 }
 
 body {
@@ -440,13 +448,13 @@ h6,
     font-weight: 500;
     font-size: var(--font-size-0);
     text-transform: uppercase;
-    line-height: 124%;
+    line-height: var(--lh-0);
 
     a {
         font-size: var(--font-size-0);
         text-transform: uppercase;
         font-weight: 500;
-        line-height: 124%;
+        line-height: var(--lh-0);
     }
 }
 
@@ -502,6 +510,19 @@ h4 {
     --medium-margin: calc(12rem * 0.75);
     /* Средний отступ (75%) */
     --small-margin: calc(12rem * 0.5);
+    /* Малый отступ (50%) */
+}
+
+div {
+    --large-margin: 16rem;
+    /* Большой отступ */
+    --medium-margin: calc(16rem * 0.75);
+    --medium-margin: 9rem;
+
+    /* Средний отступ (75%) */
+    --small-margin: calc(16rem * 0.5);
+    --small-margin: calc(var(--font-size-0) * 9);
+    --small-margin: 5rem;
     /* Малый отступ (50%) */
 }
 
@@ -586,32 +607,6 @@ div {
             // margin-top: 16rem;
         }
     }
-
-    // h3 {
-    //     &:not(:first-child) {
-    //         margin-top: 10rem;
-    //         padding-left: 2ch;
-
-    //     }
-    // }
-
-    // h4 {
-    //     &:not(:first-child) {
-    //         margin-top: 16rem;
-    //     }
-    // }
-
-    // h5 {
-    //     &:not(:first-child) {
-    //         margin-top: 16rem;
-    //     }
-    // }
-
-    // h6 {
-    //     &:not(:first-child) {
-    //         margin-top: 16rem;
-    //     }
-    // }
 }
 
 .pd_margin-bottom-0 {
@@ -690,11 +685,6 @@ div {
     --f-button-svg-width: 22px;
     --f-button-svg-height: 22px;
     --f-button-svg-stroke-width: 2;
-
-    // --f-button-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    //     rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    //     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    // background-color: rgba(0, 0, 0, 0.69);
 
     --f-carousel-dot-color: #fff;
     --f-carousel-dots-height: 10px;
@@ -863,24 +853,6 @@ section,
     // font-weight: 500;
     color: var(--color-text-grey);
     margin-top: .5rem;
-}
-
-.post-password__page {
-    // width: 100%;
-    // height: 64vh;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-}
-
-.post-password-form {
-    // max-width: 330px;
-    // width: 330px;
-    // height: fit-content;
-    // padding: var(--padding) 0;
-    // margin: 0 auto;
-    // // text-align: center;
 }
 
 // Buttons
@@ -1075,9 +1047,9 @@ figcaption {
 }
 
 .pd_width_50 {
-    width: calc(50% - var(--padding));
-    margin-left: var(--margin-width-50);
+    width: var(--width-50-parent-padding);
     padding-right: var(--padding);
+    margin-left: var(--margin-width-50);
 }
 
 .pd_section {
@@ -1204,6 +1176,21 @@ figure {
     position: relative;
 }
 
+.card-junk,
+.card-search {
+    position: relative;
+}
+
+.card-junk__thumb,
+.card-search__thumb {
+    --img-width: clamp(10rem, 20vw, 16rem);
+
+    position: absolute;
+    top: 0;
+    left: calc(-1 * var(--img-width) - var(--gap));
+    width: var(--img-width);
+    height: auto;
+}
 
 .single-page--v1 {
     .single__content {
@@ -1216,8 +1203,6 @@ figure {
     .single-post__meta__wrapper {
         margin-top: calc(16rem * 0.5);
         margin-top: 5rem;
-        // width: var(--width-50-parent-padding);
-        // margin-left: var(--margin-width-50);
     }
 
 
@@ -1230,8 +1215,10 @@ figure {
         .post-category {
             padding: 0;
             position: absolute;
-            margin-top: calc(var(--gap) * 1.3);
-            left: calc(-2 * var(--gap));
+            left: calc(.3 * var(--padding));
+            right: auto;
+            margin: auto;
+            top: 0;
         }
 
         h1,
@@ -1327,6 +1314,34 @@ figure {
 
 
     }
+}
+
+.single__tree {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    row-gap: .1rem;
+    list-style: none;
+    flex-wrap: wrap;
+
+    li {
+        list-style: none;
+
+        a {
+            color: var(--color-text-grey);
+
+            &.active {
+                pointer-events: none;
+                color: var(--color-text-primary);
+                text-decoration: none;
+            }
+
+            &:hover {
+                color: var(--color-link-hover);
+            }
+        }
+    }
+
 }
 
 .fancybox__container {
@@ -1514,13 +1529,6 @@ figure {
     }
 }
 
-// .pd_column_sticky_mob {
-//     position: sticky;
-//     top: 0;
-//     z-index: 10;
-//     width: calc(100vw - var(--padding));
-//     margin-bottom: calc(2 * var(--padding));
-// }
 button {
     background-color: transparent;
     border: none;
@@ -1538,12 +1546,6 @@ button {
         color: var(--color-text-primary);
     }
 }
-
-// input{
-//     font-size: var(--font-size-0);
-//     color: var(--color-text-primary);
-
-// }
 
 @media screen and (max-width: 1600px) {}
 
@@ -1574,6 +1576,14 @@ button {
 }
 
 @media screen and (max-width: 767px) {
+
+    .card-junk__thumb,
+    .card-search__thumb {
+        position: relative;
+        left: 0;
+        margin-top: 1rem;
+    }
+
     button {
         flex-shrink: 0;
         white-space: nowrap;
@@ -1664,8 +1674,7 @@ button {
 
         .single-page__content {
             .post-category {
-                width: calc(100% - 2 * var(--padding));
-                left: calc(0 * var(--padding));
+                display: none;
             }
 
             p,
@@ -1700,11 +1709,6 @@ button {
             }
 
 
-
-            .post-category {
-                // top: calc(2 * var(--padding) + 0.4rem + 1.5 * var(--font-size--1));
-                // left: calc(-1.1 * var(--font-size-1));
-            }
 
             .more-button {
                 padding-left: 0;
@@ -1756,12 +1760,6 @@ button {
 }
 
 @media screen and (max-width: 480px) {
-    .single-page__content {
-        .post-category {
-            display: none;
-        }
-
-    }
 
     .post-password-form {
         max-width: 100%;

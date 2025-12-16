@@ -1,10 +1,4 @@
 <?php
-/* 
-ВЫНЕС ЭТОТ ШАБЛОН В КОРЕНЬ ДЛЯ ДЕФОЛТНОГО ВЫБОРА ТЕМОЙ
-
-Template name: Одиночная страница V1 
-Template Post Type: post, pd-works
-*/
 
 $title  = get_the_title();
 $id = get_the_ID();
@@ -90,7 +84,8 @@ if ($tag_id) {
                             <a
                                 href="<?php echo esc_url(get_permalink($post->ID)); ?>"
                                 class="<?php echo $current_id === $post->ID ? 'active' : ''; ?>">
-                                <?php //echo esc_html(get_the_title($post->ID)); ?>
+                                <?php //echo esc_html(get_the_title($post->ID)); 
+                                ?>
                                 Описание
                             </a>
                         </li>
@@ -113,16 +108,14 @@ if ($tag_id) {
 
             <?php echo do_shortcode('[post_category]')
             ?>
-            <?= $short_description ?>
-            <?php //echo do_shortcode('[block_post_meta]') 
-            ?>
             <?php the_content();
             ?>
         </div>
     </div>
 
-    <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p>
-    <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']') ?>
+    <!-- <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p> -->
+    <?php //echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']') 
+    ?>
 
 </div>
 
