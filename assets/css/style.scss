@@ -1206,6 +1206,10 @@ figure {
     position: relative;
 }
 
+.junk-related-list {
+    margin-top: 1rem;
+}
+
 .card-junk,
 .card-search {
     position: relative;
@@ -1772,7 +1776,7 @@ button {
 
     .pd_width_50 {
         width: 100%;
-        margin: auto;
+        margin-right: auto;
         margin-left: 0;
         padding: 0 var(--padding);
     }

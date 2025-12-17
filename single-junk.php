@@ -113,9 +113,99 @@ if ($tag_id) {
         </div>
     </div>
 
-    <!-- <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p> -->
-    <?php //echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']') 
-    ?>
+    <h2 class="pd_width_50">Ещё со&nbsp;свалки:</h2>
+    <ul class="junk-related-list list-style-none pd_width_50">
+        <?php
+        // Получаем категории и теги текущего поста
+        $categories = get_the_category();
+        $tags = get_the_tags();
+        $current_id = get_the_ID();
+
+        $category_id = null;
+        $tag_id = null;
+
+        // Получаем первую категорию
+        if (!empty($categories)) {
+            $first_category = $categories[0];
+            $category_id = $first_category->term_id;
+        }
+
+        // Получаем первый тег
+        if (!empty($tags)) {
+            $first_tag = reset($tags);
+            $tag_id = $first_tag->term_id;
+        }
+
+        // Получаем похожие посты junk
+        $args = array(
+            'post_type' => 'junk',
+            'posts_per_page' => 5,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post__not_in' => array($current_id),
+        );
+
+        // Если есть тег - добавляем его в фильтр
+        if ($tag_id) {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field' => 'id',
+                    'terms' => $tag_id
+                )
+            );
+        } elseif ($category_id) {
+            // Иначе используем категорию
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'category',
+                    'field' => 'id',
+                    'terms' => $category_id
+                )
+            );
+        }
+
+        $related_query = new WP_Query($args);
+
+        if ($related_query->have_posts()) :
+            while ($related_query->have_posts()) : $related_query->the_post();
+        ?>
+                <li>
+                    <a href="<?php the_permalink(); ?>" class="">
+                        <?php the_title(); ?>
+                    </a>
+                </li>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            // Если ничего не найдено по тегам/категориям - показываем просто последние посты
+            $args = array(
+                'post_type' => 'junk',
+                'posts_per_page' => 5,
+                'post_status' => 'publish',
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post__not_in' => array($current_id),
+            );
+
+            $fallback_query = new WP_Query($args);
+            if ($fallback_query->have_posts()) :
+                while ($fallback_query->have_posts()) : $fallback_query->the_post();
+                ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>" class="">
+                            <?php the_title(); ?>
+                        </a>
+                    </li>
+        <?php
+                endwhile;
+                wp_reset_postdata();
+            endif;
+        endif;
+        ?>
+    </ul>
 
 </div>
 
