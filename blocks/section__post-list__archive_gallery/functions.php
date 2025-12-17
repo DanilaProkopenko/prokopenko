@@ -26,12 +26,21 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
         'post_parent' => 0,
     );
 
-    // Добавляем post__not_in если он передан
-    if ($post__not_in) {
-        $base_args['post__not_in'] = is_array($post__not_in) ? $post__not_in : [$post__not_in];
-    } else {
-        $base_args['post__not_in'] = [17]; // Дефолтный ID который исключаем
+    // Подготавливаем post__not_in массив
+    $excluded_posts = [17]; // Дефолтный ID
+    
+    // Добавляем текущий пост ID
+    if (is_singular(['post', 'pd-works'])) {
+        $excluded_posts[] = get_the_ID();
     }
+    
+    // Добавляем переданные исключения
+    if ($post__not_in) {
+        $post__not_in_array = is_array($post__not_in) ? $post__not_in : [$post__not_in];
+        $excluded_posts = array_merge($excluded_posts, $post__not_in_array);
+    }
+    
+    $base_args['post__not_in'] = array_unique($excluded_posts);
 
     // Массив ID постов которые уже показали (для избежания дубликатов)
     $shown_posts = isset($base_args['post__not_in']) ? $base_args['post__not_in'] : [];
