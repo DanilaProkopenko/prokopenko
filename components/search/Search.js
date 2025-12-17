@@ -37,10 +37,7 @@ jQuery(function($) {
                         
                         // Если класс _open добавлен - фокусируемся
                         if ($element.hasClass('_open')) {
-                            // Для desktop браузеров
-                            setTimeout(() => {
-                                $input[0].focus();
-                            }, 50);
+                            $input[0].focus();
                         }
                     }
                 });
@@ -53,22 +50,6 @@ jQuery(function($) {
                     attributeFilter: ['class']
                 });
             }
-
-            // === iOS СПЕЦИАЛЬНЫЙ ОБРАБОТЧИК ===
-            // На iOS нужно слушать touch чтобы клавиатура открылась
-            $(document).on('touchstart', '.search-modal._open', (e) => {
-                // Если клик не на результаты - фокусируем инпут
-                if (!$(e.target).closest('#search-results').length) {
-                    $input[0].focus();
-                    e.preventDefault();
-                }
-            });
-
-            // Дополнительно - фокусируем при клике на сам инпут
-            $input.on('touchstart', (e) => {
-                // Предотвращаем стандартное поведение
-                $input[0].focus();
-            });
         }
 
         bindEvents() {

@@ -320,35 +320,11 @@ class Header {
                     jQuery('.search-modal').addClass('_open');
                     jQuery('body').addClass('_open');
                     jQuery('.search-trigger-icon').addClass('_open');
-                    
-                    // На мобильных - сразу фокусируем при touch событии
-                    // На desktop - с задержкой
-                    const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent);
-                    if (isMobile) {
-                        jQuery('#search-input')[0].focus();
-                    } else {
-                        setTimeout(() => {
-                            jQuery('#search-input').focus();
-                        }, 50);
-                    }
                 } else {
                     // Бургер закрыт → просто открываем поиск
-                    const wasOpen = jQuery('.search-modal').hasClass('_open');
                     jQuery('.search-modal').toggleClass('_open');
                     jQuery('body').toggleClass('_open');
                     jQuery('.search-trigger-icon').toggleClass('_open');
-                    
-                    // Если открываем модаль - фокусируемся
-                    if (!wasOpen) {
-                        const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent);
-                        if (isMobile) {
-                            jQuery('#search-input')[0].focus();
-                        } else {
-                            setTimeout(() => {
-                                jQuery('#search-input').focus();
-                            }, 50);
-                        }
-                    }
                 }
             }
         });
