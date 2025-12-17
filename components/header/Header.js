@@ -326,6 +326,11 @@ class Header {
                     jQuery('.search-modal').toggleClass('_open');
                     jQuery('body').toggleClass('_open');
                     jQuery('.search-trigger-icon').toggleClass('_open');
+                    
+                    // Фокусируемся на инпуте, если модаль открыта
+                    if (jQuery('.search-modal').hasClass('_open')) {
+                        jQuery('#search-input').focus();
+                    }
                 }
             }
         });
@@ -342,6 +347,29 @@ class Header {
                 jQuery('.footer').removeClass('_hide');
                 jQuery('#burger-icon .bar').removeClass('animate');
             }
+        });
+
+        // Observe search modal for focus management (fallback for edge cases)
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (jQuery('.search-modal').hasClass('_open')) {
+                    // Используем setTimeout для гарантированного срабатывания на мобильных
+                    setTimeout(() => {
+                        const $input = jQuery('#search-input');
+                        if ($input.length) {
+                            $input.focus();
+                            // Для iOS/Android - дополнительно scroll to input
+                            $input[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 100);
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('.search-modal'), {
+            attributes: true,
+            attributeFilter: ['class'],
+            subtree: false
         });
     }
     // С переключением иконки поиска и цвета меню
