@@ -15,10 +15,52 @@ jQuery(function($) {
             this.currentQuery = '';
 
             this.init();
+            this.setupModalObserver();
         }
 
         init() {
             this.bindEvents();
+        }
+
+        /**
+         * Наблюдаем за открытием/закрытием модали и фокусируемся на инпуте
+         */
+        setupModalObserver() {
+            const $modal = $('.search-modal');
+            const $input = $('#search-input');
+
+            // Используем MutationObserver для отслеживания класса _open
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'class') {
+                        const $element = $(mutation.target);
+                        
+                        // Если класс _open добавлен - фокусируемся
+                        if ($element.hasClass('_open')) {
+                            // Гарантированный фокус с несколькими попытками
+                            setTimeout(() => {
+                                $input.focus();
+                                $input[0].focus(); // Дублируем для надежности
+                                
+                                // Для мобильных - еще одна попытка
+                                setTimeout(() => {
+                                    if (!$input.is(':focus')) {
+                                        $input.focus();
+                                    }
+                                }, 100);
+                            }, 10);
+                        }
+                    }
+                });
+            });
+
+            // Начинаем наблюдение
+            if ($modal.length) {
+                observer.observe($modal[0], {
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+            }
         }
 
         bindEvents() {
@@ -50,10 +92,37 @@ jQuery(function($) {
                 }
             });
 
+            // Фокус при клике на инпут (резервный вариант)
+            this.$input.on('click', () => {
+                this.$input.focus();
+            });
+
             // Search button click
             $(document).on('click', '.search-as-is', () => {
                 this.performSearch(this.currentQuery);
             });
+
+            // Очищаем результаты при закрытии модали
+            const $modal = $('.search-modal');
+            const closeObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'class') {
+                        const $element = $(mutation.target);
+                        // Если класс _open удален - очищаем результаты и инпут
+                        if (!$element.hasClass('_open')) {
+                            this.$resultsContainer.html('');
+                            this.$input.val('');
+                        }
+                    }
+                });
+            });
+
+            if ($modal.length) {
+                closeObserver.observe($modal[0], {
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+            }
         }
 
         performSearch(q) {
