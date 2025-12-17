@@ -7,16 +7,16 @@
 
 function prokopenko_enqueue_search_scripts()
 {
-    // Enqueue CSS
-    $css_file = get_template_directory() . '/components/search/search.css';
-    $css_version = file_exists($css_file) ? filemtime($css_file) : '1.0.0';
+    // // Enqueue CSS
+    // $css_file = get_template_directory() . '/components/search/search.css';
+    // $css_version = file_exists($css_file) ? filemtime($css_file) : '1.0.0';
 
-    wp_enqueue_style(
-        'prokopenko-search',
-        get_template_directory_uri() . '/components/search/search.css',
-        [],
-        $css_version
-    );
+    // wp_enqueue_style(
+    //     'prokopenko-search',
+    //     get_template_directory_uri() . '/components/search/search.css',
+    //     [],
+    //     $css_version
+    // );
 
     // Enqueue JavaScript - jQuery dependency for search functionality
     wp_enqueue_script(

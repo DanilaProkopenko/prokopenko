@@ -179,7 +179,7 @@ jQuery(function($) {
                     <div class="result-item post-type-${item.type} card-search pd_width_50 small-margin-top">
                         <h4 class="small-margin-top"><a href="${item.url}" class="result-item__title">${item.title}</a></h4>
                         ${safeExcerpt ? `<p class="result-item__description">${safeExcerpt}</p>` : ''}
-                        ${item.categories_text ? `<p class="result-item__category">Категория: ${item.categories_text}</p>` : ''}
+                        ${item.categories_text ? `<p class="result-item__category">${item.categories_text}</p>` : ''}
                         ${item.thumbnail ? `<img src="${item.thumbnail}" class="card-search__thumb">` : ''}
                     </div>`;
                 this.$resultsContainer.append(html);
