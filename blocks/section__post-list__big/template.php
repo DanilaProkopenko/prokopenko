@@ -35,6 +35,7 @@ $post_list_tag = get_field('post_list_tag');
 $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 $block_name = get_field('block_name');
+$block_caption = get_field('block_caption');
 ?>
 <section class="section__post-list__big__wrapper" data-id-name="<?= $block_id_name ?>" id="postslist">
     <div class="section__post-list__big__heading section__heading">
@@ -43,9 +44,11 @@ $block_name = get_field('block_name');
                 <?= $block_name ?>
             </h2>
         <? endif ?>
-        <!-- <div class="section__caption">
-            Собрал работы, над которыми работал в последнее время
-        </div> -->
+        <?php if ($block_caption): ?>
+            <div class="section__caption">
+                <?= $block_caption ?>
+            </div>
+        <? endif ?>
     </div>
     <div class="filter-bar">
         <button class="filter-btn  active" data-filter="all">Все</button>
