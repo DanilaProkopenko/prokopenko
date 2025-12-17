@@ -319,17 +319,24 @@ class Header {
 
                     jQuery('.search-modal').addClass('_open');
                     jQuery('body').addClass('_open');
-                    jQuery('#search-input').focus();
                     jQuery('.search-trigger-icon').addClass('_open');
+                    
+                    // Фокус с задержкой для гарантированного срабатывания
+                    setTimeout(() => {
+                        jQuery('#search-input').focus();
+                    }, 50);
                 } else {
                     // Бургер закрыт → просто открываем поиск
+                    const wasOpen = jQuery('.search-modal').hasClass('_open');
                     jQuery('.search-modal').toggleClass('_open');
                     jQuery('body').toggleClass('_open');
                     jQuery('.search-trigger-icon').toggleClass('_open');
                     
-                    // Фокусируемся на инпуте, если модаль открыта
-                    if (jQuery('.search-modal').hasClass('_open')) {
-                        jQuery('#search-input').focus();
+                    // Если открываем модаль - фокусируемся с задержкой
+                    if (!wasOpen) {
+                        setTimeout(() => {
+                            jQuery('#search-input').focus();
+                        }, 50);
                     }
                 }
             }
@@ -347,29 +354,6 @@ class Header {
                 jQuery('.footer').removeClass('_hide');
                 jQuery('#burger-icon .bar').removeClass('animate');
             }
-        });
-
-        // Observe search modal for focus management (fallback for edge cases)
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (jQuery('.search-modal').hasClass('_open')) {
-                    // Используем setTimeout для гарантированного срабатывания на мобильных
-                    setTimeout(() => {
-                        const $input = jQuery('#search-input');
-                        if ($input.length) {
-                            $input.focus();
-                            // Для iOS/Android - дополнительно scroll to input
-                            $input[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
-                    }, 100);
-                }
-            });
-        });
-
-        observer.observe(document.querySelector('.search-modal'), {
-            attributes: true,
-            attributeFilter: ['class'],
-            subtree: false
         });
     }
     // С переключением иконки поиска и цвета меню
