@@ -37,27 +37,35 @@ jQuery(function($) {
                         
                         // Если класс _open добавлен - фокусируемся
                         if ($element.hasClass('_open')) {
-                            // Для мобильных - используем touch событие
-                            const focusOnTouch = () => {
-                                $input[0].focus();
-                                $input[0].click();
-                                // Select all text to trigger keyboard on mobile
-                                $input[0].select();
-                                
-                                // Fallback еще одна попытка
+                            // Определяем платформу
+                            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                            const isAndroid = /Android/.test(navigator.userAgent);
+
+                            if (isIOS) {
+                                // Специальный подход для iOS - более аккуратный
                                 setTimeout(() => {
-                                    if (!$input.is(':focus')) {
-                                        $input[0].focus();
-                                        $input[0].select();
-                                    }
-                                }, 150);
-                            };
-
-                            // Первая попытка через небольшую задержку
-                            setTimeout(focusOnTouch, 50);
-
-                            // Добавляем обработчик для следующего touch события (гарантированный вариант)
-                            document.addEventListener('touchstart', focusOnTouch, { once: true });
+                                    const input = $input[0];
+                                    // Просто focus без select на iOS
+                                    input.focus();
+                                    
+                                    // Гарантированный повторный фокус
+                                    setTimeout(() => {
+                                        input.focus();
+                                    }, 100);
+                                }, 100);
+                            } else if (isAndroid) {
+                                // Android - более агрессивный подход
+                                setTimeout(() => {
+                                    const input = $input[0];
+                                    input.focus();
+                                    input.click();
+                                }, 100);
+                            } else {
+                                // Desktop
+                                setTimeout(() => {
+                                    $input[0].focus();
+                                }, 50);
+                            }
                         }
                     }
                 });
@@ -73,6 +81,17 @@ jQuery(function($) {
         }
 
         bindEvents() {
+            // iOS fix - prevent blur that closes keyboard
+            this.$input.on('blur', (e) => {
+                // Не даем фокусу теряться, если пользователь не явно не ушел
+                // Сразу возвращаем фокус если модаль открыта
+                if (this.$modal.hasClass('_open')) {
+                    setTimeout(() => {
+                        this.$input.focus();
+                    }, 0);
+                }
+            });
+
             // Enter key handler
             this.$input.on('keydown', (e) => {
                 if (e.key === 'Enter') {
