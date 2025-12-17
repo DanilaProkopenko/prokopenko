@@ -37,18 +37,27 @@ jQuery(function($) {
                         
                         // Если класс _open добавлен - фокусируемся
                         if ($element.hasClass('_open')) {
-                            // Гарантированный фокус с несколькими попытками
-                            setTimeout(() => {
-                                $input.focus();
-                                $input[0].focus(); // Дублируем для надежности
+                            // Для мобильных - используем touch событие
+                            const focusOnTouch = () => {
+                                $input[0].focus();
+                                $input[0].click();
+                                // Select all text to trigger keyboard on mobile
+                                $input[0].select();
                                 
-                                // Для мобильных - еще одна попытка
+                                // Fallback еще одна попытка
                                 setTimeout(() => {
                                     if (!$input.is(':focus')) {
-                                        $input.focus();
+                                        $input[0].focus();
+                                        $input[0].select();
                                     }
-                                }, 100);
-                            }, 10);
+                                }, 150);
+                            };
+
+                            // Первая попытка через небольшую задержку
+                            setTimeout(focusOnTouch, 50);
+
+                            // Добавляем обработчик для следующего touch события (гарантированный вариант)
+                            document.addEventListener('touchstart', focusOnTouch, { once: true });
                         }
                     }
                 });

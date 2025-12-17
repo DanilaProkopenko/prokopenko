@@ -23,7 +23,7 @@ function prokopenko_search_modal_shortcode()
     ob_start(); ?>
     <div class="search-modal">
         <div class="search-input pd_width_50">
-            <input type="text" id="search-input" placeholder="Поиск...">
+            <input type="text" id="search-input" placeholder="Поиск..." inputmode="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
         </div>
         <div class="search-content ">
             <div id="search-results"></div>
