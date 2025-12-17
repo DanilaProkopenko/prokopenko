@@ -12,8 +12,6 @@ $post_id = get_the_ID();
 
 $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
 $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
-$short_description = get_field('post_short-description', $id);
-
 $categories = get_the_category();
 $tags = get_the_tags();
 
@@ -78,6 +76,9 @@ if ($post->post_type === 'pd-works') :
         'order'       => 'ASC',
         'post_status' => 'publish',
     ]);
+
+    $short_description = get_field('post_short-description', $parent_id);
+
 ?>
     <div class="single__wrapper single-page--v1">
         <div class="single__content single-page--v1__content">
@@ -123,7 +124,40 @@ if ($post->post_type === 'pd-works') :
                 the_content();
                 ?>
             </div>
+
+
         </div>
+
+        <!-- <?php if ($children) : ?>
+            <ul class="single__tree title__caption list-style-none pd_width_50">
+                <h2>
+                    <li>
+                        <a
+                            href="<?php echo esc_url(get_permalink($parent_post->ID)); ?>"
+                            class="<?php echo $current_id === $parent_post->ID ? 'active' : ''; ?>">
+                            <?php echo esc_html(get_the_title($parent_post)); ?>
+                        </a>
+                    </li>
+                </h2>
+                <?= $short_description ?>
+                <ul>
+                    <?php foreach ($children as $child) : ?>
+                        <li>
+                            <a
+                                href="<?php echo esc_url(get_permalink($child->ID)); ?>"
+                                class="<?php echo $current_id === $child->ID ? 'active' : ''; ?>">
+                                <?php echo esc_html(get_the_title($child->ID)); ?>
+                            </a>
+                        </li>
+                </ul>
+
+            <?php endforeach; ?>
+            </ul>
+        <?php endif; ?> -->
+
+        <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p>
+        <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']')
+        ?>
     </div>
 <?php
 endif;

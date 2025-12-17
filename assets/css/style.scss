@@ -82,8 +82,8 @@
     --burger-menu-text-white: var(--color-text-primary);
 
     // Burger Menu Link Hover
-    --burger-link-hover-bg: rgba(0, 0, 0, 0.15);
-    --burger-link-hover-text: var(--color-text-primary);
+    --burger-link-hover-bg: #fff;
+    --burger-link-hover-text: #000;
 
     // Search Result Highlight
     --color-search-highlight-bg: #ffff00;
@@ -134,19 +134,19 @@
     // Format: --page-text-{name}: {text-color} for readability
 
     --page-color-white: var(--color-white);
-    --page-text-white: #040404; // Black text on white
-    --page-icon-white: #040404; // Black icon on white
-    --text-decoration-color-white: #00000026;
+    --page-text-white: #000; // Black text on white
+    --page-icon-white: #000; // Black icon on white
+    --text-decoration-color-white: var(--color-grey-border);
 
     --page-color-black: #000000;
     --page-text-black: #ffffff; // White text on black
     --page-icon-black: #ffffff; // White icon on black
-    --text-decoration-color-black: #ffffff26;
+    --text-decoration-color-black: var(--color-grey-border);
 
     --page-color-grey: #B9B9B9;
-    --page-text-grey: #2E2E2E; // Black text on yellow
-    --page-icon-grey: #2E2E2E; // Black icon on yellow
-    --text-decoration-color-grey: #2E2E2E;
+    --page-text-grey: #000; // Black text on yellow
+    --page-icon-grey: #000; // Black icon on yellow
+    --text-decoration-color-grey: var(--color-grey-border);
 
 
 

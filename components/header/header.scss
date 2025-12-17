@@ -306,7 +306,7 @@ body ul.header__burger__links {
 
             &:hover {
                 background-color: var(--burger-link-hover-bg);
-                color: var(--burger-link-hover-text);
+                color: var(--burger-link-hover-text) !important;
             }
         }
     }
