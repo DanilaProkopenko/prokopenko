@@ -33,5 +33,8 @@ $custom_block_heading = get_field('custom-block_heading');
 ?>
 
 <div class="post__navigation">
-    <div class="indicator"></div> <!-- Индикатор движения -->
+    <div class="indicator"></div>
+    <ul>
+        
+    </ul>
 </div>

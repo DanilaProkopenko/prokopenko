@@ -118,16 +118,16 @@
 
     --width-100-parent-padding-bleed: calc(100% + var(--padding));
 
-    --width-50-parent-padding: calc(50% - var(--gap) + 7px);
-    --width-50-parent-padding-bleed: calc(50% - var(--gap) + 7px + var(--padding));
-    --width-50-bleed: calc(50% - var(--gap) + 7px);
+    --width-50-parent-padding: calc(50% - var(--gap) + 0px);
+    --width-50-parent-padding-bleed: calc(50% - var(--gap) + 0px + var(--padding));
+    --width-50-bleed: calc(50% - var(--gap) + 0px);
 
-    --width-75-parent-padding: calc(75% - var(--gap) + 7px);
-    --width-75-parent-padding-bleed: calc(75% - var(--gap) + 7px + var(--padding));
-    --width-75-bleed: calc(75% - var(--gap) + 7px);
+    --width-75-parent-padding: calc(75% - var(--gap) + 0px);
+    --width-75-parent-padding-bleed: calc(75% - var(--gap) + 0px + var(--padding));
+    --width-75-bleed: calc(75% - var(--gap) + 0px);
 
-    --margin-width-50: calc(50% + var(--gap) - 7px);
-    --margin-width-75: calc(25% + var(--gap) - 7px);
+    --margin-width-50: calc(50% + var(--gap) - 10px);
+    --margin-width-75: calc(25% + var(--gap) - 10px);
 
     // === PAGE COLOR SYSTEM ===
     // Background colors and text colors for different page color states
@@ -706,7 +706,7 @@ div {
 .f-carousel {
     --f-carousel-slide-width: 100%;
     --f-carousel-spacing: 0;
-    --f-carousel-slide-padding: 0 1rem;
+    --f-carousel-slide-padding: 0;
 
     --f-button-prev-pos: 5rem;
     --f-button-next-pos: 5rem;
@@ -1235,6 +1235,7 @@ div .img--large {
 
 .junk-related-list {
     margin-top: 1rem;
+    padding: 0;
 }
 
 .card-junk,
@@ -1255,7 +1256,8 @@ div .img--large {
 
 .single-page--v1 {
     .single__content {
-        width: calc(100vw - 5px);
+        // width: calc(100vw - 5px);
+        width: 100%;
         max-width: 100%;
         margin: 3rem 0;
         display: inline-block;
@@ -1264,6 +1266,8 @@ div .img--large {
     .single-post__meta__wrapper {
         margin-top: calc(16rem * 0.5);
         margin-top: 5rem;
+        margin-top: var(--pd_margin-top_1);
+
     }
 
 

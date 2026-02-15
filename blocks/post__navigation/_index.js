@@ -52,7 +52,10 @@ const initBlockTemplate_v2 = () => {
             a.title = name;
             a.appendChild(document.createTextNode(name));
             li.appendChild(a);
-            container.appendChild(li);
+            const ul = container.querySelector('ul');
+            if (ul) {
+                ul.appendChild(li);
+            }
         }
 
         createPageNavLinks();
@@ -99,13 +102,21 @@ const initBlockTemplate_v2 = () => {
 
             let activeIndex = -1;
 
-            // Проверяем, какие заголовки сейчас видны на экране
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight * 0.2 && rect.bottom >= window.innerHeight * 0.1) {
-                    activeIndex = index;
-                }
-            });
+            // Проверяем, находимся ли мы в конце страницы
+            const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+
+            if (isAtBottom && sections.length > 0) {
+                // Если в конце страницы, активен последний заголовок
+                activeIndex = sections.length - 1;
+            } else {
+                // Проверяем, какие заголовки сейчас видны на экране
+                sections.forEach((section, index) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight * 0.2 && rect.bottom >= window.innerHeight * 0.1) {
+                        activeIndex = index;
+                    }
+                });
+            }
 
             // Запоминаем последний активный индекс, чтобы избежать "пропадания"
             if (activeIndex === -1 && lastActiveIndex !== -1) {
@@ -130,8 +141,18 @@ const initBlockTemplate_v2 = () => {
                     }
 
                     // Центрируем активную ссылку в горизонтальном меню
-                    const scrollAmount = link.offsetLeft - (navContainer.clientWidth / 2) + (link.offsetWidth / 2);
-                    navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                    const ul = navContainer.querySelector('ul');
+                    if (ul) {
+                        // Находим li родитель ссылки
+                        const li = link.closest('li');
+                        if (li) {
+                            const scrollAmount = li.offsetLeft - (navContainer.clientWidth / 2) + (li.offsetWidth / 2);
+                            navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                        }
+                    } else {
+                        const scrollAmount = link.offsetLeft - (navContainer.clientWidth / 2) + (link.offsetWidth / 2);
+                        navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                    }
                 } else {
                     link.classList.remove('active');
                 }
@@ -159,8 +180,18 @@ const initBlockTemplate_v2 = () => {
                         indicator.style.height = `${linkRect.height}px`;
                     }
 
-                    const scrollAmount = link.offsetLeft - (navContainer.clientWidth / 2) + (link.offsetWidth / 2);
-                    navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                    const ul = navContainer.querySelector('ul');
+                    if (ul) {
+                        // Находим li родитель ссылки
+                        const li = link.closest('li');
+                        if (li) {
+                            const scrollAmount = li.offsetLeft - (navContainer.clientWidth / 2) + (li.offsetWidth / 2);
+                            navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                        }
+                    } else {
+                        const scrollAmount = link.offsetLeft - (navContainer.clientWidth / 2) + (link.offsetWidth / 2);
+                        navContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                    }
                 };
 
                 // Сразу обновляем класс active, но ждём конца скролла для позиции индикатора
@@ -242,7 +273,10 @@ const initBlockTemplate_v2 = () => {
             a.appendChild(document.createTextNode(name));
             a.classList.add('dan__page-navigation__item__' + elemClass, 'dan__page-navigation__item__heading');
             li.appendChild(a);
-            container.appendChild(li);
+            const ul = container.querySelector('ul');
+            if (ul) {
+                ul.appendChild(li);
+            }
         }
 
         // Генерируем пункты меню на основе заголовков
@@ -294,7 +328,10 @@ const initBlockTemplate = () => {
             a.textContent = heading.textContent;
             a.classList.add('nav-link');
             li.appendChild(a);
-            navContainer.appendChild(li);
+            const ul = navContainer.querySelector('ul');
+            if (ul) {
+                ul.appendChild(li);
+            }
         });
     }
 

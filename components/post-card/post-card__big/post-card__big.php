@@ -20,6 +20,7 @@ if ($args) {
 }
 ?>
 <div class="post-card__big f-carousel__slide custom-card card<?= $counter ?> active" style="z-index: <?= $counter + 1 ?>">
+    <?= do_shortcode('[post_category]') ?>
     <div class="post-card__big__gallery">
         <div class="post-card__big__gallery__background">
             <img src="<?= esc_url($img_medium); ?>" alt="" class="post-card__big__gallery__background__source">
@@ -46,7 +47,7 @@ if ($args) {
                 </div>
             <?php else: ?>
                 <div class="f-carousel__slide _cover emerge"
-                    
+
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($img_medium); ?>">
                     <a href="<?= $link ?>"
@@ -113,7 +114,6 @@ if ($args) {
             </h4>
             <div class="post-card__big__short-description">
                 <?= $short_description ?>
-                <?= do_shortcode('[post_category]') ?>
             </div>
 
             <?= do_shortcode('[block_post_meta]') ?>
