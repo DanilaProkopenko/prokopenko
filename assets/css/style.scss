@@ -1032,6 +1032,18 @@ ul {
     }
 }
 
+/* Верхний отступ для <ul>, которые идят сразу после заголовков */
+h2,
+h3 {
+
+    &+.ul,
+    +.wp-block-list {
+
+        margin-top: var(--pd_margin-top_1);
+    }
+
+}
+
 .wp-lightbox-container {}
 
 
@@ -1446,6 +1458,7 @@ div .img--large {
         max-height: 90vh;
     }
 }
+
 
 .style-text-indent {
 
