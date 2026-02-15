@@ -119,7 +119,7 @@ if ($tag_id) {
         </div>
     </div>
 
-    <p class="has-h-2-font-size small-margin-all pd_width_50">Другие работы</p>
+    <p class="has-h-2-font-size pd_width_50">Другие работы</p>
     <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']') ?>
 
 </div>

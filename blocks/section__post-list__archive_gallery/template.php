@@ -37,7 +37,7 @@ $block_id = get_field('block_id');
 $block_id_name = get_field('block_id_name');
 ?>
 
-<div class="posts-list__archive-gallery__wrapper" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
+<div class="posts-list__archive-gallery__wrapper pd_margin-top_1" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
     <!-- <div class="posts-list__archive__heading section__heading main-padding">
         <div class="section__caption">
             Маленькие работы, или pet–проекты

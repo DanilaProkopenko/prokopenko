@@ -113,7 +113,7 @@ if ($tag_id) {
         </div>
     </div>
 
-    <h2 class="pd_width_50">Ещё со&nbsp;свалки:</h2>
+    <h2 class="pd_width_50">Ещё со&nbsp;свалки</h2>
     <ul class="junk-related-list list-style-none pd_width_50">
         <?php
         // Получаем категории и теги текущего поста

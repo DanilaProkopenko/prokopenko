@@ -97,8 +97,9 @@
     --font-size-3: clamp(1.62rem, 1.4617rem + 0.7916vw, 2.0752rem);
     --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
     --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
-
+    --pd_margin-top_1: 1rem;
     --lh-0: 1.24;
+    --lh-0: 136%;
 
     --text-indent-1: calc(3 * var(--font-size-1));
 
@@ -172,7 +173,7 @@
 }
 
 :root :where(.is-layout-flex) {
-    gap: var(--gap);
+    gap: var(--gap) !important;
 }
 
 html,
@@ -471,7 +472,8 @@ h6,
 .has-h-2-font-size,
 .has-h-3-font-size,
 .has-h-4-font-size,
-.has-h-5-font-size {
+.has-h-5-font-size,
+.h2 {
     margin-top: 0;
     margin-bottom: 0;
 
@@ -612,7 +614,7 @@ a,
 li {
     font-weight: 400;
     font-size: var(--font-size-0);
-    line-height: 140%;
+    line-height: 150%;
 
     // hyphens: auto;
 }
@@ -624,7 +626,7 @@ div {
     p,
     .pd_block {
         &:not(:first-child) {
-            margin-top: 1rem;
+            margin-top: var(--pd_margin-top_1);
         }
     }
 
@@ -637,6 +639,10 @@ div {
             // margin-top: 16rem;
         }
     }
+}
+
+.pd_margin-top_1 {
+    margin-top: var(--pd_margin-top_1);
 }
 
 .pd_margin-bottom-0 {
@@ -981,14 +987,18 @@ select {
 .wp-block-list,
 ul {
     list-style: none;
+    padding-left: 2ch;
     margin-top: .5rem;
+    margin-top: 0;
 
     li:not(:first-child) {
         margin-top: .5rem;
+        margin-top: 0;
     }
 
     li:first-child {
         margin-top: .2rem;
+        margin-top: 0;
         margin-top: 0;
     }
 
@@ -996,10 +1006,15 @@ ul {
         position: relative;
 
         &:before {
+            // position: absolute;
+            // left: -1rem;
+            // content: "⋅";
+            // font-size: var(--font-size-2);
+
             position: absolute;
-            left: -1rem;
-            content: "⋅";
-            font-size: var(--font-size-2);
+            left: -2ch;
+            content: "—";
+            font-size: var(--font-size-0);
         }
     }
 }
@@ -1134,6 +1149,19 @@ figure {
     }
 }
 
+.wp-block-image :where(figcaption) {
+    margin-bottom: 2rem;
+}
+
+div .project-media-large,
+div .project-media-small,
+div .img--small,
+div .img--large {
+    &:not(:first-child) {
+        margin-top: var(--pd_margin-top_1);
+    }
+}
+
 .project-media-large,
 .img--large {
     // width: var(--width-75-bleed);
@@ -1141,8 +1169,7 @@ figure {
     padding-right: 0;
     margin-right: 0 !important;
     // margin-left: var(--margin-width-75);
-    margin-top: 0;
-    margin-bottom: 0;
+    // margin-bottom: 1rem;
     margin-left: 0 !important;
     z-index: 10;
     display: inline-block;

@@ -96,7 +96,7 @@
 
     .post-category {
         position: absolute;
-        top: 0;
+        top: calc(.3 * var(--font-size-0));
         left: 0;
     }
 }
