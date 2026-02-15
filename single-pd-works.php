@@ -88,7 +88,8 @@ if ($tag_id) {
                             <a
                                 href="<?php echo esc_url(get_permalink($post->ID)); ?>"
                                 class="<?php echo $current_id === $post->ID ? 'active' : ''; ?>">
-                                <?php //echo esc_html(get_the_title($post->ID)); ?>
+                                <?php //echo esc_html(get_the_title($post->ID)); 
+                                ?>
                                 Описание
                             </a>
                         </li>
@@ -112,14 +113,13 @@ if ($tag_id) {
             <?php echo do_shortcode('[post_category]')
             ?>
             <?= $short_description ?>
-            <?php //echo do_shortcode('[block_post_meta]') 
-            ?>
-            <?php the_content();
-            ?>
+
+            <?php the_content(); ?>
+            <?php //echo do_shortcode('[block_post_meta]')?>
         </div>
     </div>
 
-    <p class="has-h-2-font-size pd_width_50">Другие работы</p>
+    <p class="has-h-2-font-size pd_width_50 small-margin-top">Другие работы</p>
     <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']') ?>
 
 </div>

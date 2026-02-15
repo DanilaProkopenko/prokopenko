@@ -20,7 +20,8 @@ $header_last_update = get_field('header_last-update', 'options');
         <div class="header__top main-padding">
             <a href="/" class="header__top__logo">
                 <!-- Данила Прокопенко -->
-                prokopenko
+                <!-- prokopenko -->
+                прокопенко
             </a>
             <div class="header__top__right">
                 <div class="header__column header__navigation _main">

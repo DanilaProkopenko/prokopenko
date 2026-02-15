@@ -38,15 +38,6 @@ $block_id_name = get_field('block_id_name');
 ?>
 
 <div class="posts-list__archive-gallery__wrapper pd_margin-top_1" data-id-name="<?= $block_id_name ?>" id="<?= $block_id ?>">
-    <!-- <div class="posts-list__archive__heading section__heading main-padding">
-        <div class="section__caption">
-            Маленькие работы, или pet–проекты
-        </div>
-    </div>
-    <h2 class="section__title">
-        Другие работы
-    </h2>
-    <p></p> -->
     <div class="posts-list__archive-gallery f-carousel">
         <?= getPostsArchiveGallery(-1, $post_not_in, $post_list_tag, $post_list_category); ?>
     </div>

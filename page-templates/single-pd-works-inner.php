@@ -155,7 +155,7 @@ if ($post->post_type === 'pd-works') :
             </ul>
         <?php endif; ?> -->
 
-        <p class="has-h-2-font-size pd_width_50">Другие работы</p>
+        <p class="has-h-2-font-size pd_width_50 small-margin-top">Другие работы</p>
         <?php echo do_shortcode('[block_archive category=' . $archive_category . ' tag=' . $archive_tag .  ' post_not_in=' . $post_id . ']')
         ?>
     </div>

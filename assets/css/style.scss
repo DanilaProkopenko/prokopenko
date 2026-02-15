@@ -97,7 +97,9 @@
     --font-size-3: clamp(1.62rem, 1.4617rem + 0.7916vw, 2.0752rem);
     --font-size-4: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
     --font-size-5: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
+    --pd_margin-top_05: .5rem;
     --pd_margin-top_1: 1rem;
+    --pd_margin-top_2: 2rem;
     --lh-0: 1.24;
     --lh-0: 136%;
 
@@ -1220,13 +1222,15 @@ div .img--large {
         margin-left: calc(-1 * 100% - 1 * var(--padding) - 16px)
     }
 }
-.list_none-marker{
-    li{
-        &::before{
+
+.list_none-marker {
+    li {
+        &::before {
             content: none;
         }
     }
 }
+
 .project-media-double {
     float: left;
     width: 50%;
@@ -1394,6 +1398,7 @@ div .img--large {
     row-gap: .1rem;
     list-style: none;
     flex-wrap: wrap;
+    padding: 0;
 
     li {
         list-style: none;
@@ -1648,6 +1653,7 @@ button {
 
 @media screen and (max-width: 767px) {
 
+
     .card-junk__thumb,
     .card-search__thumb {
         position: relative;
@@ -1751,7 +1757,6 @@ button {
             p,
             h1,
             h2,
-            ul,
             h3,
             h4,
             h5,
@@ -1760,6 +1765,12 @@ button {
                 padding: 0 var(--padding);
                 margin-right: auto;
                 margin-left: 0;
+            }
+
+            ul {
+                width: 100%;
+                padding-left: calc(var(--padding) + 2ch);
+                padding-right: var(--padding);
             }
 
             .wp-block-image,
@@ -1836,6 +1847,10 @@ button {
                 left: calc(-.5 * var(--padding));
             }
         }
+    }
+
+    .single__tree {
+        padding:0 var(--padding) !important;
     }
 }
 
