@@ -43,7 +43,6 @@
             list-style: none;
 
             &:first-child {
-                background-color: turquoise;
                 a {
                     padding-top: 0;
                 }
@@ -119,13 +118,13 @@
 
     .post__navigation {
         flex-direction: row;
-        width: 100vw;
+        width: 100%;
         overflow-x: auto;
         position: fixed;
         align-items: center;
         /* left: 0; */
         top: 54px;
-        padding: 0 calc(var(--padding) - 0.5rem);
+        padding: 0 var(--padding);
         left: 0;
         // border-bottom: var(--border);
         // border-bottom: 1px solid var(--color-secondary-blend);
@@ -151,7 +150,7 @@
                 &:last-child {
                     a {
                         padding-bottom: 0;
-                        // padding-right: calc(var(--padding) * 2);
+                        padding-right: calc(var(--padding) * 1);
                     }
                 }
 

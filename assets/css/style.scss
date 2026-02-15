@@ -1220,7 +1220,13 @@ div .img--large {
         margin-left: calc(-1 * 100% - 1 * var(--padding) - 16px)
     }
 }
-
+.list_none-marker{
+    li{
+        &::before{
+            content: none;
+        }
+    }
+}
 .project-media-double {
     float: left;
     width: 50%;

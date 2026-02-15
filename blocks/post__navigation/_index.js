@@ -102,10 +102,16 @@ const initBlockTemplate_v2 = () => {
 
             let activeIndex = -1;
 
+            // Проверяем, находимся ли мы в начале страницы
+            const isAtTop = window.scrollY <= 100;
+
             // Проверяем, находимся ли мы в конце страницы
             const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
 
-            if (isAtBottom && sections.length > 0) {
+            if (isAtTop && sections.length > 0) {
+                // Если в начале страницы, активен первый заголовок
+                activeIndex = 0;
+            } else if (isAtBottom && sections.length > 0) {
                 // Если в конце страницы, активен последний заголовок
                 activeIndex = sections.length - 1;
             } else {
