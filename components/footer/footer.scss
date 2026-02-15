@@ -3,6 +3,7 @@
     width: 100%;
     border-top: var(--border);
     margin-top: calc(3 * var(--padding));
+    margin-bottom: var(--padding);
 
     &._hide {
         // transform: translateY(-30%) scale(0.9);
@@ -11,9 +12,9 @@
         touch-action: none;
     }
 
-    p {
-        max-width: none;
-    }
+    // p {
+    //     max-width: none;
+    // }
 }
 
 .footer__content {
