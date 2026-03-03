@@ -50,9 +50,7 @@ $block_caption = get_field('block_caption');
             </div>
         <? endif ?>
     </div>
-    <div class="filter-bar">
-        <button class="filter-btn  active" data-filter="all">Все</button>
-    </div>
+    <?php get_template_part('components/filter-bar/filter-bar'); ?>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $post_list_tag, $post_list_category) ?>
     </div>
