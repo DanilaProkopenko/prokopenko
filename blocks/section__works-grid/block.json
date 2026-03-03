@@ -1,0 +1,18 @@
+{
+    "name" : "prok/section-works-grid",
+    "title" : "Works Grid Section",
+    "icon": "admin-site",
+    "description": "Display pd-works as a simple grid with filters",
+    "apiVersion": 3,
+    "textdomain": "prok",
+    "supports": {
+        "align" : false,
+        "mode"  : false,
+        "jsx"   : true,
+        "anchor": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "./template.php"
+    }
+}

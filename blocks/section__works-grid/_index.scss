@@ -1,0 +1,92 @@
+.section__works-grid__wrapper {
+    position: relative;
+    gap: 0;
+    padding-top: 0;
+    padding-bottom: calc(var(--padding) * 2);
+
+    h2 {
+        margin-bottom: 0 !important;
+    }
+}
+
+.section__works-grid__heading {
+    width: var(--width-50-parent-padding);
+    margin-right: auto;
+    padding-right: var(--padding);
+    margin-left: var(--margin-width-50);
+    margin-bottom: calc(var(--gap) * .7);
+    --medium-margin: 9rem;
+    --small-margin: 5rem;
+}
+
+.section__works-grid {
+    scroll-margin-top: 80px;
+    /* Отступ сверху */
+    scroll-margin-top: calc(1.25 * var(--font-size-0));
+    /* Отступ сверху */
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    row-gap: calc(3 * var(--gap));
+    padding: 0 var(--padding);
+}
+
+/* Ширина постов */
+/* На строке максимум 4 элемента по 25% с 3 gaps, или 2 элемента по 50% с 1 gap */
+.pd_work_width-25 {
+    flex-basis: calc(25% - (var(--gap) * 3 / 4));
+}
+
+.pd_work_width-50 {
+    flex-basis: calc(50% - (var(--gap) / 2));
+}
+
+// @media screen and (max-width: 1024px) {
+//     .section__works-grid {
+//         gap: 1.5rem;
+//     }
+
+//     .pd_work_width-25 {
+//         flex-basis: calc(50% - (var(--gap) / 2));
+//     }
+
+//     .pd_work_width-50 {
+//         flex-basis: 100%;
+//     }
+// }
+
+@media screen and (max-width: 767px) {
+    .section__works-grid__heading {
+        padding: 0 var(--padding);
+        width: 100%;
+    }
+
+    .section__works-grid__wrapper {
+        padding-bottom: 0;
+    }
+
+    .section__works-grid {
+        margin-top: var(--pd_margin-top_2);
+    }
+
+    // .pd_work_width-25,
+    // .pd_work_width-50 {
+    //     flex-basis: calc(50% - (var(--gap) / 2));
+    // }
+
+    .pd_work_width-25 {
+        flex-basis: calc(50% - (var(--gap) / 2));
+    }
+
+    .pd_work_width-50 {
+        flex-basis: 100%;
+    }
+}
+
+
+
+.category-hidden {
+    display: none !important;
+}
+
+@media screen and (max-width: 767px) {}

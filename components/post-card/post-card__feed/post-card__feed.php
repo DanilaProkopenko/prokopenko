@@ -13,43 +13,45 @@ if ($args) {
 <div class="feed-post-card emerge">
     <?php
     $file = $feed_thumb;
-    if ($file):
 
-        // Extract variables.
-        $url = $file['url'];
-        $title = $file['filename'];
-        $caption = $file['caption'];
-        $icon = $file['icon'];
+// если прилетела строка (URL/ID), не даём упасть
+    if (is_string($file)) {
+        $file = [
+            'url'  => $file,
+            'type' => 'image', // поменяй на 'video', если нужно
+        ];
+    }
 
-        // Display image thumbnail when possible.
-        if ($file['type'] == 'image') :
-            $icon =  $file['sizes']['large'];
-            // $img_full = $file['sizes']['full'];
-            $img_url = $file['url']; ?>
-            <? // Begin caption wrap.
-            if ($caption): ?>
+    if (is_array($file)) :
+
+        $url     = isset($file['url']) ? $file['url'] : '';
+        $caption = isset($file['caption']) ? $file['caption'] : '';
+        $icon    = isset($file['icon']) ? $file['icon'] : '';
+
+        if (isset($file['type']) && $file['type'] === 'image') :
+            $icon    = isset($file['sizes']['large']) ? $file['sizes']['large'] : $url;
+            $img_url = $url;
+            ?>
+            <?php if ($caption): ?>
                 <div class="wp-caption">
-                <?php endif; ?>
-                <?php //var_dump($file)
-                ?>
+            <?php endif; ?>
+
                 <a
                     href="<?php echo esc_attr($img_url); ?>"
-                    data-fancybox="<?= $id ?>"
+                    data-fancybox="<?= esc_attr($id); ?>"
                     class="post-card-img link-border-none">
                     <img src="<?php echo esc_attr($icon); ?>" />
                 </a>
-                <?php
-                // End caption wrap.
-                if ($caption): ?>
+
+            <?php if ($caption): ?>
                     <p class="wp-caption-text"><?php echo esc_html($caption); ?></p>
                 </div>
             <?php endif; ?>
-        <?php endif; ?>
 
-        <? if ($file['type'] == 'video'): ?>
+        <?php elseif (isset($file['type']) && $file['type'] === 'video'): ?>
             <a
-                href="<?php echo $file['url']; ?>"
-                data-fancybox="<?= $id ?>"
+                href="<?php echo esc_url($url); ?>"
+                data-fancybox="<?= esc_attr($id); ?>"
                 class="post-card-img link-border-none">
                 <video
                     preload="auto"
@@ -60,13 +62,13 @@ if ($args) {
                     muted
                     class="slide__video-video__source post-card__big__gallery__img__source _cover">
                     <source
-                        src="<?php echo $file['url']; ?>"
+                        src="<?php echo esc_url($url); ?>"
                         type="video/mp4">
                 </video>
             </a>
-
         <?php endif; ?>
     <?php endif; ?>
+
     <? if ($feed_link):
         $link_url = $feed_link['url'];
         $link_title = $feed_link['title'];

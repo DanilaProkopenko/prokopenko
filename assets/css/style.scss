@@ -124,8 +124,8 @@
 
     --width-50-parent-padding: calc(50% - var(--gap) + 0px);
     --width-50-parent-padding-bleed: calc(50% - var(--gap) + 0px + var(--padding));
-    --width-50-bleed: calc(50% - var(--gap) + 0px);
-
+    --width-50-bleed: calc(50% - var(--gap) \ 2);
+ 
     --width-75-parent-padding: calc(75% - var(--gap) + 0px);
     --width-75-parent-padding-bleed: calc(75% - var(--gap) + 0px + var(--padding));
     --width-75-bleed: calc(75% - var(--gap) + 0px);
@@ -1220,17 +1220,10 @@ div .img--large {
 
 .project-media-small,
 .img--small {
-    // width: var(--width-50-bleed);
-    // margin-right: 0;
-    margin-left: var(--margin-width-50) !important;
-    // margin-top: 0;
-}
-
-.project-media-small,
-.img--small {
     width: var(--width-50-bleed);
     margin-right: 0;
     margin-left: var(--margin-width-50);
+    margin-left: var(--margin-width-50) !important;
     // margin-top: 0;
 }
 
