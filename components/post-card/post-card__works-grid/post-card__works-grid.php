@@ -3,6 +3,7 @@
 if ($args) {
     $title = $args['title'];
     $link = $args['link'];
+    $post_card_link = $args['post_card_link'];
 
     $img_thumbnail = $args['img_thumbnail'] ?? '';
     $img_medium = $args['img_medium'] ?? '';
@@ -13,11 +14,14 @@ if ($args) {
 
     $post_thumb_video = $args['post_thumb_video'] ?? null;
 }
+
+// Определяем финальную ссылку: если заполнен post_card_link, используем его вместо обычной ссылки на пост
+$final_link = (isset($post_card_link) && !empty($post_card_link['url'])) ? $post_card_link['url'] : $link;
 ?>
 <div class="post-card__works-grid active <?= $width_class ?>" data-post-id="<?= $id ?>">
     <div class="post-card__works-grid__image-wrapper">
         <?php if ($post_thumb_video): ?>
-            <a href="<?= $link ?>" class="post-card__works-grid__image">
+            <a href="<?= $final_link ?>" class="post-card__works-grid__image">
                 <video
                     preload="auto"
                     no-controls
@@ -30,7 +34,7 @@ if ($args) {
                 </video>
             </a>
         <?php else: ?>
-            <a href="<?= $link ?>" class="post-card__works-grid__image">
+            <a href="<?= $final_link ?>" class="post-card__works-grid__image">
                 <picture>
                     <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
                     <source media="(min-width: 769px)" srcset="<?= esc_url($img_large); ?>" />
@@ -41,7 +45,7 @@ if ($args) {
     </div>
     <div class="post-card__works-grid__content">
         <p class="post-card__works-grid__title">
-            <a href="<?= $link ?>">
+            <a href="<?= $final_link ?>">
                 <?= $title ?>
             </a>
         </p>

@@ -53,11 +53,13 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
         $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
         $short_description = get_field('post_short-description', $id);
         $post_thumb_video = get_field('post_thumb_video', $id);
+        $post_card_link = get_field('post_card_link', $id);
 
         get_template_part('components/post-card/post-card__big/post-card__big', null, array(
             'title' => get_the_title(),
             'link' => get_the_permalink(),
             'id' => $id,
+            'post_card_link' => $post_card_link,
 
             'img_thumbnail' => $img_thumbnail,
             'img_large' => $img_large,

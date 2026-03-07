@@ -171,11 +171,13 @@ function renderPost()
     $img_medium_large = get_the_post_thumbnail_url($id, 'medium_large');
     $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
     $width_class = 'pd_work_width-' . $post_work_width;
+    $post_card_link = get_field('post_card_link', $id);
 
     get_template_part('components/post-card/post-card', null, array(
         'title' => get_the_title(),
         'link' => get_the_permalink(),
         'id' => $id,
+        'post_card_link' => $post_card_link,
         'img_large' => $img_large,
         'img_medium_large' => $img_medium_large,
         'except' => has_excerpt() ? get_the_excerpt() : null,

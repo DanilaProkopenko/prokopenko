@@ -3,6 +3,7 @@
 if ($args) {
     $title = $args['title'];
     $link = $args['link'];
+    $post_card_link = $args['post_card_link'];
     $short_description = $args['short_description'];
 
     $img_thumbnail = $args['img_thumbnail'];
@@ -18,6 +19,9 @@ if ($args) {
 
     $counter = $args['counter'] + 1;
 }
+
+// Определяем финальную ссылку: если заполнен post_card_link, используем его вместо обычной ссылки на пост
+$final_link = (isset($post_card_link) && !empty($post_card_link['url'])) ? $post_card_link['url'] : $link;
 ?>
 <div class="post-card__big f-carousel__slide custom-card card<?= $counter ?> active" style="z-index: <?= $counter + 1 ?>">
     <?= do_shortcode('[post_category]') ?>
@@ -50,7 +54,7 @@ if ($args) {
 
                     data-img-src="<?= esc_url($img_medium); ?>"
                     data-thumb-src="<?= esc_url($img_medium); ?>">
-                    <a href="<?= $link ?>"
+                    <a href="<?= $final_link ?>"
                         class="post-card__big__gallery__img">
                         <picture>
                             <source media="(max-width: 768px)" srcset="<?= esc_url($img_large); ?>" />
@@ -84,7 +88,7 @@ if ($args) {
                         </div>
                     <?php else: ?>
                         <a
-                            href="<?= $link ?>"
+                            href="<?= $final_link ?>"
                             data-img-src="<?= esc_url($image['sizes']['medium']) ?>"
                             data-thumb-src="<?= esc_url($image['sizes']['medium']) ?>"
                             class="<?= $data_type ?> f-carousel__slide emerge">
@@ -108,7 +112,7 @@ if ($args) {
                 </h4>
             </a> -->
             <h4 class="post-card__big__heading">
-                <a href="<?= $link ?> ">
+                <a href="<?= $final_link ?> ">
                     <?= $title ?>
                 </a>
             </h4>
