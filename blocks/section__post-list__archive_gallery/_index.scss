@@ -43,58 +43,16 @@
         &:hover {
             opacity: .8;
         }
+    }
 
-        &:nth-child(1) {
-            width: 40%;
-        }
+    /* Ширина постов на основе классов */
+    /* По 4 элемента по 25% с 3 gaps, или 2 элемента по 50% с 1 gap */
+    .pd_work_width-25 {
+        flex-basis: calc(25% - (var(--gap) * 3 / 4));
+    }
 
-        &:nth-child(2) {
-            width: 26%;
-        }
-
-        &:nth-child(3) {
-            width: 32%;
-        }
-
-        &:nth-child(4) {
-            width: 40%;
-        }
-
-        &:nth-child(5) {
-            width: 28%;
-        }
-
-        &:nth-child(6) {
-            width: 32%;
-        }
-
-        &:nth-child(7) {
-            width: 26%;
-        }
-
-        &:nth-child(8) {
-            width: 32%;
-        }
-
-        &:nth-child(9) {
-            width: 40%;
-        }
-
-        &:nth-child(10) {
-            width: 40%;
-        }
-
-        &:nth-child(11) {
-            width: 26%;
-        }
-
-        &:nth-child(12) {
-            width: 32%;
-        }
-
-        &:nth-child(13) {
-            width: 32%;
-        }
+    .pd_work_width-50 {
+        flex-basis: calc(50% - (var(--gap) / 2));
     }
 }
 
@@ -108,7 +66,7 @@
     .posts-list__archive-gallery {
         &.f-carousel {
             .f-carousel__slide {
-                padding: 0 calc(.5 * var(--gap));
+                padding: 0 calc(1 * var(--gap));
 
                 &:first-child {
                     // padding-left: calc(2.3 * var(--padding));
@@ -122,60 +80,26 @@
         }
 
         .post-card {
-
-            &:nth-child(1) {
-                width: 78%;
+            // На планшете: 2 колонки по 50% с 1 gap, или полная ширина
+            &.pd_work_width-25 {
+                flex-basis: calc(50% - (var(--gap) / 2));
             }
 
-            &:nth-child(2) {
-                width: 58%;
-            }
-
-            &:nth-child(3) {
-                width: 58%;
-            }
-
-            &:nth-child(4) {
-                width: 48%;
-            }
-
-            &:nth-child(5) {
-                width: 70%;
-            }
-
-            &:nth-child(6) {
-                width: 60%;
-            }
-
-            &:nth-child(7) {
-                width: 78%;
-            }
-
-            &:nth-child(8) {
-                width: 58%;
-            }
-
-            &:nth-child(9) {
-                width: 68%;
-            }
-
-            &:nth-child(10) {
-                width: 68%;
-            }
-
-            &:nth-child(11) {
-                width: 70%;
-            }
-
-            &:nth-child(12) {
-                width: 60%;
-            }
-
-            &:nth-child(13) {
-                width: 78%;
+            &.pd_work_width-50 {
+                flex-basis: 100%;
             }
         }
     }
 }
 
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+    .posts-list__archive-gallery {
+        .post-card {
+            // На мобильных: все элементы в полную ширину
+            &.pd_work_width-25,
+            &.pd_work_width-50 {
+                flex-basis: 100%;
+            }
+        }
+    }
+}

@@ -5,9 +5,10 @@ if ($args) {
     $img_large = $args['img_large'];
     $img_medium_large = $args['img_medium_large'];
     $id = $args['id'];
+    $width_class = $args['width_class'] ?? ''; // Класс ширины (опционально)
 }
 ?>
-<div class="post-card f-carousel__slide emerge">
+<div class="post-card f-carousel__slide emerge <?= $width_class ?>">
     <a href=" <?= esc_html($link) ?>" class="post-card__thumb">
         <picture>
             <source media="(max-width: 768px)" srcset="<?= esc_html($img_medium_large) ?>" />

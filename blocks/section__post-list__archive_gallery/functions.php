@@ -166,15 +166,19 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
  */
 function renderPost()
 {
-    $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
-    $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
+    $id = get_the_ID();
+    $img_large = get_the_post_thumbnail_url($id, 'large');
+    $img_medium_large = get_the_post_thumbnail_url($id, 'medium_large');
+    $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
+    $width_class = 'pd_work_width-' . $post_work_width;
 
     get_template_part('components/post-card/post-card', null, array(
         'title' => get_the_title(),
         'link' => get_the_permalink(),
-        'id' => get_the_ID(),
+        'id' => $id,
         'img_large' => $img_large,
         'img_medium_large' => $img_medium_large,
         'except' => has_excerpt() ? get_the_excerpt() : null,
+        'width_class' => $width_class,
     ));
 }

@@ -122,9 +122,9 @@ const initFilterBar = (config = {}) => {
             const oldMoreBtn = filterBar.querySelector(`.${moreButtonClass}`);
             if (oldMoreBtn) oldMoreBtn.remove();
 
-            if (filterButtons.length <= 5) return;
+            if (filterButtons.length <= 11) return;
 
-            const visibleCount = 4;
+            const visibleCount = 10;
             const moreButtons = filterButtons.slice(visibleCount);
 
             const moreBtn = document.createElement('button');

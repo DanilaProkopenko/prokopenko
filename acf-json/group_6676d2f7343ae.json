@@ -1,6 +1,6 @@
 {
     "key": "group_6676d2f7343ae",
-    "title": "Post",
+    "title": "Post, Works",
     "fields": [
         {
             "key": "field_6676d2f73a5a0",
@@ -210,7 +210,8 @@
             },
             "choices": {
                 "25": "25",
-                "50": "50"
+                "50": "50",
+                "100": "100"
             },
             "default_value": 25,
             "return_format": "label",
@@ -246,5 +247,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1772552894
+    "modified": 1772887975
 }

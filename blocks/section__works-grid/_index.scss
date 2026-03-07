@@ -1,8 +1,6 @@
 .section__works-grid__wrapper {
     position: relative;
-    gap: 0;
     padding-top: 0;
-    padding-bottom: calc(var(--padding) * 2);
 
     h2 {
         margin-bottom: 0 !important;
@@ -35,10 +33,41 @@
 /* На строке максимум 4 элемента по 25% с 3 gaps, или 2 элемента по 50% с 1 gap */
 .pd_work_width-25 {
     flex-basis: calc(25% - (var(--gap) * 3 / 4));
+
+    .post-card__works-grid__image-wrapper {
+
+
+        @media screen and (min-width: 1921px) {
+            aspect-ratio: 3/4.6;
+        }
+
+        @media screen and (max-width: 1920px) {
+            aspect-ratio: 3/4.605;
+        }
+
+        @media screen and (max-width: 1600px) {
+            aspect-ratio: 3/4.61;
+        }
+
+        @media screen and (max-width: 1200px) {
+            aspect-ratio: 3/4.66;
+        }
+
+        @media screen and (max-width: 1024px) {
+            aspect-ratio: 3/4;
+        }
+
+
+
+    }
 }
 
 .pd_work_width-50 {
     flex-basis: calc(50% - (var(--gap) / 2));
+}
+
+.pd_work_width-100 {
+    flex-basis: calc(100%);
 }
 
 // @media screen and (max-width: 1024px) {
@@ -67,6 +96,7 @@
 
     .section__works-grid {
         margin-top: var(--pd_margin-top_2);
+        padding: 0;
     }
 
     // .pd_work_width-25,
