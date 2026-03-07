@@ -69,10 +69,19 @@
     }
 
     .pd_work_width-25 {
-        &:nth-child(2n+1) {
+        // Левая 25 в паре - паддинг справа
+        &.is-left {
+            .post-card__works-grid__content {
+                padding: 0 0 0 var(--padding);
 
+            }
+        }
+
+        // Правая 25 в паре - паддинг слева
+        &.is-right {
             .post-card__works-grid__content {
                 padding: 0 var(--padding) 0 0;
+
             }
         }
     }

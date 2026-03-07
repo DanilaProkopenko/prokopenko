@@ -25,7 +25,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap);
-    row-gap: calc(3 * var(--gap));
+    row-gap: calc(2 * var(--gap));
     padding: 0 var(--padding);
 }
 
