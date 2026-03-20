@@ -167,20 +167,25 @@ function getPostsArchiveGallery($posts_per_page = 50, $post__not_in = null, $tag
 function renderPost()
 {
     $id = get_the_ID();
+    $img_thumbnail = get_the_post_thumbnail_url($id, 'thumbnail');
+    $img_medium = get_the_post_thumbnail_url($id, 'medium');
     $img_large = get_the_post_thumbnail_url($id, 'large');
     $img_medium_large = get_the_post_thumbnail_url($id, 'medium_large');
     $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
     $width_class = 'pd_work_width-' . $post_work_width;
     $post_card_link = get_field('post_card_link', $id);
+    $post_thumb_video = get_field('post_thumb_video', $id);
 
-    get_template_part('components/post-card/post-card', null, array(
+    get_template_part('components/post-card/post-card__works-grid/post-card__works-grid', null, array(
         'title' => get_the_title(),
         'link' => get_the_permalink(),
         'id' => $id,
         'post_card_link' => $post_card_link,
+        'img_thumbnail' => $img_thumbnail,
+        'img_medium' => $img_medium,
         'img_large' => $img_large,
         'img_medium_large' => $img_medium_large,
-        'except' => has_excerpt() ? get_the_excerpt() : null,
         'width_class' => $width_class,
+        'post_thumb_video' => $post_thumb_video,
     ));
 }

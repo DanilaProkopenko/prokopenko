@@ -37,10 +37,24 @@
     scroll-margin-top: calc(1.25 * var(--font-size-0));
     /* Отступ сверху */
     display: flex;
-    flex-direction: column;
-    gap: 14rem;
+    flex-wrap: wrap;
 
+    // flex-direction: column;
+    gap: var(--gap);
+    row-gap: calc(3 * var(--gap));
     padding: 0 var(--padding);
+
+    .post-card__works-grid {
+        .post-card__works-grid__title {
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: var(--lh-0);
+
+            * {
+                font-weight: 500;
+            }
+        }
+    }
 }
 
 
@@ -69,7 +83,7 @@
 @media screen and (max-width: 1024px) {
 
     .section__post-list__big {
-        gap: 7rem;
+        // gap: 7rem;
     }
 }
 

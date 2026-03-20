@@ -31,7 +31,7 @@
         }
     }
 
-    .post-card {
+    .post-card__works-grid {
         transition: all .5s;
 
         .post-category {
@@ -79,7 +79,7 @@
             }
         }
 
-        .post-card {
+        .post-card__works-grid {
             // На планшете: 2 колонки по 50% с 1 gap, или полная ширина
             &.pd_work_width-25 {
                 flex-basis: calc(50% - (var(--gap) / 2));
@@ -94,7 +94,7 @@
 
 @media screen and (max-width: 480px) {
     .posts-list__archive-gallery {
-        .post-card {
+        .post-card__works-grid {
             // На мобильных: все элементы в полную ширину
             &.pd_work_width-25,
             &.pd_work_width-50 {

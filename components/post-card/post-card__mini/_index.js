@@ -1,6 +1,0 @@
-const initBlockTemplate = () => {
-
-};
-
-initBlockTemplate();
-

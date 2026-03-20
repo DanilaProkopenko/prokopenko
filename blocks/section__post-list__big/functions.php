@@ -54,25 +54,47 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
         $short_description = get_field('post_short-description', $id);
         $post_thumb_video = get_field('post_thumb_video', $id);
         $post_card_link = get_field('post_card_link', $id);
+        $card_layout = get_field('post_work_card_layout', $id) ?: 'big'; // Дефолт на big
+        $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
+        $width_class = 'pd_work_width-' . $post_work_width;
 
-        get_template_part('components/post-card/post-card__big/post-card__big', null, array(
-            'title' => get_the_title(),
-            'link' => get_the_permalink(),
-            'id' => $id,
-            'post_card_link' => $post_card_link,
+        // Выбирается шаблон карточки в зависимости от ACF поля
+        if ($card_layout === 'thumbnail') {
+            // Простая карточка-превью
+            get_template_part('components/post-card/post-card__works-grid/post-card__works-grid', null, array(
+                'title' => get_the_title(),
+                'link' => get_the_permalink(),
+                'id' => $id,
+                'post_card_link' => $post_card_link,
+                'img_thumbnail' => $img_thumbnail,
+                'img_medium' => $img_medium,
+                'img_large' => $img_large,
+                'img_medium_large' => $img_medium_large,
+                'post_thumb_video' => $post_thumb_video,
+                'width_class' => $width_class,
+                'counter' => $counter,
+            ));
+        } else {
+            // Большая карточка с галереей
+            get_template_part('components/post-card/post-card__big/post-card__big', null, array(
+                'title' => get_the_title(),
+                'link' => get_the_permalink(),
+                'id' => $id,
+                'post_card_link' => $post_card_link,
 
-            'img_thumbnail' => $img_thumbnail,
-            'img_large' => $img_large,
-            'img_medium_large' => $img_medium_large,
-            'img_medium' => $img_medium,
-            'short_description' => $short_description,
+                'img_thumbnail' => $img_thumbnail,
+                'img_large' => $img_large,
+                'img_medium_large' => $img_medium_large,
+                'img_medium' => $img_medium,
+                'short_description' => $short_description,
 
-            'except' =>  has_excerpt() ? get_the_excerpt() : null,
-            'gallery' => get_field('post_card_gallery', $id),
-            'posts_count' => $posts_count,
-            'post_thumb_video' => $post_thumb_video,
-            'counter' => $counter,
-        ));
+                'except' =>  has_excerpt() ? get_the_excerpt() : null,
+                'gallery' => get_field('post_card_gallery', $id),
+                'posts_count' => $posts_count,
+                'post_thumb_video' => $post_thumb_video,
+                'counter' => $counter,
+            ));
+        }
 
         $counter++;
     endwhile;

@@ -223,8 +223,8 @@
         },
         {
             "key": "field_69bd9afd80613",
-            "label": "post_work_card-layout",
-            "name": "post_work_card-layout",
+            "label": "post_work_card_layout",
+            "name": "post_work_card_layout",
             "aria-label": "",
             "type": "radio",
             "instructions": "",
@@ -273,5 +273,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1774033772
+    "modified": 1774034588
 }
