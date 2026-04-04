@@ -33,7 +33,6 @@ $custom_block_heading = get_field('custom-block_heading');
 ?>
 
 <div class="post__navigation">
-    <div class="indicator"></div>
     <ul class="list_none-marker">
         
     </ul>

@@ -133,6 +133,25 @@ header {
     position: relative;
 }
 
+.header__wrapper {
+    transition: all .3s ease;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+
+    &.out {
+        transform: translateY(-100%);
+        // opacity: 0;
+    }
+}
+
+body:has(._open) {
+    .header__wrapper {
+        &.out {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
 .header__column {
     display: flex;
     flex-direction: row;
@@ -290,6 +309,7 @@ body ul.header__burger__links {
         max-width: 100% !important;
         margin-top: 0;
         padding: 0;
+
         a {
             // transform: translateY(-100%);
             border-bottom: 0;
@@ -547,7 +567,7 @@ body ul.header__burger__links {
 
     .header__top {
         height: 54px;
-        position: fixed;
+        // position: fixed;
         // border-bottom: 0;
     }
 

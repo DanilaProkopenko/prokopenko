@@ -24,10 +24,6 @@ if ( is_array($page_color) && isset($page_color['value']) && is_array($page_colo
 ?>
 
 <body data-barba="wrapper" id="barba-wrapper" <?php body_class("container page__color-" . esc_attr($page_color_value) . ' ' . $id); ?>>
-    <!-- 
-    в body добавляем различные классы, для смены стилистики
-    style-text-indent — Шрифт с вытяжкой 
-    -->
 
     <?php wp_body_open();
     get_template_part('components/header/header'); ?>

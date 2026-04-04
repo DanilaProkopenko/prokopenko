@@ -483,19 +483,87 @@ class Header {
             }
         });
     }
-    headerOut() {
-        const header = jQuery('.header__top__right .header__navigation._main');
-        let scrollPrev = 0;
+    // headerOut() {
+    //     const header = jQuery('.header__top__right .header__navigation._main');
+    //     let scrollPrev = 0;
 
-        jQuery('body').scroll(function () {
-            var scrolled = jQuery('body').scrollTop();
+    //     jQuery('body').scroll(function () {
+    //         var scrolled = jQuery('body').scrollTop();
 
-            if (scrolled > 100 && scrolled > scrollPrev) {
-                header.addClass('out');
-            } else {
-                header.removeClass('out');
+    //         if (scrolled > 100 && scrolled > scrollPrev) {
+    //             header.addClass('out');
+    //         } else {
+    //             header.removeClass('out');
+    //         }
+    //         scrollPrev = scrolled;
+    //     });
+    // }
+    // headerOut(selector, outClass = 'out', scrollOffset = 100) {
+    //     const element = jQuery(selector);
+    //     let scrollPrev = 0;
+
+    //     if (!element.length) return;
+
+    //     jQuery(window).on('scroll', function () {
+    //         const scrolled = jQuery(window).scrollTop();
+
+    //         if (scrolled > scrollOffset && scrolled > scrollPrev) {
+    //             element.addClass(outClass);
+    //         } else {
+    //             element.removeClass(outClass);
+    //         }
+
+    //         scrollPrev = scrolled;
+    //     });
+    // }
+    headerOut({
+        selector,
+        outClass = 'out',
+        startHideAfter = 100,
+        hideDistance = 20,
+        showDistance = 140,
+        topVisibleOffset = 50
+    }) {
+        const element = jQuery(selector);
+
+        if (!element.length) return;
+
+        let lastScrollTop = jQuery(window).scrollTop();
+        let upScrollDistance = 0;
+        let downScrollDistance = 0;
+
+        jQuery(window).on('scroll', function () {
+            const currentScrollTop = jQuery(window).scrollTop();
+            const diff = currentScrollTop - lastScrollTop;
+
+            // если почти у самого верха — меню всегда видно
+            if (currentScrollTop <= topVisibleOffset) {
+                element.removeClass(outClass);
+                upScrollDistance = 0;
+                downScrollDistance = 0;
+                lastScrollTop = currentScrollTop;
+                return;
             }
-            scrollPrev = scrolled;
+
+            if (diff > 0) {
+                // скролл вниз
+                downScrollDistance += diff;
+                upScrollDistance = 0;
+
+                if (currentScrollTop > startHideAfter && downScrollDistance >= hideDistance) {
+                    element.addClass(outClass);
+                }
+            } else if (diff < 0) {
+                // скролл вверх
+                upScrollDistance += Math.abs(diff);
+                downScrollDistance = 0;
+
+                if (upScrollDistance >= showDistance) {
+                    element.removeClass(outClass);
+                }
+            }
+
+            lastScrollTop = currentScrollTop;
         });
     }
 }

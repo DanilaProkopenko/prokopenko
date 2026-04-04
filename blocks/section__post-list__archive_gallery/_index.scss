@@ -34,6 +34,10 @@
     .post-card__works-grid {
         transition: all .5s;
 
+        .post-card__works-grid__content {
+            padding: 0;
+        }
+
         .post-category {
             writing-mode: lr;
             position: relative;
@@ -48,11 +52,11 @@
     /* Ширина постов на основе классов */
     /* По 4 элемента по 25% с 3 gaps, или 2 элемента по 50% с 1 gap */
     .pd_work_width-25 {
-        flex-basis: calc(25% - (var(--gap) * 3 / 4));
+        flex-basis: calc(20.7% - (var(--gap) * 3 / 4));
     }
 
     .pd_work_width-50 {
-        flex-basis: calc(50% - (var(--gap) / 2));
+        flex-basis: calc(40% - (var(--gap) / 2));
     }
 }
 
@@ -66,7 +70,7 @@
     .posts-list__archive-gallery {
         &.f-carousel {
             .f-carousel__slide {
-                padding: 0 calc(1 * var(--gap));
+                padding: 0 calc(.5 * var(--gap));
 
                 &:first-child {
                     // padding-left: calc(2.3 * var(--padding));
@@ -80,26 +84,26 @@
         }
 
         .post-card__works-grid {
-            // На планшете: 2 колонки по 50% с 1 gap, или полная ширина
             &.pd_work_width-25 {
-                flex-basis: calc(50% - (var(--gap) / 2));
+                flex-basis: calc(38.5% - (var(--gap) * 3 / 4));
             }
 
             &.pd_work_width-50 {
-                flex-basis: 100%;
+                flex-basis: calc(60% - (var(--gap) / 2));
             }
         }
     }
 }
 
 @media screen and (max-width: 480px) {
-    .posts-list__archive-gallery {
-        .post-card__works-grid {
-            // На мобильных: все элементы в полную ширину
-            &.pd_work_width-25,
-            &.pd_work_width-50 {
-                flex-basis: 100%;
-            }
-        }
-    }
+    // .posts-list__archive-gallery {
+    //     .post-card__works-grid {
+
+    //         // На мобильных: все элементы в полную ширину
+    //         &.pd_work_width-25,
+    //         &.pd_work_width-50 {
+    //             flex-basis: 100%;
+    //         }
+    //     }
+    // }
 }

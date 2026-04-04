@@ -39,7 +39,7 @@
     // overflow: hidden;
     min-width: 0;
 
-    margin-top: var(--pd_margin-top_8);
+    // margin-top: var(--pd_margin-top_8);
 }
 
 .post-card__big.active {
@@ -411,7 +411,7 @@
     .post-card__big {
         flex-direction: column;
         gap: 0;
-        margin-top: var(--pd_margin-top_3);
+        // margin-top: var(--pd_margin-top_3);
 
         .post-category {
             position: relative;

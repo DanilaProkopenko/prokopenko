@@ -34,12 +34,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const textIndent = document.getElementsByClassName('style-text-indent')[0];
-  
-  // Проверка на наличие класса у Body
-  if (!textIndent) {
-
-    // Вызываем функцию при загрузке страницы
-    adjustHeadings();
-  }
+  adjustHeadings();
 });

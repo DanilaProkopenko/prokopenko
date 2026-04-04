@@ -1,6 +1,6 @@
 .post__navigation-wrapper {
     position: fixed;
-    top: 8rem;
+    top: 7.5rem;
     z-index: 80;
     left: var(--padding);
 }
@@ -20,18 +20,6 @@
     padding: 0;
     margin: 0 auto 0 0;
     max-width: 18rem;
-
-    &::before {
-        content: '';
-        width: .05rem;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: rgba(0, 0, 0, 0.15);
-        background-color: var(--color-text-grey);
-        border-radius: 10px;
-    }
 
     ul {
         display: flex;
@@ -55,7 +43,7 @@
             }
 
             a {
-                padding: 0 1rem;
+                padding: 0 1rem 0 0;
             }
         }
     }
@@ -71,23 +59,6 @@
     }
 }
 
-
-.indicator {
-    position: absolute;
-    left: -.05rem;
-    /* Отступ слева */
-    width: 0.15rem;
-    background-color: var(--color-text-primary);
-    /* Цвет индикатора */
-    border-radius: 10px;
-    transition: top 0.3s ease, height 0.3s ease;
-
-    /* Плавный переход для вертикального перемещения */
-    // height: 1.2rem;
-    /* Начальная высота индикатора */
-
-
-}
 
 .post__navigation a {
 
@@ -107,28 +78,32 @@
 
 @media screen and (max-width: 767px) {
     .post__navigation-wrapper {
-        position: sticky;
+        position: relative;
         // top: -.5rem;
         top: 0;
-        width: 0;
+        width: 100%;
         margin-bottom: calc(2 * var(--padding)) !important;
-        padding-left: 0;
-        height: calc(var(--font-size-0));
-        height: 0;
+        padding: 0;
+        height: auto;
+        left: 0;
+
+        // &.out {
+        //     transform: translateY(-100%);
+        //     opacity: 0;
+        //     pointer-events: none;
+        // }
     }
 
     .post__navigation {
         flex-direction: row;
-        width: 100%;
+        width: calc(100% - 2 * var(--padding));
+        width: calc(100%);
         overflow-x: auto;
-        position: fixed;
+        position: relative;
         align-items: center;
-        /* left: 0; */
-        top: 54px;
+        top: 0;
+        right: 0;
         padding: 0 var(--padding);
-        left: 0;
-        // border-bottom: var(--border);
-        // border-bottom: 1px solid var(--color-secondary-blend);
         max-width: none;
 
         ul {
@@ -180,10 +155,6 @@
             // content: '';
             // height: 100%;
             // width: 3rem;
-        }
-
-        .indicator {
-            display: none;
         }
     }
 

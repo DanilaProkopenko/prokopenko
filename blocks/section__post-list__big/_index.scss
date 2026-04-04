@@ -15,9 +15,7 @@
             // padding-top: 3rem;
         }
 
-        &:first-child {
-            // border-top: 0;
-        }
+        &:first-child {}
     }
 }
 
@@ -41,7 +39,7 @@
 
     // flex-direction: column;
     gap: var(--gap);
-    row-gap: calc(3 * var(--gap));
+    row-gap: calc(7 * var(--gap));
     padding: 0 var(--padding);
 
     .post-card__works-grid {
@@ -101,6 +99,7 @@
 
     .section__post-list__big {
         padding: 0;
+        row-gap: calc(4 * var(--gap));
         margin-top: var(--pd_margin-top_2);
     }
 }
