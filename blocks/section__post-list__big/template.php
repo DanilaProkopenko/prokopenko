@@ -50,7 +50,7 @@ $block_caption = get_field('block_caption');
             </div>
         <? endif ?>
     </div>
-    <?php get_template_part('components/filter-bar/filter-bar'); ?>
+    <?php //get_template_part('components/filter-bar/filter-bar'); ?>
     <div class="section__post-list__big">
         <?= getPostsCardBig(-1, null, $post_list_tag, $post_list_category) ?>
     </div>

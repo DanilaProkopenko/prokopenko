@@ -27,6 +27,8 @@
     margin-bottom: calc(var(--gap) * .7);
     --medium-margin: 9rem;
     --small-margin: 5rem;
+
+    display: none;
 }
 
 .section__post-list__big {
@@ -41,6 +43,7 @@
     gap: var(--gap);
     row-gap: calc(7 * var(--gap));
     padding: 0 var(--padding);
+    // margin-top: var(--pd_margin-top_8);
 
     .post-card__works-grid {
         .post-card__works-grid__title {
