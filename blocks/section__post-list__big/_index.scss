@@ -45,17 +45,6 @@
     padding: 0 var(--padding);
     // margin-top: var(--pd_margin-top_8);
 
-    .post-card__works-grid {
-        .post-card__works-grid__title {
-            font-weight: 500;
-            text-transform: uppercase;
-            line-height: var(--lh-0);
-
-            * {
-                font-weight: 500;
-            }
-        }
-    }
 }
 
 
@@ -104,5 +93,6 @@
         padding: 0;
         row-gap: calc(4 * var(--gap));
         margin-top: var(--pd_margin-top_2);
+
     }
 }

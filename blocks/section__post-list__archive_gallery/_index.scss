@@ -5,8 +5,13 @@
     gap: 0;
     overflow-x: auto;
     overflow-y: hidden;
+    scrollbar-width: none;
     cursor: grab;
     -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &.is-dragging {
         cursor: grabbing;
