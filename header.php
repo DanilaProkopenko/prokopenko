@@ -10,20 +10,28 @@
 </head>
 
 <?php
-$id         = get_the_ID();
-$page_color = get_field_object('page_color', $id);
+$page_id          = is_singular() ? get_queried_object_id() : 0;
+$page_color_value = 'white';
 
-$page_color_value = 'white'; // дефолт
-$page_color_label = 'White';
+if ( $page_id ) {
+    $page_color = get_field_object('page_color', $page_id);
 
-if ( is_array($page_color) && isset($page_color['value']) && is_array($page_color['value']) ) {
-    // в value лежит массив с value/label
-    $page_color_value = $page_color['value']['value'] ?? $page_color_value;
-    $page_color_label = $page_color['value']['label'] ?? $page_color_label;
+    if ( is_array($page_color) && isset($page_color['value']) && is_array($page_color['value']) ) {
+        $page_color_value = $page_color['value']['value'] ?? $page_color_value;
+    }
+}
+
+$body_classes = array(
+    'container',
+    'page__color-' . sanitize_html_class($page_color_value),
+);
+
+if ( $page_id ) {
+    $body_classes[] = (string) $page_id;
 }
 ?>
 
-<body data-barba="wrapper" id="barba-wrapper" <?php body_class("container page__color-" . esc_attr($page_color_value) . ' ' . $id); ?>>
+<body data-barba="wrapper" id="barba-wrapper" <?php body_class($body_classes); ?>>
 
     <?php wp_body_open();
     get_template_part('components/header/header'); ?>
