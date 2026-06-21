@@ -1,38 +1,35 @@
 .posts-list__archive-gallery {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 2rem;
-    row-gap: 5rem;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
 
-    &.f-carousel {
-        // --f-carousel-spacing: var(--padding);
-        --f-carousel-spacing: 0;
-        // --f-carousel-slide-padding: 0 calc(var(--padding) / 2);
-        --f-carousel-slide-padding: 0;
+    &.is-dragging {
+        cursor: grabbing;
+        user-select: none;
 
-        .f-carousel__slide {
-            padding: 0 calc(var(--gap) / 2);
-
-            &:first-child {
-                padding-left: var(--padding);
-
-                // --f-carousel-slide-padding: 0 var(--padding);
-                .post-category {
-                    // top: 0;
-                    // left: calc(.5 * var(--padding));
-                }
-            }
-
-            &:last-child {
-                padding-right: var(--padding);
-            }
+        a {
+            pointer-events: none;
         }
     }
 
     .post-card__works-grid {
-        transition: all .5s;
+        flex: 0 0 calc(40% - (var(--gap) / 2));
+        padding: 0 calc(var(--gap) / 2);
+        transition: opacity .5s;
+
+        &:first-child {
+            margin-left: calc(var(--padding) - (var(--gap) / 2));
+        }
+
+        &:last-child {
+            margin-right: calc(var(--padding) - (var(--gap) / 2));
+
+        }
 
         .post-card__works-grid__content {
             padding: 0;
@@ -48,39 +45,14 @@
             opacity: .8;
         }
     }
-
-    .pd_work_width-50 {
-        flex-basis: calc(40% - (var(--gap) / 2));
-    }
 }
-
-@media screen and (max-width: 1600px) {}
-
-@media screen and (max-width: 1220px) {}
-
-@media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 767px) {
     .posts-list__archive-gallery {
-        &.f-carousel {
-            .f-carousel__slide {
-                padding: 0 calc(.5 * var(--gap));
-
-                &:first-child {
-                    // padding-left: calc(2.3 * var(--padding));
-
-                }
-
-                &:last-child {
-                    // padding-right: calc(var(--padding));
-                }
-            }
-        }
+        cursor: auto;
 
         .post-card__works-grid {
-            &.pd_work_width-50 {
-                flex-basis: calc(60% - (var(--gap) / 2));
-            }
+            flex-basis: calc(60% - (var(--gap) / 2));
         }
     }
 }

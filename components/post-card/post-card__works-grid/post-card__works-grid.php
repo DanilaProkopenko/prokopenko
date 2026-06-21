@@ -16,7 +16,7 @@ if ($args) {
 // Определяем финальную ссылку: если заполнен post_card_link, используем его вместо обычной ссылки на пост
 $final_link = (isset($post_card_link) && !empty($post_card_link['url'])) ? $post_card_link['url'] : $link;
 ?>
-<div class="f-carousel__slide post-card__works-grid active pd_work_width-50" data-post-id="<?= $id ?>">
+<div class="post-card__works-grid active pd_work_width-50" data-post-id="<?= $id ?>">
     <div class="post-card__works-grid__image-wrapper">
         <?php if ($post_thumb_video): ?>
             <a href="<?= $final_link ?>" class="post-card__works-grid__image">
