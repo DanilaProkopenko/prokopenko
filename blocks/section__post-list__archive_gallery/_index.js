@@ -72,7 +72,6 @@ const initArchiveGalleryScroll = () => {
             velocity = 0;
             lastScrollLeft = gallery.scrollLeft;
             lastMoveTime = performance.now();
-            gallery.setPointerCapture(pointerId);
         });
 
         gallery.addEventListener('pointermove', (event) => {
@@ -86,8 +85,12 @@ const initArchiveGalleryScroll = () => {
                 return;
             }
 
-            didDrag = true;
-            gallery.classList.add('is-dragging');
+            if (!didDrag) {
+                didDrag = true;
+                gallery.classList.add('is-dragging');
+                gallery.setPointerCapture(pointerId);
+            }
+
             gallery.scrollLeft = startScrollLeft - distance;
 
             const currentTime = performance.now();
