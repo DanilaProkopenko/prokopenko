@@ -1,0 +1,513 @@
+/*
+ * DP common styles
+ *
+ * Standalone design-system layer. This file is intentionally not imported by
+ * style.scss and contains no WordPress selectors or unscoped element styles.
+ * Add dp__ classes explicitly to opt an element into these styles.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Typography */
+    --dp-font-primary: 'Roboto', sans-serif;
+    --dp-font-secondary: 'Roboto Condensed', sans-serif;
+    --dp-font-weight-regular: 400;
+    --dp-font-weight-medium: 600;
+    --dp-font-weight-bold: 700;
+
+    --dp-font-size-xs: clamp(0.651rem, 0.641rem + 0.0504vw, 0.68rem);
+    --dp-font-size-sm: clamp(0.7813rem, 0.7573rem + 0.1196vw, 0.85rem);
+    --dp-font-size-md: clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem);
+    --dp-font-size-lg: clamp(1.125rem, 1.0543rem + 0.3533vw, 1.3281rem);
+    --dp-font-size-xl: clamp(1.35rem, 1.2421rem + 0.5394vw, 1.6602rem);
+    --dp-font-size-2xl: clamp(1.62rem, 1.4617rem + 0.7916vw, 2.0752rem);
+    --dp-font-size-3xl: clamp(1.944rem, 1.7179rem + 1.1304vw, 2.594rem);
+    --dp-font-size-4xl: clamp(2.3328rem, 2.0164rem + 1.5821vw, 3.2425rem);
+
+    --dp-line-height-tight: 1.24;
+    --dp-line-height-body: 1.5;
+    --dp-line-height-caption: 1.17;
+    --dp-measure: 42rem;
+
+    /* Colors */
+    --dp-color-surface: #fff;
+    --dp-color-surface-muted: #f2f2f2;
+    --dp-color-text: #040404;
+    --dp-color-text-muted: #999;
+    --dp-color-text-strong: #060508;
+    --dp-color-accent: #308cf4;
+    --dp-color-on-accent: #fff;
+    --dp-color-border: rgb(0 0 0 / 15%);
+    --dp-color-link-decoration: rgb(0 0 0 / 15%);
+    --dp-color-link-decoration-hover: rgb(48 140 244 / 15%);
+    --dp-color-danger: #f44336;
+    --dp-color-success: #037b0f;
+    --dp-color-warning: #f7e30d;
+
+    /* Spacing and layout */
+    --dp-space-0: 0;
+    --dp-space-1: 0.5rem;
+    --dp-space-2: 1rem;
+    --dp-space-3: 1.5rem;
+    --dp-space-4: 2rem;
+    --dp-space-5: 3rem;
+    --dp-space-6: 4rem;
+    --dp-space-7: 5rem;
+    --dp-space-8: 8rem;
+    --dp-space-section: clamp(1rem, 5vw, 3rem);
+    --dp-gap: clamp(1rem, 1vw, 3rem);
+    --dp-grid-gap: clamp(1.25rem, 2vw, 2.5rem);
+
+    --dp-border-width: 1px;
+    --dp-border: var(--dp-border-width) solid var(--dp-color-border);
+    --dp-radius-sm: 0.25rem;
+    --dp-radius-md: 0.6rem;
+    --dp-radius-pill: 999px;
+    --dp-control-padding-block: 1rem;
+    --dp-control-padding-inline: 1.5rem;
+    --dp-transition: 0.3s ease;
+}
+
+/* Base opt-in scope. Old global *, body, p, div, a, li rules. */
+.dp__base {
+    box-sizing: border-box;
+    color: var(--dp-color-text);
+    font-family: var(--dp-font-primary);
+    font-size: var(--dp-font-size-md);
+    font-style: normal;
+    font-weight: var(--dp-font-weight-regular);
+    line-height: var(--dp-line-height-body);
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+}
+
+/* Typography. Old h1-h6 and has-h-* classes. */
+.dp__heading {
+    max-width: var(--dp-measure);
+    margin: 0;
+    color: var(--dp-color-text);
+    font-family: var(--dp-font-primary);
+    font-size: var(--dp-font-size-md);
+    font-weight: var(--dp-font-weight-medium);
+    line-height: var(--dp-line-height-tight);
+    text-transform: uppercase;
+}
+
+.dp__heading--lg {
+    font-size: var(--dp-font-size-xl);
+}
+
+.dp__heading--xl {
+    font-size: var(--dp-font-size-2xl);
+}
+
+.dp__heading--display {
+    font-size: var(--dp-font-size-4xl);
+}
+
+.dp__text {
+    max-width: var(--dp-measure);
+    margin: 0;
+    color: var(--dp-color-text);
+    font-size: var(--dp-font-size-md);
+    font-weight: var(--dp-font-weight-regular);
+    line-height: var(--dp-line-height-body);
+}
+
+.dp__text--sm {
+    font-size: var(--dp-font-size-sm);
+}
+
+.dp__text--lg {
+    font-size: var(--dp-font-size-lg);
+}
+
+.dp__text--muted {
+    color: var(--dp-color-text-muted);
+}
+
+.dp__text--medium {
+    font-weight: var(--dp-font-weight-medium);
+}
+
+.dp__text--bold {
+    font-weight: var(--dp-font-weight-bold);
+}
+
+.dp__text--uppercase {
+    text-transform: uppercase;
+}
+
+/* Old .title__caption. */
+.dp__caption {
+    max-width: var(--dp-measure);
+    margin-block: calc(var(--dp-gap) * 0.3) var(--dp-space-2);
+    color: var(--dp-color-text-muted);
+    font-size: var(--dp-font-size-sm);
+    line-height: var(--dp-line-height-caption);
+}
+
+/* Old figcaption and .wp-caption-text. */
+.dp__figure-caption {
+    max-width: 75%;
+    margin-top: calc(var(--dp-space-section) * 0.3);
+    color: var(--dp-color-text-muted);
+    font-size: var(--dp-font-size-sm);
+    line-height: var(--dp-line-height-caption);
+}
+
+/* Links. Old a, .link, .no-underline and .link-border-none. */
+.dp__link {
+    width: fit-content;
+    color: var(--dp-color-text);
+    text-decoration-line: underline;
+    text-decoration-color: var(--dp-color-link-decoration);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color var(--dp-transition), text-decoration-color var(--dp-transition), opacity var(--dp-transition);
+
+    &:hover {
+        color: var(--dp-color-accent);
+        text-decoration-color: var(--dp-color-link-decoration-hover);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--dp-color-accent);
+        outline-offset: 3px;
+    }
+}
+
+.dp__link--plain {
+    text-decoration: none;
+}
+
+.dp__link--muted {
+    color: var(--dp-color-text-muted);
+}
+
+/* Buttons. Old .link-button, .link-button_blue and global button. */
+.dp__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(2 * var(--dp-font-size-md));
+    padding: var(--dp-control-padding-block) var(--dp-control-padding-inline);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--dp-color-text);
+    font: inherit;
+    font-size: var(--dp-font-size-md);
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--dp-transition), background-color var(--dp-transition), border-color var(--dp-transition), opacity var(--dp-transition);
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--dp-color-accent);
+        outline-offset: 3px;
+    }
+
+    &:disabled,
+    &[aria-disabled='true'] {
+        opacity: 0.45;
+        pointer-events: none;
+    }
+}
+
+.dp__button--primary {
+    background-color: var(--dp-color-accent);
+    color: var(--dp-color-on-accent);
+}
+
+.dp__button--outline {
+    border: var(--dp-border-width) solid currentColor;
+    color: var(--dp-color-text-muted);
+}
+
+.dp__button--large {
+    padding-block: 1.1rem;
+    padding-inline: 2rem;
+}
+
+.dp__button--full {
+    width: 100%;
+}
+
+/* Form controls. Old input and select. */
+.dp__field {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: var(--dp-space-2);
+    border: var(--dp-border-width) solid transparent;
+    border-radius: 0;
+    background-color: var(--dp-color-surface-muted);
+    color: var(--dp-color-text);
+    font-family: var(--dp-font-primary);
+    font-size: max(16px, var(--dp-font-size-md));
+    line-height: var(--dp-line-height-body);
+    transition: border-color var(--dp-transition), background-color var(--dp-transition);
+
+    &::placeholder {
+        color: var(--dp-color-text-muted);
+        opacity: 1;
+    }
+
+    &:focus {
+        border-color: var(--dp-color-accent);
+        outline: 0;
+    }
+}
+
+.dp__field--textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+/* Lists. Old ul, .wp-block-list and .list-style-none. */
+.dp__list {
+    max-width: var(--dp-measure);
+    margin: 0;
+    padding-left: 2ch;
+    list-style: none;
+
+    > li {
+        position: relative;
+    }
+
+    > li::before {
+        position: absolute;
+        left: -2ch;
+        content: '—';
+        font-size: var(--dp-font-size-md);
+    }
+
+    > li + li {
+        margin-top: var(--dp-space-1);
+    }
+}
+
+.dp__list--plain {
+    padding-left: 0;
+
+    > li::before {
+        content: none;
+    }
+}
+
+.dp__list--inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dp-space-1) var(--dp-space-2);
+    padding-left: 0;
+
+    > li::before {
+        content: none;
+    }
+
+    > li + li {
+        margin-top: 0;
+    }
+}
+
+/* Vertical content rhythm. Replaces implicit div > p margins. */
+.dp__stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dp-stack-gap, var(--dp-space-2));
+}
+
+.dp__stack--sm {
+    --dp-stack-gap: var(--dp-space-1);
+}
+
+.dp__stack--lg {
+    --dp-stack-gap: var(--dp-space-4);
+}
+
+/* Layout. Old .main-padding, ._padding, .pd_section and .pd_width_50. */
+.dp__container {
+    width: min(100%, var(--dp-container-width, 90rem));
+    margin-inline: auto;
+    padding-inline: var(--dp-space-section);
+}
+
+.dp__section {
+    padding-block: var(--dp-space-section);
+}
+
+.dp__content-narrow {
+    width: min(100%, var(--dp-measure));
+}
+
+.dp__content-center {
+    margin-inline: auto;
+}
+
+/* Old .grid_12. */
+.dp__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--dp-grid-columns, 12), minmax(0, 1fr));
+    gap: var(--dp-grid-gap);
+}
+
+.dp__grid--2 {
+    --dp-grid-columns: 2;
+}
+
+.dp__grid--3 {
+    --dp-grid-columns: 3;
+}
+
+.dp__grid--4 {
+    --dp-grid-columns: 4;
+}
+
+/* Old .pd_flex, .pd_flex-row and .pd_flex-column. */
+.dp__flex {
+    display: flex;
+    gap: var(--dp-gap);
+}
+
+.dp__flex--row {
+    flex-direction: row;
+}
+
+.dp__flex--column {
+    flex-direction: column;
+}
+
+.dp__flex--wrap {
+    flex-wrap: wrap;
+}
+
+.dp__flex--items-start {
+    align-items: flex-start;
+}
+
+.dp__flex--items-center {
+    align-items: center;
+}
+
+/* Old .pd_flex-aligned-end and .pd_flex-aligned-bottom. */
+.dp__flex--items-end {
+    align-items: flex-end;
+}
+
+.dp__flex--justify-between {
+    justify-content: space-between;
+}
+
+.dp__basis-25 {
+    flex-basis: 25%;
+}
+
+.dp__basis-50 {
+    flex-basis: 50%;
+}
+
+.dp__basis-75 {
+    flex-basis: 75%;
+}
+
+/* Spacing. Old pd_margin-*, small/medium/large-margin-* classes. */
+.dp__mt-0 { margin-top: var(--dp-space-0) !important; }
+.dp__mt-1 { margin-top: var(--dp-space-1) !important; }
+.dp__mt-2 { margin-top: var(--dp-space-2) !important; }
+.dp__mt-3 { margin-top: var(--dp-space-3) !important; }
+.dp__mt-4 { margin-top: var(--dp-space-4) !important; }
+.dp__mt-5 { margin-top: var(--dp-space-5) !important; }
+.dp__mt-7 { margin-top: var(--dp-space-7) !important; }
+.dp__mt-8 { margin-top: var(--dp-space-8) !important; }
+
+.dp__mb-0 { margin-bottom: var(--dp-space-0) !important; }
+.dp__mb-1 { margin-bottom: var(--dp-space-1) !important; }
+.dp__mb-2 { margin-bottom: var(--dp-space-2) !important; }
+.dp__mb-3 { margin-bottom: var(--dp-space-3) !important; }
+.dp__mb-4 { margin-bottom: var(--dp-space-4) !important; }
+.dp__mb-5 { margin-bottom: var(--dp-space-5) !important; }
+.dp__mb-7 { margin-bottom: var(--dp-space-7) !important; }
+.dp__mb-8 { margin-bottom: var(--dp-space-8) !important; }
+
+.dp__mx-auto { margin-inline: auto !important; }
+.dp__ml-auto { margin-left: auto !important; }
+.dp__p-0 { padding: 0 !important; }
+.dp__px-container { padding-inline: var(--dp-space-section) !important; }
+
+/* Generic state utilities. Old .hidden and .hidden-mobile. */
+.dp__hidden {
+    display: none !important;
+}
+
+.dp__visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.dp__mobile-only {
+    display: none !important;
+}
+
+@media screen and (max-width: 767px) {
+    .dp__section {
+        padding-block: calc(2 * var(--dp-space-section));
+    }
+
+    .dp__grid--2,
+    .dp__grid--3,
+    .dp__grid--4 {
+        --dp-grid-columns: 1;
+    }
+
+    .dp__flex--mobile-column {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dp__basis-25,
+    .dp__basis-50,
+    .dp__basis-75 {
+        flex-basis: 100%;
+    }
+
+    .dp__desktop-only {
+        display: none !important;
+    }
+
+    .dp__mobile-only {
+        display: initial !important;
+    }
+
+    .dp__button {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dp__base *,
+    .dp__base *::before,
+    .dp__base *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
