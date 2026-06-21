@@ -1,86 +1,86 @@
 import { Fancybox } from '@fancyapps/ui';
 
-function wrapImagesInLinks() {
-    const container = document.querySelector('.single-page--v1__content');
-    if (!container) return;
+const contentSelector = '.single-page--v1__content';
+const triggerSelector = `${contentSelector} [data-dp-fancybox]`;
 
-    const images = container.querySelectorAll('img:not(a>img), .wp-block-image img:not(a>img)');
-    images.forEach(img => {
-        if (img.parentElement.tagName === 'A') return;
-        const src = img.src;
-        if (!src) return;
+const getMediaSource = (media, existingLink) => {
+    if (existingLink?.href) {
+        return existingLink.href;
+    }
 
-        const link = document.createElement('a');
-        link.href = src;
-        link.setAttribute('data-fancybox', 'gallery');
-        link.setAttribute('data-type', 'image');
+    if (media instanceof HTMLVideoElement) {
+        return media.currentSrc || media.src || media.querySelector('source')?.src || '';
+    }
 
-        img.replaceWith(link);
-        link.appendChild(img);
-    });
-}
+    return media.dataset.fullUrl || media.currentSrc || media.src || '';
+};
 
-(function fancyapps() {
-    let scrollPosition = 0;
+const prepareFancyboxMedia = () => {
+    const container = document.querySelector(contentSelector);
 
-    const fancyboxConfig = {
-        // 🔥 Отключаем возврат фокуса (это вызывает скролл наверх)
-        returnFocus: false,
+    if (!container) {
+        return;
+    }
 
-        // 🔥 Отключаем встроенное управление скроллом
-        preventScroll: false,
+    container.querySelectorAll('.fancybox').forEach((fancyboxElement) => {
+        const mediaElements = fancyboxElement.matches('img, video')
+            ? [fancyboxElement]
+            : fancyboxElement.querySelectorAll('img, video');
 
-        // Управление скроллом: сохраняем позицию ДО показа и восстанавливаем ПОСЛЕ закрытия
-        on: {
-            reveal: () => {
-                // Запоминаем текущую позицию скролла перед открытием
-                scrollPosition = window.scrollY || window.pageYOffset;
-            },
-            destroy: () => {
-                // Восстанавливаем позицию скролла с задержкой (даёт время на анимацию закрытия)
-                setTimeout(() => {
-                    window.scrollTo({ top: scrollPosition, left: 0, behavior: 'auto' });
-                }, 100);
+        mediaElements.forEach((media) => {
+            let link = media.closest('a');
+            const source = getMediaSource(media, link);
+
+            if (!source) {
+                return;
             }
+
+            if (!link || !fancyboxElement.contains(link)) {
+                link = document.createElement('a');
+                media.replaceWith(link);
+                link.appendChild(media);
+            }
+
+            link.href = source;
+            link.dataset.dpFancybox = '';
+            link.dataset.fancybox = 'gallery';
+            link.dataset.type = media instanceof HTMLVideoElement ? 'html5video' : 'image';
+        });
+    });
+};
+
+const fancyboxConfig = {
+    autoFocus: false,
+    placeFocusBack: false,
+    hideScrollbar: false,
+    Hash: false,
+    idle: false,
+    compact: false,
+    dragToClose: true,
+    groupAll: false,
+    Thumbs: false,
+    Toolbar: false,
+
+    Carousel: {
+        transition: 'fadeFast',
+        preload: 3,
+        Navigation: false,
+    },
+
+    Images: {
+        zoom: false,
+        Panzoom: {
+            panMode: 'mousemove',
+            mouseMoveFactor: 1.1,
         },
+        initialSize: 'fit',
+        minScale: 0.1,
+        maxScale: 1,
+    },
+};
 
-        // Остальные параметры
-        idle: false,
-        compact: false,
-        dragToClose: true,
-        groupAll: false,
+prepareFancyboxMedia();
+Fancybox.bind(triggerSelector, fancyboxConfig);
 
-        Thumbs: false,
-        Toolbar: false,
-
-        Carousel: {
-            transition: 'fadeFast',
-            preload: 3,
-            Navigation: false,
-        },
-
-        Images: {
-            zoom: false,
-            Panzoom: { panMode: 'mousemove', mouseMoveFactor: 1.1 },
-            initialSize: 'fit',
-            minScale: 0.1,
-            maxScale: 1,
-        }
-    };
-
-    Fancybox.bind('[data-fancybox]', fancyboxConfig);
-
-    wrapImagesInLinks();
-
-    Fancybox.bind(
-        '.single-page--v1__content a[href$=".jpg"], ' +
-        '.single-page--v1__content a[href$=".jpeg"], ' +
-        '.single-page--v1__content a[href$=".png"], ' +
-        '.single-page--v1__content a[href$=".gif"]',
-        fancyboxConfig
-    );
-
-    // На случай, если контент загружается позже
-    document.addEventListener('DOMContentLoaded', wrapImagesInLinks);
-    window.addEventListener('load', wrapImagesInLinks);
-})();
+document.addEventListener('DOMContentLoaded', prepareFancyboxMedia);
+window.addEventListener('load', prepareFancyboxMedia);
