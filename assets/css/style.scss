@@ -131,7 +131,7 @@
     --width-50-parent-padding: calc(50% - var(--gap) + 0px);
     --width-50-parent-padding-bleed: calc(50% - var(--gap) + 0px + var(--padding));
     --width-50-bleed: calc(50% - var(--gap) \ 2);
- 
+
     --width-75-parent-padding: calc(75% - var(--gap) + 0px);
     --width-75-parent-padding-bleed: calc(75% - var(--gap) + 0px + var(--padding));
     --width-75-bleed: calc(75% - var(--gap) + 0px);
@@ -214,6 +214,9 @@ em {
     font-family: var(--font-family-primary);
     font-style: normal;
     color: var(--color-text-primary);
+
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -1411,7 +1414,7 @@ div .img--large {
     //     background-image: none !important;
     // }
 
-    
+
 
     figure img {
         margin-left: 0 !important;
