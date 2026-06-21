@@ -43,12 +43,12 @@ $block_caption = get_field('block_caption');
             <h2 class="section__title">
                 <?= $block_name ?>
             </h2>
-        <? endif ?>
+		<?php endif; ?>
         <?php if ($block_caption): ?>
             <div class="section__caption">
                 <?= $block_caption ?>
             </div>
-        <? endif ?>
+		<?php endif; ?>
     </div>
     <?php get_template_part('components/filter-bar/filter-bar'); ?>
     <div class="section__works-grid ">

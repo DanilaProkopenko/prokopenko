@@ -10,15 +10,13 @@ if ($args) {
     $img_large = $args['img_large'] ?? '';
     $id = $args['id'] ?? '';
     $counter = $args['counter'] ?? 0;
-    $width_class = $args['width_class'] ?? 'pd_work_width-25';
-
     $post_thumb_video = $args['post_thumb_video'] ?? null;
 }
 
 // Определяем финальную ссылку: если заполнен post_card_link, используем его вместо обычной ссылки на пост
 $final_link = (isset($post_card_link) && !empty($post_card_link['url'])) ? $post_card_link['url'] : $link;
 ?>
-<div class="f-carousel__slide post-card__works-grid active <?= $width_class ?>" data-post-id="<?= $id ?>">
+<div class="f-carousel__slide post-card__works-grid active pd_work_width-50" data-post-id="<?= $id ?>">
     <div class="post-card__works-grid__image-wrapper">
         <?php if ($post_thumb_video): ?>
             <a href="<?= $final_link ?>" class="post-card__works-grid__image">

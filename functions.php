@@ -414,7 +414,7 @@ function custom_post_type_pd_works()
 		'menu_position'       => 7,
 		'menu_icon'           => 'dashicons-archive',
 		'can_export'          => true,
-		'has_archive'         => false,
+		'has_archive'         => true,
 		'rewrite'     => array('slug' => 'works'), // my custom slug
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
@@ -451,6 +451,23 @@ function custom_post_type_pd_works()
 }
 
 add_action('init', 'custom_post_type_pd_works', 0);
+
+/**
+ * Обновить правила маршрутизации после включения архива pd-works.
+ */
+function prokopenko_flush_pd_works_archive_rewrite_rules()
+{
+	$rewrite_version = '1';
+
+	if (get_option('prokopenko_pd_works_archive_rewrite_version') === $rewrite_version) {
+		return;
+	}
+
+	flush_rewrite_rules(false);
+	update_option('prokopenko_pd_works_archive_rewrite_version', $rewrite_version);
+}
+
+add_action('init', 'prokopenko_flush_pd_works_archive_rewrite_rules', 20);
 
 
 /*

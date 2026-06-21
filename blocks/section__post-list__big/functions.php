@@ -55,8 +55,6 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
         $post_thumb_video = get_field('post_thumb_video', $id);
         $post_card_link = get_field('post_card_link', $id);
         $card_layout = get_field('post_work_card_layout', $id) ?: 'big'; // Дефолт на big
-        $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
-        $width_class = 'pd_work_width-' . $post_work_width;
 
         // Выбирается шаблон карточки в зависимости от ACF поля
         if ($card_layout === 'thumbnail') {
@@ -71,7 +69,6 @@ function getPostsCardBig($posts_per_page = 50, $post__not_in = null, $tag = null
                 'img_large' => $img_large,
                 'img_medium_large' => $img_medium_large,
                 'post_thumb_video' => $post_thumb_video,
-                'width_class' => $width_class,
                 'counter' => $counter,
             ));
         } else {

@@ -49,12 +49,6 @@
         }
     }
 
-    /* Ширина постов на основе классов */
-    /* По 4 элемента по 25% с 3 gaps, или 2 элемента по 50% с 1 gap */
-    .pd_work_width-25 {
-        flex-basis: calc(20.7% - (var(--gap) * 3 / 4));
-    }
-
     .pd_work_width-50 {
         flex-basis: calc(40% - (var(--gap) / 2));
     }
@@ -84,26 +78,9 @@
         }
 
         .post-card__works-grid {
-            &.pd_work_width-25 {
-                flex-basis: calc(38.5% - (var(--gap) * 3 / 4));
-            }
-
             &.pd_work_width-50 {
                 flex-basis: calc(60% - (var(--gap) / 2));
             }
         }
     }
-}
-
-@media screen and (max-width: 480px) {
-    // .posts-list__archive-gallery {
-    //     .post-card__works-grid {
-
-    //         // На мобильных: все элементы в полную ширину
-    //         &.pd_work_width-25,
-    //         &.pd_work_width-50 {
-    //             flex-basis: 100%;
-    //         }
-    //     }
-    // }
 }

@@ -29,60 +29,9 @@
     padding: 0 var(--padding);
 }
 
-/* Ширина постов */
-/* На строке максимум 4 элемента по 25% с 3 gaps, или 2 элемента по 50% с 1 gap */
-.pd_work_width-25 {
-    flex-basis: calc(25% - (var(--gap) * 3 / 4));
-
-    .post-card__works-grid__image-wrapper {
-
-
-        @media screen and (min-width: 1921px) {
-            aspect-ratio: 3/4.6;
-        }
-
-        @media screen and (max-width: 1920px) {
-            aspect-ratio: 3/4.605;
-        }
-
-        @media screen and (max-width: 1600px) {
-            aspect-ratio: 3/4.61;
-        }
-
-        @media screen and (max-width: 1200px) {
-            aspect-ratio: 3/4.66;
-        }
-
-        @media screen and (max-width: 1024px) {
-            aspect-ratio: 3/4;
-        }
-
-
-
-    }
-}
-
 .pd_work_width-50 {
     flex-basis: calc(50% - (var(--gap) / 2));
 }
-
-.pd_work_width-100 {
-    flex-basis: calc(100%);
-}
-
-// @media screen and (max-width: 1024px) {
-//     .section__works-grid {
-//         gap: 1.5rem;
-//     }
-
-//     .pd_work_width-25 {
-//         flex-basis: calc(50% - (var(--gap) / 2));
-//     }
-
-//     .pd_work_width-50 {
-//         flex-basis: 100%;
-//     }
-// }
 
 @media screen and (max-width: 767px) {
     .section__works-grid__heading {
@@ -99,15 +48,6 @@
         padding: 0;
     }
 
-    // .pd_work_width-25,
-    // .pd_work_width-50 {
-    //     flex-basis: calc(50% - (var(--gap) / 2));
-    // }
-
-    .pd_work_width-25 {
-        flex-basis: calc(50% - (var(--gap) / 2));
-    }
-
     .pd_work_width-50 {
         flex-basis: 100%;
     }
@@ -118,5 +58,3 @@
 .category-hidden {
     display: none !important;
 }
-
-@media screen and (max-width: 767px) {}

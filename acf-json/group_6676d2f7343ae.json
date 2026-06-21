@@ -108,33 +108,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_69a7020736d77",
-            "label": "post_work_width",
-            "name": "post_work_width",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "25": "25",
-                "50": "50",
-                "100": "100"
-            },
-            "default_value": 25,
-            "return_format": "label",
-            "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 0,
-            "layout": "vertical",
-            "save_other_choice": 0
-        },
-        {
             "key": "field_69bd9afd80613",
             "label": "post_work_card_layout",
             "name": "post_work_card_layout",
@@ -186,5 +159,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1775284921
+    "modified": 1782023927
 }

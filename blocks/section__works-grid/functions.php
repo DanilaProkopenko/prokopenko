@@ -56,8 +56,6 @@ function getWorksGrid($posts_per_page = 50, $post__not_in = null, $tag = null, $
         $img_large = get_the_post_thumbnail_url(get_the_ID(), 'large');
         $img_medium_large = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
         $post_thumb_video = get_field('post_thumb_video', $id);
-        $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
-        $width_class = 'pd_work_width-' . $post_work_width;
         $post_card_link = get_field('post_card_link', $id);
 
         get_template_part('components/post-card/post-card__works-grid/post-card__works-grid', null, array(
@@ -74,7 +72,6 @@ function getWorksGrid($posts_per_page = 50, $post__not_in = null, $tag = null, $
             'posts_count' => $posts_count,
             'post_thumb_video' => $post_thumb_video,
             'counter' => $counter,
-            'width_class' => $width_class,
         ));
 
         $counter++;

@@ -171,8 +171,6 @@ function renderPost()
     $img_medium = get_the_post_thumbnail_url($id, 'medium');
     $img_large = get_the_post_thumbnail_url($id, 'large');
     $img_medium_large = get_the_post_thumbnail_url($id, 'medium_large');
-    $post_work_width = get_field('post_work_width', $id) ?: '25'; // Дефолт 25%
-    $width_class = 'pd_work_width-' . $post_work_width;
     $post_card_link = get_field('post_card_link', $id);
     $post_thumb_video = get_field('post_thumb_video', $id);
 
@@ -185,7 +183,6 @@ function renderPost()
         'img_medium' => $img_medium,
         'img_large' => $img_large,
         'img_medium_large' => $img_medium_large,
-        'width_class' => $width_class,
         'post_thumb_video' => $post_thumb_video,
     ));
 }
