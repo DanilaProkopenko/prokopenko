@@ -640,6 +640,7 @@ li {
 
 
 
+
 div {
 
     p,
@@ -1493,6 +1494,10 @@ button {
     &.active {
         color: var(--color-text-primary) !important;
     }
+}
+
+.dp__margin-top-0 {
+    margin-top: 0 !important;
 }
 
 @media screen and (max-width: 1600px) {}
